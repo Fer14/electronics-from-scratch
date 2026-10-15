@@ -1,0 +1,66 @@
+[
+  {
+    "id": "03-05-pre-1",
+    "stage": "pre",
+    "question": "A watt is the same as...",
+    "options": ["one joule every second", "one coulomb every second", "one volt per ampere", "one joule per coulomb"],
+    "correct": 0,
+    "explanation": "Power is a rate of energy: 1 W = 1 J/s. One coulomb per second is an ampere, one volt per ampere is an ohm, and one joule per coulomb is a volt."
+  },
+  {
+    "id": "03-05-pre-2",
+    "stage": "pre",
+    "question": "Where does the electrical energy delivered to a resistor end up?",
+    "options": ["Stored in the resistor for later", "Sent back to the battery", "Turned into heat", "Destroyed"],
+    "correct": 2,
+    "explanation": "Electrons collide with the atoms of the resistor and make them vibrate harder: the energy becomes heat (Joule heating). Energy is never destroyed."
+  },
+  {
+    "id": "03-05-post-1",
+    "stage": "post",
+    "question": "A 220 ohm resistor sits directly across a 12 V battery. About how much power does it dissipate?",
+    "options": ["0.055 W", "2.64 W", "0.65 W", "26 W"],
+    "correct": 2,
+    "explanation": "P = V^2 / R = 144 / 220 = 0.65 W. 0.055 A is the current, not the power."
+  },
+  {
+    "id": "03-05-post-2",
+    "stage": "post",
+    "question": "Two resistors, 100 ohm and 1000 ohm, are each connected alone across the same 9 V battery. Which gets hotter?",
+    "options": ["The 1000 ohm one, because more resistance means more heat", "The 100 ohm one, because at fixed voltage P = V^2 / R is larger for smaller R", "Both the same, because the voltage is the same", "Neither, resistors do not heat at 9 V"],
+    "correct": 1,
+    "explanation": "With the voltage fixed, P = V^2 / R: 81 / 100 = 0.81 W versus 81 / 1000 = 0.081 W. The smaller resistor takes ten times the current and ten times the power."
+  },
+  {
+    "id": "03-05-post-3",
+    "stage": "post",
+    "question": "The current through a resistor doubles. What happens to its power?",
+    "options": ["It halves", "It stays the same", "It doubles", "It becomes four times larger"],
+    "correct": 3,
+    "explanation": "P = I^2 * R. Doubling I multiplies I^2 by 2 * 2 = 4."
+  },
+  {
+    "id": "03-05-post-4",
+    "stage": "post",
+    "question": "A resistor with a thermal resistance of 200 K/W dissipates 0.15 W in 25 C air. Roughly how hot is its body?",
+    "options": ["55 C", "30 C", "175 C", "40 C"],
+    "correct": 0,
+    "explanation": "Rise = P * R_th = 0.15 * 200 = 30 K, so the body sits at about 25 + 30 = 55 C."
+  },
+  {
+    "id": "03-05-post-5",
+    "stage": "post",
+    "question": "A 1500 W heater runs for 2 hours. How much energy does it use?",
+    "options": ["750 kWh", "3 kWh", "0.75 kWh", "3000 J"],
+    "correct": 1,
+    "explanation": "E = P * t = 1.5 kW * 2 h = 3 kWh (that is 10.8 million joules)."
+  },
+  {
+    "id": "03-05-post-6",
+    "stage": "post",
+    "question": "By the usual 'half the rating' rule, which resistor is a good choice to dissipate 0.2 W?",
+    "options": ["A 1/8 W resistor", "A 1/4 W resistor", "A 1/2 W resistor", "Any, the rating does not matter below 1 W"],
+    "correct": 2,
+    "explanation": "0.2 W is 80% of a 1/4 W rating, too close. A 1/2 W part runs at 40% of its rating, leaving margin for warm air and aging."
+  }
+]

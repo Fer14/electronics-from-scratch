@@ -1,0 +1,76 @@
+[
+  {
+    "id": "13-01-pre-1",
+    "stage": "pre",
+    "question": "A 10 k / 10 k voltage divider from 10 V feeds a 1 kohm load directly. Roughly what voltage does the load get?",
+    "options": ["5 V", "0.83 V", "10 V", "4.5 V"],
+    "correct": 1,
+    "explanation": "The load is in parallel with the bottom resistor: 1k || 10k = 909 ohm, and 10 x 909 / 10909 = 0.83 V."
+  },
+  {
+    "id": "13-01-pre-2",
+    "stage": "pre",
+    "question": "A thermostat turns the heater down as the room warms up. This is an example of:",
+    "options": ["Positive feedback", "Open loop control", "Negative feedback", "Saturation"],
+    "correct": 2,
+    "explanation": "The output (heat) acts to reduce the error that caused it: negative feedback."
+  },
+  {
+    "id": "13-01-post-1",
+    "stage": "post",
+    "question": "An op-amp with A = 100,000 runs open loop with V+ - V- = 1 mV and +/-12 V rails. What is its output?",
+    "options": ["100 V", "1 mV", "0 V", "About +12 V (stuck at the rail)"],
+    "correct": 3,
+    "explanation": "A x 1 mV would be 100 V, impossible; the output saturates at the positive rail."
+  },
+  {
+    "id": "13-01-post-2",
+    "stage": "post",
+    "question": "What is the exact closed-loop gain of a voltage follower built with an op-amp of open-loop gain A?",
+    "options": ["A", "A / (1 + A)", "1 + A", "1 / A"],
+    "correct": 1,
+    "explanation": "V_out = A (V_in - V_out), so V_out = V_in x A / (1 + A), which approaches 1 for large A."
+  },
+  {
+    "id": "13-01-post-3",
+    "stage": "post",
+    "question": "Which golden rule is a consequence of negative feedback rather than a property of the chip?",
+    "options": [
+      "No current flows into the inputs",
+      "The output can't exceed the rails",
+      "The output adjusts until V+ = V-",
+      "The op-amp needs a power supply"
+    ],
+    "correct": 2,
+    "explanation": "Without negative feedback the inputs are not equal; the loop and the large gain force them together."
+  },
+  {
+    "id": "13-01-post-4",
+    "stage": "post",
+    "question": "Why does a voltage follower prevent a load from dragging down a voltage divider?",
+    "options": [
+      "Its input draws (almost) no current, and the load current comes from the op-amp's supply",
+      "It increases the divider's voltage",
+      "It disconnects the load",
+      "It doubles the current available"
+    ],
+    "correct": 0,
+    "explanation": "The divider only sees the op-amp's input; the op-amp's output supplies the load."
+  },
+  {
+    "id": "13-01-post-5",
+    "stage": "post",
+    "question": "A follower with A = 100,000 outputs 2 V. How far apart are its inputs?",
+    "options": ["2 V", "20 uV", "0.2 V", "Exactly 0"],
+    "correct": 1,
+    "explanation": "V+ - V- = V_out / A = 2 / 100,000 = 20 uV: tiny but not zero."
+  },
+  {
+    "id": "13-01-post-6",
+    "stage": "post",
+    "question": "Open loop, an op-amp is most useful as:",
+    "options": ["A precise amplifier with gain 100,000", "A buffer", "A filter", "A comparator that tells which input is higher"],
+    "correct": 3,
+    "explanation": "Any difference beyond about 100 uV saturates the output, so it reports only the sign of the difference."
+  }
+]

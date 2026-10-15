@@ -1,0 +1,66 @@
+[
+  {
+    "id": "03-07-pre-1",
+    "stage": "pre",
+    "question": "What does it mean for a part to be 'ohmic'?",
+    "options": ["It has a resistance printed on it", "Its current is proportional to the voltage, so V / I stays constant", "It only works with direct current", "It has exactly 1 ohm of resistance"],
+    "correct": 1,
+    "explanation": "An ohmic part has a straight-line I-V curve through the origin: doubling V doubles I, and V / I is the same at every point."
+  },
+  {
+    "id": "03-07-pre-2",
+    "stage": "pre",
+    "question": "A multimeter reads 2 ohm across a 12 V, 5 W car bulb. Why does the bulb not draw 6 A when lit?",
+    "options": ["The multimeter is broken", "The bulb is ohmic but the battery is weak", "The filament gets hot and its resistance rises roughly 14 times", "Bulbs have no resistance when lit"],
+    "correct": 2,
+    "explanation": "The meter measures the cold filament. Lit, the tungsten is at about 2700 K and its resistance is about 28.8 ohm, giving 0.42 A."
+  },
+  {
+    "id": "03-07-post-1",
+    "stage": "post",
+    "question": "Readings: 2 V gives 0.20 A, 4 V gives 0.30 A, 8 V gives 0.42 A. Which statement is correct?",
+    "options": ["The part is ohmic with 10 ohm", "The part is ohmic with 20 ohm", "V / I falls with voltage, like a diode", "V / I grows with voltage, like a lamp filament"],
+    "correct": 3,
+    "explanation": "V / I is 10, 13.3 and 19 ohm: it grows as the voltage rises, the signature of a part that heats up and whose resistance rises, like a tungsten filament."
+  },
+  {
+    "id": "03-07-post-2",
+    "stage": "post",
+    "question": "A 24 V, 12 W lamp has a cold resistance 12 times smaller than its hot resistance. What is the inrush current?",
+    "options": ["6 A", "0.5 A", "1 A", "12 A"],
+    "correct": 0,
+    "explanation": "Hot: R = 24^2 / 12 = 48 ohm, I = 0.5 A. Cold: R = 48 / 12 = 4 ohm, so the first instant draws 24 / 4 = 6 A."
+  },
+  {
+    "id": "03-07-post-3",
+    "stage": "post",
+    "question": "An NTC thermistor is heated from 25 C to 60 C. What happens to its resistance?",
+    "options": ["It rises a lot", "It falls a lot", "It stays the same", "It becomes zero"],
+    "correct": 1,
+    "explanation": "NTC means negative temperature coefficient: heat frees more charge carriers, so the resistance falls, typically by a factor of 3 to 4 over this range."
+  },
+  {
+    "id": "03-07-post-4",
+    "stage": "post",
+    "question": "What is the difference between static and dynamic resistance?",
+    "options": ["Static is for DC, dynamic is for AC only", "There is no difference", "Static is V / I at a point; dynamic is the small change of V divided by the small change of I there", "Static is the cold value, dynamic is the hot value"],
+    "correct": 2,
+    "explanation": "Static resistance is the ratio V / I; dynamic resistance dV / dI is the inverse slope of the I-V curve at the operating point. For ohmic parts they are equal."
+  },
+  {
+    "id": "03-07-post-5",
+    "stage": "post",
+    "question": "Why does a silicon diode not have 'a resistance' in the Ohm's law sense?",
+    "options": ["Its current grows exponentially with voltage, so V / I changes by huge factors", "It is made of metal", "It has zero resistance", "Its resistance is too large to measure"],
+    "correct": 0,
+    "explanation": "The diode current follows an exponential: V / I goes from hundreds of megohms at 0.3 V to tens of ohms at 0.75 V, and it blocks almost completely in reverse."
+  },
+  {
+    "id": "03-07-post-6",
+    "stage": "post",
+    "question": "Under which condition does an ordinary metal-film resistor follow Ohm's law well?",
+    "options": ["Only at radio frequencies", "Only when superconducting", "Only above its voltage rating", "Within its ratings, where its temperature changes little"],
+    "correct": 3,
+    "explanation": "Metals are ohmic as long as the collision rate (set by temperature) stays nearly constant. Within ratings a resistor warms only a little and its tempco is tiny."
+  }
+]

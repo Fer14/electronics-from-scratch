@@ -1,0 +1,129 @@
+{
+ "id": "02-03-open-not-short",
+ "title": "Clip across the lamp without starting a fire",
+ "kind": "dc",
+ "story": "A 6 V battery lights a 12 \u03a9 lamp. A real battery has a little resistance inside it; here it is drawn as R_int = 0.5 \u03a9. Two test clips hang across the lamp's terminals, and you must clip one of three things between them: an open switch (just a gap), a closed switch (a plain wire) or a second 12 \u03a9 lamp. Choose the one that leaves the lamp shining normally and keeps the battery from working too hard.",
+ "board": {
+  "nodes": {
+   "vbat": [
+    1,
+    1
+   ],
+   "vcc": [
+    4,
+    1
+   ],
+   "gnd": [
+    1,
+    5
+   ],
+   "lamp_top": [
+    7,
+    1
+   ],
+   "lamp_bottom": [
+    7,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "B1",
+    "plus": "vbat",
+    "minus": "gnd",
+    "volts": 6
+   },
+   {
+    "type": "resistor",
+    "id": "Rint",
+    "a": "vbat",
+    "b": "vcc",
+    "ohms": 0.5
+   },
+   {
+    "type": "switch",
+    "id": "SW1",
+    "a": "vcc",
+    "b": "lamp_top",
+    "closed": true
+   },
+   {
+    "type": "resistor",
+    "id": "L1",
+    "a": "lamp_top",
+    "b": "lamp_bottom",
+    "ohms": 12
+   },
+   {
+    "type": "switch",
+    "id": "SW2",
+    "a": "lamp_bottom",
+    "b": "gnd",
+    "closed": true
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "lamp_top",
+    "b": "lamp_bottom",
+    "accepts": [
+     "switch",
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "switch",
+   "closed": false
+  },
+  {
+   "type": "switch",
+   "closed": true
+  },
+  {
+   "type": "resistor",
+   "ohms": 12
+  }
+ ],
+ "goals": [
+  {
+   "measure": "current",
+   "of": "L1",
+   "min": 0.4,
+   "max": 0.55,
+   "label": "the lamp still carries 0.4 to 0.55 A"
+  },
+  {
+   "measure": "voltage",
+   "between": [
+    "lamp_top",
+    "lamp_bottom"
+   ],
+   "min": 5.5,
+   "max": 6.5,
+   "label": "the lamp still sees 5.5 to 6.5 V"
+  },
+  {
+   "measure": "current",
+   "of": "Rint",
+   "max": 0.6,
+   "label": "the battery delivers less than 0.6 A"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "switch",
+   "closed": false
+  }
+ },
+ "hints": [
+  "An open switch is a gap: no current crosses it, so it changes nothing, and the full lamp voltage appears across it.",
+  "A closed switch is a wire. A wire across the lamp gives the current a path with almost no resistance. What does the lamp see then, and what does the battery have to push?",
+  "A second lamp in parallel keeps the first one lit, but the battery has to supply both."
+ ]
+}

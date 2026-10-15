@@ -1,0 +1,32 @@
+{
+  "id": "10-04-woofer-coil",
+  "title": "Keep the treble out of the woofer",
+  "kind": "ac",
+  "story": "A woofer is an 8 ohm speaker that should only get the bass. A coil in series with it makes an RL low-pass. Pick the coil so the woofer's -3 dB point lands between 1.5 kHz and 2.5 kHz, where the tweeter takes over.",
+  "sim": {"source": "V1", "f_start": 10, "f_stop": 100000, "points": 400},
+  "board": {
+    "nodes": {"in": [1, 1], "out": [6, 1], "gnd": [6, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "sine_source", "id": "V1", "plus": "in", "minus": "gnd", "amplitude": 1, "freq": 1000},
+      {"type": "resistor", "id": "Woofer", "a": "out", "b": "gnd", "ohms": 8}
+    ],
+    "slots": [
+      {"id": "S1", "a": "in", "b": "out", "accepts": ["inductor"]}
+    ]
+  },
+  "parts": [
+    {"type": "inductor", "henries": 6.8e-05},
+    {"type": "inductor", "henries": 0.00068},
+    {"type": "inductor", "henries": 0.0068}
+  ],
+  "goals": [
+    {"measure": "cutoff_frequency", "at": "out", "min": 1500, "max": 2500, "label": "woofer cutoff between 1.5 and 2.5 kHz"},
+    {"measure": "gain_db_at", "at": "out", "freq": 20000, "max": -12, "label": "20 kHz cut by at least 12 dB"}
+  ],
+  "solution": {"S1": {"type": "inductor", "henries": 0.00068}},
+  "hints": [
+    "For an RL low-pass, fc = R / (2 pi L).",
+    "With R = 8 ohm and fc = 2 kHz, L = 8 / (2 pi x 2000), a bit over half a millihenry."
+  ]
+}

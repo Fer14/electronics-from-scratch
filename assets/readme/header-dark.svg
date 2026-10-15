@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-label="THOTH · Electronics from Scratch: learning from pyramids. 23 phases from the words and the physics up to transistors, digital logic, computers, microcontrollers, chip design and PCBs">
+  <defs>
+    <pattern id="paper" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="0" cy="0" r="1" fill="#f2e9eb" fill-opacity="0.08"/>
+    </pattern>
+    <style>
+      .bp { stroke: #d69aa9; stroke-linejoin: round; stroke-linecap: round; }
+      .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+      .display { font-family: 'VT323', ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 400; }
+      .serif { font-family: 'Source Serif 4', Georgia, serif; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="420" fill="#281b1e"/>
+  <rect width="1280" height="420" fill="url(#paper)"/>
+
+  <g transform="translate(49.36, -5.37) scale(0.08627)"><path fill="#f2e9eb" fill-rule="evenodd" d="M 77 410 H 204 V 460 H 166 V 665 H 116 V 460 H 77 Z M 230 410 H 281 V 512 H 333 V 410 H 384 V 665 H 333 V 563 H 281 V 665 H 230 Z M 410 410 H 614 V 665 H 410 Z M 512 458 L 443 591 L 512 617 L 581 591 Z M 640 410 H 768 V 460 H 729 V 665 H 679 V 460 H 640 Z M 794 410 H 845 V 512 H 897 V 410 H 947 V 665 H 897 V 563 H 845 V 665 H 794 Z"/></g>
+  <line x1="56" y1="64" x2="1224" y2="64" stroke="#d69aa9" stroke-width="0.6" stroke-opacity="0.4"/>
+
+  <g transform="translate(56, 110)">
+    <text class="display" x="0" y="58" font-size="68" letter-spacing="1.5" fill="#d69aa9">ELECTRONICS</text>
+    <text class="display" x="0" y="124" font-size="68" letter-spacing="1.5" fill="#f2e9eb">FROM SCRATCH.</text>
+  </g>
+
+  <g class="serif" font-size="17" fill="#f2e9eb">
+    <text x="56" y="296">Learning from pyramids: electronics from absolute zero, one phase at a time.</text>
+  </g>
+
+  <line x1="720" y1="110" x2="720" y2="362" stroke="#d69aa9" stroke-width="0.6" stroke-opacity="0.4" stroke-dasharray="3 3"/>
+
+  <g class="mono" font-size="9" letter-spacing="2" fill="#d69aa9">
+    <text x="752" y="104">FIG_000.A  ·  THE PYRAMID</text>
+  </g>
+
+    <g stroke="#d69aa9" stroke-width="0.8" stroke-dasharray="3 3" stroke-opacity="0.55" fill="none">
+      <polyline points="768.0,352.0 822.0,330.0 1046.0,330.0"/>
+      <line x1="822.0" y1="330.0" x2="907.0" y2="122.0"/>
+    </g>
+    <g>
+      <polygon class="bp" points="768.0,352.0 992.0,352.0 981.0,322.4 785.9,322.4" fill="#d69aa9" fill-opacity="0.03" stroke-width="1.1"/>
+      <polygon class="bp" points="992.0,352.0 1046.0,330.0 1028.1,303.2 981.0,322.4" fill="#d69aa9" fill-opacity="0.10" stroke-width="1.1"/>
+      <polygon class="bp" points="785.9,322.4 981.0,322.4 1028.1,303.2 833.0,303.2" fill="#281b1e" fill-opacity="0.6" stroke-width="0.8" stroke-opacity="0.7"/>
+    </g>
+    <g>
+      <polygon class="bp" points="789.8,315.9 978.7,315.9 968.9,289.5 805.8,289.5" fill="#d69aa9" fill-opacity="0.05" stroke-width="1.1"/>
+      <polygon class="bp" points="978.7,315.9 1024.2,297.4 1008.2,273.5 968.9,289.5" fill="#d69aa9" fill-opacity="0.13" stroke-width="1.1"/>
+      <polygon class="bp" points="805.8,289.5 968.9,289.5 1008.2,273.5 845.1,273.5" fill="#281b1e" fill-opacity="0.6" stroke-width="0.8" stroke-opacity="0.7"/>
+    </g>
+    <g>
+      <polygon class="bp" points="809.7,283.1 966.5,283.1 956.8,256.6 825.6,256.6" fill="#d69aa9" fill-opacity="0.07" stroke-width="1.1"/>
+      <polygon class="bp" points="966.5,283.1 1004.3,267.7 988.4,243.8 956.8,256.6" fill="#d69aa9" fill-opacity="0.16" stroke-width="1.1"/>
+      <polygon class="bp" points="825.6,256.6 956.8,256.6 988.4,243.8 857.2,243.8" fill="#281b1e" fill-opacity="0.6" stroke-width="0.8" stroke-opacity="0.7"/>
+    </g>
+    <g>
+      <polygon class="bp" points="829.5,250.2 954.4,250.2 944.6,223.8 845.5,223.8" fill="#d69aa9" fill-opacity="0.09" stroke-width="1.1"/>
+      <polygon class="bp" points="954.4,250.2 984.5,237.9 968.5,214.1 944.6,223.8" fill="#d69aa9" fill-opacity="0.19" stroke-width="1.1"/>
+      <polygon class="bp" points="845.5,223.8 944.6,223.8 968.5,214.1 869.4,214.1" fill="#281b1e" fill-opacity="0.6" stroke-width="0.8" stroke-opacity="0.7"/>
+    </g>
+    <g>
+      <polygon class="bp" points="849.4,217.4 942.2,217.4 932.5,190.9 865.3,190.9" fill="#d69aa9" fill-opacity="0.11" stroke-width="1.1"/>
+      <polygon class="bp" points="942.2,217.4 964.6,208.2 948.7,184.3 932.5,190.9" fill="#d69aa9" fill-opacity="0.22" stroke-width="1.1"/>
+      <polygon class="bp" points="865.3,190.9 932.5,190.9 948.7,184.3 881.5,184.3" fill="#281b1e" fill-opacity="0.6" stroke-width="0.8" stroke-opacity="0.7"/>
+    </g>
+    <g>
+      <polygon class="bp" points="869.2,184.5 930.1,184.5 920.3,158.1 885.2,158.1" fill="#d69aa9" fill-opacity="0.13" stroke-width="1.1"/>
+      <polygon class="bp" points="930.1,184.5 944.8,178.5 928.8,154.6 920.3,158.1" fill="#d69aa9" fill-opacity="0.25" stroke-width="1.1"/>
+      <polygon class="bp" points="885.2,158.1 920.3,158.1 928.8,154.6 893.7,154.6" fill="#281b1e" fill-opacity="0.6" stroke-width="0.8" stroke-opacity="0.7"/>
+    </g>
+    <g>
+      <polygon class="bp" points="889.1,151.6 918.0,151.6 907.0,122.0" fill="#d69aa9" fill-opacity="0.15" stroke-width="1.5"/>
+      <polygon class="bp" points="918.0,151.6 924.9,148.8 907.0,122.0" fill="#d69aa9" fill-opacity="0.28" stroke-width="1.5"/>
+    </g>
+
+  <g class="bp" stroke-width="0.8" stroke-dasharray="3 3">
+    <line x1="1043.0" y1="337.2" x2="1054" y2="337.2"/>
+    <line x1="1022.2" y1="302.7" x2="1054" y2="302.7"/>
+    <line x1="1002.4" y1="269.9" x2="1054" y2="269.9"/>
+    <line x1="982.5" y1="237.0" x2="1054" y2="237.0"/>
+    <line x1="962.6" y1="204.1" x2="1054" y2="204.1"/>
+    <line x1="942.8" y1="171.3" x2="1054" y2="171.3"/>
+    <line x1="922.0" y1="136.8" x2="1054" y2="136.8"/>
+  </g>
+  <g class="mono" font-size="10" letter-spacing="0.8" fill="#d69aa9" font-weight="600">
+    <text x="1062" y="340.7">WORDS · PHYSICS · CIRCUITS</text>
+    <text x="1062" y="306.2">OHM · KIRCHHOFF · ANALYSIS</text>
+    <text x="1062" y="273.4">SOURCES · CAPACITORS · COILS</text>
+    <text x="1062" y="240.5">AC · FILTERS · DIODES</text>
+    <text x="1062" y="207.6">TRANSISTORS · OP-AMPS</text>
+    <text x="1062" y="174.8">LOGIC · COMPUTERS · MCUS</text>
+    <text x="1062" y="140.3">POWER · CHIPS · PCB</text>
+  </g>
+  <g class="mono" font-size="8.5" letter-spacing="0.8" fill="#ad9ba0">
+    <text x="1062" y="351.2">PHASE 00 · 01 · 02</text>
+    <text x="1062" y="316.7">PHASE 03 · 04 · 05</text>
+    <text x="1062" y="283.9">PHASE 06 · 07 · 08</text>
+    <text x="1062" y="251.0">PHASE 09 · 10 · 11</text>
+    <text x="1062" y="218.1">PHASE 12 · 13</text>
+    <text x="1062" y="185.3">PHASE 14 – 17</text>
+    <text x="1062" y="150.8">PHASE 18 – 22</text>
+  </g>
+
+</svg>

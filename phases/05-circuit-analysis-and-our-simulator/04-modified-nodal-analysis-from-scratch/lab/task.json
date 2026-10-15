@@ -1,0 +1,32 @@
+{
+  "id": "05-04-modified-nodal-analysis",
+  "title": "Lift a node with a floating battery",
+  "kind": "dc",
+  "story": "A 10 V battery feeds node a. A 1 kOhm resistor runs from a to b, and a 5 V battery sits between b (minus) and c (plus), so c is always 5 V above b. Choose the resistor from c to ground that lands node c between 9.5 and 10.5 V.",
+  "board": {
+    "nodes": {"a": [1, 1], "b": [4, 1], "c": [7, 1], "gnd": [4, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "V1", "plus": "a", "minus": "gnd", "volts": 10},
+      {"type": "resistor", "id": "R1", "a": "a", "b": "b", "ohms": 1000},
+      {"type": "battery", "id": "V2", "plus": "c", "minus": "b", "volts": 5}
+    ],
+    "slots": [
+      {"id": "R2", "a": "c", "b": "gnd", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 1000},
+    {"type": "resistor", "ohms": 2000},
+    {"type": "resistor", "ohms": 10000}
+  ],
+  "goals": [
+    {"measure": "voltage", "at": "c", "min": 9.5, "max": 10.5, "label": "node c between 9.5 and 10.5 V"},
+    {"measure": "voltage", "between": ["c", "b"], "min": 4.99, "max": 5.01, "label": "c stays 5 V above b"}
+  ],
+  "solution": {"R2": {"type": "resistor", "ohms": 2000}},
+  "hints": [
+    "All the current follows one loop: V1, R1, V2, the slot resistor and back. The two batteries add up to 15 V.",
+    "So vc = 15 V x Rs / (1 kOhm + Rs): a voltage divider in disguise."
+  ]
+}

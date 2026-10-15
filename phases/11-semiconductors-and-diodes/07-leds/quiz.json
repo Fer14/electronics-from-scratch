@@ -1,0 +1,91 @@
+[
+  {
+    "id": "11-07-pre-1",
+    "stage": "pre",
+    "question": "What usually happens if you connect a red LED directly across a 5 V supply with no resistor?",
+    "options": [
+      "It glows normally",
+      "Nothing, it needs 12 V",
+      "A huge current flows and the LED is destroyed",
+      "It glows blue"
+    ],
+    "correct": 2,
+    "explanation": "An LED keeps about 1.8-2 V; 5 V across it would demand amps because the current is exponential in voltage."
+  },
+  {
+    "id": "11-07-pre-2",
+    "stage": "pre",
+    "question": "Which colour of light carries the most energy per photon?",
+    "options": ["Red", "Blue", "Infrared", "Yellow"],
+    "correct": 1,
+    "explanation": "Shorter wavelength means more energy: E = 1240 / wavelength. Blue (about 465 nm) is about 2.7 eV, red about 2 eV."
+  },
+  {
+    "id": "11-07-post-1",
+    "stage": "post",
+    "question": "A white LED (V_F = 3.1 V) runs from 5 V at 10 mA. What resistor do you need?",
+    "options": ["310 ohm", "500 ohm", "19 ohm", "190 ohm"],
+    "correct": 3,
+    "explanation": "R = (5 - 3.1) / 0.010 = 190 ohm; choose 220 ohm (the next standard value up) for a little under 10 mA."
+  },
+  {
+    "id": "11-07-post-2",
+    "stage": "post",
+    "question": "Why don't ordinary silicon diodes glow?",
+    "options": [
+      "Silicon has an indirect band gap, so recombination energy goes into heat instead of light",
+      "Silicon's band gap is too large",
+      "Silicon has no band gap",
+      "The diode's plastic case hides the light"
+    ],
+    "correct": 0,
+    "explanation": "In an indirect-gap material the electron must also change momentum, which a photon cannot provide; a lattice vibration (heat) takes the energy."
+  },
+  {
+    "id": "11-07-post-3",
+    "stage": "post",
+    "question": "Two LEDs are wired in parallel and share one resistor. One has V_F = 1.85 V, the other 1.95 V. What happens?",
+    "options": [
+      "They share the current equally",
+      "The 1.95 V one takes most of the current",
+      "The 1.85 V one takes most of the current",
+      "Neither lights"
+    ],
+    "correct": 2,
+    "explanation": "Both see the same voltage; because current is exponential in voltage, the lower-V_F LED carries far more (18 mA versus 2.6 mA in our simulation)."
+  },
+  {
+    "id": "11-07-post-4",
+    "stage": "post",
+    "question": "Three red LEDs (1.85 V each) in series from 12 V at 20 mA need what resistor, roughly?",
+    "options": ["600 ohm", "320 ohm", "92 ohm", "510 ohm"],
+    "correct": 1,
+    "explanation": "R = (12 - 3 x 1.85) / 0.020 = 6.45 / 0.020 = 322 ohm; 330 ohm is the standard pick."
+  },
+  {
+    "id": "11-07-post-5",
+    "stage": "post",
+    "question": "Why is it a bad idea to run a red LED from a 2.2 V supply with a 33 ohm resistor, even though the current is about right?",
+    "options": [
+      "The resistor will overheat",
+      "The LED will change colour",
+      "The resistor drops so little voltage that small changes in supply or V_F cause large changes in current",
+      "33 ohm is not a standard value"
+    ],
+    "correct": 2,
+    "explanation": "With only 0.35 V across the resistor, a 10 % supply change swings the current from about 5 mA to about 16.5 mA."
+  },
+  {
+    "id": "11-07-post-6",
+    "stage": "post",
+    "question": "How is a white LED made?",
+    "options": [
+      "A blue LED with a yellow phosphor coating",
+      "A silicon diode run at high current",
+      "A mix of red and infrared chips",
+      "A material with a 5 eV band gap"
+    ],
+    "correct": 0,
+    "explanation": "Blue light plus phosphor-converted yellow looks white, which is why white and blue LEDs share the same ~3 V forward voltage."
+  }
+]

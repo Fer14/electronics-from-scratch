@@ -1,0 +1,110 @@
+{
+ "id": "06-07-lab-power-supplies",
+ "title": "Don't lose the volts in the leads",
+ "kind": "dc",
+ "story": "Your bench supply is set to 5.00 V. A board that behaves like a 10 ohm resistor (about half an ampere) needs at least 4.9 V at its own pins. Choose the two test leads: one from the supply's plus terminal to the board, one from the board back to minus. Each lead is shown as its resistance.",
+ "board": {
+  "nodes": {
+   "vcc": [
+    1,
+    1
+   ],
+   "a": [
+    7,
+    1
+   ],
+   "b": [
+    7,
+    5
+   ],
+   "gnd": [
+    1,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "voltage_source",
+    "id": "PSU",
+    "plus": "vcc",
+    "minus": "gnd",
+    "volts": 5.0
+   },
+   {
+    "type": "resistor",
+    "id": "Rboard",
+    "a": "a",
+    "b": "b",
+    "ohms": 10
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "vcc",
+    "b": "a",
+    "accepts": [
+     "resistor"
+    ]
+   },
+   {
+    "id": "S2",
+    "a": "b",
+    "b": "gnd",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 1.0
+  },
+  {
+   "type": "resistor",
+   "ohms": 0.25
+  },
+  {
+   "type": "resistor",
+   "ohms": 0.05
+  }
+ ],
+ "goals": [
+  {
+   "measure": "voltage",
+   "between": [
+    "a",
+    "b"
+   ],
+   "min": 4.9,
+   "label": "the board gets at least 4.9 V"
+  },
+  {
+   "measure": "voltage",
+   "between": [
+    "a",
+    "b"
+   ],
+   "max": 5.0,
+   "label": "the board gets no more than 5 V"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 0.05
+  },
+  "S2": {
+   "type": "resistor",
+   "ohms": 0.05
+  }
+ },
+ "hints": [
+  "Both leads and the board are in series: I = 5 / (10 + R_lead1 + R_lead2).",
+  "The board gets 5 * 10 / (10 + R_leads). For 4.9 V the two leads together may have at most about 0.2 ohm.",
+  "One bad lead is enough to fail: the same current flows through both."
+ ]
+}

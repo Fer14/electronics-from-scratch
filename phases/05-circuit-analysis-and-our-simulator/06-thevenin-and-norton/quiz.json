@@ -1,0 +1,93 @@
+[
+  {
+    "id": "05-06-pre-1",
+    "stage": "pre",
+    "question": "What is the open-circuit voltage of a port?",
+    "options": [
+      "The voltage when the port is shorted with a wire",
+      "The voltage across the port with nothing connected to it",
+      "The battery voltage inside the network",
+      "The voltage across the largest resistor"
+    ],
+    "correct": 1,
+    "explanation": "Open circuit means no load and no current out of the port. That voltage is Vth."
+  },
+  {
+    "id": "05-06-pre-2",
+    "stage": "pre",
+    "question": "A 12 V battery feeds 6 kOhm in series with 3 kOhm. What voltage appears across the 3 kOhm with no load?",
+    "options": [
+      "6 V",
+      "8 V",
+      "4 V",
+      "3 V"
+    ],
+    "correct": 2,
+    "explanation": "Divider: 12 x 3 / (6 + 3) = 4 V."
+  },
+  {
+    "id": "05-06-pre-3",
+    "stage": "pre",
+    "question": "Why does any linear network, seen from two terminals, follow a straight line V = Voc - Rth x I?",
+    "options": [
+      "Because by superposition the port voltage is the open-circuit voltage plus a part proportional to the current drawn",
+      "Because all resistors in it are equal",
+      "Because current is always constant",
+      "Because batteries have no resistance"
+    ],
+    "correct": 0,
+    "explanation": "Replace the load by a current source drawing I. Superposition splits V into the internal sources' part (Voc) and a part proportional to I (-Rth x I)."
+  },
+  {
+    "id": "05-06-post-1",
+    "stage": "post",
+    "question": "A network has Voc = 6 V and Isc = 3 mA. What is Rth?",
+    "options": [
+      "18 kOhm",
+      "0.5 kOhm",
+      "3 kOhm",
+      "2 kOhm"
+    ],
+    "correct": 3,
+    "explanation": "Rth = Voc / Isc = 6 V / 3 mA = 2 kOhm."
+  },
+  {
+    "id": "05-06-post-2",
+    "stage": "post",
+    "question": "To find Rth by turning off sources, what do you do with a battery and with a current source inside the network?",
+    "options": [
+      "Battery becomes a wire; current source becomes a gap",
+      "Battery becomes a gap; current source becomes a wire",
+      "Both become wires",
+      "Both become gaps"
+    ],
+    "correct": 0,
+    "explanation": "Zero volts is a wire; zero amps is a gap. Then combine the resistors seen from the port."
+  },
+  {
+    "id": "05-06-post-3",
+    "stage": "post",
+    "question": "A Thevenin equivalent is 10 V with 1 kOhm. What is its Norton equivalent?",
+    "options": [
+      "10 mA in series with 1 kOhm",
+      "10 A in parallel with 1 Ohm",
+      "10 mA in parallel with 1 kOhm",
+      "1 mA in parallel with 10 kOhm"
+    ],
+    "correct": 2,
+    "explanation": "In = Vth / Rth = 10 V / 1 kOhm = 10 mA, and Rn = Rth = 1 kOhm, placed in parallel."
+  },
+  {
+    "id": "05-06-post-4",
+    "stage": "post",
+    "question": "A source with Vth = 5 V and Rth = 1 kOhm drives a 4 kOhm load. What is the load voltage?",
+    "options": [
+      "5 V",
+      "1 V",
+      "4 V",
+      "1.25 V"
+    ],
+    "correct": 2,
+    "explanation": "V_load = 5 x 4 / (1 + 4) = 4 V. One divider, no need to re-solve the original network."
+  }
+]

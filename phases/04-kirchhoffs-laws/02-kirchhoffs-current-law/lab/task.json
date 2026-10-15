@@ -1,0 +1,35 @@
+{
+  "id": "04-02-kirchhoffs-current-law",
+  "title": "Make the meter read 15 mA",
+  "kind": "dc",
+  "story": "A 9 V battery feeds node a through a 100 ohm sense resistor R0, so the current in R0 is everything the battery delivers. From node a, a 1 kohm resistor R1 already goes to ground. Add a second branch from a to ground so the total current through R0 lands between 14 and 16 mA. Every milliamp arriving at a must leave through R1 or your new branch.",
+  "board": {
+    "nodes": {"vcc": [1, 1], "a": [5, 1], "gnd": [5, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "B1", "plus": "vcc", "minus": "gnd", "volts": 9},
+      {"type": "resistor", "id": "R0", "a": "vcc", "b": "a", "ohms": 100},
+      {"type": "resistor", "id": "R1", "a": "a", "b": "gnd", "ohms": 1000}
+    ],
+    "slots": [
+      {"id": "S1", "a": "a", "b": "gnd", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 330},
+    {"type": "resistor", "ohms": 470},
+    {"type": "resistor", "ohms": 1000},
+    {"type": "resistor", "ohms": 2200},
+    {"type": "resistor", "ohms": 4700}
+  ],
+  "goals": [
+    {"measure": "current", "of": "R0", "min": 0.014, "max": 0.016, "label": "current through R0 (the battery current) between 14 and 16 mA"},
+    {"measure": "power", "of": "S1", "max": 0.25, "label": "the new resistor stays under 1/4 W"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 1000}},
+  "hints": [
+    "With only R1 in place, about 9 V / 1100 ohm = 8.2 mA flows. Your branch must add the rest.",
+    "KCL at node a: current in R0 = current in R1 + current in your resistor.",
+    "Node a sits about 1.5 V below the battery when 15 mA flows through R0, because 0.015 A x 100 ohm = 1.5 V."
+  ]
+}

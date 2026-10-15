@@ -1,0 +1,106 @@
+[
+  {
+    "id": "16-06-pre-1",
+    "stage": "pre",
+    "question": "What does an assembler do?",
+    "options": [
+      "It builds the processor",
+      "It translates assembly text (mnemonics and labels) into machine-code bytes",
+      "It runs the program faster",
+      "It stores data in memory"
+    ],
+    "correct": 1,
+    "explanation": "Assembly is a readable form of machine code; the assembler does the translation and the address bookkeeping."
+  },
+  {
+    "id": "16-06-pre-2",
+    "stage": "pre",
+    "question": "On the T8, what is the difference between ADDI 5 and ADD 5?",
+    "options": [
+      "None",
+      "ADDI 5 adds the value at address 5; ADD 5 adds the number 5",
+      "ADDI 5 adds the number 5; ADD 5 adds the value stored at address 5",
+      "ADDI sets no flags"
+    ],
+    "correct": 2,
+    "explanation": "Immediate versus direct addressing."
+  },
+  {
+    "id": "16-06-post-1",
+    "stage": "post",
+    "question": "What is the T8 encoding of SUBI 3?",
+    "options": [
+      "29 03",
+      "21 03",
+      "03 29",
+      "28 03"
+    ],
+    "correct": 0,
+    "explanation": "ALU group 0010, immediate bit 1, ALU op 001 (SUB): 0010 1001 = 0x29, followed by the operand 3."
+  },
+  {
+    "id": "16-06-post-2",
+    "stage": "post",
+    "question": "Why does the assembler need two passes?",
+    "options": [
+      "To check the program twice for errors",
+      "Because the first pass runs the program",
+      "Because instructions have variable meaning",
+      "Because a jump may refer to a label defined later, whose address is only known after a first pass over all lines"
+    ],
+    "correct": 3,
+    "explanation": "The first pass computes every label's address from instruction sizes; the second emits the bytes."
+  },
+  {
+    "id": "16-06-post-3",
+    "stage": "post",
+    "question": "In the multiply program, why is there an ORI 0 after LDA y?",
+    "options": [
+      "To clear A",
+      "To set the Z flag according to A, because loads do not change the flags",
+      "To multiply by one",
+      "To skip an instruction"
+    ],
+    "correct": 1,
+    "explanation": "OR with 0 leaves A unchanged but is an ALU operation, so it updates Z."
+  },
+  {
+    "id": "16-06-post-4",
+    "stage": "post",
+    "question": "The label done is at address 0x16. What bytes does the line 'JZ done' produce?",
+    "options": [
+      "16 31",
+      "31 16",
+      "30 16",
+      "31 00"
+    ],
+    "correct": 1,
+    "explanation": "JZ is 0x31, followed by the address of done."
+  },
+  {
+    "id": "16-06-post-5",
+    "stage": "post",
+    "question": "How does the Fibonacci program know when to stop?",
+    "options": [
+      "It counts to 14",
+      "The Z flag becomes 1",
+      "The ADD sets the carry flag when the next number does not fit in 8 bits, and JC exits the loop",
+      "It runs out of memory"
+    ],
+    "correct": 2,
+    "explanation": "144 + 233 = 377 > 255, so the ALU's carry out is 1."
+  },
+  {
+    "id": "16-06-post-6",
+    "stage": "post",
+    "question": "What information is lost when a program is assembled and then disassembled?",
+    "options": [
+      "The opcodes",
+      "The operands",
+      "The order of instructions",
+      "Label names and comments"
+    ],
+    "correct": 3,
+    "explanation": "Machine code contains only numbers; labels become addresses and comments disappear."
+  }
+]

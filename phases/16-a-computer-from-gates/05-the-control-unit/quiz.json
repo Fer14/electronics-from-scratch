@@ -1,0 +1,106 @@
+[
+  {
+    "id": "16-05-pre-1",
+    "stage": "pre",
+    "question": "What does a control unit produce?",
+    "options": [
+      "The result of the ALU",
+      "The control signals that tell each register and the memory when to drive or load the bus",
+      "The clock",
+      "The program"
+    ],
+    "correct": 1,
+    "explanation": "It is a state machine whose outputs are the datapath's control signals."
+  },
+  {
+    "id": "16-05-pre-2",
+    "stage": "pre",
+    "question": "Which Phase 15 circuit numbers the cycles within an instruction?",
+    "options": [
+      "A shift register",
+      "A synchronizer",
+      "A counter with a reset",
+      "A latch"
+    ],
+    "correct": 2,
+    "explanation": "The step counter counts T0, T1, ... and is reset by END."
+  },
+  {
+    "id": "16-05-post-1",
+    "stage": "post",
+    "question": "Why must steps T0 and T1 be the same for every instruction?",
+    "options": [
+      "To save ROM space",
+      "Because the new opcode only reaches the IR at the end of T1, so the control unit cannot know the instruction yet",
+      "Because the ALU needs them",
+      "Because the flags are unknown"
+    ],
+    "correct": 1,
+    "explanation": "The fetch loads the IR; decoding can only start at T2."
+  },
+  {
+    "id": "16-05-post-2",
+    "stage": "post",
+    "question": "How does the T8 tell the ALU whether to ADD, SUB, AND, OR or XOR?",
+    "options": [
+      "A different microcode routine for each",
+      "The flags",
+      "The step counter",
+      "The low 3 bits of the IR drive the ALU directly; the five instructions share one microcode routine"
+    ],
+    "correct": 3,
+    "explanation": "The instruction encoding was chosen so the opcode bits are the ALU operation."
+  },
+  {
+    "id": "16-05-post-3",
+    "stage": "post",
+    "question": "What does a not-taken conditional jump do in its last step?",
+    "options": [
+      "PC_INC and END, to skip the operand byte",
+      "Nothing",
+      "MEM_OUT and PC_IN",
+      "HALT"
+    ],
+    "correct": 0,
+    "explanation": "The PC must move past the operand so the next fetch reads the next opcode."
+  },
+  {
+    "id": "16-05-post-4",
+    "stage": "post",
+    "question": "A control ROM is addressed by an 8-bit opcode, a 3-bit step and 2 flag bits. How many words does it have?",
+    "options": [
+      "13",
+      "256",
+      "8192",
+      "2048"
+    ],
+    "correct": 2,
+    "explanation": "8 + 3 + 2 = 13 address bits: 2^13 = 8192 words."
+  },
+  {
+    "id": "16-05-post-5",
+    "stage": "post",
+    "question": "From the T8 microcode, which equation gives MAR_IN?",
+    "options": [
+      "t1 + t3",
+      "t0 + t2·two + t3·mem",
+      "t0·two",
+      "t4·lda"
+    ],
+    "correct": 1,
+    "explanation": "MAR_IN appears in every T0, in T2 of two-byte instructions and in T3 of memory-operand instructions."
+  },
+  {
+    "id": "16-05-post-6",
+    "stage": "post",
+    "question": "What is the main advantage of microcoded control over hardwired control?",
+    "options": [
+      "It is always faster",
+      "It needs no clock",
+      "It uses no memory",
+      "The instruction set can be changed or fixed by changing a table instead of the wiring"
+    ],
+    "correct": 3,
+    "explanation": "That is why x86 processors can receive microcode updates."
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "15-07-pre-1",
+    "stage": "pre",
+    "question": "A flip-flop's datasheet gives a setup time of 5 ns. What does it mean?",
+    "options": [
+      "The output appears 5 ns after the edge",
+      "The input must be stable at least 5 ns before the clock edge",
+      "The flip-flop needs 5 ns to power up",
+      "The input must stay stable 5 ns after the edge"
+    ],
+    "correct": 1,
+    "explanation": "Setup is before the edge; hold is after it; tcq is the output delay."
+  },
+  {
+    "id": "15-07-pre-2",
+    "stage": "pre",
+    "question": "A processor runs at 2.5 GHz. How much time does its slowest register-to-register path have?",
+    "options": [
+      "2.5 ns",
+      "4 ns",
+      "0.4 ns",
+      "25 ps"
+    ],
+    "correct": 2,
+    "explanation": "T = 1 / 2.5e9 = 400 ps."
+  },
+  {
+    "id": "15-07-post-1",
+    "stage": "post",
+    "question": "tcq = 0.1 ns, logic = 1.6 ns, tsu = 0.3 ns. What is fmax?",
+    "options": [
+      "500 MHz",
+      "625 MHz",
+      "588 MHz",
+      "1 GHz"
+    ],
+    "correct": 0,
+    "explanation": "T = 0.1 + 1.6 + 0.3 = 2.0 ns, so fmax = 500 MHz."
+  },
+  {
+    "id": "15-07-post-2",
+    "stage": "post",
+    "question": "How do you fix a hold violation?",
+    "options": [
+      "Slow down the clock",
+      "Speed up the clock",
+      "Remove the synchronizer",
+      "Add delay to the short path"
+    ],
+    "correct": 3,
+    "explanation": "The hold constraint tcq + tmin >= th + skew does not involve the clock period."
+  },
+  {
+    "id": "15-07-post-3",
+    "stage": "post",
+    "question": "The clock reaches the capturing flip-flop later than the launching one (positive skew). What happens?",
+    "options": [
+      "Both setup and hold get easier",
+      "Setup gets easier, hold gets harder",
+      "Setup gets harder, hold gets easier",
+      "Nothing changes"
+    ],
+    "correct": 1,
+    "explanation": "The later capture edge gives data more time to arrive (setup) but also more time for new data to corrupt the capture (hold)."
+  },
+  {
+    "id": "15-07-post-4",
+    "stage": "post",
+    "question": "A metastable latch has tau = 30 ps. How much extra time does it need if it starts 10 times closer to balance?",
+    "options": [
+      "300 ps",
+      "30 ps",
+      "3 ps",
+      "About 69 ps"
+    ],
+    "correct": 3,
+    "explanation": "t = tau x ln(V/v0); ten times closer adds tau x ln(10) = 30 x 2.3 = 69 ps."
+  },
+  {
+    "id": "15-07-post-5",
+    "stage": "post",
+    "question": "Why does adding a second flip-flop to a synchronizer improve the MTBF so dramatically?",
+    "options": [
+      "The second flip-flop has no setup time",
+      "It doubles the MTBF",
+      "It gives the first flip-flop a full extra clock period to resolve, and the MTBF grows exponentially with resolution time",
+      "It filters the data electrically"
+    ],
+    "correct": 2,
+    "explanation": "MTBF = e^(t_r/tau) / (W f_clk f_data): an extra 10 ns with tau = 0.3 ns multiplies it by about e^33."
+  },
+  {
+    "id": "15-07-post-6",
+    "stage": "post",
+    "question": "Why can't metastability be completely prevented for asynchronous inputs?",
+    "options": [
+      "Because flip-flops are badly designed",
+      "Because an input that can change at any instant will sometimes change inside the setup/hold window, and no bistable circuit resolves in bounded time from exactly balanced",
+      "Because the clock is too slow",
+      "Because CMOS gates leak"
+    ],
+    "correct": 1,
+    "explanation": "We can only make failures rare enough (huge MTBF) by allowing time to resolve."
+  }
+]

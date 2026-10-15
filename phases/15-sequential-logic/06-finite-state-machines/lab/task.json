@@ -1,0 +1,244 @@
+{
+  "id": "15-06-detect-101",
+  "title": "Next-state logic of a 101 detector",
+  "kind": "logic",
+  "story": "A Moore machine watches a serial input x and raises z for one cycle after the last three bits were 1, 0, 1 (overlaps count). States A = 00 (nothing yet), B = 01 (saw 1), C = 10 (saw 10), D = 11 (saw 101). Bit s0 simply copies x, and z = s1·s0 is wired. Finish the next-state logic of s1: s1+ = s0·x' + s1·s0'·x. The inverters and u = s1·s0' are in place.",
+  "board": {
+    "inputs": [
+      "x"
+    ],
+    "outputs": [
+      "z"
+    ],
+    "clock": "clk",
+    "nodes": {
+      "x": [
+        1,
+        1
+      ],
+      "nx": [
+        2,
+        2
+      ],
+      "ns0": [
+        2,
+        4
+      ],
+      "u": [
+        3,
+        5
+      ],
+      "p": [
+        5,
+        2
+      ],
+      "r": [
+        5,
+        5
+      ],
+      "n1": [
+        7,
+        3
+      ],
+      "s0": [
+        8,
+        1
+      ],
+      "s1": [
+        8,
+        4
+      ],
+      "z": [
+        10,
+        3
+      ]
+    },
+    "fixed": [
+      {
+        "type": "gate",
+        "id": "G1",
+        "op": "not",
+        "inputs": [
+          "x"
+        ],
+        "output": "nx"
+      },
+      {
+        "type": "gate",
+        "id": "G2",
+        "op": "not",
+        "inputs": [
+          "s0"
+        ],
+        "output": "ns0"
+      },
+      {
+        "type": "gate",
+        "id": "G3",
+        "op": "and",
+        "inputs": [
+          "s1",
+          "ns0"
+        ],
+        "output": "u"
+      },
+      {
+        "type": "dff",
+        "id": "F0",
+        "d": "x",
+        "q": "s0"
+      },
+      {
+        "type": "dff",
+        "id": "F1",
+        "d": "n1",
+        "q": "s1"
+      },
+      {
+        "type": "gate",
+        "id": "G4",
+        "op": "and",
+        "inputs": [
+          "s1",
+          "s0"
+        ],
+        "output": "z"
+      }
+    ],
+    "slots": [
+      {
+        "id": "S1",
+        "inputs": [
+          "s0",
+          "nx"
+        ],
+        "output": "p",
+        "accepts": [
+          "gate"
+        ]
+      },
+      {
+        "id": "S2",
+        "inputs": [
+          "u",
+          "x"
+        ],
+        "output": "r",
+        "accepts": [
+          "gate"
+        ]
+      },
+      {
+        "id": "S3",
+        "inputs": [
+          "p",
+          "r"
+        ],
+        "output": "n1",
+        "accepts": [
+          "gate"
+        ]
+      }
+    ]
+  },
+  "parts": [
+    {
+      "type": "gate",
+      "op": "and"
+    },
+    {
+      "type": "gate",
+      "op": "or"
+    },
+    {
+      "type": "gate",
+      "op": "nor"
+    }
+  ],
+  "goals": [
+    {
+      "measure": "sequence",
+      "steps": [
+        {
+          "x": 1
+        },
+        {
+          "x": 1
+        },
+        {
+          "x": 0
+        },
+        {
+          "x": 1
+        },
+        {
+          "x": 0
+        },
+        {
+          "x": 1
+        },
+        {
+          "x": 1
+        },
+        {
+          "x": 0
+        },
+        {
+          "x": 1
+        },
+        {
+          "x": 0
+        },
+        {
+          "x": 0
+        },
+        {
+          "x": 1
+        },
+        {
+          "x": 0
+        },
+        {
+          "x": 1
+        }
+      ],
+      "expect": {
+        "z": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "label": "z = 1 exactly after each 1, 0, 1 in the 14-bit input stream"
+    }
+  ],
+  "solution": {
+    "S1": {
+      "type": "gate",
+      "op": "and"
+    },
+    "S2": {
+      "type": "gate",
+      "op": "and"
+    },
+    "S3": {
+      "type": "gate",
+      "op": "or"
+    }
+  },
+  "hints": [
+    "s1+ is a sum of two products: p = s0·x' and r = u·x.",
+    "Product terms are ANDs; a sum is an OR."
+  ]
+}

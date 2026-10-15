@@ -1,0 +1,86 @@
+[
+  {
+    "id": "19-07-pre-1",
+    "stage": "pre",
+    "question": "What does a 4-point moving average output for the inputs 2, 4, 6, 8?",
+    "options": ["8", "20", "4", "5"],
+    "correct": 3,
+    "explanation": "(2 + 4 + 6 + 8) / 4 = 20 / 4 = 5."
+  },
+  {
+    "id": "19-07-pre-2",
+    "stage": "pre",
+    "question": "What is the main price you pay for heavier smoothing?",
+    "options": [
+      "The signal gets louder",
+      "The output reacts later: more delay",
+      "The ADC needs more bits",
+      "The noise increases"
+    ],
+    "correct": 1,
+    "explanation": "Averaging over a longer stretch of the past means the output takes longer to follow a change."
+  },
+  {
+    "id": "19-07-post-1",
+    "stage": "post",
+    "question": "At 1000 samples/s, which moving-average length removes 50 Hz hum completely?",
+    "options": ["15 samples", "20 samples", "25 samples", "50 samples are needed for any rejection"],
+    "correct": 1,
+    "explanation": "Nulls are at multiples of fs / N. With N = 20, fs / N = 50 Hz: one full hum period is averaged, which cancels exactly."
+  },
+  {
+    "id": "19-07-post-2",
+    "stage": "post",
+    "question": "An EMA y += alpha (x - y) runs at 1 kHz. Which alpha makes it behave like an RC with tau = 50 ms?",
+    "options": ["About 0.02", "About 0.5", "About 0.05", "About 0.0002"],
+    "correct": 0,
+    "explanation": "alpha = dt / (tau + dt) = 0.001 / 0.051 = 0.0196."
+  },
+  {
+    "id": "19-07-post-3",
+    "stage": "post",
+    "question": "What is the delay of a 101-tap symmetric FIR filter running at 1000 samples/s?",
+    "options": ["101 ms", "10 ms", "50 ms", "1 ms"],
+    "correct": 2,
+    "explanation": "(N - 1) / 2 = 50 samples, and at 1 ms per sample that is 50 ms."
+  },
+  {
+    "id": "19-07-post-4",
+    "stage": "post",
+    "question": "Why is the ideal sinc kernel multiplied by a window such as Hamming?",
+    "options": [
+      "To make it longer",
+      "To make the filter non-linear",
+      "To raise the DC gain",
+      "Because cutting the infinite sinc suddenly causes ripples in the frequency response; the window tapers the ends smoothly"
+    ],
+    "correct": 3,
+    "explanation": "Truncation is a sharp edge in the kernel, which shows up as ripple and poor stop-band attenuation. A smooth taper trades a slightly wider transition for much better attenuation."
+  },
+  {
+    "id": "19-07-post-5",
+    "stage": "post",
+    "question": "A record has one huge spike. Which approach removes it best?",
+    "options": [
+      "A median filter first, then the linear filter",
+      "A longer moving average",
+      "A higher sampling rate",
+      "An EMA with a larger alpha"
+    ],
+    "correct": 0,
+    "explanation": "Linear filters only spread a spike out. A median of a few samples ignores a single outlier completely."
+  },
+  {
+    "id": "19-07-post-6",
+    "stage": "post",
+    "question": "Which filter is the direct digital equivalent of an RC low-pass?",
+    "options": [
+      "The median filter",
+      "The exponential moving average",
+      "The windowed-sinc FIR",
+      "A high-pass filter"
+    ],
+    "correct": 1,
+    "explanation": "Discretising RC dv/dt = v_in - v with one time step gives y[n] = y[n-1] + dt / (RC + dt) (x[n] - y[n-1]): the EMA."
+  }
+]

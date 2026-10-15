@@ -1,0 +1,76 @@
+[
+  {
+    "id": "12-04-pre-1",
+    "stage": "pre",
+    "question": "Two metal plates separated by a thin insulator form what component?",
+    "options": ["A resistor", "An inductor", "A diode", "A capacitor"],
+    "correct": 3,
+    "explanation": "That is a capacitor (Phase 07). A MOSFET's gate, oxide and silicon form exactly this."
+  },
+  {
+    "id": "12-04-pre-2",
+    "stage": "pre",
+    "question": "In steady state, how much DC current flows through a capacitor?",
+    "options": ["None", "As much as the supply allows", "Half the supply current", "It depends on the frequency only"],
+    "correct": 0,
+    "explanation": "Once charged, a capacitor passes no DC current. That is why a MOSFET gate draws no steady current."
+  },
+  {
+    "id": "12-04-post-1",
+    "stage": "post",
+    "question": "What is the channel of an n-channel MOSFET?",
+    "options": [
+      "A permanently n-doped strip between source and drain",
+      "A thin layer of electrons attracted to the p-type surface by the gate (inversion)",
+      "The oxide layer",
+      "A hole current under the gate"
+    ],
+    "correct": 1,
+    "explanation": "Above threshold, the positive gate pulls enough electrons to the surface to invert it to n-type, connecting source and drain."
+  },
+  {
+    "id": "12-04-post-2",
+    "stage": "post",
+    "question": "V_th = 1 V, k = 2 mA/V^2, V_GS = 4 V, V_DS = 10 V. What is I_D?",
+    "options": ["6 mA", "18 mA", "9 mA", "3 mA"],
+    "correct": 2,
+    "explanation": "V_DS = 10 V is above the 3 V overdrive, so saturation: I_D = (0.002/2) x 3^2 = 9 mA."
+  },
+  {
+    "id": "12-04-post-3",
+    "stage": "post",
+    "question": "Doubling the overdrive of a MOSFET in saturation multiplies its drain current by:",
+    "options": ["2", "4", "10", "e"],
+    "correct": 1,
+    "explanation": "Square law: (2 V_ov)^2 = 4 V_ov^2."
+  },
+  {
+    "id": "12-04-post-4",
+    "stage": "post",
+    "question": "For very small V_DS, a MOSFET with k = 5 A/V^2 and 2 V of overdrive behaves like a resistor of:",
+    "options": ["10 ohm", "2.5 ohm", "0.4 ohm", "0.1 ohm"],
+    "correct": 3,
+    "explanation": "R_DS = 1 / (k x V_ov) = 1 / (5 x 2) = 0.1 ohm."
+  },
+  {
+    "id": "12-04-post-5",
+    "stage": "post",
+    "question": "What does 'saturation' mean for a MOSFET, compared with a BJT?",
+    "options": [
+      "The same thing: fully on with tiny voltage across it",
+      "For a MOSFET: current no longer grows with V_DS (the amplifier region); for a BJT: fully on",
+      "For a MOSFET: fully off",
+      "For a MOSFET: the gate oxide has broken down"
+    ],
+    "correct": 1,
+    "explanation": "An unfortunate naming clash. A MOSFET switch should be in its triode region."
+  },
+  {
+    "id": "12-04-post-6",
+    "stage": "post",
+    "question": "A PMOS has its source at +5 V and |V_th| = 1 V. Which gate voltage turns it on firmly?",
+    "options": ["5 V", "4.8 V", "0 V", "6 V"],
+    "correct": 2,
+    "explanation": "A PMOS conducts when its gate is well below its source: V_SG = 5 V, an overdrive of 4 V."
+  }
+]

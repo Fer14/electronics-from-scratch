@@ -1,0 +1,93 @@
+[
+  {
+    "id": "09-02-pre-1",
+    "stage": "pre",
+    "question": "A sine wave swings between -8 V and +8 V. What is its amplitude?",
+    "options": [
+      "16 V",
+      "4 V",
+      "0 V",
+      "8 V"
+    ],
+    "correct": 3,
+    "explanation": "The amplitude (peak) is measured from the centre line to the top: 8 V. The peak-to-peak value is 16 V."
+  },
+  {
+    "id": "09-02-pre-2",
+    "stage": "pre",
+    "question": "How many radians are there in a full turn?",
+    "options": [
+      "2 pi, about 6.283",
+      "360",
+      "pi, about 3.14",
+      "1"
+    ],
+    "correct": 0,
+    "explanation": "The circumference of a circle of radius 1 is 2 pi, so a full turn is 2 pi radians, equal to 360 degrees."
+  },
+  {
+    "id": "09-02-pre-3",
+    "stage": "pre",
+    "question": "What is the angular frequency omega of a 50 Hz wave?",
+    "options": [
+      "50 rad/s",
+      "314.16 rad/s",
+      "7.96 rad/s",
+      "0.02 rad/s"
+    ],
+    "correct": 1,
+    "explanation": "omega = 2 x pi x f = 2 x 3.14159 x 50 = 314.16 rad/s."
+  },
+  {
+    "id": "09-02-post-1",
+    "stage": "post",
+    "question": "v(t) = 10 sin(2 pi 50 t). What is v at t = 5 ms?",
+    "options": [
+      "0 V",
+      "7.07 V",
+      "10 V",
+      "-10 V"
+    ],
+    "correct": 2,
+    "explanation": "5 ms is a quarter of the 20 ms period, so the angle is 90 degrees and sin(90 degrees) = 1: v = 10 V."
+  },
+  {
+    "id": "09-02-post-2",
+    "stage": "post",
+    "question": "At 1 kHz, one signal crosses zero going up 250 microseconds after another. What is the phase difference?",
+    "options": [
+      "25 degrees",
+      "45 degrees",
+      "180 degrees",
+      "90 degrees"
+    ],
+    "correct": 3,
+    "explanation": "The period is 1 ms = 1000 us. 250 / 1000 = one quarter of a cycle, and a quarter of 360 degrees is 90 degrees. The later signal lags."
+  },
+  {
+    "id": "09-02-post-3",
+    "stage": "post",
+    "question": "What happens to a sine wave that passes through a circuit made only of resistors, capacitors and inductors?",
+    "options": [
+      "It comes out as a square wave",
+      "It comes out as a sine wave of the same frequency, possibly smaller and shifted in phase",
+      "Its frequency doubles",
+      "It comes out unchanged in every way"
+    ],
+    "correct": 1,
+    "explanation": "Linear R, L and C circuits keep the sine shape and the frequency; only amplitude and phase change. This is why sine waves are the natural test signal."
+  },
+  {
+    "id": "09-02-post-4",
+    "stage": "post",
+    "question": "Which wave leads: v1 = sin(omega t + 30 deg) or v2 = sin(omega t - 30 deg)?",
+    "options": [
+      "v1 leads v2 by 60 degrees",
+      "v2 leads v1 by 60 degrees",
+      "They are in phase",
+      "You cannot tell without knowing the frequency"
+    ],
+    "correct": 0,
+    "explanation": "v1's angle is always 60 degrees ahead of v2's, so v1 reaches every peak and zero crossing first: it leads by 60 degrees."
+  }
+]

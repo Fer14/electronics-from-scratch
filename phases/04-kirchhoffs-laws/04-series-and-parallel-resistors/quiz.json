@@ -1,0 +1,66 @@
+[
+  {
+    "id": "04-04-pre-1",
+    "stage": "pre",
+    "question": "A 100 Ω and a 220 Ω resistor are connected end to end in a single path. What is their total resistance?",
+    "options": ["68.75 Ω", "320 Ω", "120 Ω", "22 000 Ω"],
+    "correct": 1,
+    "explanation": "In series the same current flows through both and their voltages add, so the resistances add: 100 + 220 = 320 Ω."
+  },
+  {
+    "id": "04-04-pre-2",
+    "stage": "pre",
+    "question": "Adding a second resistor in parallel with a first one makes the total resistance:",
+    "options": ["Bigger", "Unchanged", "Smaller than either of them", "Equal to the average of the two"],
+    "correct": 2,
+    "explanation": "A parallel resistor adds another path for current, so the battery delivers more current for the same voltage. The result is always smaller than the smallest resistor."
+  },
+  {
+    "id": "04-04-post-1",
+    "stage": "post",
+    "question": "Which law guarantees that resistors in series carry the same current?",
+    "options": ["KCL at the node between them, which touches only those two resistors", "KVL around the loop", "Ohm's law alone", "Conservation of energy in the battery"],
+    "correct": 0,
+    "explanation": "The middle node has one branch in and one branch out, so by KCL the current in equals the current out."
+  },
+  {
+    "id": "04-04-post-2",
+    "stage": "post",
+    "question": "What is 220 Ω in parallel with 330 Ω?",
+    "options": ["550 Ω", "275 Ω", "110 Ω", "132 Ω"],
+    "correct": 3,
+    "explanation": "Product over sum: 220 × 330 / (220 + 330) = 72 600 / 550 = 132 Ω."
+  },
+  {
+    "id": "04-04-post-3",
+    "stage": "post",
+    "question": "9 V is applied across 1 kΩ, 2.2 kΩ and 4.7 kΩ in parallel. Which resistor carries the most current?",
+    "options": ["The 1 kΩ one", "The 4.7 kΩ one", "They all carry the same current", "The 2.2 kΩ one"],
+    "correct": 0,
+    "explanation": "All three have the same 9 V across them, so the smallest resistance carries the largest current: 9 mA in the 1 kΩ."
+  },
+  {
+    "id": "04-04-post-4",
+    "stage": "post",
+    "question": "In the ladder R1 + (R2 || (R3 + R4)) with R1 = 1 kΩ, R2 = 3 kΩ, R3 = 1 kΩ, R4 = 2 kΩ, what is the equivalent resistance?",
+    "options": ["7 kΩ", "1.5 kΩ", "2.5 kΩ", "4 kΩ"],
+    "correct": 2,
+    "explanation": "R3 + R4 = 3 kΩ; 3 kΩ || 3 kΩ = 1.5 kΩ; plus R1 gives 2.5 kΩ."
+  },
+  {
+    "id": "04-04-post-5",
+    "stage": "post",
+    "question": "R1 goes from vcc to node a, R2 from a to gnd, and R3 also from a to gnd. Which statement is true?",
+    "options": ["R1 and R2 are in series", "R2 and R3 are in parallel", "All three are in series", "R1 and R3 are in parallel"],
+    "correct": 1,
+    "explanation": "R2 and R3 share both nodes (a and gnd), so they are in parallel. R1 and R2 are not in series because node a also touches R3."
+  },
+  {
+    "id": "04-04-post-6",
+    "stage": "post",
+    "question": "Your drawer has 220 Ω and 470 Ω resistors. How do you make about 150 Ω?",
+    "options": ["Put them in series", "Use the 220 Ω alone", "Put two 470 Ω in series", "Put 220 Ω and 470 Ω in parallel"],
+    "correct": 3,
+    "explanation": "220 × 470 / (220 + 470) = 103 400 / 690 = 149.9 Ω."
+  }
+]

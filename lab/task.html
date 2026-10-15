@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab task</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=VT323&display=swap">
+  <link rel="stylesheet" href="css/lab.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="top">
+    <a class="back" href="./">&larr; all labs</a>
+    <span class="brand">ELECTRONICS FROM SCRATCH &middot; LAB</span>
+  </header>
+  <main class="task">
+    <section class="intro">
+      <div class="kicker" id="kicker">LAB</div>
+      <h1 id="title">Loading&hellip;</h1>
+      <p class="story" id="story"></p>
+    </section>
+    <section class="bench">
+      <div class="board-card">
+        <div id="board" class="board"></div>
+        <div id="playback" class="playback" hidden>
+          <button id="play" type="button" class="small-btn">pause</button>
+          <input id="scrub" type="range" min="0" max="1" value="0" aria-label="time">
+          <span id="clock" class="clock"></span>
+        </div>
+        <div id="plot" class="plot"></div>
+        <div id="extra" class="extra"></div>
+      </div>
+      <aside class="side">
+        <div class="panel">
+          <h2>Parts</h2>
+          <div id="tray" class="tray"></div>
+          <p class="help">Click a part, then a dashed slot (or drag it there). Click a filled slot to empty it.</p>
+        </div>
+        <div class="actions">
+          <button id="run" type="button" class="run">RUN</button>
+          <button id="reset" type="button" class="small-btn">clear board</button>
+        </div>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+        <div class="panel">
+          <h2>Goals</h2>
+          <ul id="goals" class="goals"></ul>
+          <div id="verdict" class="verdict"></div>
+        </div>
+        <div class="panel" id="hints-panel">
+          <h2>Hints</h2>
+          <ol id="hints" class="hints"></ol>
+          <button id="hint" type="button" class="small-btn">Show a hint</button>
+        </div>
+      </aside>
+    </section>
+  </main>
+  <script type="module" src="js/ui/task.js"></script>
+</body>
+</html>

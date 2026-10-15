@@ -1,0 +1,105 @@
+{
+ "id": "17-03-pwm",
+ "title": "PWM duty for a target voltage",
+ "kind": "transient",
+ "story": "A 5 V microcontroller has no DAC, but it can make 1 kHz PWM. A 10 kohm resistor and a 1 uF capacitor smooth it. An analog circuit downstream needs about 1.25 V. Pick the PWM source with the right duty cycle so the smoothed voltage sits between 1.1 V and 1.4 V once it has settled.",
+ "sim": {
+  "t_stop": 0.06,
+  "dt": 5e-06
+ },
+ "board": {
+  "nodes": {
+   "pwm": [
+    2,
+    1
+   ],
+   "out": [
+    7,
+    1
+   ],
+   "gnd": [
+    2,
+    5
+   ],
+   "cg": [
+    7,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "resistor",
+    "id": "R1",
+    "a": "pwm",
+    "b": "out",
+    "ohms": 10000
+   },
+   {
+    "type": "capacitor",
+    "id": "C1",
+    "a": "out",
+    "b": "gnd",
+    "farads": 1e-06,
+    "v0": 0
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "plus": "pwm",
+    "minus": "gnd",
+    "accepts": [
+     "pulse_source"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "pulse_source",
+   "low": 0,
+   "high": 5,
+   "period": 0.001,
+   "duty": 0.25
+  },
+  {
+   "type": "pulse_source",
+   "low": 0,
+   "high": 5,
+   "period": 0.001,
+   "duty": 0.5
+  },
+  {
+   "type": "pulse_source",
+   "low": 0,
+   "high": 5,
+   "period": 0.001,
+   "duty": 0.75
+  }
+ ],
+ "goals": [
+  {
+   "measure": "voltage_at_time",
+   "at": "out",
+   "time": 0.06,
+   "min": 1.1,
+   "max": 1.4,
+   "label": "filtered voltage between 1.1 V and 1.4 V at t = 60 ms"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "pulse_source",
+   "low": 0,
+   "high": 5,
+   "period": 0.001,
+   "duty": 0.25
+  }
+ },
+ "hints": [
+  "After the filter settles, the output is the average of the pulse: duty x 5 V.",
+  "The time constant is 10 kohm x 1 uF = 10 ms, so after 60 ms (6 time constants) the start-up is over.",
+  "Ripple is about 5 x D x (1 - D) x 1 ms / 10 ms: under 0.1 V for any of these duties."
+ ]
+}

@@ -1,0 +1,151 @@
+{
+ "id": "02-04-parallel-bulbs",
+ "title": "Two bulbs, both at full brightness",
+ "kind": "dc",
+ "story": "A 6 V battery (with R_int = 0.2 \u03a9 inside) must light two identical 6 V, 0.5 A bulbs. Each one behaves like a 12 \u03a9 resistor when hot. Three gaps can be filled with wires (closed switches) or left open (open switches). Wire the bulbs so that each one gets close to its full 0.5 A. Chained one after the other they share the voltage and glow dimly; give each bulb its own path from the + side to the - side.",
+ "board": {
+  "nodes": {
+   "vbat": [
+    0,
+    1
+   ],
+   "vcc": [
+    2,
+    1
+   ],
+   "m": [
+    5,
+    1
+   ],
+   "m2": [
+    5,
+    4
+   ],
+   "gnd": [
+    2,
+    6
+   ],
+   "end": [
+    8,
+    6
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "B1",
+    "plus": "vbat",
+    "minus": "gnd",
+    "volts": 6
+   },
+   {
+    "type": "resistor",
+    "id": "Rint",
+    "a": "vbat",
+    "b": "vcc",
+    "ohms": 0.2
+   },
+   {
+    "type": "resistor",
+    "id": "L1",
+    "a": "vcc",
+    "b": "m",
+    "ohms": 12
+   },
+   {
+    "type": "resistor",
+    "id": "L2",
+    "a": "m2",
+    "b": "end",
+    "ohms": 12
+   },
+   {
+    "type": "switch",
+    "id": "W1",
+    "a": "end",
+    "b": "gnd",
+    "closed": true
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "m",
+    "b": "m2",
+    "accepts": [
+     "switch"
+    ]
+   },
+   {
+    "id": "S2",
+    "a": "vcc",
+    "b": "m2",
+    "accepts": [
+     "switch"
+    ]
+   },
+   {
+    "id": "S3",
+    "a": "m",
+    "b": "gnd",
+    "accepts": [
+     "switch"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "switch",
+   "closed": true
+  },
+  {
+   "type": "switch",
+   "closed": true
+  },
+  {
+   "type": "switch",
+   "closed": false
+  },
+  {
+   "type": "switch",
+   "closed": false
+  }
+ ],
+ "goals": [
+  {
+   "measure": "current",
+   "of": "L1",
+   "min": 0.45,
+   "max": 0.55,
+   "label": "bulb L1 carries 0.45 to 0.55 A"
+  },
+  {
+   "measure": "current",
+   "of": "L2",
+   "min": 0.45,
+   "max": 0.55,
+   "label": "bulb L2 carries 0.45 to 0.55 A"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "switch",
+   "closed": false
+  },
+  "S2": {
+   "type": "switch",
+   "closed": true
+  },
+  "S3": {
+   "type": "switch",
+   "closed": true
+  }
+ },
+ "hints": [
+  "A wire is a closed switch; an open switch is a gap.",
+  "In series (closing only the gap between the bulbs) the 6 V is split: each bulb gets about 3 V and only 0.25 A flows.",
+  "In parallel each bulb's top touches the + side and its bottom touches the - side, so each one feels the full battery voltage."
+ ]
+}

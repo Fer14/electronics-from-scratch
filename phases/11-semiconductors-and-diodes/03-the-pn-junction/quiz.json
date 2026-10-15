@@ -1,0 +1,86 @@
+[
+  {
+    "id": "11-03-pre-1",
+    "stage": "pre",
+    "question": "A drop of ink in still water slowly spreads through the glass. What is this process called?",
+    "options": ["Drift", "Diffusion", "Conduction", "Recombination"],
+    "correct": 1,
+    "explanation": "Diffusion: random motion spreads particles from crowded regions to empty ones, without any force pushing them."
+  },
+  {
+    "id": "11-03-pre-2",
+    "stage": "pre",
+    "question": "What does a one-way valve in a water pipe do?",
+    "options": [
+      "Lets water flow in one direction and blocks the other",
+      "Doubles the pressure",
+      "Stores water for later",
+      "Lets water flow equally both ways"
+    ],
+    "correct": 0,
+    "explanation": "That is exactly the job of a diode for electric current."
+  },
+  {
+    "id": "11-03-post-1",
+    "stage": "post",
+    "question": "Why does a depletion region carry a net electric charge on each side?",
+    "options": [
+      "The battery charges it",
+      "Electrons pile up in it",
+      "Mobile carriers left, but the fixed dopant ions stayed behind uncovered",
+      "Light creates charges in it"
+    ],
+    "correct": 2,
+    "explanation": "Electrons and holes diffused across and recombined; the immobile donor (+) and acceptor (-) ions remain, forming two charged slabs."
+  },
+  {
+    "id": "11-03-post-2",
+    "stage": "post",
+    "question": "For N_A = 1e17 and N_D = 1e16 per cm^3 (n_i = 1e10), what is the built-in potential at 300 K?",
+    "options": ["0.026 V", "0.35 V", "1.12 V", "0.77 V"],
+    "correct": 3,
+    "explanation": "V_bi = 0.02585 x ln(1e33 / 1e20) = 0.02585 x 29.9 = 0.774 V."
+  },
+  {
+    "id": "11-03-post-3",
+    "stage": "post",
+    "question": "Under forward bias, roughly how much extra voltage multiplies the current by 10?",
+    "options": ["About 60 mV", "About 0.7 V", "About 6 mV", "About 1 V"],
+    "correct": 0,
+    "explanation": "The crossing rate is proportional to exp(V/V_T); a factor of 10 needs V_T x ln(10) = 25.85 mV x 2.303 = 59.5 mV."
+  },
+  {
+    "id": "11-03-post-4",
+    "stage": "post",
+    "question": "What happens to the depletion region under reverse bias?",
+    "options": [
+      "It disappears",
+      "It gets wider and the barrier gets taller",
+      "It gets narrower and the barrier gets lower",
+      "It moves to the metal contacts"
+    ],
+    "correct": 1,
+    "explanation": "The applied voltage adds to V_bi; more ions must be uncovered to hold it, so W grows (as the square root of the barrier)."
+  },
+  {
+    "id": "11-03-post-5",
+    "stage": "post",
+    "question": "Which terminal of a diode is marked by the painted band?",
+    "options": ["The anode (p side)", "Neither; the band shows the power rating", "The cathode (n side)", "The terminal that must go to ground"],
+    "correct": 2,
+    "explanation": "The band matches the bar in the symbol: the cathode. Conventional current flows easily from anode to cathode."
+  },
+  {
+    "id": "11-03-post-6",
+    "stage": "post",
+    "question": "Why can't you measure the built-in potential by touching a voltmeter to a diode?",
+    "options": [
+      "It is too small to measure",
+      "The metal-to-silicon contacts have their own built-in steps that exactly cancel it",
+      "Voltmeters only measure AC",
+      "It only exists while current flows"
+    ],
+    "correct": 1,
+    "explanation": "If the steps did not cancel, a diode on a shelf would deliver energy forever, like a free battery, which is impossible in equilibrium."
+  }
+]

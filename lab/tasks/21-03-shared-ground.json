@@ -1,0 +1,100 @@
+{
+ "id": "21-03-shared-ground",
+ "title": "Stop the heater from lying to the sensor",
+ "kind": "dc",
+ "story": "A 5 V supply powers a 4.7 ohm load (about 1 A) and a sensor made of two 10 kohm resistors, which should read exactly half the supply, 2.500 V, at the microcontroller's ADC. The ADC measures against the ground at the supply connector. The load's return current and the sensor's ground share one piece of copper back to the connector: slot S1. The tray offers three ways to build that shared return: a thin 0.2 ohm trace, a wide 0.02 ohm trace, and a solid ground plane of 0.002 ohm. Keep the reading within 5 mV of 2.500 V.",
+ "board": {
+  "nodes": {
+   "vcc": [
+    1,
+    1
+   ],
+   "sense": [
+    5,
+    3
+   ],
+   "ret": [
+    8,
+    5
+   ],
+   "gnd": [
+    1,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "V1",
+    "plus": "vcc",
+    "minus": "gnd",
+    "volts": 5
+   },
+   {
+    "type": "resistor",
+    "id": "RL",
+    "a": "vcc",
+    "b": "ret",
+    "ohms": 4.7
+   },
+   {
+    "type": "resistor",
+    "id": "R_TOP",
+    "a": "vcc",
+    "b": "sense",
+    "ohms": 10000
+   },
+   {
+    "type": "resistor",
+    "id": "R_BOT",
+    "a": "sense",
+    "b": "ret",
+    "ohms": 10000
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "ret",
+    "b": "gnd",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 0.2
+  },
+  {
+   "type": "resistor",
+   "ohms": 0.02
+  },
+  {
+   "type": "resistor",
+   "ohms": 0.002
+  }
+ ],
+ "goals": [
+  {
+   "measure": "voltage",
+   "at": "sense",
+   "min": 2.495,
+   "max": 2.505,
+   "label": "the ADC reads 2.500 V within 5 mV"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 0.002
+  }
+ },
+ "hints": [
+  "The 1 A load current flows through S1 and lifts the node 'ret' above true ground by I * R.",
+  "The sensor sits on top of 'ret', so half of that lift appears in its reading."
+ ]
+}

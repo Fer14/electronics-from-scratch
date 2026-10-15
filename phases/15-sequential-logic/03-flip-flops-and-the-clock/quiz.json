@@ -1,0 +1,106 @@
+[
+  {
+    "id": "15-03-pre-1",
+    "stage": "pre",
+    "question": "A clock runs at 20 MHz. What is its period?",
+    "options": [
+      "20 ns",
+      "50 ns",
+      "5 ns",
+      "500 ns"
+    ],
+    "correct": 1,
+    "explanation": "T = 1 / f = 1 / 20e6 = 50e-9 s."
+  },
+  {
+    "id": "15-03-pre-2",
+    "stage": "pre",
+    "question": "What is a rising edge?",
+    "options": [
+      "The moment a signal goes from 0 to 1",
+      "The time a signal stays high",
+      "The highest voltage of a signal",
+      "The moment a signal goes from 1 to 0"
+    ],
+    "correct": 0,
+    "explanation": "An edge is an instant of change; rising means 0 to 1."
+  },
+  {
+    "id": "15-03-post-1",
+    "stage": "post",
+    "question": "What is the key difference between a D latch and a D flip-flop?",
+    "options": [
+      "The flip-flop has no feedback",
+      "The latch stores two bits",
+      "The latch is transparent for a whole level of the enable; the flip-flop samples only at the clock edge",
+      "The flip-flop has no clock"
+    ],
+    "correct": 2,
+    "explanation": "Latch: level-sensitive. Flip-flop: edge-triggered."
+  },
+  {
+    "id": "15-03-post-2",
+    "stage": "post",
+    "question": "In a master-slave flip-flop triggered on the rising edge, what does the master do while clk = 0?",
+    "options": [
+      "It holds its value",
+      "It is transparent and follows d",
+      "It copies q",
+      "It resets to 0"
+    ],
+    "correct": 1,
+    "explanation": "The master's enable is clk', so it watches d during the low phase; the slave holds."
+  },
+  {
+    "id": "15-03-post-3",
+    "stage": "post",
+    "question": "A D flip-flop has d connected to NOT q. If the clock is 10 MHz, what is the frequency of q?",
+    "options": [
+      "10 MHz",
+      "20 MHz",
+      "It oscillates as fast as the gates allow",
+      "5 MHz"
+    ],
+    "correct": 3,
+    "explanation": "It toggles once per rising edge, so q completes one cycle every two clock cycles."
+  },
+  {
+    "id": "15-03-post-4",
+    "stage": "post",
+    "question": "Why are synchronous (clocked) designs not affected by glitches in their combinational logic?",
+    "options": [
+      "Flip-flops only sample at the clock edge, after the logic has settled",
+      "Clocks make gates faster",
+      "Glitches cannot occur in clocked designs",
+      "Flip-flops filter all short pulses electrically"
+    ],
+    "correct": 0,
+    "explanation": "As long as the clock period is longer than the logic's critical path, every flip-flop sees settled values."
+  },
+  {
+    "id": "15-03-post-5",
+    "stage": "post",
+    "question": "In sim.logic, what does lc.step(inputs) represent?",
+    "options": [
+      "One gate delay",
+      "A falling clock edge only",
+      "Applying the inputs, letting the logic settle, then one rising clock edge for every flip-flop at once",
+      "Resetting all flip-flops"
+    ],
+    "correct": 2,
+    "explanation": "Every dff copies its D input at the same instant, then the gates settle again."
+  },
+  {
+    "id": "15-03-post-6",
+    "stage": "post",
+    "question": "A 32,768 Hz crystal drives a chain of 15 divide-by-two stages. What comes out?",
+    "options": [
+      "15 Hz",
+      "1 Hz",
+      "2,184 Hz",
+      "0.5 Hz"
+    ],
+    "correct": 1,
+    "explanation": "32,768 = 2^15, so 15 halvings give exactly 1 Hz."
+  }
+]

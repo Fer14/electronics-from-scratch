@@ -1,0 +1,35 @@
+{
+  "id": "08-07-motor-flyback",
+  "title": "Switch off the motor without a spark",
+  "kind": "transient",
+  "story": "A small 12 V DC motor is held stalled, so its winding (1 mH, 2 ohm) carries 6 A. At t = 1 ms the switch Q1 opens. When open, the switch still leaks like a 10 k ohm resistor. Without help, the winding's current will force a huge negative voltage at node a. Put a part across the winding (from ground to node a) that keeps node a above -5 V when the switch opens, but takes no current while the motor is running.",
+  "sim": {"t_stop": 0.003, "dt": 1e-06},
+  "board": {
+    "nodes": {"vcc": [1, 1], "a": [5, 1], "x": [9, 1], "gnd": [5, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "B1", "plus": "vcc", "minus": "gnd", "volts": 12},
+      {"type": "switch", "id": "Q1", "a": "vcc", "b": "a", "closed": true, "toggle_at": [0.001]},
+      {"type": "resistor", "id": "Rleak", "a": "a", "b": "gnd", "ohms": 10000},
+      {"type": "inductor", "id": "Lw", "a": "a", "b": "x", "henries": 0.001, "i0": 6},
+      {"type": "resistor", "id": "Rw", "a": "x", "b": "gnd", "ohms": 2}
+    ],
+    "slots": [
+      {"id": "S1", "a": "gnd", "b": "a", "accepts": ["diode", "resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "diode"},
+    {"type": "resistor", "ohms": 10},
+    {"type": "resistor", "ohms": 100000}
+  ],
+  "goals": [
+    {"measure": "min_voltage", "at": "a", "min": -5, "label": "node a never goes below -5 V"},
+    {"measure": "current_at_time", "of": "S1", "time": 0.0005, "min": -0.001, "max": 0.001, "label": "the protection part takes less than 1 mA while the motor runs"}
+  ],
+  "solution": {"S1": {"type": "diode"}},
+  "hints": [
+    "At the instant the switch opens, the 6 A in the winding must keep flowing. Through which path, and with what voltage?",
+    "A diode from ground (anode) to node a (cathode) is reverse-biased while node a is at +12 V, and conducts as soon as node a goes below about -0.7 V."
+  ]
+}

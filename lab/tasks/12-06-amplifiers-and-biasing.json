@@ -1,0 +1,170 @@
+{
+ "id": "12-06-amplifiers-and-biasing",
+ "title": "A common-emitter amplifier with a gain of 10",
+ "kind": "ac",
+ "story": "The transistor is already biased: a 100k/10k divider sets the base, a 200 ohm emitter resistor sets about 1.46 mA of collector current, and a capacitor couples the signal in. Choose the collector resistor so that a 1 kHz signal comes out 10 times bigger (about 20 dB), and the collector still sits comfortably between the rails.",
+ "board": {
+  "nodes": {
+   "vcc": [
+    7,
+    0
+   ],
+   "in": [
+    0,
+    3
+   ],
+   "b": [
+    4,
+    3
+   ],
+   "c": [
+    7,
+    2
+   ],
+   "e": [
+    7,
+    5
+   ],
+   "gnd": [
+    7,
+    6
+   ],
+   "gi": [
+    0,
+    6
+   ],
+   "gb": [
+    4,
+    6
+   ],
+   "top": [
+    4,
+    0
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "voltage_source",
+    "id": "VCC",
+    "plus": "vcc",
+    "minus": "gnd",
+    "volts": 12
+   },
+   {
+    "type": "sine_source",
+    "id": "VIN",
+    "plus": "in",
+    "minus": "gi",
+    "amplitude": 0.05,
+    "freq": 1000,
+    "offset": 0
+   },
+   {
+    "type": "wire",
+    "id": "W1",
+    "a": "gi",
+    "b": "gnd"
+   },
+   {
+    "type": "capacitor",
+    "id": "CIN",
+    "a": "in",
+    "b": "b",
+    "farads": 1e-05
+   },
+   {
+    "type": "wire",
+    "id": "W2",
+    "a": "vcc",
+    "b": "top"
+   },
+   {
+    "type": "resistor",
+    "id": "R1",
+    "a": "top",
+    "b": "b",
+    "ohms": 100000
+   },
+   {
+    "type": "resistor",
+    "id": "R2",
+    "a": "b",
+    "b": "gb",
+    "ohms": 10000
+   },
+   {
+    "type": "wire",
+    "id": "W3",
+    "a": "gb",
+    "b": "gnd"
+   },
+   {
+    "type": "npn",
+    "id": "Q1",
+    "c": "c",
+    "b": "b",
+    "e": "e",
+    "beta": 100
+   },
+   {
+    "type": "resistor",
+    "id": "RE",
+    "a": "e",
+    "b": "gnd",
+    "ohms": 200
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "vcc",
+    "b": "c",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 470
+  },
+  {
+   "type": "resistor",
+   "ohms": 2200
+  },
+  {
+   "type": "resistor",
+   "ohms": 4700
+  }
+ ],
+ "goals": [
+  {
+   "measure": "gain_db_at",
+   "at": "c",
+   "freq": 1000,
+   "min": 18,
+   "max": 22,
+   "label": "gain at 1 kHz between 18 and 22 dB (about x10)"
+  }
+ ],
+ "sim": {
+  "source": "VIN",
+  "f_start": 10,
+  "f_stop": 100000,
+  "points": 61
+ },
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 2200
+  }
+ },
+ "hints": [
+  "With an un-bypassed emitter resistor the gain is about R_C / (R_E + r_e).",
+  "r_e = 25.85 mV / I_C, about 18 ohm at 1.46 mA, so the emitter side is about 218 ohm.",
+  "For a gain of 10, R_C is about 10 x 218 ohm. 20 dB = 20 log10(10)."
+ ]
+}

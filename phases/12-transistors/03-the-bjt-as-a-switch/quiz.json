@@ -1,0 +1,91 @@
+[
+  {
+    "id": "12-03-pre-1",
+    "stage": "pre",
+    "question": "A microcontroller pin can supply about 10 mA. You want to run a 200 mA motor. What is the usual solution?",
+    "options": [
+      "Connect the motor directly to the pin",
+      "Use several pins in parallel",
+      "Let the pin drive a transistor that switches the motor from a separate supply",
+      "Add a resistor in series with the motor"
+    ],
+    "correct": 2,
+    "explanation": "The pin only supplies the small control current; the transistor handles the load current."
+  },
+  {
+    "id": "12-03-pre-2",
+    "stage": "pre",
+    "question": "What is the power dissipated by a perfect switch, on or off?",
+    "options": ["Zero", "Half the load power", "Equal to the load power", "It depends on the supply"],
+    "correct": 0,
+    "explanation": "Off: no current. On: no voltage. P = V x I = 0 in both states."
+  },
+  {
+    "id": "12-03-post-1",
+    "stage": "post",
+    "question": "A load needs 50 mA. With a forced beta of 10, what base current do you design for?",
+    "options": ["0.5 mA", "5 mA", "50 mA", "500 mA"],
+    "correct": 1,
+    "explanation": "I_B = I_C / forced beta = 50 mA / 10 = 5 mA."
+  },
+  {
+    "id": "12-03-post-2",
+    "stage": "post",
+    "question": "A 3.3 V pin must deliver 2 mA into the base. What base resistor do you use?",
+    "options": ["1.65 kohm", "330 ohm", "13 kohm", "1.3 kohm"],
+    "correct": 3,
+    "explanation": "R_B = (3.3 - 0.7) / 0.002 = 1300 ohm."
+  },
+  {
+    "id": "12-03-post-3",
+    "stage": "post",
+    "question": "Why does a saturated switch not care much about the exact beta of the transistor?",
+    "options": [
+      "Beta is always exactly 100",
+      "The base current is far more than needed, so the load, not beta, sets the collector current",
+      "Saturation increases beta",
+      "Beta only matters for pnp transistors"
+    ],
+    "correct": 1,
+    "explanation": "With overdrive, any beta above the forced value saturates the transistor; the simulation showed 0.1 % change for beta from 50 to 300."
+  },
+  {
+    "id": "12-03-post-4",
+    "stage": "post",
+    "question": "In which state does a switching transistor get hottest?",
+    "options": [
+      "Fully off",
+      "Fully on (saturated)",
+      "Half on (active), with both large V_CE and large I_C",
+      "It is the same in all states"
+    ],
+    "correct": 2,
+    "explanation": "P = V_CE x I_C is only large when both are large at once: the active region."
+  },
+  {
+    "id": "12-03-post-5",
+    "stage": "post",
+    "question": "What does a flyback diode across a relay coil do?",
+    "options": [
+      "It speeds up the relay",
+      "It gives the coil's current a safe path when the transistor turns off, preventing a huge voltage spike",
+      "It reduces the coil's resistance",
+      "It protects the pin from static electricity"
+    ],
+    "correct": 1,
+    "explanation": "Without it, V = L dI/dt reached thousands of volts in the simulation; with it, the collector stayed at 12.8 V."
+  },
+  {
+    "id": "12-03-post-6",
+    "stage": "post",
+    "question": "How is the flyback diode connected?",
+    "options": [
+      "In series with the coil",
+      "From base to emitter",
+      "Across the coil, cathode to the positive supply",
+      "Across the coil, anode to the positive supply"
+    ],
+    "correct": 2,
+    "explanation": "Reverse biased in normal operation; it only conducts when the coil tries to push the collector above the supply."
+  }
+]

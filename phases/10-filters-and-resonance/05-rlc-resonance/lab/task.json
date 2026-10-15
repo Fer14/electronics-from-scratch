@@ -1,0 +1,33 @@
+{
+  "id": "10-05-tune-to-1khz",
+  "title": "Tune the circuit to the 1 kHz tone",
+  "kind": "ac",
+  "story": "A series RLC circuit picks out one tone: at resonance the inductor's and capacitor's reactances cancel and the whole signal reaches the 20 ohm resistor. The coil is fixed at 10 mH. Choose the capacitor so the circuit lets a 1 kHz tone through (within 3 dB) while a 3 kHz tone is cut by at least 10 dB.",
+  "sim": {"source": "V1", "f_start": 100, "f_stop": 100000, "points": 600},
+  "board": {
+    "nodes": {"in": [1, 1], "a": [4, 1], "out": [8, 1], "gnd": [8, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "sine_source", "id": "V1", "plus": "in", "minus": "gnd", "amplitude": 1, "freq": 1000},
+      {"type": "inductor", "id": "L1", "a": "in", "b": "a", "henries": 0.01},
+      {"type": "resistor", "id": "R1", "a": "out", "b": "gnd", "ohms": 20}
+    ],
+    "slots": [
+      {"id": "S1", "a": "a", "b": "out", "accepts": ["capacitor"]}
+    ]
+  },
+  "parts": [
+    {"type": "capacitor", "farads": 2.2e-07},
+    {"type": "capacitor", "farads": 2.2e-06},
+    {"type": "capacitor", "farads": 2.2e-05}
+  ],
+  "goals": [
+    {"measure": "gain_db_at", "at": "out", "freq": 1000, "min": -3, "label": "the 1 kHz tone passes within 3 dB"},
+    {"measure": "gain_db_at", "at": "out", "freq": 3000, "max": -10, "label": "a 3 kHz tone is cut by at least 10 dB"}
+  ],
+  "solution": {"S1": {"type": "capacitor", "farads": 2.2e-06}},
+  "hints": [
+    "Resonance: f0 = 1 / (2 pi sqrt(L C)). Solve for C: C = 1 / ((2 pi f0)^2 L).",
+    "With L = 10 mH and f0 = 1 kHz the exact value is about 2.5 uF."
+  ]
+}

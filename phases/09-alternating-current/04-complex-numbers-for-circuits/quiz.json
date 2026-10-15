@@ -1,0 +1,106 @@
+[
+  {
+    "id": "09-04-pre-1",
+    "stage": "pre",
+    "question": "On the number line, what does multiplying a number by -1 do to its arrow from zero?",
+    "options": [
+      "Makes it longer",
+      "Turns it round by half a turn (180 degrees)",
+      "Moves it one unit to the left",
+      "Nothing"
+    ],
+    "correct": 1,
+    "explanation": "3 becomes -3: same length, opposite direction. That is a half turn, and two half turns give back the original, which is why (-1) x (-1) = 1."
+  },
+  {
+    "id": "09-04-pre-2",
+    "stage": "pre",
+    "question": "What is the length of the arrow from (0, 0) to (3, 4)?",
+    "options": [
+      "7",
+      "12",
+      "5",
+      "25"
+    ],
+    "correct": 2,
+    "explanation": "By Pythagoras, sqrt(3^2 + 4^2) = sqrt(25) = 5."
+  },
+  {
+    "id": "09-04-post-1",
+    "stage": "post",
+    "question": "What is j x j?",
+    "options": [
+      "-1",
+      "1",
+      "j",
+      "0"
+    ],
+    "correct": 0,
+    "explanation": "j is defined as a quarter turn; two quarter turns are a half turn, which is multiplication by -1."
+  },
+  {
+    "id": "09-04-post-2",
+    "stage": "post",
+    "question": "What is (3 + 4j) x (1 - 2j)?",
+    "options": [
+      "3 - 8j",
+      "-5 - 2j",
+      "4 + 2j",
+      "11 - 2j"
+    ],
+    "correct": 3,
+    "explanation": "3 - 6j + 4j - 8j^2 = 3 - 2j + 8 = 11 - 2j, using j^2 = -1."
+  },
+  {
+    "id": "09-04-post-3",
+    "stage": "post",
+    "question": "When you multiply two complex numbers in polar form, what happens?",
+    "options": [
+      "Sizes add and angles multiply",
+      "Sizes multiply and angles add",
+      "Sizes and angles both add",
+      "Only the real parts multiply"
+    ],
+    "correct": 1,
+    "explanation": "Multiplication stretches by the size and turns by the angle: (r1 at a1) x (r2 at a2) = (r1 x r2) at (a1 + a2)."
+  },
+  {
+    "id": "09-04-post-4",
+    "stage": "post",
+    "question": "What is 1 / j?",
+    "options": [
+      "j",
+      "1",
+      "-j",
+      "-1"
+    ],
+    "correct": 2,
+    "explanation": "j x (-j) = -(j x j) = 1, so 1 / j = -j: a quarter turn clockwise."
+  },
+  {
+    "id": "09-04-post-5",
+    "stage": "post",
+    "question": "Euler's formula says e^(j theta) equals:",
+    "options": [
+      "cos(theta) + j sin(theta), an arrow of length 1 at angle theta",
+      "e x theta x j",
+      "sin(theta) - j cos(theta)",
+      "a real number larger than 1"
+    ],
+    "correct": 0,
+    "explanation": "e^(j theta) = cos(theta) + j sin(theta). Its size is always 1 and its angle is theta, so it is a pure rotation."
+  },
+  {
+    "id": "09-04-post-6",
+    "stage": "post",
+    "question": "The simulator's AC analysis returns V(out) = 0.5 - 0.5j V for a 1 V source. What does that mean?",
+    "options": [
+      "The output is 0.5 V DC",
+      "The output is a sine of amplitude 1 V leading by 45 degrees",
+      "The output has no physical meaning",
+      "The output is a sine of amplitude 0.7071 V lagging the input by 45 degrees"
+    ],
+    "correct": 3,
+    "explanation": "Size sqrt(0.5^2 + 0.5^2) = 0.7071, angle atan2(-0.5, 0.5) = -45 degrees: 0.7071 times the input, 45 degrees late."
+  }
+]

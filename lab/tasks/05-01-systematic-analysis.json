@@ -1,0 +1,114 @@
+{
+ "id": "05-01-systematic-analysis",
+ "title": "Find the missing resistor in a two-source network",
+ "kind": "dc",
+ "story": "A 12 V battery and a 1 mA current source feed the same network. The resistor from node b to ground has fallen off the board. Put back the one that brings node b to about 7 V and node c to about 2.5 V.",
+ "board": {
+  "nodes": {
+   "a": [
+    1,
+    1
+   ],
+   "b": [
+    4,
+    1
+   ],
+   "c": [
+    7,
+    1
+   ],
+   "gnd": [
+    4,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "V1",
+    "plus": "a",
+    "minus": "gnd",
+    "volts": 12
+   },
+   {
+    "type": "resistor",
+    "id": "R1",
+    "a": "a",
+    "b": "b",
+    "ohms": 1000
+   },
+   {
+    "type": "resistor",
+    "id": "R3",
+    "a": "b",
+    "b": "c",
+    "ohms": 3000
+   },
+   {
+    "type": "resistor",
+    "id": "R4",
+    "a": "c",
+    "b": "gnd",
+    "ohms": 1000
+   },
+   {
+    "type": "current_source",
+    "id": "I1",
+    "from": "gnd",
+    "to": "c",
+    "amps": 0.001
+   }
+  ],
+  "slots": [
+   {
+    "id": "R2",
+    "a": "b",
+    "b": "gnd",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 1000
+  },
+  {
+   "type": "resistor",
+   "ohms": 2000
+  },
+  {
+   "type": "resistor",
+   "ohms": 10000
+  }
+ ],
+ "goals": [
+  {
+   "measure": "voltage",
+   "at": "b",
+   "min": 6.8,
+   "max": 7.2,
+   "label": "node b between 6.8 and 7.2 V"
+  },
+  {
+   "measure": "voltage",
+   "at": "c",
+   "min": 2.4,
+   "max": 2.6,
+   "label": "node c between 2.4 and 2.6 V"
+  }
+ ],
+ "solution": {
+  "R2": {
+   "type": "resistor",
+   "ohms": 2000
+  }
+ },
+ "hints": [
+  "With the slot empty, node b only has R1 and R3 pulling on it. A resistor to ground pulls b down: the smaller it is, the harder it pulls.",
+  "Node c is set by the current source and by b together: vc = 0.75 + 0.25 x vb (in volts) for this board."
+ ]
+}

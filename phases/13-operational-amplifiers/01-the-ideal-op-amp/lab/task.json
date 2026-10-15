@@ -1,0 +1,39 @@
+{
+  "id": "13-01-the-ideal-op-amp",
+  "title": "Buffer the divider",
+  "kind": "dc",
+  "story": "A 10 k / 10 k divider makes 5 V from a 10 V supply, but connecting a 1 kOhm load to it directly would drag it down to 0.83 V. An op-amp (powered from 0 and 12 V) sits between the divider and the load, with its plus input on the divider. One connection is missing: from the op-amp's output back to its minus input. Choose what goes there so the load gets 5 V.",
+  "board": {
+    "nodes": {"vs": [0, 0], "mid": [0, 3], "minus": [3, 5], "out": [7, 4], "gnd": [0, 6], "lo": [9, 6], "load": [9, 4], "gm": [3, 6]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "voltage_source", "id": "VS", "plus": "vs", "minus": "gnd", "volts": 10},
+      {"type": "resistor", "id": "R1", "a": "vs", "b": "mid", "ohms": 10000},
+      {"type": "resistor", "id": "R2", "a": "mid", "b": "gnd", "ohms": 10000},
+      {"type": "opamp", "id": "U1", "plus": "mid", "minus": "minus", "out": "out", "gain": 100000, "rails": [0, 12]},
+      {"type": "resistor", "id": "RM", "a": "minus", "b": "gm", "ohms": 1000000},
+      {"type": "wire", "id": "W1", "a": "gm", "b": "gnd"},
+      {"type": "wire", "id": "W2", "a": "out", "b": "load"},
+      {"type": "resistor", "id": "RL", "a": "load", "b": "lo", "ohms": 1000},
+      {"type": "wire", "id": "W3", "a": "lo", "b": "gnd"}
+    ],
+    "slots": [
+      {"id": "S1", "a": "out", "b": "minus", "accepts": ["wire", "open", "resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "wire"},
+    {"type": "open"},
+    {"type": "resistor", "ohms": 1000000}
+  ],
+  "goals": [
+    {"measure": "voltage", "at": "load", "min": 4.9, "max": 5.1, "label": "load voltage between 4.9 and 5.1 V"},
+    {"measure": "current", "of": "R1", "min": 0.00049, "max": 0.00051, "label": "divider undisturbed (0.5 mA through R1)"}
+  ],
+  "solution": {"S1": {"type": "wire"}},
+  "hints": [
+    "With negative feedback, the op-amp drives its output until its two inputs are equal.",
+    "If the output is wired straight to the minus input, 'inputs equal' means 'output equals the plus input'.",
+    "With no feedback at all, the op-amp just amplifies V+ - V- by 100,000 and slams into a rail."
+  ]
+}

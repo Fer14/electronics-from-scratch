@@ -1,0 +1,93 @@
+[
+  {
+    "id": "10-02-pre-1",
+    "stage": "pre",
+    "question": "In an RC low-pass, the output is taken across which part?",
+    "options": [
+      "The resistor",
+      "The capacitor",
+      "The source",
+      "Neither, it is taken from the input"
+    ],
+    "correct": 1,
+    "explanation": "The resistor is in series and the capacitor goes from the output to ground. At high frequency the capacitor shorts the output, so only low frequencies remain."
+  },
+  {
+    "id": "10-02-pre-2",
+    "stage": "pre",
+    "question": "What is the impedance of a capacitor C at angular frequency omega?",
+    "options": [
+      "j omega C",
+      "omega C",
+      "1 / (j omega C)",
+      "C / omega"
+    ],
+    "correct": 2,
+    "explanation": "Z_C = 1 / (j omega C): its size falls with frequency and the j means its voltage lags its current by 90 degrees."
+  },
+  {
+    "id": "10-02-post-1",
+    "stage": "post",
+    "question": "What is the phase shift of an RC low-pass at its cutoff frequency?",
+    "options": [
+      "-45 degrees",
+      "0 degrees",
+      "-90 degrees",
+      "+45 degrees"
+    ],
+    "correct": 0,
+    "explanation": "H = 1 / (1 + j), whose angle is -atan(1) = -45 degrees. The output lags the input by an eighth of a cycle."
+  },
+  {
+    "id": "10-02-post-2",
+    "stage": "post",
+    "question": "You need fc = 1 kHz with C = 22 nF. About which resistor?",
+    "options": [
+      "45 ohm",
+      "7.2 k ohm",
+      "72 k ohm",
+      "720 ohm"
+    ],
+    "correct": 1,
+    "explanation": "R = 1 / (2 pi x 1000 x 22e-9) = 1 / 1.382e-4 = 7234 ohm."
+  },
+  {
+    "id": "10-02-post-3",
+    "stage": "post",
+    "question": "A low-pass with R = 1 k and C = 100 nF drives a 1 k load. What happens?",
+    "options": [
+      "Nothing changes",
+      "The cutoff halves and the DC gain doubles",
+      "The filter becomes a high-pass",
+      "The DC gain drops to 0.5 and the cutoff doubles"
+    ],
+    "correct": 3,
+    "explanation": "The load forms a divider (gain 0.5) and the capacitor now charges through R || R_L = 500 ohm, so fc = 1 / (2 pi x 500 x 1e-7) = 3183 Hz."
+  },
+  {
+    "id": "10-02-post-4",
+    "stage": "post",
+    "question": "Far above its cutoff, how does the gain of an RC low-pass change when the frequency doubles?",
+    "options": [
+      "It doubles",
+      "It stays the same",
+      "It halves",
+      "It drops to a quarter"
+    ],
+    "correct": 2,
+    "explanation": "For f much bigger than fc, |H| is about fc / f, so doubling f halves the gain."
+  },
+  {
+    "id": "10-02-post-5",
+    "stage": "post",
+    "question": "An RC low-pass has a cutoff of 3.5 MHz. Roughly what is its 10-90 % rise time?",
+    "options": [
+      "100 ns",
+      "1 us",
+      "10 ns",
+      "0.35 ns"
+    ],
+    "correct": 0,
+    "explanation": "t_r = 0.35 / fc = 0.35 / 3.5e6 = 1e-7 s = 100 ns."
+  }
+]

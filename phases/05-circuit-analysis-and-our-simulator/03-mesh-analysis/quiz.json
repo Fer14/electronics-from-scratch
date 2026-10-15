@@ -1,0 +1,93 @@
+[
+  {
+    "id": "05-03-pre-1",
+    "stage": "pre",
+    "question": "What is a mesh in a planar circuit drawing?",
+    "options": [
+      "Any closed loop, even one with other branches inside it",
+      "A node with more than two connections",
+      "A loop with no other branch inside it, like one pane of a window",
+      "A group of resistors in parallel"
+    ],
+    "correct": 2,
+    "explanation": "A mesh is a 'window' of the drawing: a loop that encloses no other branch."
+  },
+  {
+    "id": "05-03-pre-2",
+    "stage": "pre",
+    "question": "Walking around a loop, you pass through a battery from its minus side to its plus side. In KVL, this counts as:",
+    "options": [
+      "A rise in voltage",
+      "A drop in voltage",
+      "Nothing, batteries are ignored in KVL",
+      "A current, not a voltage"
+    ],
+    "correct": 0,
+    "explanation": "Going from minus to plus, a charge gains energy: a rise. Plus to minus is a drop."
+  },
+  {
+    "id": "05-03-pre-3",
+    "stage": "pre",
+    "question": "Why does mesh analysis never need KCL equations?",
+    "options": [
+      "Because KCL does not apply to planar circuits",
+      "Because each mesh current enters and leaves every node it touches, so KCL holds automatically",
+      "Because mesh currents are always zero",
+      "Because KCL only applies to ground"
+    ],
+    "correct": 1,
+    "explanation": "A circulating current contributes zero net current to each node. Any sum of circulating currents also satisfies KCL."
+  },
+  {
+    "id": "05-03-post-1",
+    "stage": "post",
+    "question": "Two clockwise mesh currents i1 = 5 mA and i2 = 2 mA share a 1 kOhm resistor. What is the real current in that resistor?",
+    "options": [
+      "7 mA",
+      "5 mA",
+      "2.5 mA",
+      "3 mA"
+    ],
+    "correct": 3,
+    "explanation": "In a shared branch, two clockwise mesh currents pass in opposite directions, so the real current is their difference, 5 - 2 = 3 mA (in mesh 1's direction)."
+  },
+  {
+    "id": "05-03-post-2",
+    "stage": "post",
+    "question": "Mesh 1 contains resistors of 1 kOhm, 2 kOhm and 3 kOhm. The 3 kOhm one is shared with mesh 2. What are the diagonal entry R11 and the off-diagonal R12?",
+    "options": [
+      "R11 = 3 kOhm, R12 = 3 kOhm",
+      "R11 = 6 kOhm, R12 = -3 kOhm",
+      "R11 = 6 kOhm, R12 = +3 kOhm",
+      "R11 = 1 kOhm, R12 = -6 kOhm"
+    ],
+    "correct": 1,
+    "explanation": "The diagonal is the total resistance around the mesh (1 + 2 + 3 = 6 kOhm); the off-diagonal is minus the shared resistance (-3 kOhm) when all meshes run clockwise."
+  },
+  {
+    "id": "05-03-post-3",
+    "stage": "post",
+    "question": "A 2 mA current source sits on the outside edge of mesh 3 only. What does that mean for mesh analysis?",
+    "options": [
+      "The mesh 3 current is known (plus or minus 2 mA depending on direction), so there is one fewer unknown",
+      "You must use a supermesh",
+      "Mesh analysis cannot be used",
+      "The current source can be ignored"
+    ],
+    "correct": 0,
+    "explanation": "Only mesh 3 flows through an outer branch, so the source fixes that mesh current. A supermesh is needed only when the source is on a shared branch."
+  },
+  {
+    "id": "05-03-post-4",
+    "stage": "post",
+    "question": "Which circuit cannot be solved with mesh analysis?",
+    "options": [
+      "One with two batteries",
+      "One with a current source on an outer edge",
+      "One that cannot be drawn without wires crossing (non-planar)",
+      "One with ten resistors"
+    ],
+    "correct": 2,
+    "explanation": "Meshes are the windows of a flat drawing. A non-planar circuit has no well-defined windows; use nodal analysis."
+  }
+]

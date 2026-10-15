@@ -1,0 +1,134 @@
+{
+ "id": "14-04-xor-from-nand",
+ "title": "Build XOR from four NAND gates",
+ "kind": "logic",
+ "story": "A 74HC00 chip holds four NAND gates and nothing else. One NAND is already wired to a and b. Fill the other three slots so y = a XOR b: 1 when the inputs differ, 0 when they are equal.",
+ "board": {
+  "inputs": [
+   "a",
+   "b"
+  ],
+  "outputs": [
+   "y"
+  ],
+  "nodes": {
+   "a": [
+    1,
+    1
+   ],
+   "b": [
+    1,
+    5
+   ],
+   "n1": [
+    3,
+    3
+   ],
+   "n2": [
+    6,
+    1
+   ],
+   "n3": [
+    6,
+    5
+   ],
+   "y": [
+    9,
+    3
+   ]
+  },
+  "fixed": [
+   {
+    "type": "gate",
+    "id": "G1",
+    "op": "nand",
+    "inputs": [
+     "a",
+     "b"
+    ],
+    "output": "n1"
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "inputs": [
+     "a",
+     "n1"
+    ],
+    "output": "n2",
+    "accepts": [
+     "gate"
+    ]
+   },
+   {
+    "id": "S2",
+    "inputs": [
+     "b",
+     "n1"
+    ],
+    "output": "n3",
+    "accepts": [
+     "gate"
+    ]
+   },
+   {
+    "id": "S3",
+    "inputs": [
+     "n2",
+     "n3"
+    ],
+    "output": "y",
+    "accepts": [
+     "gate"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "gate",
+   "op": "nand"
+  },
+  {
+   "type": "gate",
+   "op": "nor"
+  },
+  {
+   "type": "gate",
+   "op": "and"
+  }
+ ],
+ "goals": [
+  {
+   "measure": "truth_table",
+   "expect": {
+    "y": [
+     0,
+     1,
+     1,
+     0
+    ]
+   },
+   "label": "y = a XOR b for all four input combinations"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "gate",
+   "op": "nand"
+  },
+  "S2": {
+   "type": "gate",
+   "op": "nand"
+  },
+  "S3": {
+   "type": "gate",
+   "op": "nand"
+  }
+ },
+ "hints": [
+  "Work out n1 for each of the four rows first: it is 0 only when a = b = 1.",
+  "NAND(a, n1) is 0 only when a = 1 and n1 = 1, that is when a = 1 and b = 0. Which row makes NAND(b, n1) equal 0?"
+ ]
+}

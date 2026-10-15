@@ -1,0 +1,58 @@
+[
+  {
+    "id": "03-01-pre-1",
+    "stage": "pre",
+    "question": "Inside a copper wire carrying 1 A, roughly how fast do the electrons drift along the wire?",
+    "options": ["Close to the speed of light", "About 1 kilometer per second", "Less than a millimeter per second", "They do not move at all"],
+    "correct": 2,
+    "explanation": "In 1 mm^2 of copper at 1 A the drift speed is about 0.07 mm/s. What travels fast is the electric field, not the electrons."
+  },
+  {
+    "id": "03-01-pre-2",
+    "stage": "pre",
+    "question": "When current flows through a resistor, what does the resistor take away?",
+    "options": ["Energy, which turns into heat", "Current: less comes out than goes in", "Electrons, which are destroyed", "Nothing at all"],
+    "correct": 0,
+    "explanation": "The same current goes in and out. Collisions hand the electrons' energy to the lattice, which warms up."
+  },
+  {
+    "id": "03-01-post-1",
+    "stage": "post",
+    "question": "A part has 6 V across it and 3 mA through it. What is its resistance?",
+    "options": ["2 ohm", "18 ohm", "500 ohm", "2 kilohm"],
+    "correct": 3,
+    "explanation": "R = V / I = 6 / 0.003 = 2000 ohm = 2 kilohm. Always convert mA to A first."
+  },
+  {
+    "id": "03-01-post-2",
+    "stage": "post",
+    "question": "In the collision picture, why does doubling the voltage double the current?",
+    "options": ["The electrons collide twice as often", "Each electron gets twice the push but the same average time between bumps, so it builds up twice the drift", "Twice as many electrons appear in the wire", "The wire gets twice as thick"],
+    "correct": 1,
+    "explanation": "The time between collisions is set by the fast random motion, which the small field barely changes. Twice the push over the same time gives twice the drift speed and twice the current."
+  },
+  {
+    "id": "03-01-post-3",
+    "stage": "post",
+    "question": "Why does a lamp light up the instant you close the switch, if electrons drift so slowly?",
+    "options": ["The battery fires electrons at high speed", "The lamp stores light in advance", "The switch is faster than the wire", "The wire is already full of free electrons and the field reaches all of them almost instantly"],
+    "correct": 3,
+    "explanation": "Like a bicycle chain, every link starts moving at once. The filament's own electrons start drifting immediately."
+  },
+  {
+    "id": "03-01-post-4",
+    "stage": "post",
+    "question": "Which change makes a metal wire's resistance smaller?",
+    "options": ["Making it thicker", "Making it longer", "Heating it", "Adding impurities to the metal"],
+    "correct": 0,
+    "explanation": "A thicker wire has more free electrons in each slice, so the same drift carries more current. Longer, hotter or dirtier wires resist more."
+  },
+  {
+    "id": "03-01-post-5",
+    "stage": "post",
+    "question": "A 1 kilohm resistor has a conductance of",
+    "options": ["1000 S", "1 S", "1 mS", "1 microsiemens"],
+    "correct": 2,
+    "explanation": "G = 1 / R = 1 / 1000 = 0.001 S = 1 millisiemens."
+  }
+]

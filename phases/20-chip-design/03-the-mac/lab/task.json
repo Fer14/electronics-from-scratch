@@ -1,0 +1,27 @@
+{
+  "id": "20-03-size-the-accumulator",
+  "title": "Size the accumulator",
+  "kind": "chip",
+  "story": "Your MAC multiplies unsigned 8-bit weights by unsigned 8-bit inputs and adds up dot products of length 256. Each product needs 16 bits, and 256 of them can add up to 256 x 255 x 255 = 16,646,400, which needs 24 bits. Pick the MAC whose accumulator never overflows, while keeping the MAC within 640 gates of area (the array has room for thousands of them, so every gate counts).",
+  "board": {
+    "nodes": {"in": [1, 2], "out": [9, 2]},
+    "fixed": [],
+    "slots": [
+      {"id": "S1", "a": "in", "b": "out", "accepts": ["mac"], "label": "the MAC"}
+    ]
+  },
+  "parts": [
+    {"type": "mac", "bits": 8, "acc_bits": 16},
+    {"type": "mac", "bits": 8, "acc_bits": 24},
+    {"type": "mac", "bits": 8, "acc_bits": 32}
+  ],
+  "goals": [
+    {"measure": "bits", "of": "S1", "min": 24, "label": "the accumulator has at least 24 bits"},
+    {"measure": "area", "max": 640, "label": "the MAC uses at most 640 gates"}
+  ],
+  "solution": {"S1": {"type": "mac", "bits": 8, "acc_bits": 24}},
+  "hints": [
+    "Accumulator bits = product bits + log2(number of terms) = 16 + 8.",
+    "Area = multiplier (344) + adder (5 per accumulator bit) + register (6 per accumulator bit)."
+  ]
+}

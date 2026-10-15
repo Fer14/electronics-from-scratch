@@ -1,0 +1,93 @@
+[
+  {
+    "id": "21-01-pre-1",
+    "stage": "pre",
+    "question": "What does a schematic tell you that a netlist does not?",
+    "options": [
+      "Nothing about connections: both describe the same connections, and neither says where parts sit on a board",
+      "The exact position of every part on the board",
+      "The width of every copper trace",
+      "The thickness of the copper layers"
+    ],
+    "correct": 0,
+    "explanation": "A netlist is the connection information extracted from the schematic. Neither one contains geometry; placement and routing add it."
+  },
+  {
+    "id": "21-01-pre-2",
+    "stage": "pre",
+    "question": "What is the insulating core of a typical printed circuit board made of?",
+    "options": [
+      "Pure copper",
+      "Glass-fibre cloth soaked in epoxy (FR-4)",
+      "Silicon",
+      "Solder"
+    ],
+    "correct": 1,
+    "explanation": "FR-4 is woven fibreglass in epoxy resin. It is stiff and insulating; the copper layers are glued to it."
+  },
+  {
+    "id": "21-01-post-1",
+    "stage": "post",
+    "question": "A part is placed at (10, 5) mm and its pad 2 has the footprint offset (+0.95, 0) mm. Where is pad 2?",
+    "options": [
+      "(0.95, 0) mm",
+      "(9.05, 5) mm",
+      "(10.95, 5) mm",
+      "(10, 5.95) mm"
+    ],
+    "correct": 2,
+    "explanation": "Pad position = part position + pad offset = (10 + 0.95, 5 + 0) = (10.95, 5) mm."
+  },
+  {
+    "id": "21-01-post-2",
+    "stage": "post",
+    "question": "What is the Manhattan distance between pads at (2, 3) mm and (7, 1) mm?",
+    "options": [
+      "5.4 mm",
+      "3 mm",
+      "10 mm",
+      "7 mm"
+    ],
+    "correct": 3,
+    "explanation": "Manhattan distance = |2 - 7| + |3 - 1| = 5 + 2 = 7 mm, the length of a path made of horizontal and vertical segments."
+  },
+  {
+    "id": "21-01-post-3",
+    "stage": "post",
+    "question": "Why does an EDA tool draw a net's ratsnest as a minimum spanning tree instead of joining every pin to every other pin?",
+    "options": [
+      "Because it connects all pins with the least total length and no redundant loops",
+      "Because the factory cannot make more than one trace per net",
+      "Because a spanning tree has lower resistance than a single trace",
+      "Because nets with more than two pins are not allowed"
+    ],
+    "correct": 0,
+    "explanation": "To join N pins you need only N - 1 connections. The minimum spanning tree picks the shortest such set, which is a good estimate of the copper you will need."
+  },
+  {
+    "id": "21-01-post-4",
+    "stage": "post",
+    "question": "A 0.25 mm wide, 35 um thick copper trace is 100 mm long. Roughly what is its resistance? (rho = 1.72e-8 ohm m)",
+    "options": [
+      "About 2 milliohms",
+      "About 0.2 ohm",
+      "About 20 ohm",
+      "About 2 kilohm"
+    ],
+    "correct": 1,
+    "explanation": "R = rho L / A = 1.72e-8 * 0.1 / (0.25e-3 * 35e-6) = 1.72e-9 / 8.75e-9 = 0.197 ohm."
+  },
+  {
+    "id": "21-01-post-5",
+    "stage": "post",
+    "question": "Two boards have the same schematic and the same parts. Board B's ratsnest is three times longer than board A's. What does that most directly tell you?",
+    "options": [
+      "Board B will not work",
+      "Board B uses different components",
+      "Board B's placement is worse: it needs more copper, with more resistance and harder routing",
+      "Board B needs more layers by law"
+    ],
+    "correct": 2,
+    "explanation": "The ratsnest length measures how far connected pins are from each other, which is set by placement. Longer means more copper, more resistance and inductance, and a harder routing job, but the board can still work."
+  }
+]

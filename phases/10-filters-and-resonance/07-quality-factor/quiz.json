@@ -1,0 +1,93 @@
+[
+  {
+    "id": "10-07-pre-1",
+    "stage": "pre",
+    "question": "A crystal glass rings for several seconds when tapped; a cardboard box goes 'thud'. Which has the higher Q?",
+    "options": [
+      "The cardboard box",
+      "Both are the same",
+      "The crystal glass",
+      "Q only applies to circuits"
+    ],
+    "correct": 2,
+    "explanation": "High Q means little energy lost per cycle, so the oscillation lasts many cycles. The glass rings for thousands of cycles."
+  },
+  {
+    "id": "10-07-pre-2",
+    "stage": "pre",
+    "question": "In a series RLC circuit, what happens to the resonance when you increase R?",
+    "options": [
+      "It becomes broader and lower in Q",
+      "It becomes sharper",
+      "Its resonant frequency doubles",
+      "Nothing changes"
+    ],
+    "correct": 0,
+    "explanation": "Q = sqrt(L/C) / R falls as R grows, so the bandwidth f0 / Q widens."
+  },
+  {
+    "id": "10-07-post-1",
+    "stage": "post",
+    "question": "A resonance at 10 kHz has -3 dB points at 9.5 kHz and 10.5 kHz. What is its Q?",
+    "options": [
+      "1",
+      "10",
+      "100",
+      "0.1"
+    ],
+    "correct": 1,
+    "explanation": "BW = 1 kHz, so Q = f0 / BW = 10,000 / 1000 = 10."
+  },
+  {
+    "id": "10-07-post-2",
+    "stage": "post",
+    "question": "A series RLC has sqrt(L/C) = 50 ohm and R = 2 ohm. What is Q?",
+    "options": [
+      "100",
+      "0.04",
+      "52",
+      "25"
+    ],
+    "correct": 3,
+    "explanation": "Q = sqrt(L/C) / R = 50 / 2 = 25."
+  },
+  {
+    "id": "10-07-post-3",
+    "stage": "post",
+    "question": "About how many cycles does a resonator with Q = 50 ring before its amplitude falls to roughly 4 % of the start?",
+    "options": [
+      "5",
+      "500",
+      "50",
+      "1"
+    ],
+    "correct": 2,
+    "explanation": "Each cycle multiplies the amplitude by e^(-pi/Q). After Q cycles it is e^(-pi) = 0.043."
+  },
+  {
+    "id": "10-07-post-4",
+    "stage": "post",
+    "question": "Why might a filter with a very high Q be a bad choice for a signal that drifts slightly in frequency?",
+    "options": [
+      "High Q filters cannot be built",
+      "High Q filters amplify all frequencies",
+      "High Q filters have no resonant frequency",
+      "Its bandwidth is so narrow that the drifted signal falls outside the peak and is cut"
+    ],
+    "correct": 3,
+    "explanation": "BW = f0 / Q. A narrow peak rejects nearby frequencies, including the wanted one if it moves."
+  },
+  {
+    "id": "10-07-post-5",
+    "stage": "post",
+    "question": "A series RLC stores 20 uJ and loses 2 uJ per cycle. What is its Q?",
+    "options": [
+      "62.8",
+      "10",
+      "6.28",
+      "0.1"
+    ],
+    "correct": 0,
+    "explanation": "Q = 2 pi x stored / lost per cycle = 2 pi x 20 / 2 = 62.8."
+  }
+]

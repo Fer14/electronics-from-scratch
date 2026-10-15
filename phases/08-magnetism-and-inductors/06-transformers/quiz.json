@@ -1,0 +1,93 @@
+[
+  {
+    "id": "08-06-pre-1",
+    "stage": "pre",
+    "question": "Why does the electricity grid use transformers?",
+    "options": [
+      "To convert AC into DC",
+      "To change voltages efficiently, high for transmission and low for homes",
+      "To store energy overnight",
+      "To create extra power"
+    ],
+    "correct": 1,
+    "explanation": "Transformers step voltage up for long-distance transmission (lower current, lower losses) and down for safe use, with very little energy lost."
+  },
+  {
+    "id": "08-06-pre-2",
+    "stage": "pre",
+    "question": "What happens if you connect a transformer's primary to a battery?",
+    "options": [
+      "The secondary gives a steady DC output",
+      "The secondary gives AC",
+      "After the first instant there is no output, and the primary draws a large current",
+      "The transformer charges the battery"
+    ],
+    "correct": 2,
+    "explanation": "A steady current gives a steady flux, and Faraday's law needs a changing flux. The primary acts as just its wire resistance."
+  },
+  {
+    "id": "08-06-post-1",
+    "stage": "post",
+    "question": "A transformer has 2000 primary turns and 100 secondary turns. The primary sees 240 V. What is the secondary voltage?",
+    "options": [
+      "12 V",
+      "24 V",
+      "4800 V",
+      "120 V"
+    ],
+    "correct": 0,
+    "explanation": "V_s = V_p x N_s / N_p = 240 x 100 / 2000 = 12 V."
+  },
+  {
+    "id": "08-06-post-2",
+    "stage": "post",
+    "question": "An ideal step-down transformer delivers 3 A at 10 V. The primary is at 100 V. What is the primary current?",
+    "options": [
+      "30 A",
+      "3 A",
+      "0.03 A",
+      "0.3 A"
+    ],
+    "correct": 3,
+    "explanation": "Power is conserved: 10 x 3 = 30 W, so the primary current is 30 / 100 = 0.3 A."
+  },
+  {
+    "id": "08-06-post-3",
+    "stage": "post",
+    "question": "An 8 ohm speaker is connected to the secondary of a 5:1 transformer. What resistance does the amplifier on the primary see?",
+    "options": [
+      "40 ohm",
+      "1.6 ohm",
+      "200 ohm",
+      "8 ohm"
+    ],
+    "correct": 2,
+    "explanation": "Reflected resistance is n^2 x R_L = 25 x 8 = 200 ohm."
+  },
+  {
+    "id": "08-06-post-4",
+    "stage": "post",
+    "question": "Two coils have L1 = 9 mH and L2 = 1 mH with coupling k = 1. What is their mutual inductance?",
+    "options": [
+      "3 mH",
+      "9 mH",
+      "10 mH",
+      "1 mH"
+    ],
+    "correct": 0,
+    "explanation": "M = k sqrt(L1 L2) = sqrt(9 x 1) mH = 3 mH."
+  },
+  {
+    "id": "08-06-post-5",
+    "stage": "post",
+    "question": "Why are mains transformer cores made of thin insulated steel sheets instead of solid steel?",
+    "options": [
+      "To make them lighter",
+      "To block eddy currents that would heat the core",
+      "To increase the number of turns",
+      "To make the voltage higher"
+    ],
+    "correct": 1,
+    "explanation": "A changing flux induces eddy currents in a solid conductor. Insulated laminations break up their paths and cut the loss."
+  }
+]

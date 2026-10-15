@@ -1,0 +1,34 @@
+{
+  "id": "21-04-decoupling-rule",
+  "title": "Follow the decoupling rule",
+  "kind": "transient",
+  "story": "Our board rule says: no supply may sag more than 150 mV when a load switches on. A 5 V battery reaches the board through leads with 0.05 ohm and 0.5 uH. At t = 5 us a 5 ohm load (about 1 A) switches on. Choose the decoupling capacitor that goes right at the load (every capacitor in the tray starts charged to 5 V). Keep vdd at or above 4.85 V for the whole run.",
+  "board": {
+    "nodes": {"bat": [1, 1], "mid": [3, 1], "vdd": [6, 1], "sw": [9, 3], "gnd": [6, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "V1", "plus": "bat", "minus": "gnd", "volts": 5},
+      {"type": "resistor", "id": "R_LEADS", "a": "bat", "b": "mid", "ohms": 0.05},
+      {"type": "inductor", "id": "L_LEADS", "a": "mid", "b": "vdd", "henries": 5e-7},
+      {"type": "resistor", "id": "R_LOAD", "a": "vdd", "b": "sw", "ohms": 5},
+      {"type": "switch", "id": "S_LOAD", "a": "sw", "b": "gnd", "closed": false, "toggle_at": [5e-6]}
+    ],
+    "slots": [
+      {"id": "S1", "a": "vdd", "b": "gnd", "accepts": ["capacitor"]}
+    ]
+  },
+  "parts": [
+    {"type": "capacitor", "farads": 1e-6, "v0": 5},
+    {"type": "capacitor", "farads": 1e-5, "v0": 5},
+    {"type": "capacitor", "farads": 1e-4, "v0": 5}
+  ],
+  "sim": {"t_stop": 6e-5, "dt": 2e-8},
+  "goals": [
+    {"measure": "min_voltage", "at": "vdd", "min": 4.85, "label": "vdd never falls below 4.85 V"}
+  ],
+  "solution": {"S1": {"type": "capacitor", "farads": 1e-4, "v0": 5}},
+  "hints": [
+    "The lead inductance cannot change its current instantly, so the capacitor supplies the first microseconds of load current.",
+    "The deepest dip is about I * sqrt(L / C) with I = 1 A and L = 0.5 uH."
+  ]
+}

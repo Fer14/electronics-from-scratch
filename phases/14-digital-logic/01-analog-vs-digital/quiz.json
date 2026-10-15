@@ -1,0 +1,93 @@
+[
+  {
+    "id": "14-01-pre-1",
+    "stage": "pre",
+    "question": "Physically, what travels along a wire that carries a 'digital' signal?",
+    "options": [
+      "Special digital electrons that can only be 0 or 1",
+      "An ordinary voltage that we agree to read as only two values",
+      "Light pulses",
+      "Nothing; digital signals need no wire"
+    ],
+    "correct": 1,
+    "explanation": "Every wire carries a real-valued voltage. Digital is an agreement about meaning (two bands) plus circuits that restore clean levels at each stage."
+  },
+  {
+    "id": "14-01-pre-2",
+    "stage": "pre",
+    "question": "Each of 4 analog stages adds random noise of typical size 10 mV. What is the typical total noise at the end?",
+    "options": [
+      "10 mV",
+      "40 mV",
+      "20 mV",
+      "0 mV"
+    ],
+    "correct": 2,
+    "explanation": "Independent random noise adds like the square root of the number of stages: 10 mV x sqrt(4) = 20 mV."
+  },
+  {
+    "id": "14-01-post-1",
+    "stage": "post",
+    "question": "Why does noise not pile up in a chain of digital stages?",
+    "options": [
+      "Digital wires are shielded",
+      "Digital stages add no noise",
+      "Digital signals travel faster than noise",
+      "Each stage decides 0 or 1 and outputs a fresh, clean voltage, discarding the noise it received"
+    ],
+    "correct": 3,
+    "explanation": "This is regeneration. Every stage adds noise, but as long as one hop's noise stays inside the noise margin, the next stage outputs an exact 0 V or full supply again."
+  },
+  {
+    "id": "14-01-post-2",
+    "stage": "post",
+    "question": "A family has VOH = 4.4 V, VOL = 0.1 V, VIH = 3.5 V, VIL = 1.5 V. What is the high noise margin NMH?",
+    "options": [
+      "0.9 V",
+      "1.4 V",
+      "2.0 V",
+      "4.3 V"
+    ],
+    "correct": 0,
+    "explanation": "NMH = VOH - VIH = 4.4 - 3.5 = 0.9 V. (NML = VIL - VOL = 1.4 V.)"
+  },
+  {
+    "id": "14-01-post-3",
+    "stage": "post",
+    "question": "A 74HC input at 5 V has VIL = 1.5 V and VIH = 3.5 V. What does it read at 2.8 V?",
+    "options": [
+      "A guaranteed 0",
+      "A guaranteed 1",
+      "Undefined: the voltage is in the forbidden zone",
+      "It reads 2.8"
+    ],
+    "correct": 2,
+    "explanation": "2.8 V is above VIL and below VIH, so the datasheet guarantees nothing. Good designs never leave a wire there."
+  },
+  {
+    "id": "14-01-post-4",
+    "stage": "post",
+    "question": "A 3.3 V chip with VOH = 2.4 V drives a 5 V 74HC input with VIH = 3.5 V. What is the problem?",
+    "options": [
+      "The 0 level is too high",
+      "There is no problem",
+      "The input will be damaged by overvoltage",
+      "NMH is negative (2.4 - 3.5 = -1.1 V), so a 1 is not guaranteed to be read as 1"
+    ],
+    "correct": 3,
+    "explanation": "The driver's worst-case high is below the receiver's minimum accepted high. Use a level shifter or an HCT part (VIH = 2.0 V)."
+  },
+  {
+    "id": "14-01-post-5",
+    "stage": "post",
+    "question": "Why do most digital systems use two levels rather than ten?",
+    "options": [
+      "Two levels give the widest gap between neighbouring levels, so the largest noise margin, and the simplest on/off transistors",
+      "Ten levels are impossible to generate",
+      "Binary was required by a law",
+      "Ten levels would use more wires"
+    ],
+    "correct": 0,
+    "explanation": "Splitting the supply into more bands shrinks each band and its margin. Some systems (flash cells, PAM4 links) do use more levels and pay with error-correcting codes."
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "id": "02-02-match-the-bulb",
+  "title": "Match the bulb to the battery",
+  "kind": "dc",
+  "story": "You have a 6 V lantern battery and a drawer of bulbs. Every bulb is printed with the voltage and current it was designed for, and when hot it behaves like a fixed resistor: a 1.5 V 0.3 A bulb is 5 Ω, a 6 V 0.5 A bulb is 12 Ω, a 12 V 0.25 A bulb is 48 Ω and a 24 V 0.1 A bulb is 240 Ω. Put the bulb in the socket that shines at its rated brightness without burning out. A bulb is happy near its rated current and power.",
+  "board": {
+    "nodes": {"vcc": [2, 1], "gnd": [2, 5], "top": [7, 1], "bottom": [7, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "B1", "plus": "vcc", "minus": "gnd", "volts": 6},
+      {"type": "switch", "id": "SW1", "a": "vcc", "b": "top", "closed": true},
+      {"type": "switch", "id": "SW2", "a": "bottom", "b": "gnd", "closed": true}
+    ],
+    "slots": [
+      {"id": "S1", "a": "top", "b": "bottom", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 5},
+    {"type": "resistor", "ohms": 12},
+    {"type": "resistor", "ohms": 48},
+    {"type": "resistor", "ohms": 240}
+  ],
+  "goals": [
+    {"measure": "current", "of": "S1", "min": 0.4, "max": 0.6, "label": "bulb current between 0.4 and 0.6 A"},
+    {"measure": "power", "of": "S1", "min": 2.5, "max": 3.5, "label": "bulb turns between 2.5 and 3.5 W into light and heat"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 12}},
+  "hints": [
+    "Pick the bulb whose printed voltage matches the battery's voltage.",
+    "Preview of Phase 03: current = voltage / resistance, and power = voltage x current.",
+    "The 5 Ω bulb would take 6 / 5 = 1.2 A, four times what it was built for. The 240 Ω bulb only gets 0.025 A and barely glows."
+  ]
+}

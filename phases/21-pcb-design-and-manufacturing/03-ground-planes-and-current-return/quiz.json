@@ -1,0 +1,93 @@
+[
+  {
+    "id": "21-03-pre-1",
+    "stage": "pre",
+    "question": "1 A of load current returns through a 0.1 ohm strip of ground copper. How far above the connector's ground does the far end of the strip sit?",
+    "options": [
+      "0 V, ground is always 0 V",
+      "0.1 V",
+      "1 V",
+      "10 V"
+    ],
+    "correct": 1,
+    "explanation": "Ground copper is a resistor like any other: V = I R = 1 A * 0.1 ohm = 0.1 V."
+  },
+  {
+    "id": "21-03-pre-2",
+    "stage": "pre",
+    "question": "What is a decoupling capacitor for?",
+    "options": [
+      "To block DC from reaching the chip",
+      "To make the chip run faster",
+      "To supply short bursts of current right at a chip's power pin so the supply voltage does not dip",
+      "To store data when the power is off"
+    ],
+    "correct": 2,
+    "explanation": "The supply path has inductance and cannot deliver sudden current. A capacitor at the pin delivers it locally."
+  },
+  {
+    "id": "21-03-post-1",
+    "stage": "post",
+    "question": "At high frequency, where does the return current in a solid ground plane flow?",
+    "options": [
+      "Mostly directly underneath the outgoing trace, keeping the loop area small",
+      "Along the straight line from the load to the connector",
+      "Evenly spread over the whole plane",
+      "Along the edges of the board"
+    ],
+    "correct": 0,
+    "explanation": "Fast-changing currents take the path of least inductance, which is the one that minimises loop area: right under the trace."
+  },
+  {
+    "id": "21-03-post-2",
+    "stage": "post",
+    "question": "A chip pulls an extra 1 A in 2 ns through a 20 nH loop. What spike does V = L di/dt predict?",
+    "options": [
+      "0.04 V",
+      "2 V",
+      "40 V",
+      "10 V"
+    ],
+    "correct": 3,
+    "explanation": "di/dt = 1 A / 2e-9 s = 5e8 A/s; V = 20e-9 * 5e8 = 10 V. That is why the current must come from a local capacitor."
+  },
+  {
+    "id": "21-03-post-3",
+    "stage": "post",
+    "question": "Using droop ~ I * sqrt(L/C), what happens to the droop if you make the decoupling capacitor 4 times larger?",
+    "options": [
+      "It halves",
+      "It becomes 4 times smaller",
+      "It stays the same",
+      "It doubles"
+    ],
+    "correct": 0,
+    "explanation": "sqrt(L / 4C) = sqrt(L/C) / 2, so the droop is cut in half."
+  },
+  {
+    "id": "21-03-post-4",
+    "stage": "post",
+    "question": "Why does a star ground fix the sensor error caused by a heater's return current?",
+    "options": [
+      "It makes the heater draw less current",
+      "The heater's current no longer flows through the copper the sensor uses as its reference",
+      "It adds a capacitor to the sensor",
+      "It raises the supply voltage"
+    ],
+    "correct": 1,
+    "explanation": "With separate returns, only the sensor's own tiny current flows in its ground path, so its reference stays at the connector's 0 V."
+  },
+  {
+    "id": "21-03-post-5",
+    "stage": "post",
+    "question": "Which change most reduces the loop inductance of a fast signal on a board?",
+    "options": [
+      "Making the trace longer",
+      "Cutting a slot in the ground plane under the trace",
+      "Moving the ground plane closer to the trace (for example a 4-layer stack-up)",
+      "Using a thicker board"
+    ],
+    "correct": 2,
+    "explanation": "Inductance grows with loop area. A plane closer under the trace makes the out-and-back loop thinner."
+  }
+]

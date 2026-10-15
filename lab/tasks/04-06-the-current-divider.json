@@ -1,0 +1,92 @@
+{
+ "id": "04-06-the-current-divider",
+ "title": "Protect the meter with a shunt",
+ "kind": "dc",
+ "story": "An old needle meter (modelled as the 1 kOhm resistor RM) reads full scale at 1 mA and is damaged above that. You want it to measure a 10 mA current instead. Put a shunt resistor in parallel with the meter so that, when 10 mA arrive, the meter gets between 0.85 mA and 1.0 mA and the rest bypasses it.",
+ "board": {
+  "nodes": {
+   "a": [
+    5,
+    1
+   ],
+   "gnd": [
+    5,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "current_source",
+    "id": "I1",
+    "from": "gnd",
+    "to": "a",
+    "amps": 0.01
+   },
+   {
+    "type": "resistor",
+    "id": "RM",
+    "a": "a",
+    "b": "gnd",
+    "ohms": 1000
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "a",
+    "b": "gnd",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 10
+  },
+  {
+   "type": "resistor",
+   "ohms": 82
+  },
+  {
+   "type": "resistor",
+   "ohms": 100
+  },
+  {
+   "type": "resistor",
+   "ohms": 120
+  },
+  {
+   "type": "resistor",
+   "ohms": 1000
+  }
+ ],
+ "goals": [
+  {
+   "measure": "current",
+   "of": "RM",
+   "min": 0.00085,
+   "max": 0.001,
+   "label": "meter current between 0.85 mA and 1.0 mA"
+  },
+  {
+   "measure": "power",
+   "of": "S1",
+   "max": 0.25,
+   "label": "the shunt stays under 1/4 W"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 100
+  }
+ },
+ "hints": [
+  "The meter's share is I x R_shunt / (R_meter + R_shunt). You want that share to be about one tenth of 10 mA.",
+  "The ideal shunt carries 9 mA while the meter carries 1 mA at the same voltage, so the shunt must be about 9 times smaller than 1 kOhm. Round to a value that keeps the meter safe."
+ ]
+}

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "01-04-pre-1",
+    "stage": "pre",
+    "question": "What does it mean that a battery is labelled 9 V?",
+    "options": [
+      "It contains 9 coulombs of charge",
+      "Each coulomb that goes around the circuit from + to - gives up 9 joules",
+      "It can deliver 9 amperes of current",
+      "It stores 9 joules of energy in total"
+    ],
+    "correct": 1,
+    "explanation": "A volt is a joule per coulomb. The label is energy per unit charge, not total charge, current or total energy."
+  },
+  {
+    "id": "01-04-pre-2",
+    "stage": "pre",
+    "question": "A bird sits on a single power line that is at 230 V relative to the earth. Why is it unharmed?",
+    "options": [
+      "Bird feet are perfect insulators",
+      "230 V is too low to push any current",
+      "Both feet are at the same potential, so there is no voltage across the bird",
+      "The line is grounded at the bird's position"
+    ],
+    "correct": 2,
+    "explanation": "Voltage is a difference between two points. Both feet touch the same wire, so the difference across the bird is essentially 0 V."
+  },
+  {
+    "id": "01-04-post-1",
+    "stage": "post",
+    "question": "How much energy does 0.2 C of charge deliver crossing a 12 V car battery?",
+    "options": [
+      "2.4 J",
+      "60 J",
+      "0.017 J",
+      "12.2 J"
+    ],
+    "correct": 0,
+    "explanation": "Energy = q x V = 0.2 C x 12 J/C = 2.4 J."
+  },
+  {
+    "id": "01-04-post-2",
+    "stage": "post",
+    "question": "A 6 V supply is connected across two parallel plates 2 mm apart. What is the field between them?",
+    "options": [
+      "12 V/m",
+      "0.012 V/m",
+      "333 V/m",
+      "3000 V/m"
+    ],
+    "correct": 3,
+    "explanation": "E = V / d = 6 / 0.002 = 3000 V/m."
+  },
+  {
+    "id": "01-04-post-3",
+    "stage": "post",
+    "question": "Ground is moved from the - terminal of a 9 V battery to its + terminal. What is the potential of the - terminal now?",
+    "options": [
+      "-9 V",
+      "+9 V",
+      "0 V",
+      "+18 V"
+    ],
+    "correct": 0,
+    "explanation": "The + terminal is now 0 V. The - terminal is still 9 V lower, so it is at -9 V. Voltages between points never change when the reference moves."
+  },
+  {
+    "id": "01-04-post-4",
+    "stage": "post",
+    "question": "An electron starts at rest and crosses 100 V. How much kinetic energy does it gain?",
+    "options": [
+      "100 J",
+      "1.6 x 10^-21 J",
+      "100 eV, which is 1.6 x 10^-17 J",
+      "It loses energy, because it is negative"
+    ],
+    "correct": 2,
+    "explanation": "Energy = e x V = 1.602e-19 x 100 = 1.602e-17 J = 100 eV. It gains energy because a negative charge released from rest moves toward higher potential."
+  },
+  {
+    "id": "01-04-post-5",
+    "stage": "post",
+    "question": "The potential of a point charge is 900 V at 1 cm. What is it at 3 cm (zero taken far away)?",
+    "options": [
+      "100 V",
+      "300 V",
+      "2700 V",
+      "450 V"
+    ],
+    "correct": 1,
+    "explanation": "V = kQ / r falls as 1/r, so tripling the distance divides it by 3: 900 / 3 = 300 V."
+  },
+  {
+    "id": "01-04-post-6",
+    "stage": "post",
+    "question": "Why can every point in a (non-magnetic) circuit be given a single potential?",
+    "options": [
+      "Because wires have no resistance",
+      "Because charge is quantized",
+      "Because ground is connected to the earth",
+      "Because the work done by the electric field between two points does not depend on the path taken"
+    ],
+    "correct": 3,
+    "explanation": "The electrostatic force is conservative. Since the work from A to B is the same along every route, the energy per coulomb at each point is a single well-defined number."
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "18-04-pre-1",
+    "stage": "pre",
+    "question": "Which of these can turn 3.7 V into 5 V?",
+    "options": [
+      "A linear regulator",
+      "A boost converter",
+      "A buck converter",
+      "A voltage divider"
+    ],
+    "correct": 1,
+    "explanation": "Linear regulators, bucks and dividers can only lower a voltage. A boost converter steps it up."
+  },
+  {
+    "id": "18-04-pre-2",
+    "stage": "pre",
+    "question": "An inductor carries current and its switch suddenly opens. What does the inductor do?",
+    "options": [
+      "Its current stops instantly",
+      "It makes whatever voltage is needed to keep the current flowing",
+      "It discharges like a capacitor to 0 V",
+      "Nothing, inductors only matter for AC"
+    ],
+    "correct": 1,
+    "explanation": "V = L dI/dt: the current cannot change instantly, so the inductor produces the voltage needed to push it on. A boost uses this to lift the output above the input."
+  },
+  {
+    "id": "18-04-post-1",
+    "stage": "post",
+    "question": "An ideal boost runs from 6 V with D = 0.5. What is Vout?",
+    "options": [
+      "3 V",
+      "6 V",
+      "12 V",
+      "18 V"
+    ],
+    "correct": 2,
+    "explanation": "Vout = Vin / (1 - D) = 6 / 0.5 = 12 V."
+  },
+  {
+    "id": "18-04-post-2",
+    "stage": "post",
+    "question": "Which duty cycle makes 15 V from 5 V in an ideal boost?",
+    "options": [
+      "0.33",
+      "0.67",
+      "0.75",
+      "3"
+    ],
+    "correct": 1,
+    "explanation": "D = 1 - Vin / Vout = 1 - 5 / 15 = 0.667."
+  },
+  {
+    "id": "18-04-post-3",
+    "stage": "post",
+    "question": "An ideal boost delivers 12 V at 1 A from 4 V. What is the average inductor current?",
+    "options": [
+      "1 A",
+      "0.33 A",
+      "3 A",
+      "12 A"
+    ],
+    "correct": 2,
+    "explanation": "In a boost the inductor current is the input current: P = 12 W, so I_in = 12 / 4 = 3 A."
+  },
+  {
+    "id": "18-04-post-4",
+    "stage": "post",
+    "question": "Why does a boost need more output capacitance than a buck for the same ripple?",
+    "options": [
+      "Because the output voltage is higher",
+      "Because boosts switch faster",
+      "Because the inductor is smaller",
+      "Because the capacitor alone feeds the load during the whole on-time, a square wave of current instead of a small triangle"
+    ],
+    "correct": 3,
+    "explanation": "During D x T the output is cut off from the inductor, so delta_V = I_out D / (f C), without the buck's factor of 8."
+  },
+  {
+    "id": "18-04-post-5",
+    "stage": "post",
+    "question": "A real boost with some winding resistance is pushed from D = 0.9 to D = 0.97. What is likely to happen?",
+    "options": [
+      "The output rises to 33 times the input",
+      "The output stays the same and efficiency rises",
+      "The output barely rises or even falls, and efficiency collapses",
+      "The converter switches to buck mode"
+    ],
+    "correct": 2,
+    "explanation": "Inductor losses grow like 1 / (1 - D)^2. Beyond a certain D they dominate and the gain stops increasing."
+  },
+  {
+    "id": "18-04-post-6",
+    "stage": "post",
+    "question": "The controller of a boost converter stops switching. What voltage is at the output?",
+    "options": [
+      "About Vin, through the inductor and the diode or high-side switch",
+      "0 V",
+      "Twice Vin",
+      "It floats unpredictably"
+    ],
+    "correct": 0,
+    "explanation": "There is always a path from input to output through the inductor and the boost diode, so the output sits near Vin unless an extra disconnect switch is added."
+  }
+]

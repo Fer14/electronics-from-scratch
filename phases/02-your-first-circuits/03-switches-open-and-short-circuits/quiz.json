@@ -1,0 +1,93 @@
+[
+  {
+    "id": "02-03-pre-1",
+    "stage": "pre",
+    "question": "A 9 V battery, a switch and a lamp form one loop. The switch is open. What voltage would you measure across the switch's two contacts?",
+    "options": [
+      "0 V, because no current flows",
+      "4.5 V, half the battery voltage",
+      "Almost 9 V, the full battery voltage",
+      "It depends on the lamp's colour"
+    ],
+    "correct": 2,
+    "explanation": "With no current, nothing is lost along the wires or the lamp, so one contact sits at the battery's + potential and the other at its - potential. The whole 9 V appears across the gap."
+  },
+  {
+    "id": "02-03-pre-2",
+    "stage": "pre",
+    "question": "Why can a 9 V battery get hot in a pocket full of coins?",
+    "options": [
+      "Coins touching both terminals form a short circuit, and a large current heats the battery",
+      "Coins generate electricity of their own",
+      "The battery leaks voltage into the coins",
+      "Body heat charges the battery"
+    ],
+    "correct": 0,
+    "explanation": "The coins are a near-zero-resistance path between the terminals. The current is limited only by the battery's internal resistance, and that resistance turns several watts or more into heat."
+  },
+  {
+    "id": "02-03-post-1",
+    "stage": "post",
+    "question": "Which pair correctly describes a short circuit?",
+    "options": [
+      "High voltage across it, no current",
+      "No voltage across it, no current",
+      "High voltage across it, high current",
+      "Almost no voltage across it, high current"
+    ],
+    "correct": 3,
+    "explanation": "A short has almost no resistance, so almost no voltage appears across it, while the current through it is limited only by whatever resistance remains in the loop."
+  },
+  {
+    "id": "02-03-post-2",
+    "stage": "post",
+    "question": "A 12.6 V car battery has about 0.01 Ω of internal resistance. A spanner (0.01 Ω) falls across its terminals. About what current flows?",
+    "options": [
+      "1.26 A",
+      "630 A",
+      "12.6 A",
+      "0 A, a spanner is too big to be a short"
+    ],
+    "correct": 1,
+    "explanation": "I = 12.6 / (0.01 + 0.01) = 630 A. Low internal resistance makes big batteries extremely dangerous to short."
+  },
+  {
+    "id": "02-03-post-3",
+    "stage": "post",
+    "question": "A wire is clipped across a lit lamp in a battery loop. What happens to the lamp and to the battery?",
+    "options": [
+      "The lamp gets brighter and the battery current drops",
+      "Nothing changes, because the wire is in parallel",
+      "The lamp goes dark and the battery current rises sharply",
+      "The lamp stays lit and the battery current halves"
+    ],
+    "correct": 2,
+    "explanation": "The wire bypasses the lamp (almost no voltage across it, so it goes dark) and the battery now drives a nearly zero-resistance loop, so its current jumps."
+  },
+  {
+    "id": "02-03-post-4",
+    "stage": "post",
+    "question": "What does a fuse do when a short happens?",
+    "options": [
+      "It melts and turns the short circuit into an open circuit",
+      "It absorbs the extra current and stores it",
+      "It raises the battery voltage to compensate",
+      "It reverses the current direction"
+    ],
+    "correct": 0,
+    "explanation": "The fuse is a deliberate weak link in series. It is the first thing to melt, which opens the loop and drops the current to zero."
+  },
+  {
+    "id": "02-03-post-5",
+    "stage": "post",
+    "question": "A fuse with a melting I²t of 0.5 A²s carries 10 A during a fault. Using time ≈ I²t / I², about how long until it melts?",
+    "options": [
+      "0.05 s",
+      "50 s",
+      "0.5 s",
+      "5 ms"
+    ],
+    "correct": 3,
+    "explanation": "time = 0.5 / (10 x 10) = 0.5 / 100 = 0.005 s = 5 ms."
+  }
+]

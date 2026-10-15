@@ -1,0 +1,93 @@
+[
+  {
+    "id": "07-03-pre-1",
+    "stage": "pre",
+    "question": "An empty capacitor is connected to 5 V through a 1 kOhm resistor. What is the current at the very first instant?",
+    "options": [
+      "Zero, because the capacitor is empty",
+      "2.5 mA",
+      "5 mA",
+      "It depends on the capacitance"
+    ],
+    "correct": 2,
+    "explanation": "The capacitor starts at 0 V and its voltage cannot jump, so the resistor gets the full 5 V: I = 5 / 1000 = 5 mA, whatever the capacitance."
+  },
+  {
+    "id": "07-03-pre-2",
+    "stage": "pre",
+    "question": "Why does the charging current get smaller over time?",
+    "options": [
+      "The resistor heats up and its resistance grows",
+      "As the capacitor voltage rises, less voltage is left across the resistor",
+      "The source gets tired",
+      "The capacitor's capacitance shrinks as it fills"
+    ],
+    "correct": 1,
+    "explanation": "By KVL the resistor gets V - v. As v rises, the resistor's voltage and therefore its current fall. That is what bends the curve into an exponential."
+  },
+  {
+    "id": "07-03-post-1",
+    "stage": "post",
+    "question": "R = 1 kOhm, C = 1 uF, V = 5 V, starting empty. What is the capacitor voltage after 2 ms?",
+    "options": [
+      "About 4.32 V",
+      "About 3.16 V",
+      "Exactly 5 V",
+      "About 2.5 V"
+    ],
+    "correct": 0,
+    "explanation": "RC = 1 ms, so t / RC = 2. v = 5 x (1 - e^-2) = 5 x 0.8647 = 4.32 V."
+  },
+  {
+    "id": "07-03-post-2",
+    "stage": "post",
+    "question": "A 100 uF capacitor at 12 V discharges through 470 Ohm. What is the voltage after 47 ms?",
+    "options": [
+      "7.59 V",
+      "6.00 V",
+      "0 V",
+      "4.41 V"
+    ],
+    "correct": 3,
+    "explanation": "RC = 470 x 100e-6 = 47 ms, so t / RC = 1. v = 12 x e^-1 = 12 x 0.368 = 4.41 V."
+  },
+  {
+    "id": "07-03-post-3",
+    "stage": "post",
+    "question": "During discharge through a resistor, what is the sign of the current through the resistor (measured in the same direction as during charging)?",
+    "options": [
+      "Positive and growing",
+      "Zero",
+      "Positive and shrinking",
+      "Negative, and shrinking in size"
+    ],
+    "correct": 3,
+    "explanation": "Charge now flows back out of the top plate, so the current reverses. Its size is v / R, which shrinks as the capacitor empties."
+  },
+  {
+    "id": "07-03-post-4",
+    "stage": "post",
+    "question": "A 1 uF capacitor at 1 V is connected through 1 kOhm to 3.3 V. Using v = final + (initial - final) e^(-t/RC), what is v after 1 ms?",
+    "options": [
+      "About 2.45 V",
+      "About 1.37 V",
+      "About 3.30 V",
+      "About 2.09 V"
+    ],
+    "correct": 0,
+    "explanation": "final = 3.3, initial = 1, RC = 1 ms. v = 3.3 + (1 - 3.3) x e^-1 = 3.3 - 2.3 x 0.368 = 2.45 V."
+  },
+  {
+    "id": "07-03-post-5",
+    "stage": "post",
+    "question": "In the step-by-step hand calculation with large steps, why did the computed voltage run ahead of the exact curve?",
+    "options": [
+      "Because the formula is only approximate",
+      "Because each step used the current from the start of the step, which is larger than the average current during that step",
+      "Because capacitors charge faster in reality",
+      "Because we rounded the numbers"
+    ],
+    "correct": 1,
+    "explanation": "The current falls during each step, but the hand method keeps it at its starting (largest) value, so it adds slightly too much charge every step. Smaller steps shrink this error."
+  }
+]

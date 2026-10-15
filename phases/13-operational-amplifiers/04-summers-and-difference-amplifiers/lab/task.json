@@ -1,0 +1,38 @@
+{
+  "id": "13-04-summers-and-difference-amplifiers",
+  "title": "Measure a 0.2 V difference sitting on 5 V",
+  "kind": "dc",
+  "story": "Two sensor outputs sit at 5.2 V and 5.0 V. You only care about their difference (0.2 V), not the 5 V they share. A difference amplifier with four equal resistors outputs exactly V1 - V2. Three 10 kOhm resistors are already in place; choose the fourth, from the plus input to ground.",
+  "board": {
+    "nodes": {"a": [0, 4], "b": [0, 1], "n": [4, 1], "p": [4, 4], "out": [8, 2], "gnd": [4, 6], "ga": [0, 6], "fb": [8, 0], "nt": [4, 0]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "voltage_source", "id": "V1", "plus": "a", "minus": "ga", "volts": 5.2},
+      {"type": "voltage_source", "id": "V2", "plus": "b", "minus": "ga", "volts": 5.0},
+      {"type": "wire", "id": "W1", "a": "ga", "b": "gnd"},
+      {"type": "resistor", "id": "R1", "a": "b", "b": "n", "ohms": 10000},
+      {"type": "wire", "id": "W2", "a": "n", "b": "nt"},
+      {"type": "resistor", "id": "R2", "a": "nt", "b": "fb", "ohms": 10000},
+      {"type": "wire", "id": "W3", "a": "fb", "b": "out"},
+      {"type": "resistor", "id": "R3", "a": "a", "b": "p", "ohms": 10000},
+      {"type": "opamp", "id": "U1", "plus": "p", "minus": "n", "out": "out", "gain": 100000, "rails": [-12, 12]}
+    ],
+    "slots": [
+      {"id": "S1", "a": "p", "b": "gnd", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 9100},
+    {"type": "resistor", "ohms": 10000},
+    {"type": "resistor", "ohms": 100000}
+  ],
+  "goals": [
+    {"measure": "voltage", "at": "out", "min": 0.19, "max": 0.21, "label": "output between 0.19 and 0.21 V (= V1 - V2)"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 10000}},
+  "hints": [
+    "out = (R4 / (R3 + R4)) x (1 + R2 / R1) x V1 - (R2 / R1) x V2.",
+    "With R1 = R2 = R3 = 10 k, the 5 V common to both inputs cancels only if R4 matches too.",
+    "Try 9.1 k in your head: the 5.2 V side is attenuated a little too much, and the 5 V no longer cancels."
+  ]
+}

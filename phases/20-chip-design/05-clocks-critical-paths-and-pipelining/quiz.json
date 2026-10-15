@@ -1,0 +1,93 @@
+[
+  {
+    "id": "20-05-pre-1",
+    "stage": "pre",
+    "question": "A clock runs at 500 MHz. What is its period?",
+    "options": [
+      "0.5 ns",
+      "2 ns",
+      "500 ns",
+      "20 ns"
+    ],
+    "correct": 1,
+    "explanation": "Period = 1 / frequency = 1 / 500e6 = 2e-9 s = 2 ns."
+  },
+  {
+    "id": "20-05-pre-2",
+    "stage": "pre",
+    "question": "On an assembly line, splitting one long job into several shorter stations mainly increases...",
+    "options": [
+      "the time one car takes from start to finish",
+      "the number of workers needed per car, without any benefit",
+      "the number of cars finished per hour",
+      "the size of each car"
+    ],
+    "correct": 2,
+    "explanation": "That is throughput. Each car still visits every station, so its own latency does not drop much."
+  },
+  {
+    "id": "20-05-post-1",
+    "stage": "post",
+    "question": "The slowest register-to-register path is 60 gate delays at 20 ps each. What is the maximum clock frequency?",
+    "options": [
+      "1.2 GHz",
+      "60 MHz",
+      "3.3 GHz",
+      "About 833 MHz"
+    ],
+    "correct": 3,
+    "explanation": "Period = 60 * 20 ps = 1.2 ns; frequency = 1 / 1.2 ns = 833 MHz."
+  },
+  {
+    "id": "20-05-post-2",
+    "stage": "post",
+    "question": "Blocks of 30, 25 and 20 gate delays are in a row between two registers. With one pipeline register, what is the best critical path you can reach?",
+    "options": [
+      "45 gate delays (register after the first block: 30 | 45)",
+      "30 gate delays",
+      "55 gate delays (register after the second block: 55 | 20)",
+      "75 gate delays"
+    ],
+    "correct": 0,
+    "explanation": "Register after 30 gives stages 30 and 45 (max 45); after 55 gives 55 and 20 (max 55). The best is 45."
+  },
+  {
+    "id": "20-05-post-3",
+    "stage": "post",
+    "question": "Why can't you speed up an accumulator by adding a second register inside its feedback loop?",
+    "options": [
+      "Registers cannot be placed after adders",
+      "The loop would then keep two interleaved sums instead of one, so it computes something different",
+      "It would use too much power",
+      "The clock would stop"
+    ],
+    "correct": 1,
+    "explanation": "Each result would come back two cycles later, so odd and even inputs accumulate separately. That changes the algorithm."
+  },
+  {
+    "id": "20-05-post-4",
+    "stage": "post",
+    "question": "Pipelining a MAC from 1 to 2 stages took the period from 1.82 ns to 0.98 ns. What happened to the throughput?",
+    "options": [
+      "It halved",
+      "It stayed the same",
+      "It almost doubled, from about 0.55 to about 1.02 billion MACs per second",
+      "It became zero during the extra cycle"
+    ],
+    "correct": 2,
+    "explanation": "In a full pipeline one result comes out per cycle, so throughput = 1 / period."
+  },
+  {
+    "id": "20-05-post-5",
+    "stage": "post",
+    "question": "Which of these limits how deeply you can usefully pipeline?",
+    "options": [
+      "The number of input pins",
+      "The colour of the package",
+      "The size of the multiplier only",
+      "Register overhead per stage, clock power, and feedback loops that must fit in one cycle"
+    ],
+    "correct": 3,
+    "explanation": "Each stage pays a fixed register overhead and clock power, and loops cannot be split."
+  }
+]

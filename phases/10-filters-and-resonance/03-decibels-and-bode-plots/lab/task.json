@@ -1,0 +1,33 @@
+{
+  "id": "10-03-exactly-minus-20-db",
+  "title": "Attenuate by exactly 20 dB",
+  "kind": "ac",
+  "story": "A sensor's signal is ten times too big for the input it feeds. You need a flat attenuator of -20 dB (output a tenth of the input) at every frequency from 100 Hz to 10 kHz. The top resistor is fixed at 9 k ohm. Choose the bottom resistor.",
+  "sim": {"source": "V1", "f_start": 10, "f_stop": 100000, "points": 200},
+  "board": {
+    "nodes": {"in": [1, 1], "out": [6, 1], "gnd": [6, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "sine_source", "id": "V1", "plus": "in", "minus": "gnd", "amplitude": 1, "freq": 1000},
+      {"type": "resistor", "id": "R1", "a": "in", "b": "out", "ohms": 9000}
+    ],
+    "slots": [
+      {"id": "S1", "a": "out", "b": "gnd", "accepts": ["resistor", "capacitor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 100},
+    {"type": "resistor", "ohms": 1000},
+    {"type": "resistor", "ohms": 9000},
+    {"type": "capacitor", "farads": 1e-07}
+  ],
+  "goals": [
+    {"measure": "gain_db_at", "at": "out", "freq": 100, "min": -20.5, "max": -19.5, "label": "-20 dB (+/- 0.5 dB) at 100 Hz"},
+    {"measure": "gain_db_at", "at": "out", "freq": 10000, "min": -20.5, "max": -19.5, "label": "-20 dB (+/- 0.5 dB) at 10 kHz"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 1000}},
+  "hints": [
+    "-20 dB is a voltage ratio of 10^(-20/20) = 0.1.",
+    "A divider gives R2 / (R1 + R2). Which R2 makes that 0.1 with R1 = 9 k?"
+  ]
+}

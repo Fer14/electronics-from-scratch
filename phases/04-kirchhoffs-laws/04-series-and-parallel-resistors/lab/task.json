@@ -1,0 +1,120 @@
+{
+  "id": "04-04-series-and-parallel-resistors",
+  "title": "Make the battery see 1.5 kilohms",
+  "kind": "dc",
+  "story": "A 9 V battery feeds a slot S1, then node a, then a fixed 1 kohm load R2 to ground. A second slot S2 sits in parallel with R2. Fill both slots so that the whole network looks like about 1.5 kohm to the battery (battery current between 5.6 and 6.3 mA) while the load at node a gets between 1.7 and 2.1 V. Work out the parallel pair first, then the series part.",
+  "board": {
+    "nodes": {
+      "vcc": [
+        1,
+        1
+      ],
+      "a": [
+        5,
+        1
+      ],
+      "gnd": [
+        5,
+        5
+      ]
+    },
+    "ground": "gnd",
+    "fixed": [
+      {
+        "type": "battery",
+        "id": "B1",
+        "plus": "vcc",
+        "minus": "gnd",
+        "volts": 9
+      },
+      {
+        "type": "resistor",
+        "id": "R2",
+        "a": "a",
+        "b": "gnd",
+        "ohms": 1000
+      }
+    ],
+    "slots": [
+      {
+        "id": "S1",
+        "a": "vcc",
+        "b": "a",
+        "accepts": [
+          "resistor"
+        ]
+      },
+      {
+        "id": "S2",
+        "a": "a",
+        "b": "gnd",
+        "accepts": [
+          "resistor"
+        ]
+      }
+    ]
+  },
+  "parts": [
+    {
+      "type": "resistor",
+      "ohms": 220
+    },
+    {
+      "type": "resistor",
+      "ohms": 470
+    },
+    {
+      "type": "resistor",
+      "ohms": 1000
+    },
+    {
+      "type": "resistor",
+      "ohms": 1200
+    },
+    {
+      "type": "resistor",
+      "ohms": 2200
+    },
+    {
+      "type": "resistor",
+      "ohms": 4700
+    }
+  ],
+  "goals": [
+    {
+      "measure": "current",
+      "of": "S1",
+      "min": 0.0056,
+      "max": 0.0063,
+      "label": "battery current (through S1) between 5.6 and 6.3 mA"
+    },
+    {
+      "measure": "voltage",
+      "at": "a",
+      "min": 1.7,
+      "max": 2.1,
+      "label": "load voltage at node a between 1.7 and 2.1 V"
+    },
+    {
+      "measure": "power",
+      "of": "S1",
+      "max": 0.25,
+      "label": "S1 stays under 1/4 W"
+    }
+  ],
+  "solution": {
+    "S1": {
+      "type": "resistor",
+      "ohms": 1200
+    },
+    "S2": {
+      "type": "resistor",
+      "ohms": 470
+    }
+  },
+  "hints": [
+    "9 V / 1.5 kohm = 6 mA, so the total must be close to 1.5 kohm.",
+    "If node a sits near 1.9 V with about 6 mA arriving, the parallel pair R2 || S2 is about 1.9 / 0.006, roughly 320 ohm.",
+    "Product over sum: which resistor in parallel with 1 kohm gives about 320 ohm? Then S1 is the rest of the 1.5 kohm."
+  ]
+}

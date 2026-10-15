@@ -1,0 +1,34 @@
+{
+  "id": "18-01-linear-regulators",
+  "title": "A zener regulator that survives",
+  "kind": "dc",
+  "story": "A 12 V adapter must give a small 5.1 V circuit (it behaves like a 1 kohm load) a steady supply. You have a 5.1 V zener diode rated 0.5 W but you only want it to run cool (under 0.1 W), and quarter-watt resistors. Pick the series resistor so the output stays between 4.9 V and 5.3 V, the zener stays under 0.1 W and the resistor under 0.25 W.",
+  "board": {
+    "nodes": {"vin": [1, 1], "out": [6, 1], "gnd": [1, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "B1", "plus": "vin", "minus": "gnd", "volts": 12},
+      {"type": "zener", "id": "Z1", "anode": "gnd", "cathode": "out", "vz": 5.1},
+      {"type": "resistor", "id": "RL", "a": "out", "b": "gnd", "ohms": 1000}
+    ],
+    "slots": [
+      {"id": "S1", "a": "vin", "b": "out", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 100},
+    {"type": "resistor", "ohms": 330},
+    {"type": "resistor", "ohms": 2200}
+  ],
+  "goals": [
+    {"measure": "voltage", "at": "out", "min": 4.9, "max": 5.3, "label": "output between 4.9 V and 5.3 V"},
+    {"measure": "power", "of": "Z1", "max": 0.1, "label": "zener under 0.1 W"},
+    {"measure": "power", "of": "S1", "max": 0.25, "label": "series resistor under 0.25 W"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 330}},
+  "hints": [
+    "The resistor carries the load current plus the zener current: I = (12 - 5.1) / R.",
+    "The load needs 5.1 mA. If the resistor can't supply that, the zener stops conducting and the output falls.",
+    "Whatever the load does not take goes through the zener and heats it: P = 5.1 V x I_zener."
+  ]
+}

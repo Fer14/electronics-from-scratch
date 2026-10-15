@@ -1,0 +1,106 @@
+[
+  {
+    "id": "00-02-pre-1",
+    "stage": "pre",
+    "question": "Which pair is correct: symbol and unit of current?",
+    "options": [
+      "C, coulomb",
+      "I, ampere",
+      "V, volt",
+      "R, watt"
+    ],
+    "correct": 1,
+    "explanation": "Current uses the symbol I (from the French 'intensite de courant') and is measured in amperes, A. One ampere is one coulomb of charge per second."
+  },
+  {
+    "id": "00-02-pre-2",
+    "stage": "pre",
+    "question": "When people say 'my phone has no charge left', what has the battery really run out of?",
+    "options": [
+      "Electrons",
+      "Resistance",
+      "Polarity",
+      "Stored energy"
+    ],
+    "correct": 3,
+    "explanation": "The phone still contains all its charge. What it lacks is the stored chemical energy that pushes charge around the circuit."
+  },
+  {
+    "id": "00-02-pre-3",
+    "stage": "pre",
+    "question": "Which statement about voltage is right?",
+    "options": [
+      "Voltage is always measured between two points",
+      "Voltage flows through a wire",
+      "Voltage is the number of electrons in a wire",
+      "Voltage only exists when current is flowing"
+    ],
+    "correct": 0,
+    "explanation": "Voltage is a difference in electrical 'level' between two points, so it is across something. A battery in a drawer has 1.5 V between its terminals even with no current."
+  },
+  {
+    "id": "00-02-post-1",
+    "stage": "post",
+    "question": "A flashlight switch is open. What do you find?",
+    "options": [
+      "Large current and no voltage across the switch",
+      "Zero current and zero voltage everywhere",
+      "Zero current, and the full battery voltage across the open switch",
+      "Half the battery voltage across the bulb"
+    ],
+    "correct": 2,
+    "explanation": "With the loop broken no current flows, so the bulb takes no voltage. Both bulb terminals sit at the battery's + level, and the whole 3 V appears across the gap in the switch."
+  },
+  {
+    "id": "00-02-post-2",
+    "stage": "post",
+    "question": "In a circuit drawing, two dots far apart on the page are joined by a plain wire. How many nodes are they?",
+    "options": [
+      "One node",
+      "Two nodes",
+      "It depends on the length of the wire",
+      "None; nodes are only at components"
+    ],
+    "correct": 0,
+    "explanation": "A node is everything joined by ideal wire. An ideal wire has no voltage across it, so both dots are at the same voltage and form a single node."
+  },
+  {
+    "id": "00-02-post-3",
+    "stage": "post",
+    "question": "A 3 V battery with 0.2 ohm inside it is shorted by a wire. Roughly what current flows?",
+    "options": [
+      "0.6 A",
+      "1.5 A",
+      "3 A",
+      "15 A"
+    ],
+    "correct": 3,
+    "explanation": "With the load bypassed only the battery's own 0.2 ohm limits the current: I = 3 V / 0.2 ohm = 15 A, far more than the 0.25 A the bulb normally takes."
+  },
+  {
+    "id": "00-02-post-4",
+    "stage": "post",
+    "question": "What is ground in a battery-powered gadget?",
+    "options": [
+      "A wire that must be connected to the earth outside",
+      "The node we choose as the 0 V reference for measuring voltages",
+      "The terminal with the highest voltage",
+      "Any part made of metal"
+    ],
+    "correct": 1,
+    "explanation": "Ground is a chosen reference node, like sea level for heights. In mains wiring it is also physically connected to earth for safety, but in a battery gadget it is just the agreed 0 V."
+  },
+  {
+    "id": "00-02-post-5",
+    "stage": "post",
+    "question": "In schematics, conventional current arrows point from + to - outside the source. Which way do the electrons in the wire drift?",
+    "options": [
+      "From + to -, the same way",
+      "They do not move at all",
+      "From - to +, the opposite way",
+      "Randomly, with no overall direction"
+    ],
+    "correct": 2,
+    "explanation": "Franklin named the charges before anyone knew that the movers in metals are negative electrons. Electrons drift from - to + outside the source; conventional current is drawn the other way. Both describe the same flow of charge."
+  }
+]

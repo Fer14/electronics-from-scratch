@@ -1,0 +1,93 @@
+[
+  {
+    "id": "15-01-pre-1",
+    "stage": "pre",
+    "question": "What is the key difference between a combinational and a sequential circuit?",
+    "options": [
+      "Sequential circuits use more gates",
+      "Sequential circuits are slower",
+      "A sequential circuit's output also depends on stored state from the past",
+      "Combinational circuits cannot use NAND gates"
+    ],
+    "correct": 2,
+    "explanation": "Sequential circuits contain feedback loops that store state."
+  },
+  {
+    "id": "15-01-pre-2",
+    "stage": "pre",
+    "question": "Two inverters are connected in a loop. How many stable states does the loop have?",
+    "options": [
+      "Two",
+      "None",
+      "One",
+      "Infinitely many"
+    ],
+    "correct": 0,
+    "explanation": "(1, 0) and (0, 1) are both self-consistent. The middle point is an unstable balance."
+  },
+  {
+    "id": "15-01-post-1",
+    "stage": "post",
+    "question": "Why does a loop of three inverters oscillate instead of storing a bit?",
+    "options": [
+      "Three gates are too slow",
+      "The loop has an odd number of inversions, so every decision comes back inverted",
+      "The supply is too low",
+      "Inverters cannot be connected in loops"
+    ],
+    "correct": 1,
+    "explanation": "An odd number of inversions means negative feedback: no assignment of 0s and 1s is consistent around the loop."
+  },
+  {
+    "id": "15-01-post-2",
+    "stage": "post",
+    "question": "A ring oscillator has 7 inverters, each with a delay of 50 ps. What is its frequency?",
+    "options": [
+      "2.86 GHz",
+      "20 GHz",
+      "700 MHz",
+      "1.43 GHz"
+    ],
+    "correct": 3,
+    "explanation": "f = 1 / (2 x 7 x 50 ps) = 1 / 700 ps = 1.43 GHz."
+  },
+  {
+    "id": "15-01-post-3",
+    "stage": "post",
+    "question": "In a NOR latch (q = NOR(r, qb), qb = NOR(s, q)), what happens with s = 0, r = 0?",
+    "options": [
+      "q becomes 0",
+      "q becomes 1",
+      "Both outputs become 0",
+      "q keeps its previous value"
+    ],
+    "correct": 3,
+    "explanation": "With both extra inputs at 0, each NOR acts as an inverter of the other, forming a bistable loop that holds."
+  },
+  {
+    "id": "15-01-post-4",
+    "stage": "post",
+    "question": "What state does a real SRAM cell wake up in at power-up?",
+    "options": [
+      "Always 0",
+      "Always 1",
+      "A random state decided by tiny mismatches and noise",
+      "The forbidden state"
+    ],
+    "correct": 2,
+    "explanation": "Nothing has written it yet, so small asymmetries decide. That is why systems reset or initialise memory."
+  },
+  {
+    "id": "15-01-post-5",
+    "stage": "post",
+    "question": "Why does a logic simulator need repeated evaluation (or explicit time steps) for circuits with feedback?",
+    "options": [
+      "Because there is no gate that can be evaluated 'first': each output depends on the others around the loop",
+      "Because feedback circuits use analog voltages",
+      "Because loops have more gates",
+      "Because feedback makes gates slower"
+    ],
+    "correct": 0,
+    "explanation": "One pass in order works only for loop-free circuits. With loops you iterate until nothing changes, or step time to see oscillation."
+  }
+]

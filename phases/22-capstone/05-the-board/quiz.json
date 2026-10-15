@@ -1,0 +1,93 @@
+[
+  {
+    "id": "22-05-pre-1",
+    "stage": "pre",
+    "question": "Where should a microcontroller's 100 nF decoupling capacitor go?",
+    "options": [
+      "Anywhere on the board",
+      "Next to the battery connector",
+      "Right next to the microcontroller's power pin, with a short path to ground",
+      "Under the LED"
+    ],
+    "correct": 2,
+    "explanation": "Its job is to supply fast current bursts locally; a long path adds inductance and defeats it (Phase 21, Lesson 03)."
+  },
+  {
+    "id": "22-05-pre-2",
+    "stage": "pre",
+    "question": "Why must the light sensor not be placed where the night light's own LED shines on it?",
+    "options": [
+      "The LED would overheat the LDR",
+      "At night it would see its own light, switch off, then on again in the dark: it could oscillate",
+      "The LDR would block the LED",
+      "It does not matter"
+    ],
+    "correct": 1,
+    "explanation": "An optical feedback loop between the LED and the sensor turns the night light into an oscillator."
+  },
+  {
+    "id": "22-05-post-1",
+    "stage": "post",
+    "question": "Rectangles A = (0, 0, 4, 3) and B = (3, 2, 6, 5), as (x0, y0, x1, y1). Do they overlap?",
+    "options": [
+      "Yes",
+      "No, they only touch",
+      "No, they are far apart",
+      "It depends on the board size"
+    ],
+    "correct": 0,
+    "explanation": "0 < 6 and 3 < 4 in x, and 0 < 5 and 2 < 3 in y: all four conditions hold, so they overlap."
+  },
+  {
+    "id": "22-05-post-2",
+    "stage": "post",
+    "question": "IPC-2221 says a 21 mA trace needs only about 0.001 mm. Why do we still use 0.25-0.4 mm?",
+    "options": [
+      "IPC-2221 is wrong",
+      "Thin traces conduct better",
+      "Because of the LED's colour",
+      "The factory's minimum width and low resistance on power nets set the width, not heating"
+    ],
+    "correct": 3,
+    "explanation": "Heating is negligible at these currents; manufacturability and voltage drop decide."
+  },
+  {
+    "id": "22-05-post-3",
+    "stage": "post",
+    "question": "In the simulation, our traces lowered the LED current from 18.802 to 18.750 mA. What does that tell you?",
+    "options": [
+      "The traces must be made ten times wider",
+      "The LED is broken",
+      "At these currents the copper is a negligible part of the circuit (0.3%)",
+      "The ground pour is not needed for anything"
+    ],
+    "correct": 2,
+    "explanation": "The effect is tiny. The pour is still useful to keep the sensor's ground quiet."
+  },
+  {
+    "id": "22-05-post-4",
+    "stage": "post",
+    "question": "Why is a pin map needed between the schematic and the footprint?",
+    "options": [
+      "Because different parts in the same package (such as SOT-23) put the same functions on different pads",
+      "Because footprints have no pads",
+      "To choose the board colour",
+      "To compute the price"
+    ],
+    "correct": 0,
+    "explanation": "An LDO and a transistor in SOT-23 have different pinouts; mapping pins to pads wrongly is a classic first-board error."
+  },
+  {
+    "id": "22-05-post-5",
+    "stage": "post",
+    "question": "Parts cost $1.79 and the bare board $0.44 per unit. Does the design meet R6 (parts under $3)?",
+    "options": [
+      "No, the total is $2.23 which is over $2",
+      "Yes, $1.79 of parts is under $3",
+      "It cannot be known without assembly cost",
+      "No, the board must be free"
+    ],
+    "correct": 1,
+    "explanation": "R6 limits the parts to $3; even with the board the total is $2.24."
+  }
+]

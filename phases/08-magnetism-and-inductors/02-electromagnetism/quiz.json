@@ -1,0 +1,93 @@
+[
+  {
+    "id": "08-02-pre-1",
+    "stage": "pre",
+    "question": "What did Oersted see in 1820 when he connected a wire to a battery?",
+    "options": [
+      "The wire glowed red",
+      "A nearby compass needle turned",
+      "The battery became magnetic",
+      "Sparks jumped to a nearby magnet"
+    ],
+    "correct": 1,
+    "explanation": "A current makes a magnetic field around the wire, and the compass needle turned to follow it. This was the first link between electricity and magnetism."
+  },
+  {
+    "id": "08-02-pre-2",
+    "stage": "pre",
+    "question": "What is the shape of the magnetic field lines around a long straight wire carrying current?",
+    "options": [
+      "Straight lines pointing away from the wire",
+      "Lines parallel to the wire",
+      "Circles centred on the wire",
+      "No field at all outside the wire"
+    ],
+    "correct": 2,
+    "explanation": "The field lines form rings around the wire, in planes perpendicular to it. Their direction follows the right-hand grip rule."
+  },
+  {
+    "id": "08-02-pre-3",
+    "stage": "pre",
+    "question": "Why do electromagnets usually have an iron core?",
+    "options": [
+      "The iron's aligned domains add their field, multiplying the total field many times",
+      "Iron conducts current better than copper",
+      "Iron cools the coil",
+      "Iron stops the coil from being a magnet when the current is off"
+    ],
+    "correct": 0,
+    "explanation": "The coil's field lines up the magnetic domains of the iron, which add a field mu_r times larger than the coil's own, until the iron saturates."
+  },
+  {
+    "id": "08-02-post-1",
+    "stage": "post",
+    "question": "A wire carries 5 A. What is the magnetic field 2 cm away? (B = 2e-7 I / r)",
+    "options": [
+      "500 uT",
+      "5 uT",
+      "20 uT",
+      "50 uT"
+    ],
+    "correct": 3,
+    "explanation": "B = 2e-7 x 5 / 0.02 = 5e-5 T = 50 uT, about the same as the Earth's field."
+  },
+  {
+    "id": "08-02-post-2",
+    "stage": "post",
+    "question": "A solenoid has 1000 turns over 10 cm and carries 0.2 A. What is the field inside, in air? (mu0 is about 1.2566e-6)",
+    "options": [
+      "2.51 mT",
+      "0.251 mT",
+      "25.1 mT",
+      "251 mT"
+    ],
+    "correct": 0,
+    "explanation": "n = 1000 / 0.1 = 10,000 turns/m. B = 1.2566e-6 x 10,000 x 0.2 = 2.51e-3 T = 2.51 mT."
+  },
+  {
+    "id": "08-02-post-3",
+    "stage": "post",
+    "question": "A relay coil of 400 ohm is driven from 24 V through a 470 ohm resistor. What is the coil current?",
+    "options": [
+      "60 mA",
+      "51 mA",
+      "27.6 mA",
+      "11 mA"
+    ],
+    "correct": 2,
+    "explanation": "Series circuit: I = 24 / (470 + 400) = 24 / 870 = 0.0276 A = 27.6 mA."
+  },
+  {
+    "id": "08-02-post-4",
+    "stage": "post",
+    "question": "The formula for an iron-core electromagnet gives 6 T. What will you actually measure?",
+    "options": [
+      "6 T exactly",
+      "More than 6 T because iron adds field",
+      "Zero, because the iron blocks the field",
+      "Around 2 T at most, because the iron saturates"
+    ],
+    "correct": 3,
+    "explanation": "Iron saturates at roughly 1.5 to 2 T. Beyond that the domains are all aligned and extra current adds only the small air-core field."
+  }
+]

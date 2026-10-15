@@ -1,0 +1,86 @@
+[
+  {
+    "id": "12-02-pre-1",
+    "stage": "pre",
+    "question": "In an npn transistor, what are the three layers, in order?",
+    "options": ["n, p, n", "p, n, p", "n, n, p", "p, p, n"],
+    "correct": 0,
+    "explanation": "npn: an n-type emitter, a thin p-type base, an n-type collector."
+  },
+  {
+    "id": "12-02-pre-2",
+    "stage": "pre",
+    "question": "A forward-biased silicon pn junction at milliamp currents drops about:",
+    "options": ["0.06 V", "6 V", "0.65 V", "1.12 V"],
+    "correct": 2,
+    "explanation": "About 0.6-0.7 V, as in Phase 11. The BJT's base-emitter junction behaves the same way."
+  },
+  {
+    "id": "12-02-post-1",
+    "stage": "post",
+    "question": "Why must the base of a BJT be very thin?",
+    "options": [
+      "To reduce the transistor's size",
+      "So injected electrons cross it before they recombine, giving a high beta",
+      "To make the base current larger",
+      "So the base can carry high voltages"
+    ],
+    "correct": 1,
+    "explanation": "Crossing time must be much shorter than the carriers' lifetime; recombination losses become the base current."
+  },
+  {
+    "id": "12-02-post-2",
+    "stage": "post",
+    "question": "A BJT with beta = 200 has I_C = 4 mA in the active region. What is I_B?",
+    "options": ["20 uA", "0.8 A", "200 uA", "2 uA"],
+    "correct": 0,
+    "explanation": "I_B = I_C / beta = 4 mA / 200 = 20 uA."
+  },
+  {
+    "id": "12-02-post-3",
+    "stage": "post",
+    "question": "Which junction biasing defines the active region?",
+    "options": [
+      "Both junctions reverse biased",
+      "Both junctions forward biased",
+      "Base-emitter reverse, base-collector forward",
+      "Base-emitter forward, base-collector reverse"
+    ],
+    "correct": 3,
+    "explanation": "BE forward injects carriers; BC reverse sweeps them into the collector."
+  },
+  {
+    "id": "12-02-post-4",
+    "stage": "post",
+    "question": "On the output curves, why is I_C nearly constant for V_CE above about 0.3 V?",
+    "options": [
+      "The transistor is broken",
+      "The collector current is set by injection at the base-emitter junction, not by V_CE: the collector acts as a current source",
+      "V_CE does not reach the collector",
+      "The base current falls as V_CE rises"
+    ],
+    "correct": 1,
+    "explanation": "Any electron reaching the BC depletion region is swept across; more V_CE does not create more electrons."
+  },
+  {
+    "id": "12-02-post-5",
+    "stage": "post",
+    "question": "9 V supply, base resistor 180 kohm to the base, beta = 100, emitter grounded. Roughly what collector current flows (if not saturated)?",
+    "options": ["50 mA", "0.46 mA", "4.6 mA", "46 mA"],
+    "correct": 2,
+    "explanation": "I_B = (9 - 0.65) / 180k = 46 uA; I_C = 100 x 46 uA = 4.6 mA."
+  },
+  {
+    "id": "12-02-post-6",
+    "stage": "post",
+    "question": "In saturation, which statement is true?",
+    "options": [
+      "I_C is always exactly beta x I_B",
+      "V_CE is about 0.1-0.3 V and I_C is less than beta x I_B",
+      "No base current flows",
+      "The base-collector junction is reverse biased"
+    ],
+    "correct": 1,
+    "explanation": "Both junctions are forward biased; the load limits the current, so beta x I_B is only an upper bound."
+  }
+]

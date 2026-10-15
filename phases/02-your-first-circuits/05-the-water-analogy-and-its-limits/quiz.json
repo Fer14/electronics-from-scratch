@@ -1,0 +1,93 @@
+[
+  {
+    "id": "02-05-pre-1",
+    "stage": "pre",
+    "question": "In the water analogy, what plays the role of voltage?",
+    "options": [
+      "The amount of water in the pipes",
+      "The speed of a single drop of water",
+      "The pressure difference (or height difference) that pushes the water",
+      "The width of the pipe"
+    ],
+    "correct": 2,
+    "explanation": "Voltage is the push: energy per unit charge between two points. Its water partner is the pressure difference between two points, which is what makes water flow."
+  },
+  {
+    "id": "02-05-pre-2",
+    "stage": "pre",
+    "question": "A battery in a circuit is most like which part of a water loop?",
+    "options": [
+      "A pump that lifts the water to a higher pressure",
+      "A tank that slowly empties of water",
+      "A valve that opens and closes",
+      "A narrow section of pipe"
+    ],
+    "correct": 0,
+    "explanation": "A battery does not store charge to be emptied; it pushes the charge that arrives at its minus terminal back out of its plus terminal with more energy, exactly like a pump raises pressure."
+  },
+  {
+    "id": "02-05-pre-3",
+    "stage": "pre",
+    "question": "When you flick a light switch, roughly how long do the electrons that were next to the switch take to reach a bulb 1 m away?",
+    "options": [
+      "About 5 nanoseconds",
+      "About one second",
+      "Hours: they drift at a fraction of a millimetre per second",
+      "They never move at all"
+    ],
+    "correct": 2,
+    "explanation": "Electrons drift very slowly, about 0.07 mm/s for 1 A in a 1 mm² copper wire, so crossing 1 m takes hours. The bulb lights at once because the push travels at about 2e8 m/s and the electrons already in the filament start moving."
+  },
+  {
+    "id": "02-05-post-1",
+    "stage": "post",
+    "question": "A 9 V battery drives 20 mA through a resistor. You swap in an 18 V battery and keep the resistor. Using the water picture (twice the pressure, same pipe), what current do you expect?",
+    "options": [
+      "10 mA",
+      "20 mA",
+      "80 mA",
+      "40 mA"
+    ],
+    "correct": 3,
+    "explanation": "Twice the push through the same opposition gives twice the flow: 18 V / 450 ohm = 40 mA."
+  },
+  {
+    "id": "02-05-post-2",
+    "stage": "post",
+    "question": "Which statement is a place where the water analogy gives the WRONG answer?",
+    "options": [
+      "More resistance means less current for the same voltage",
+      "If you cut a wire connected to a battery, nothing spills out and current stops everywhere",
+      "Current is not used up by a load; the same amount comes back to the source",
+      "Two equal loads in parallel draw twice the total current from the source"
+    ],
+    "correct": 1,
+    "explanation": "A cut water pipe sprays water out, but a cut wire leaks nothing: charge cannot leave the conductor in any useful amount, so the current simply stops. The other three statements are true in both systems."
+  },
+  {
+    "id": "02-05-post-3",
+    "stage": "post",
+    "question": "You halve the radius of a pipe and, separately, halve the radius of a wire. By what factors do their resistances grow?",
+    "options": [
+      "Pipe x16, wire x4",
+      "Both x2",
+      "Both x4",
+      "Pipe x4, wire x16"
+    ],
+    "correct": 0,
+    "explanation": "A long thin pipe resists as 1/r^4, so halving r multiplies it by 2^4 = 16. A wire resists as 1/area, and area goes as r^2, so the factor is 2^2 = 4."
+  },
+  {
+    "id": "02-05-post-4",
+    "stage": "post",
+    "question": "In both systems, power is 'push times flow'. A 1 m water tank (9810 Pa) drives 4e-6 m^3/s through a pipe. What power is the water delivering?",
+    "options": [
+      "9810 W",
+      "0.0039 W",
+      "2.45e-9 W",
+      "0.039 W"
+    ],
+    "correct": 3,
+    "explanation": "Power = pressure difference x flow = 9810 Pa x 4e-6 m^3/s = 0.039 W, the water version of P = V x I."
+  }
+]

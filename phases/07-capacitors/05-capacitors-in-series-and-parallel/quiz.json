@@ -1,0 +1,93 @@
+[
+  {
+    "id": "07-05-pre-1",
+    "stage": "pre",
+    "question": "Two capacitors connected across the same two nodes are said to be in...",
+    "options": [
+      "series",
+      "parallel",
+      "a loop",
+      "a bridge"
+    ],
+    "correct": 1,
+    "explanation": "Parts connected across the same two nodes are in parallel and share the same voltage."
+  },
+  {
+    "id": "07-05-pre-2",
+    "stage": "pre",
+    "question": "What is 1 uF in parallel with 2.2 uF?",
+    "options": [
+      "0.69 uF",
+      "2.2 uF",
+      "3.2 uF",
+      "1.6 uF"
+    ],
+    "correct": 2,
+    "explanation": "Parallel capacitors add: 1 + 2.2 = 3.2 uF."
+  },
+  {
+    "id": "07-05-post-1",
+    "stage": "post",
+    "question": "Why do capacitors in series all carry the same charge?",
+    "options": [
+      "Because they all have the same capacitance",
+      "Because the voltage across each is the same",
+      "Because the source divides charge equally",
+      "Because each middle node is an isolated island that must stay neutral, so whatever charge appears on one side appears with opposite sign on the other"
+    ],
+    "correct": 3,
+    "explanation": "Nothing can flow onto or off a node that only touches capacitor plates. It starts neutral and stays neutral, which forces equal charge Q on every capacitor in the chain."
+  },
+  {
+    "id": "07-05-post-2",
+    "stage": "post",
+    "question": "What is 4.7 uF in series with 10 uF?",
+    "options": [
+      "About 3.2 uF",
+      "14.7 uF",
+      "About 7.4 uF",
+      "4.7 uF"
+    ],
+    "correct": 0,
+    "explanation": "C = (4.7 x 10) / (4.7 + 10) = 47 / 14.7 = 3.197 uF, smaller than the smaller capacitor."
+  },
+  {
+    "id": "07-05-post-3",
+    "stage": "post",
+    "question": "1 uF and 2 uF are in series across 9 V. Which one has more voltage across it?",
+    "options": [
+      "The 2 uF, 6 V",
+      "The 1 uF, 6 V",
+      "They share 4.5 V each",
+      "The 2 uF, 9 V"
+    ],
+    "correct": 1,
+    "explanation": "Both carry Q = (2/3 uF) x 9 V = 6 uC. V = Q / C gives 6 V on the 1 uF and 3 V on the 2 uF: the smaller capacitor gets the larger share."
+  },
+  {
+    "id": "07-05-post-4",
+    "stage": "post",
+    "question": "A 6.3 V capacitor and a 25 V capacitor are connected in parallel. What is the safe working voltage of the pair?",
+    "options": [
+      "31.3 V",
+      "25 V",
+      "15.65 V",
+      "6.3 V"
+    ],
+    "correct": 3,
+    "explanation": "In parallel both see the same voltage, so the lowest rating limits the pair: 6.3 V."
+  },
+  {
+    "id": "07-05-post-5",
+    "stage": "post",
+    "question": "Why do series capacitor banks often have a resistor across each capacitor?",
+    "options": [
+      "To force an even DC voltage split despite unequal leakage currents",
+      "To increase the total capacitance",
+      "To make the bank charge faster",
+      "To turn the capacitors into resistors at high frequency"
+    ],
+    "correct": 0,
+    "explanation": "Over long times leakage decides how voltage is shared, and leakage varies a lot between parts. Balancing resistors carry more current than the leakage and set an even split."
+  }
+]

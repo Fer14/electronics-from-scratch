@@ -1,0 +1,106 @@
+[
+  {
+    "id": "16-07-pre-1",
+    "stage": "pre",
+    "question": "A program executes 100 instructions with an average of 5 cycles each, on a 10 MHz clock. How long does it take?",
+    "options": [
+      "50 us",
+      "10 us",
+      "500 us",
+      "5 us"
+    ],
+    "correct": 0,
+    "explanation": "100 x 5 = 500 cycles; 500 x 100 ns = 50 us."
+  },
+  {
+    "id": "16-07-pre-2",
+    "stage": "pre",
+    "question": "Why test a whole machine if every part was already tested alone?",
+    "options": [
+      "It is not necessary",
+      "Because the parts may disagree about details of how they connect, which only shows up together",
+      "To make it faster",
+      "Because tests of parts are always wrong"
+    ],
+    "correct": 1,
+    "explanation": "Integration bugs live at the interfaces between parts."
+  },
+  {
+    "id": "16-07-post-1",
+    "stage": "post",
+    "question": "What does lockstep verification compare?",
+    "options": [
+      "Only the final output",
+      "The number of gates",
+      "The programmer-visible state (PC, A, flags) of the hardware and the reference model after every instruction",
+      "The clock frequencies"
+    ],
+    "correct": 2,
+    "explanation": "The first instruction where they differ points straight at the bug."
+  },
+  {
+    "id": "16-07-post-2",
+    "stage": "post",
+    "question": "The countdown program runs 18 instructions in 70 cycles. What is its CPI?",
+    "options": [
+      "18",
+      "3.0",
+      "70",
+      "3.89"
+    ],
+    "correct": 3,
+    "explanation": "CPI = 70 / 18 = 3.89."
+  },
+  {
+    "id": "16-07-post-3",
+    "stage": "post",
+    "question": "What limits the T8's maximum clock frequency?",
+    "options": [
+      "The size of memory",
+      "The critical path: register delay, the ALU's 22 gate levels, the bus and the setup time",
+      "The number of instructions",
+      "The assembler"
+    ],
+    "correct": 1,
+    "explanation": "Everything that must settle within one cycle sets the minimum period."
+  },
+  {
+    "id": "16-07-post-4",
+    "stage": "post",
+    "question": "In the trace, cycle 8 shows MEM_OUT and MAR_IN with bus = 130. What is happening?",
+    "options": [
+      "The operand of STA, the address 0x82 of result, is loaded into MAR",
+      "The value 130 is stored in memory",
+      "The PC jumps to 130",
+      "The ALU adds 130"
+    ],
+    "correct": 0,
+    "explanation": "It is step T3 of STA: the operand byte is an address and goes into MAR."
+  },
+  {
+    "id": "16-07-post-5",
+    "stage": "post",
+    "question": "Which change would NOT reduce the execution time of a program on the T8?",
+    "options": [
+      "A shorter critical path",
+      "Fewer cycles per instruction",
+      "Fewer instructions thanks to a multiply instruction",
+      "A larger memory that the program does not use"
+    ],
+    "correct": 3,
+    "explanation": "time = instructions x CPI x period; unused memory changes none of the three."
+  },
+  {
+    "id": "16-07-post-6",
+    "stage": "post",
+    "question": "What does pipelining do?",
+    "options": [
+      "It makes each instruction use fewer gates",
+      "It removes the need for a clock",
+      "It overlaps the steps of several instructions so that, ideally, one finishes every cycle",
+      "It stores programs in pipes"
+    ],
+    "correct": 2,
+    "explanation": "Like an assembly line: fetch the next instruction while the current one executes, bringing CPI toward 1."
+  }
+]

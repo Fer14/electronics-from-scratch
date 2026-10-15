@@ -1,0 +1,93 @@
+[
+  {
+    "id": "20-11-pre-1",
+    "stage": "pre",
+    "question": "What does a synthesis tool do?",
+    "options": [
+      "It prints the chip on silicon",
+      "It turns an RTL description into a netlist of real gates from a cell library",
+      "It tests packaged chips",
+      "It writes the Verilog for you"
+    ],
+    "correct": 1,
+    "explanation": "Synthesis maps registers and logic expressions onto standard cells, optimising for timing and area."
+  },
+  {
+    "id": "20-11-pre-2",
+    "stage": "pre",
+    "question": "Why are large dies more expensive per die than small ones, beyond their area?",
+    "options": [
+      "They need more pins",
+      "They are harder to cool",
+      "A larger area is more likely to contain a defect, so a smaller fraction of them work",
+      "They use thicker wafers"
+    ],
+    "correct": 2,
+    "explanation": "Yield falls exponentially with area: Y = exp(-D * A)."
+  },
+  {
+    "id": "20-11-post-1",
+    "stage": "post",
+    "question": "In Verilog, what does `always @(posedge clk) acc <= acc + d;` describe?",
+    "options": [
+      "A register acc that loads acc + d at every rising clock edge: an adder feeding back into a register",
+      "A loop that runs forever in software",
+      "A wire that always equals acc + d",
+      "A function call"
+    ],
+    "correct": 0,
+    "explanation": "It is an accumulator: flip-flops plus an adder, updated at each clock edge."
+  },
+  {
+    "id": "20-11-post-2",
+    "stage": "post",
+    "question": "A net has pins at (1, 1), (4, 2) and (2, 5). What is its half-perimeter wirelength?",
+    "options": [
+      "7",
+      "10",
+      "14",
+      "3"
+    ],
+    "correct": 0,
+    "explanation": "The bounding box spans x 1-4 (width 3) and y 1-5 (height 4): HPWL = 3 + 4 = 7."
+  },
+  {
+    "id": "20-11-post-3",
+    "stage": "post",
+    "question": "With D = 0.1 defects per cm^2, what is the Poisson yield of a 300 mm^2 die?",
+    "options": [
+      "97%",
+      "90%",
+      "74%",
+      "30%"
+    ],
+    "correct": 2,
+    "explanation": "300 mm^2 = 3 cm^2; Y = exp(-0.1 * 3) = exp(-0.3) = 0.74."
+  },
+  {
+    "id": "20-11-post-4",
+    "stage": "post",
+    "question": "Why does the toy synthesizer use 5 gates instead of 6 for the full adder?",
+    "options": [
+      "It removes the carry output",
+      "It uses a NAND gate",
+      "It skips the XOR",
+      "Structural hashing builds the shared subexpression a ^ b once and reuses it for both outputs"
+    ],
+    "correct": 3,
+    "explanation": "Both sum and carry need a ^ b; sharing it saves one gate."
+  },
+  {
+    "id": "20-11-post-5",
+    "stage": "post",
+    "question": "What is the main economic argument for chiplets?",
+    "options": [
+      "Small dies yield much better and can be tested before assembly, so several small dies can cost less than one huge die",
+      "Chiplets need no packaging",
+      "Chiplets are always faster than one die",
+      "Chiplets avoid lithography"
+    ],
+    "correct": 0,
+    "explanation": "In the example, four 200 mm^2 chiplets plus packaging cost $421 against $584 for one 800 mm^2 die."
+  }
+]

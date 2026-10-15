@@ -1,0 +1,86 @@
+[
+  {
+    "id": "18-07-pre-1",
+    "stage": "pre",
+    "question": "A part dissipates 2 W and the path to the air has a thermal resistance of 30 K/W. How much hotter than the air does the part get?",
+    "options": ["15 K", "32 K", "60 K", "28 K"],
+    "correct": 2,
+    "explanation": "delta_T = P x theta = 2 x 30 = 60 K (60 degrees C above the air)."
+  },
+  {
+    "id": "18-07-pre-2",
+    "stage": "pre",
+    "question": "Which is the best everyday picture of thermal resistance?",
+    "options": [
+      "The thickness of a coat: more resistance needs a bigger temperature difference for the same heat flow",
+      "The colour of a part",
+      "The voltage across a resistor",
+      "How much a part weighs"
+    ],
+    "correct": 0,
+    "explanation": "Thermal resistance says how many degrees of difference it takes to push one watt through a path, like insulation."
+  },
+  {
+    "id": "18-07-post-1",
+    "stage": "post",
+    "question": "Tj max is 125 C, ambient 45 C, power 4 W, theta_JC = 2 K/W, theta_CS = 0.5 K/W. What is the largest heatsink theta_SA allowed?",
+    "options": ["20 K/W", "17.5 K/W", "22.5 K/W", "11.3 K/W"],
+    "correct": 1,
+    "explanation": "(125 - 45) / 4 = 20 K/W in total; minus 2.5 K/W for the case and interface leaves 17.5 K/W."
+  },
+  {
+    "id": "18-07-post-2",
+    "stage": "post",
+    "question": "In the electrical model of a thermal path, what does a capacitor represent?",
+    "options": ["Thermal resistance", "Power", "Heat capacity: the energy needed to raise a body's temperature", "Ambient temperature"],
+    "correct": 2,
+    "explanation": "Temperature changes by heat / heat capacity just as voltage changes by charge / capacitance."
+  },
+  {
+    "id": "18-07-post-3",
+    "stage": "post",
+    "question": "A heatsink has theta_SA = 10 K/W and a heat capacity of 50 J/K. Roughly how long is its thermal time constant?",
+    "options": ["5 s", "0.2 s", "50 s", "500 s"],
+    "correct": 3,
+    "explanation": "tau = theta x C = 10 x 50 = 500 s, more than 8 minutes, so tests must run long enough."
+  },
+  {
+    "id": "18-07-post-4",
+    "stage": "post",
+    "question": "Why does a 1 ms pulse of 50 W barely heat the junction, while 50 W continuously would destroy it?",
+    "options": [
+      "Short pulses carry no energy",
+      "The pulse's energy (0.05 J) only warms the small heat capacity of the die by about 1 K before the pulse ends",
+      "The thermal resistance drops during pulses",
+      "Heat cannot flow in 1 ms"
+    ],
+    "correct": 1,
+    "explanation": "In a time much shorter than the thermal time constants, the heat just raises the die's temperature by energy / heat capacity."
+  },
+  {
+    "id": "18-07-post-5",
+    "stage": "post",
+    "question": "When does a MOSFET whose on-resistance rises with temperature suffer thermal runaway?",
+    "options": [
+      "Always, at any current",
+      "When the loop gain theta x I^2 x R_25 x alpha reaches 1 or more",
+      "Only if the ambient is below 0 C",
+      "Never, MOSFETs cannot overheat"
+    ],
+    "correct": 1,
+    "explanation": "Each degree of rise then causes at least another degree, so there is no balance point and the temperature keeps climbing."
+  },
+  {
+    "id": "18-07-post-6",
+    "stage": "post",
+    "question": "A regulator wastes 3.5 W. Which change helps the junction temperature most?",
+    "options": [
+      "Painting the part black",
+      "Using a bigger fuse",
+      "Replacing it with a switching converter that wastes 0.3 W",
+      "Adding a second input capacitor"
+    ],
+    "correct": 2,
+    "explanation": "Temperature rise is proportional to power. Cutting the power by more than ten times beats any heatsink."
+  }
+]

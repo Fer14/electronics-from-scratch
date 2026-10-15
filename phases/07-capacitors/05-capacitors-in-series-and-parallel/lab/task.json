@@ -1,0 +1,34 @@
+{
+  "id": "07-05-capacitors-in-series-and-parallel",
+  "title": "Build the missing capacitor",
+  "kind": "transient",
+  "story": "A timing circuit needs about 3.2 uF so that, charged from 5 V through 1 kOhm, it crosses 2.5 V between 2.0 ms and 2.45 ms. Nobody sells 3.2 uF, but there are two empty pads side by side (in parallel) and a box of standard capacitors. Fill both pads.",
+  "board": {
+    "nodes": {"vcc": [1, 1], "top": [5, 1], "gnd": [5, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "B1", "plus": "vcc", "minus": "gnd", "volts": 5},
+      {"type": "resistor", "id": "R1", "a": "vcc", "b": "top", "ohms": 1000}
+    ],
+    "slots": [
+      {"id": "S1", "a": "top", "b": "gnd", "accepts": ["capacitor"]},
+      {"id": "S2", "a": "top", "b": "gnd", "accepts": ["capacitor"]}
+    ]
+  },
+  "parts": [
+    {"type": "capacitor", "farads": 1e-6},
+    {"type": "capacitor", "farads": 2.2e-6},
+    {"type": "capacitor", "farads": 4.7e-6},
+    {"type": "capacitor", "farads": 1e-5}
+  ],
+  "sim": {"t_stop": 0.01, "dt": 2e-6},
+  "goals": [
+    {"measure": "time_to_cross", "at": "top", "level": 2.5, "direction": "rising", "min": 0.002, "max": 0.00245, "label": "crosses 2.5 V between 2.0 ms and 2.45 ms"}
+  ],
+  "solution": {"S1": {"type": "capacitor", "farads": 1e-6}, "S2": {"type": "capacitor", "farads": 2.2e-6}},
+  "hints": [
+    "Capacitors side by side (in parallel) add up: C = C1 + C2.",
+    "Crossing half the supply takes 0.693 x R x C. With R = 1 kOhm, 2.0 ms to 2.45 ms means C between about 2.9 uF and 3.5 uF.",
+    "Which two values from the box add up to something in that window?"
+  ]
+}

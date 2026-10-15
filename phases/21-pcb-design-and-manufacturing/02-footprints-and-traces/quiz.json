@@ -1,0 +1,93 @@
+[
+  {
+    "id": "21-02-pre-1",
+    "stage": "pre",
+    "question": "If you make a copper trace twice as wide (same length and thickness), its resistance...",
+    "options": [
+      "doubles",
+      "stays the same",
+      "halves",
+      "drops to a quarter"
+    ],
+    "correct": 2,
+    "explanation": "R = rho L / (w t). Doubling the width w doubles the cross-section, so the resistance halves."
+  },
+  {
+    "id": "21-02-pre-2",
+    "stage": "pre",
+    "question": "What does the imperial chip size code 0805 describe?",
+    "options": [
+      "A part about 0.08 inch by 0.05 inch (2.0 mm x 1.25 mm)",
+      "A resistor of 805 ohm",
+      "A part with 8 pins at 0.5 mm pitch",
+      "A capacitor rated 8.05 V"
+    ],
+    "correct": 0,
+    "explanation": "The code gives length and width in hundredths of an inch: 0.08 x 0.05 inch, about 2.0 x 1.25 mm."
+  },
+  {
+    "id": "21-02-post-1",
+    "stage": "post",
+    "question": "A trace carries 1 A. The current doubles to 2 A. By what factor does the heat generated in the trace change (resistance unchanged)?",
+    "options": [
+      "x 2",
+      "x 1.41",
+      "x 8",
+      "x 4"
+    ],
+    "correct": 3,
+    "explanation": "P = I^2 R, so doubling I multiplies P by 4."
+  },
+  {
+    "id": "21-02-post-2",
+    "stage": "post",
+    "question": "Why does IPC-2221 use k = 0.024 for inner layers but 0.048 for outer layers?",
+    "options": [
+      "Inner layers use thinner copper by law",
+      "Inner traces are wrapped in epoxy and glass and cool worse, so they carry about half the current for the same temperature rise",
+      "Inner traces have higher resistivity",
+      "Outer traces are always wider"
+    ],
+    "correct": 1,
+    "explanation": "The formula is about heating. Outer traces shed heat to the air; inner traces are insulated by the board material, so they heat more for the same current."
+  },
+  {
+    "id": "21-02-post-3",
+    "stage": "post",
+    "question": "A 12 V supply feeds a 6 ohm load through a 0.1 ohm trace. About how much voltage does the load get?",
+    "options": [
+      "11.80 V",
+      "12.00 V",
+      "11.90 V",
+      "6.00 V"
+    ],
+    "correct": 0,
+    "explanation": "I = 12 / 6.1 = 1.967 A; V load = 1.967 * 6 = 11.80 V. The trace takes the other 0.2 V."
+  },
+  {
+    "id": "21-02-post-4",
+    "stage": "post",
+    "question": "A long 3.3 V supply trace stays cool by IPC-2221, but the chip at the end resets. What is the most likely layout problem?",
+    "options": [
+      "The trace is too hot",
+      "The footprint is mirrored",
+      "Too much voltage drop along the supply and return paths",
+      "The copper is too thick"
+    ],
+    "correct": 2,
+    "explanation": "IPC-2221 only limits temperature. A long thin path can be cool and still drop enough voltage (I * R on the way there and back) to starve a low-voltage chip."
+  },
+  {
+    "id": "21-02-post-5",
+    "stage": "post",
+    "question": "Moving from 1 oz to 2 oz copper (same width) does what to a trace's resistance?",
+    "options": [
+      "Nothing; only width matters",
+      "Doubles it",
+      "Multiplies it by 4",
+      "Halves it"
+    ],
+    "correct": 3,
+    "explanation": "2 oz copper is about 70 um thick instead of 35 um. Doubling the thickness doubles the cross-section and halves the resistance."
+  }
+]

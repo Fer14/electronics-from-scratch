@@ -1,0 +1,29 @@
+{
+  "id": "ex-01-led-resistor",
+  "title": "Light the LED without burning it",
+  "kind": "dc",
+  "story": "A red LED wants about 10 mA. Your battery gives 9 V. Pick the resistor that limits the current.",
+  "board": {
+    "nodes": {"vcc": [1, 1], "a": [6, 1], "gnd": [1, 5], "k": [6, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "B1", "plus": "vcc", "minus": "gnd", "volts": 9},
+      {"type": "led", "id": "D1", "anode": "a", "cathode": "k", "color": "red"},
+      {"type": "wire", "id": "W1", "a": "k", "b": "gnd"}
+    ],
+    "slots": [
+      {"id": "S1", "a": "vcc", "b": "a", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 47},
+    {"type": "resistor", "ohms": 680},
+    {"type": "resistor", "ohms": 10000}
+  ],
+  "goals": [
+    {"measure": "current", "of": "D1", "min": 0.005, "max": 0.015, "label": "LED current between 5 and 15 mA"},
+    {"measure": "power", "of": "S1", "max": 0.25, "label": "the resistor stays under 1/4 W"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 680}},
+  "hints": ["The LED keeps about 1.9 V across itself.", "The resistor gets the rest: I = (9 - 1.9) / R."]
+}

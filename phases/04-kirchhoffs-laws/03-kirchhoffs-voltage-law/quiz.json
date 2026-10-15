@@ -1,0 +1,66 @@
+[
+  {
+    "id": "04-03-pre-1",
+    "stage": "pre",
+    "question": "A 9 V battery is connected to two resistors in series. One has 4 V across it. How much does the other have?",
+    "options": ["9 V", "4 V", "5 V", "13 V"],
+    "correct": 2,
+    "explanation": "Going round the loop, the 9 V rise of the battery must equal the total of the drops: 9 = 4 + V, so V = 5 V."
+  },
+  {
+    "id": "04-03-pre-2",
+    "stage": "pre",
+    "question": "Kirchhoff's voltage law follows from which idea?",
+    "options": ["Each point has a single potential (energy per coulomb), so a round trip returns to the same level", "Current is the same everywhere", "Resistors store energy", "Charge piles up at nodes"],
+    "correct": 0,
+    "explanation": "Voltage is energy per charge measured from a reference, like height. Coming back to the starting point means coming back to the same potential, so the total change is zero."
+  },
+  {
+    "id": "04-03-post-1",
+    "stage": "post",
+    "question": "Walking around a loop, you pass through a resistor in the direction opposite to its current. How do you count that resistor's voltage?",
+    "options": ["As a drop", "As zero", "It cannot be counted", "As a rise"],
+    "correct": 3,
+    "explanation": "Current in a resistor flows from higher to lower potential. Walking against it, you go from lower to higher potential, which is a rise."
+  },
+  {
+    "id": "04-03-post-2",
+    "stage": "post",
+    "question": "A 1 kΩ load must get 3 V from a 9 V battery through a series resistor. What value does KVL plus Ohm's law give?",
+    "options": ["3 kΩ", "2 kΩ", "1 kΩ", "500 Ω"],
+    "correct": 1,
+    "explanation": "The series resistor must drop 9 - 3 = 6 V. The load current is 3 V / 1000 Ω = 3 mA, so R = 6 V / 0.003 A = 2000 Ω."
+  },
+  {
+    "id": "04-03-post-3",
+    "stage": "post",
+    "question": "Four 1.5 V cells are in series but one is inserted backwards. What voltage does the pack give?",
+    "options": ["6 V", "4.5 V", "0 V", "3 V"],
+    "correct": 3,
+    "explanation": "Walking through the pack: +1.5 +1.5 +1.5 -1.5 = 3 V. The reversed cell subtracts instead of adding."
+  },
+  {
+    "id": "04-03-post-4",
+    "stage": "post",
+    "question": "A student measures 2.4 V, 5.3 V and 7.2 V around a loop where the 7.2 V element should equal the other two together. What can you conclude?",
+    "options": ["At least one reading is wrong, because the loop does not sum to zero", "KVL does not apply to this circuit", "The resistors are overheating", "Nothing, small differences are normal"],
+    "correct": 0,
+    "explanation": "-2.4 - 5.3 + 7.2 = -0.5 V, not zero. KVL always holds, so a measurement must be wrong."
+  },
+  {
+    "id": "04-03-post-5",
+    "stage": "post",
+    "question": "Why does any set of node voltages automatically satisfy KVL?",
+    "options": ["Because ground is 0 V", "Because each element's voltage is v(end) - v(start), and around a loop every node voltage appears once with + and once with -", "Because resistors are linear", "Because the battery voltage is fixed"],
+    "correct": 1,
+    "explanation": "The terms cancel in pairs whatever the numbers are. That is why, with node voltages, it is KCL plus Ohm's law that pins down the right values."
+  },
+  {
+    "id": "04-03-post-6",
+    "stage": "post",
+    "question": "R2 connects node a to ground, and a chain R3 + R4 also connects node a to ground. What does KVL say?",
+    "options": ["R2 carries the same current as R3", "The voltage across R2 equals the sum of the voltages across R3 and R4", "R2 has zero voltage", "R3 and R4 have the same voltage"],
+    "correct": 1,
+    "explanation": "Both paths start at a and end at ground, so a loop through R2 and back through R4 and R3 must sum to zero: V(R2) = V(R3) + V(R4)."
+  }
+]

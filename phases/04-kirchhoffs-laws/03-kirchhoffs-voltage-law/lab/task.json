@@ -1,0 +1,35 @@
+{
+  "id": "04-03-kirchhoffs-voltage-law",
+  "title": "Give the sensor its 3 volts",
+  "kind": "dc",
+  "story": "A small sensor behaves like a 1 kohm resistor (R1) and wants about 3 V. All you have is a 9 V battery. Put one resistor in series between the battery and the sensor so that the sensor gets between 2.5 and 3.2 V. Going round the loop, the 9 V the battery gives must be shared out between your resistor and the sensor.",
+  "board": {
+    "nodes": {"vcc": [1, 1], "a": [6, 1], "gnd": [6, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "B1", "plus": "vcc", "minus": "gnd", "volts": 9},
+      {"type": "resistor", "id": "R1", "a": "a", "b": "gnd", "ohms": 1000}
+    ],
+    "slots": [
+      {"id": "S1", "a": "vcc", "b": "a", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 470},
+    {"type": "resistor", "ohms": 1000},
+    {"type": "resistor", "ohms": 2200},
+    {"type": "resistor", "ohms": 4700},
+    {"type": "resistor", "ohms": 10000}
+  ],
+  "goals": [
+    {"measure": "voltage", "between": ["a", "gnd"], "min": 2.5, "max": 3.2, "label": "sensor voltage between 2.5 and 3.2 V"},
+    {"measure": "voltage", "between": ["vcc", "a"], "min": 5.8, "max": 6.5, "label": "your resistor drops between 5.8 and 6.5 V"},
+    {"measure": "power", "of": "S1", "max": 0.25, "label": "your resistor stays under 1/4 W"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 2200}},
+  "hints": [
+    "KVL: 9 V = (drop across your resistor) + (drop across the sensor).",
+    "If the sensor gets 3 V, your resistor must drop 6 V, twice as much as the sensor.",
+    "The same current flows through both, so the resistor that drops twice the voltage has about twice the resistance."
+  ]
+}

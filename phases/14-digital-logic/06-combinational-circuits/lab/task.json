@@ -1,0 +1,149 @@
+{
+  "id": "14-06-equality-comparator",
+  "title": "Are two 2-bit numbers equal?",
+  "kind": "logic",
+  "story": "A lock compares a 2-bit code A = a1 a0 typed on two switches with a stored 2-bit code B = b1 b0. It must open (eq = 1) only when the codes match bit for bit. Two gates compare one bit position each; the third combines their answers. Fill the three slots.",
+  "board": {
+    "inputs": [
+      "a1",
+      "a0",
+      "b1",
+      "b0"
+    ],
+    "outputs": [
+      "eq"
+    ],
+    "nodes": {
+      "a1": [
+        1,
+        1
+      ],
+      "b1": [
+        1,
+        2
+      ],
+      "a0": [
+        1,
+        4
+      ],
+      "b0": [
+        1,
+        5
+      ],
+      "d1": [
+        5,
+        2
+      ],
+      "d0": [
+        5,
+        4
+      ],
+      "eq": [
+        9,
+        3
+      ]
+    },
+    "fixed": [],
+    "slots": [
+      {
+        "id": "S1",
+        "inputs": [
+          "a1",
+          "b1"
+        ],
+        "output": "d1",
+        "accepts": [
+          "gate"
+        ]
+      },
+      {
+        "id": "S2",
+        "inputs": [
+          "a0",
+          "b0"
+        ],
+        "output": "d0",
+        "accepts": [
+          "gate"
+        ]
+      },
+      {
+        "id": "S3",
+        "inputs": [
+          "d1",
+          "d0"
+        ],
+        "output": "eq",
+        "accepts": [
+          "gate"
+        ]
+      }
+    ]
+  },
+  "parts": [
+    {
+      "type": "gate",
+      "op": "xor"
+    },
+    {
+      "type": "gate",
+      "op": "and"
+    },
+    {
+      "type": "gate",
+      "op": "or"
+    },
+    {
+      "type": "gate",
+      "op": "nor"
+    },
+    {
+      "type": "gate",
+      "op": "nand"
+    }
+  ],
+  "goals": [
+    {
+      "measure": "truth_table",
+      "expect": {
+        "eq": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "label": "eq = 1 exactly when a1 = b1 and a0 = b0 (all 16 rows)"
+    }
+  ],
+  "solution": {
+    "S1": {
+      "type": "gate",
+      "op": "xor"
+    },
+    "S2": {
+      "type": "gate",
+      "op": "xor"
+    },
+    "S3": {
+      "type": "gate",
+      "op": "nor"
+    }
+  },
+  "hints": [
+    "Which gate outputs 1 when its two inputs are different?",
+    "The codes match when there is no difference in bit 1 and no difference in bit 0: 'neither' is a NOR."
+  ]
+}

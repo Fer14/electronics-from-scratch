@@ -1,0 +1,33 @@
+{
+  "id": "07-04-the-time-constant",
+  "title": "Release reset at the right moment",
+  "kind": "transient",
+  "story": "A chip stays in reset until its reset pin rises past 2.5 V. The pin is charged from the 5 V supply through a resistor into a 100 nF capacitor. The chip's oscillator needs 0.6 ms to start, and the system must be running before 0.8 ms. Make the pin cross 2.5 V between 0.6 ms and 0.8 ms after power-up.",
+  "board": {
+    "nodes": {"vcc": [1, 1], "rst": [6, 1], "gnd": [3, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "B1", "plus": "vcc", "minus": "gnd", "volts": 5},
+      {"type": "capacitor", "id": "C1", "a": "rst", "b": "gnd", "farads": 1e-7}
+    ],
+    "slots": [
+      {"id": "S1", "a": "vcc", "b": "rst", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 1000},
+    {"type": "resistor", "ohms": 4700},
+    {"type": "resistor", "ohms": 10000},
+    {"type": "resistor", "ohms": 22000}
+  ],
+  "sim": {"t_stop": 0.004, "dt": 1e-6},
+  "goals": [
+    {"measure": "time_to_cross", "at": "rst", "level": 2.5, "direction": "rising", "min": 0.0006, "max": 0.0008, "label": "reset pin crosses 2.5 V between 0.6 ms and 0.8 ms"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 10000}},
+  "hints": [
+    "2.5 V is half of the supply. Half-way takes 0.693 x R x C.",
+    "0.6 ms to 0.8 ms of crossing time means tau between about 0.87 ms and 1.15 ms.",
+    "R = tau / C, with C = 100 nF."
+  ]
+}

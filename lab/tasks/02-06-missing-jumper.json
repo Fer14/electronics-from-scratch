@@ -1,0 +1,101 @@
+{
+ "id": "02-06-missing-jumper",
+ "title": "Push in the missing jumper wire",
+ "kind": "dc",
+ "story": "Your LED circuit is on the breadboard: the 9 V battery feeds the plus and minus rails, a 680 ohm resistor runs from the plus rail to row 10, and the red LED has its long leg (anode) in row 10 and its short leg (cathode) in row 13. The LED stays dark: row 13 is not connected to the minus rail. Choose what goes between row 13 and the minus rail. A jumper wire that is properly pushed in is a closed switch; a jumper that is not seated in its hole is an open switch.",
+ "board": {
+  "nodes": {
+   "vcc": [
+    1,
+    1
+   ],
+   "row10": [
+    5,
+    1
+   ],
+   "row13": [
+    9,
+    1
+   ],
+   "gnd": [
+    5,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "B1",
+    "plus": "vcc",
+    "minus": "gnd",
+    "volts": 9
+   },
+   {
+    "type": "resistor",
+    "id": "R1",
+    "a": "vcc",
+    "b": "row10",
+    "ohms": 680
+   },
+   {
+    "type": "led",
+    "id": "D1",
+    "anode": "row10",
+    "cathode": "row13",
+    "color": "red"
+   }
+  ],
+  "slots": [
+   {
+    "id": "J1",
+    "a": "row13",
+    "b": "gnd",
+    "accepts": [
+     "switch",
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "switch",
+   "closed": false
+  },
+  {
+   "type": "resistor",
+   "ohms": 4700
+  },
+  {
+   "type": "switch",
+   "closed": true
+  }
+ ],
+ "goals": [
+  {
+   "measure": "current",
+   "of": "D1",
+   "min": 0.005,
+   "max": 0.015,
+   "label": "LED current between 5 and 15 mA (it lights)"
+  },
+  {
+   "measure": "voltage",
+   "at": "row13",
+   "max": 0.1,
+   "label": "row 13 sits at the minus rail (below 0.1 V)"
+  }
+ ],
+ "solution": {
+  "J1": {
+   "type": "switch",
+   "closed": true
+  }
+ },
+ "hints": [
+  "Current needs a complete loop: plus rail, resistor, LED, and back to the minus rail.",
+  "A jumper wire is just a closed switch: it joins two strips with almost no resistance.",
+  "A resistor used as a jumper still lets current through, but how much?"
+ ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "10-01-make-a-low-pass",
+  "title": "Keep the bass, drop the hiss",
+  "kind": "ac",
+  "story": "A 1 k ohm resistor feeds node out. Put one part from out to ground so that low notes (100 Hz) pass almost untouched while hiss at 10 kHz is cut to less than a sixth of its size. Think about which part's opposition to current falls as the frequency rises.",
+  "sim": {"source": "V1", "f_start": 10, "f_stop": 100000, "points": 300},
+  "board": {
+    "nodes": {"in": [1, 1], "out": [6, 1], "gnd": [6, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "sine_source", "id": "V1", "plus": "in", "minus": "gnd", "amplitude": 1, "freq": 1000},
+      {"type": "resistor", "id": "R1", "a": "in", "b": "out", "ohms": 1000}
+    ],
+    "slots": [
+      {"id": "S1", "a": "out", "b": "gnd", "accepts": ["capacitor", "resistor", "inductor"]}
+    ]
+  },
+  "parts": [
+    {"type": "capacitor", "farads": 1e-07},
+    {"type": "resistor", "ohms": 1000},
+    {"type": "inductor", "henries": 0.01}
+  ],
+  "goals": [
+    {"measure": "gain_db_at", "at": "out", "freq": 100, "min": -1, "label": "100 Hz loses less than 1 dB"},
+    {"measure": "gain_db_at", "at": "out", "freq": 10000, "max": -15, "label": "10 kHz is cut by at least 15 dB"}
+  ],
+  "solution": {"S1": {"type": "capacitor", "farads": 1e-07}},
+  "hints": [
+    "A resistor to ground makes a plain voltage divider: the same fraction at every frequency.",
+    "A capacitor lets more current through the faster the voltage changes, so at high frequency it shorts node out to ground."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "21-06-thermal-relief",
+  "title": "Make the ground pad solderable",
+  "kind": "transient",
+  "story": "This is a thermal circuit, not an electrical one: voltage stands for temperature above the 25 C room, current for heat flow in watts, resistance for thermal resistance in K/W and capacitance for heat capacity in J/K. A 350 C soldering iron (325 above room) touches a ground pad through 15 K/W of contact. The joint itself holds 0.02 J/K. The pad joins a big ground plane (3 J/K, losing heat to the room through 10 K/W) through slot S1: a solid connection (2 K/W), a wide four-spoke thermal relief (8 K/W) or a thin four-spoke thermal relief (25 K/W). SAC305 solder melts at 217 C, which is 192 above room. The joint must melt within 3 seconds.",
+  "board": {
+    "nodes": {"tip": [1, 1], "joint": [4, 1], "plane": [8, 1], "gnd": [5, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "voltage_source", "id": "IRON", "plus": "tip", "minus": "gnd", "volts": 325},
+      {"type": "resistor", "id": "R_TIP", "a": "tip", "b": "joint", "ohms": 15},
+      {"type": "capacitor", "id": "C_JOINT", "a": "joint", "b": "gnd", "farads": 0.02},
+      {"type": "capacitor", "id": "C_PLANE", "a": "plane", "b": "gnd", "farads": 3},
+      {"type": "resistor", "id": "R_PLANE", "a": "plane", "b": "gnd", "ohms": 10}
+    ],
+    "slots": [
+      {"id": "S1", "a": "joint", "b": "plane", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 2},
+    {"type": "resistor", "ohms": 8},
+    {"type": "resistor", "ohms": 25}
+  ],
+  "sim": {"t_stop": 6, "dt": 0.002},
+  "goals": [
+    {"measure": "time_to_cross", "at": "joint", "level": 192, "direction": "rising", "max": 3, "label": "the joint reaches 217 C within 3 s"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 25}},
+  "hints": [
+    "While the plane is still cold, the joint sits on a divider: 325 * R_link / (15 + R_link).",
+    "The plane slowly warms, but its 3 J/K takes many seconds to heat up."
+  ]
+}

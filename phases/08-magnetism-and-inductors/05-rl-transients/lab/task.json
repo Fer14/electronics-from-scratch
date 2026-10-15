@@ -1,0 +1,32 @@
+{
+  "id": "08-05-rl-time-constant",
+  "title": "Set the RL time constant to 1 ms",
+  "kind": "transient",
+  "story": "A 10 V step drives a 100 mH coil in series with a resistor. The current, and so the voltage across the resistor, must rise to 63.2 % of its final value (6.32 V) in about 1 ms, and be fully settled (above 9.5 V) well before 6 ms. Pick the resistor that sets tau = L / R to 1 ms.",
+  "sim": {"t_stop": 0.008, "dt": 1e-05},
+  "board": {
+    "nodes": {"in": [1, 1], "x": [6, 1], "gnd": [6, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "pulse_source", "id": "V1", "plus": "in", "minus": "gnd", "low": 0, "high": 10, "period": 0.02, "duty": 0.5},
+      {"type": "inductor", "id": "L1", "a": "in", "b": "x", "henries": 0.1}
+    ],
+    "slots": [
+      {"id": "S1", "a": "x", "b": "gnd", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 10},
+    {"type": "resistor", "ohms": 100},
+    {"type": "resistor", "ohms": 1000}
+  ],
+  "goals": [
+    {"measure": "time_to_cross", "at": "x", "level": 6.32, "direction": "rising", "min": 0.0008, "max": 0.0012, "label": "resistor voltage reaches 6.32 V between 0.8 and 1.2 ms"},
+    {"measure": "voltage_at_time", "at": "x", "time": 0.006, "min": 9.5, "label": "settled above 9.5 V at 6 ms"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 100}},
+  "hints": [
+    "tau = L / R. With L = 0.1 H, which R gives 0.001 s?",
+    "A bigger resistor makes the RL circuit faster, the opposite of an RC circuit."
+  ]
+}

@@ -1,0 +1,132 @@
+{
+ "id": "11-08-zener-diodes",
+ "title": "A 5 V rail from a 12 V battery",
+ "kind": "dc",
+ "story": "A sensor needs about 5 V and draws about 5 mA (it behaves like a 1 kOhm resistor). You only have a 12 V battery and a 5.1 V zener diode rated for 0.5 W. Choose the series resistor that keeps the output regulated without cooking the zener.",
+ "board": {
+  "nodes": {
+   "vcc": [
+    1,
+    1
+   ],
+   "out": [
+    5,
+    1
+   ],
+   "o2": [
+    8,
+    1
+   ],
+   "gnd": [
+    5,
+    5
+   ],
+   "g1": [
+    1,
+    5
+   ],
+   "g2": [
+    8,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "B1",
+    "plus": "vcc",
+    "minus": "g1",
+    "volts": 12
+   },
+   {
+    "type": "wire",
+    "id": "W1",
+    "a": "g1",
+    "b": "gnd"
+   },
+   {
+    "type": "zener",
+    "id": "Z1",
+    "anode": "gnd",
+    "cathode": "out",
+    "vz": 5.1
+   },
+   {
+    "type": "wire",
+    "id": "W2",
+    "a": "out",
+    "b": "o2"
+   },
+   {
+    "type": "resistor",
+    "id": "RL",
+    "a": "o2",
+    "b": "g2",
+    "ohms": 1000
+   },
+   {
+    "type": "wire",
+    "id": "W3",
+    "a": "g2",
+    "b": "gnd"
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "vcc",
+    "b": "out",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 47
+  },
+  {
+   "type": "resistor",
+   "ohms": 330
+  },
+  {
+   "type": "resistor",
+   "ohms": 4700
+  }
+ ],
+ "goals": [
+  {
+   "measure": "voltage",
+   "at": "out",
+   "min": 4.9,
+   "max": 5.3,
+   "label": "output between 4.9 and 5.3 V"
+  },
+  {
+   "measure": "power",
+   "of": "Z1",
+   "max": 0.5,
+   "label": "zener below its 0.5 W rating"
+  },
+  {
+   "measure": "power",
+   "of": "S1",
+   "max": 0.5,
+   "label": "resistor below 0.5 W"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 330
+  }
+ },
+ "hints": [
+  "The resistor sees 12 - 5.1 = 6.9 V whenever the zener is regulating.",
+  "That current is shared: the load takes about 5.1 mA and the zener takes the rest.",
+  "If the resistor cannot even supply the load's 5 mA, the zener stops conducting and the output sags."
+ ]
+}

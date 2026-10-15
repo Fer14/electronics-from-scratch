@@ -1,0 +1,121 @@
+{
+ "id": "12-02-the-bjt",
+ "title": "Set the collector current with the base",
+ "kind": "dc",
+ "story": "An NPN transistor (beta = 100) sits on a 9 V supply with a 1 kOhm collector resistor. You want about 5 mA in the collector, with the transistor in its active region (not saturated, so V_CE stays well above 1 V). The only thing you can choose is the base resistor from 9 V to the base.",
+ "board": {
+  "nodes": {
+   "vcc": [
+    1,
+    1
+   ],
+   "top": [
+    7,
+    1
+   ],
+   "b": [
+    4,
+    4
+   ],
+   "c": [
+    7,
+    3
+   ],
+   "gnd": [
+    7,
+    6
+   ],
+   "g": [
+    1,
+    6
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "B1",
+    "plus": "vcc",
+    "minus": "g",
+    "volts": 9
+   },
+   {
+    "type": "wire",
+    "id": "W1",
+    "a": "g",
+    "b": "gnd"
+   },
+   {
+    "type": "wire",
+    "id": "W2",
+    "a": "vcc",
+    "b": "top"
+   },
+   {
+    "type": "resistor",
+    "id": "RC",
+    "a": "top",
+    "b": "c",
+    "ohms": 1000
+   },
+   {
+    "type": "npn",
+    "id": "Q1",
+    "c": "c",
+    "b": "b",
+    "e": "gnd",
+    "beta": 100
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "vcc",
+    "b": "b",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 18000
+  },
+  {
+   "type": "resistor",
+   "ohms": 180000
+  },
+  {
+   "type": "resistor",
+   "ohms": 1800000
+  }
+ ],
+ "goals": [
+  {
+   "measure": "current",
+   "of": "Q1",
+   "min": 0.004,
+   "max": 0.006,
+   "label": "collector current between 4 and 6 mA"
+  },
+  {
+   "measure": "voltage",
+   "at": "c",
+   "min": 1.0,
+   "label": "V_CE above 1 V (active, not saturated)"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 180000
+  }
+ },
+ "hints": [
+  "In the active region I_C = beta x I_B, so you need I_B = 5 mA / 100 = 50 uA.",
+  "The base sits about 0.65-0.7 V above the emitter, so the base resistor sees about 8.3 V.",
+  "R_B = 8.3 V / 50 uA."
+ ]
+}

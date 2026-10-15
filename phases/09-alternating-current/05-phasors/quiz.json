@@ -1,0 +1,93 @@
+[
+  {
+    "id": "09-05-pre-1",
+    "stage": "pre",
+    "question": "Two sine waves of the same frequency, 3 V and 4 V in amplitude, peak a quarter cycle apart. What is the amplitude of their sum?",
+    "options": [
+      "7 V",
+      "1 V",
+      "5 V",
+      "12 V"
+    ],
+    "correct": 2,
+    "explanation": "As phasors they are 3 at 0 deg and 4 at 90 deg; the sum is 3 + 4j, of size sqrt(9 + 16) = 5 V."
+  },
+  {
+    "id": "09-05-pre-2",
+    "stage": "pre",
+    "question": "When is a sine wave changing fastest?",
+    "options": [
+      "At its positive peak",
+      "When it crosses zero",
+      "At its negative peak",
+      "It always changes at the same rate"
+    ],
+    "correct": 1,
+    "explanation": "The curve is steepest at the zero crossings and flat at the peaks, so its rate of change (derivative) is largest at the crossings."
+  },
+  {
+    "id": "09-05-post-1",
+    "stage": "post",
+    "question": "What does a phasor record about a sine wave?",
+    "options": [
+      "Its amplitude and its phase (the frequency is known separately)",
+      "Its frequency only",
+      "Its value at every instant",
+      "Its RMS value and its frequency"
+    ],
+    "correct": 0,
+    "explanation": "A phasor is a complex number whose size is the amplitude and whose angle is the phase. All waves in the circuit share the same frequency, which is kept separately."
+  },
+  {
+    "id": "09-05-post-2",
+    "stage": "post",
+    "question": "In phasor language, taking the time derivative of a sine wave means:",
+    "options": [
+      "Dividing its phasor by omega",
+      "Squaring its phasor",
+      "Taking the conjugate of its phasor",
+      "Multiplying its phasor by j omega"
+    ],
+    "correct": 3,
+    "explanation": "The derivative is omega times bigger and 90 degrees ahead; multiplying by j omega does exactly that."
+  },
+  {
+    "id": "09-05-post-3",
+    "stage": "post",
+    "question": "In a capacitor driven by a sine wave, the current:",
+    "options": [
+      "is in phase with the voltage",
+      "leads the voltage by 90 degrees",
+      "lags the voltage by 90 degrees",
+      "is zero"
+    ],
+    "correct": 1,
+    "explanation": "I = j omega C V: the factor j puts the current 90 degrees ahead. Current is largest when the voltage changes fastest."
+  },
+  {
+    "id": "09-05-post-4",
+    "stage": "post",
+    "question": "In a series RC circuit, a meter reads 0.71 V across R and 0.71 V across C, with a 1 V source. What is going on?",
+    "options": [
+      "The meter is broken",
+      "Kirchhoff's voltage law fails in AC",
+      "The two voltages are 90 degrees apart, so they add as arrows: sqrt(0.71^2 + 0.71^2) = 1 V",
+      "The capacitor is generating energy"
+    ],
+    "correct": 2,
+    "explanation": "KVL holds for phasors. V_R and V_C are a quarter cycle apart and never peak together, so their sizes combine like the sides of a right triangle."
+  },
+  {
+    "id": "09-05-post-5",
+    "stage": "post",
+    "question": "An inductor of 0.1 H carries a 50 Hz current of amplitude 0.2 A. What is the voltage amplitude across it?",
+    "options": [
+      "6.28 V",
+      "0.02 V",
+      "1 V",
+      "31.4 V"
+    ],
+    "correct": 0,
+    "explanation": "|V| = omega L |I| = 314.16 x 0.1 x 0.2 = 6.28 V, leading the current by 90 degrees."
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "15-04-pre-1",
+    "stage": "pre",
+    "question": "How many D flip-flops does a 16-bit register need?",
+    "options": [
+      "1",
+      "4",
+      "16",
+      "65,536"
+    ],
+    "correct": 2,
+    "explanation": "One flip-flop per bit."
+  },
+  {
+    "id": "15-04-pre-2",
+    "stage": "pre",
+    "question": "A plain D flip-flop with no enable receives a clock edge. What does it store?",
+    "options": [
+      "Whatever is on d just before the edge",
+      "Its previous value",
+      "Always 0",
+      "Nothing; it needs an enable"
+    ],
+    "correct": 0,
+    "explanation": "A plain D flip-flop loads d at every edge. A load enable is extra logic."
+  },
+  {
+    "id": "15-04-post-1",
+    "stage": "post",
+    "question": "Which input equation gives a register bit a load enable?",
+    "options": [
+      "d = load·din",
+      "d = load + din",
+      "d = load XOR q",
+      "d = load·din + load'·q"
+    ],
+    "correct": 3,
+    "explanation": "A 2-to-1 mux: new data when load = 1, the bit's own value when load = 0."
+  },
+  {
+    "id": "15-04-post-2",
+    "stage": "post",
+    "question": "Why is 'clk AND load' a bad way to make a register hold its value?",
+    "options": [
+      "It uses too many gates",
+      "It can create glitch edges and skews this register's clock relative to the others",
+      "It makes the register shift",
+      "AND gates cannot carry clocks"
+    ],
+    "correct": 1,
+    "explanation": "Logic in the clock path delays the edge and can produce extra edges if load changes while clk is high."
+  },
+  {
+    "id": "15-04-post-3",
+    "stage": "post",
+    "question": "A 4-bit shift register (serial in at q3, shifting toward q0) starts at 0000 and receives 1, 0, 0 on three edges. What is q3 q2 q1 q0?",
+    "options": [
+      "1000",
+      "0001",
+      "0010",
+      "0100"
+    ],
+    "correct": 2,
+    "explanation": "Edge 1: 1000. Edge 2: 0100. Edge 3: 0010."
+  },
+  {
+    "id": "15-04-post-4",
+    "stage": "post",
+    "question": "In a register file, what selects which register is written?",
+    "options": [
+      "A decoder turning the register number into one-hot load enables",
+      "A multiplexer on the clock",
+      "A shift register",
+      "The read port"
+    ],
+    "correct": 0,
+    "explanation": "All registers see the same data, but only the one whose decoder output (ANDed with write) is 1 loads it."
+  },
+  {
+    "id": "15-04-post-5",
+    "stage": "post",
+    "question": "A UART sends a start bit, 8 data bits and a stop bit at 115,200 bits per second. How long does one byte take?",
+    "options": [
+      "69 us",
+      "8.7 us",
+      "1.04 ms",
+      "87 us"
+    ],
+    "correct": 3,
+    "explanation": "10 bits / 115,200 bit/s = 86.8 us."
+  },
+  {
+    "id": "15-04-post-6",
+    "stage": "post",
+    "question": "Shifting the unsigned 8-bit value 00010110 (22) one place toward the MSB gives:",
+    "options": [
+      "11 (00001011)",
+      "44 (00101100)",
+      "23 (00010111)",
+      "22 (unchanged)"
+    ],
+    "correct": 1,
+    "explanation": "A shift toward the MSB multiplies by 2."
+  }
+]

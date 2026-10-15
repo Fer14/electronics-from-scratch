@@ -1,0 +1,93 @@
+[
+  {
+    "id": "22-01-pre-1",
+    "stage": "pre",
+    "question": "Which of these is a measurable requirement?",
+    "options": [
+      "The light should be nice and soft",
+      "The light turns on below 5 lux and off above 15 lux",
+      "Use an ATtiny microcontroller",
+      "It should be low power"
+    ],
+    "correct": 1,
+    "explanation": "It has numbers and units, so a test can pass or fail it. 'Use an ATtiny' is a design choice, not a requirement."
+  },
+  {
+    "id": "22-01-pre-2",
+    "stage": "pre",
+    "question": "A photoresistor's resistance... as light increases.",
+    "options": [
+      "increases",
+      "stays the same",
+      "falls",
+      "oscillates"
+    ],
+    "correct": 2,
+    "explanation": "More light frees more charge carriers in the material, so it conducts better."
+  },
+  {
+    "id": "22-01-post-1",
+    "stage": "post",
+    "question": "With R_LDR = 16.25 kohm on top and R_FIX = 10 kohm below, from 3.3 V, what is V(sense)?",
+    "options": [
+      "1.65 V",
+      "2.04 V",
+      "3.3 V",
+      "About 1.26 V"
+    ],
+    "correct": 3,
+    "explanation": "3.3 * 10 / (16.25 + 10) = 3.3 * 0.381 = 1.257 V."
+  },
+  {
+    "id": "22-01-post-2",
+    "stage": "post",
+    "question": "Why does the night light use two thresholds (5 lux to switch on, 15 lux to switch off)?",
+    "options": [
+      "So that small fluctuations near a single threshold cannot make it flicker on and off",
+      "Because the ADC has two channels",
+      "To save battery during the day",
+      "Because the LDR has two terminals"
+    ],
+    "correct": 0,
+    "explanation": "That is hysteresis: once on, only a large rise in light switches it off, and vice versa."
+  },
+  {
+    "id": "22-01-post-3",
+    "stage": "post",
+    "question": "The LED averages 5.7 mA for 10 hours a night and the rest uses almost nothing. About how many nights do 2,000 mAh last?",
+    "options": [
+      "350",
+      "35",
+      "3.5",
+      "57"
+    ],
+    "correct": 1,
+    "explanation": "5.7 mA * 10 h = 57 mAh per night; 2000 / 57 = 35 nights."
+  },
+  {
+    "id": "22-01-post-4",
+    "stage": "post",
+    "question": "Why is R_FIX chosen equal to the LDR's resistance at the decision point (10 kohm at 10 lux)?",
+    "options": [
+      "It makes the divider draw no current",
+      "It is the cheapest value",
+      "It puts the sense voltage mid-range, where the divider is most sensitive to changes in the LDR",
+      "It makes the LED brighter"
+    ],
+    "correct": 2,
+    "explanation": "A divider changes fastest with the ratio when both resistors are equal, so equal values give the best resolution around the threshold."
+  },
+  {
+    "id": "22-01-post-5",
+    "stage": "post",
+    "question": "Where should design effort go first to make the batteries last longer?",
+    "options": [
+      "Reducing the microcontroller's sleep current from 5 uA to 4 uA",
+      "Choosing a smaller resistor package",
+      "Using a thicker board",
+      "The LED's current and duty cycle, which use almost all the energy"
+    ],
+    "correct": 3,
+    "explanation": "The budget shows the LED is about 99.7% of the daily charge."
+  }
+]

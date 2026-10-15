@@ -1,0 +1,93 @@
+[
+  {
+    "id": "05-01-pre-1",
+    "stage": "pre",
+    "question": "A circuit has two separate sources pushing current into the same network of resistors. Why does series-parallel simplification usually fail here?",
+    "options": [
+      "Because resistors stop obeying Ohm's law when there are two sources",
+      "Because the resistors no longer form a single chain from one source, so many of them are neither in series nor in parallel",
+      "Because two sources always cancel each other out",
+      "Because series-parallel rules only work for AC circuits"
+    ],
+    "correct": 1,
+    "explanation": "Series needs two parts sharing a node with nothing else attached; parallel needs two parts sharing both nodes. With several sources feeding several nodes, most resistors fit neither pattern, so you need a systematic method."
+  },
+  {
+    "id": "05-01-pre-2",
+    "stage": "pre",
+    "question": "Using kilo-ohms for resistance and milliamps for current, what unit does Ohm's law (V = I x R) give you?",
+    "options": [
+      "Millivolts",
+      "Kilovolts",
+      "Volts",
+      "Microvolts"
+    ],
+    "correct": 2,
+    "explanation": "1 kOhm x 1 mA = 1000 Ohm x 0.001 A = 1 V. The thousand and the thousandth cancel, which is why engineers love this unit system."
+  },
+  {
+    "id": "05-01-pre-3",
+    "stage": "pre",
+    "question": "What does it mean that the equations of a resistor circuit are linear?",
+    "options": [
+      "Each unknown is only multiplied by a fixed number and added, never squared or multiplied by another unknown",
+      "The circuit is drawn with straight lines",
+      "All currents are equal",
+      "The equations can only have one unknown each"
+    ],
+    "correct": 0,
+    "explanation": "Ohm's law is a straight-line relation (double the current, double the voltage). Combined with KCL and KVL, which only add and subtract, every equation is linear."
+  },
+  {
+    "id": "05-01-post-1",
+    "stage": "post",
+    "question": "A circuit has 5 nodes including ground. How many independent KCL equations can you write?",
+    "options": [
+      "5",
+      "6",
+      "1",
+      "4"
+    ],
+    "correct": 3,
+    "explanation": "KCL gives N - 1 independent equations. The equation for the last node is always the sum of the others, because every current that leaves one node enters another."
+  },
+  {
+    "id": "05-01-post-2",
+    "stage": "post",
+    "question": "You solve for a branch current and get -2 mA. What does that mean?",
+    "options": [
+      "You made an arithmetic mistake",
+      "The current is 2 mA flowing opposite to the arrow you drew",
+      "The resistor is generating energy",
+      "The current is zero"
+    ],
+    "correct": 1,
+    "explanation": "Arrows are guesses. A negative result means the real current flows the other way. Keep the sign and the arrow together."
+  },
+  {
+    "id": "05-01-post-3",
+    "stage": "post",
+    "question": "Why is KVL around a loop that contains a current source not useful in the branch current method, unless you add something?",
+    "options": [
+      "Because KVL does not apply to loops with current sources",
+      "Because a current source has zero voltage across it",
+      "Because the voltage across a current source is unknown, so that loop adds a new unknown along with its equation",
+      "Because current sources only work in AC"
+    ],
+    "correct": 2,
+    "explanation": "A current source forces its current and takes whatever voltage is needed. That voltage is a new unknown, so the loop equation does not reduce the number of unknowns you still have to find."
+  },
+  {
+    "id": "05-01-post-4",
+    "stage": "post",
+    "question": "In the workhorse circuit, the battery delivers 60 mW and the current source 2.5 mW. The four resistors burn 62.5 mW. What does this check tell you?",
+    "options": [
+      "Energy is conserved, so the solution is very likely correct",
+      "The current source is too weak",
+      "The battery is overloaded",
+      "Nothing; power checks are not related to correctness"
+    ],
+    "correct": 0,
+    "explanation": "A power budget uses the results in a way the solution did not. If supplied power equals burned power, a wrong coefficient or sign is unlikely."
+  }
+]

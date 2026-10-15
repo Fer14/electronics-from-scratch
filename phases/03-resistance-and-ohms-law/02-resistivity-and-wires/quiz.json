@@ -1,0 +1,58 @@
+[
+  {
+    "id": "03-02-pre-1",
+    "stage": "pre",
+    "question": "You replace a wire with one of the same material that is twice as long. Its resistance",
+    "options": ["halves", "stays the same", "doubles", "quadruples"],
+    "correct": 2,
+    "explanation": "Resistance is proportional to length: two pieces in a row need twice the voltage for the same current."
+  },
+  {
+    "id": "03-02-pre-2",
+    "stage": "pre",
+    "question": "Which number is a property of copper itself, no matter what shape the copper has?",
+    "options": ["Its resistivity", "Its resistance", "Its current", "Its voltage drop"],
+    "correct": 0,
+    "explanation": "Resistivity (ohm meters) belongs to the material. Resistance (ohms) belongs to a specific object and depends on its length and area."
+  },
+  {
+    "id": "03-02-post-1",
+    "stage": "post",
+    "question": "What is the resistance of 2 m of copper wire (rho = 1.68e-8 ohm m) with a 1 mm^2 cross-section?",
+    "options": ["0.0336 ohm", "33.6 ohm", "3.36e-14 ohm", "0.0084 ohm"],
+    "correct": 0,
+    "explanation": "R = rho L / A = 1.68e-8 x 2 / 1e-6 = 0.0336 ohm. Remember 1 mm^2 = 1e-6 m^2."
+  },
+  {
+    "id": "03-02-post-2",
+    "stage": "post",
+    "question": "You double the diameter of a round wire, keeping length and material. The resistance becomes",
+    "options": ["twice as large", "half as large", "the same", "a quarter as large"],
+    "correct": 3,
+    "explanation": "Area grows with the square of the diameter: 2 x the diameter is 4 x the area, so one quarter of the resistance."
+  },
+  {
+    "id": "03-02-post-3",
+    "stage": "post",
+    "question": "Going from AWG 20 to AWG 23 wire (same length), the resistance roughly",
+    "options": ["halves", "doubles", "stays the same", "becomes 23/20 times larger"],
+    "correct": 1,
+    "explanation": "A bigger AWG number is thinner. Every 3 gauges the area halves, so the resistance doubles."
+  },
+  {
+    "id": "03-02-post-4",
+    "stage": "post",
+    "question": "A 10 m cable runs to a lamp and back. Each conductor has 0.01 ohm per meter. What resistance does the current see in the cable?",
+    "options": ["0.01 ohm", "0.1 ohm", "0.2 ohm", "0.05 ohm"],
+    "correct": 2,
+    "explanation": "The current goes 10 m out and 10 m back: 20 m x 0.01 ohm/m = 0.2 ohm."
+  },
+  {
+    "id": "03-02-post-5",
+    "stage": "post",
+    "question": "Why are heating elements made of nichrome rather than copper?",
+    "options": ["Nichrome has more free electrons", "Nichrome is cheaper than copper", "Nichrome is magnetic", "Nichrome's resistivity is about 65 times higher, so a short wire has a useful resistance and stays stable when hot"],
+    "correct": 3,
+    "explanation": "Its messy alloy lattice makes electrons collide constantly: high resistivity, and its resistance changes little with temperature."
+  }
+]

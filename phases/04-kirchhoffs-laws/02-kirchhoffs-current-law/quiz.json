@@ -1,0 +1,66 @@
+[
+  {
+    "id": "04-02-pre-1",
+    "stage": "pre",
+    "question": "Three wires meet at a point. 5 mA flows in through one wire and 2 mA flows out through another. What happens in the third wire?",
+    "options": ["Nothing, it carries 0 mA", "7 mA flows in", "3 mA flows out", "It depends on the battery voltage only"],
+    "correct": 2,
+    "explanation": "What comes in must go out: 5 mA in, 2 mA out, so the remaining 3 mA must leave through the third wire."
+  },
+  {
+    "id": "04-02-pre-2",
+    "stage": "pre",
+    "question": "Kirchhoff's current law is a consequence of which physical fact?",
+    "options": ["Energy is conserved", "Charge is conserved and cannot pile up noticeably at a node", "Resistors turn energy into heat", "Electrons move slowly in a wire"],
+    "correct": 1,
+    "explanation": "Charge is never created or destroyed, and a wire junction can hold almost none, so the charge arriving each second must equal the charge leaving."
+  },
+  {
+    "id": "04-02-post-1",
+    "stage": "post",
+    "question": "You drew a branch's current arrow into a node and solved to get I = -12 mA. What does that mean?",
+    "options": ["12 mA flows out of the node along that branch", "You made an arithmetic mistake", "The current is zero", "12 mA flows into the node"],
+    "correct": 0,
+    "explanation": "A negative result means the real current flows opposite to the reference arrow you drew. Keep the sign and read it."
+  },
+  {
+    "id": "04-02-post-2",
+    "stage": "post",
+    "question": "A 9 V battery feeds node a through 1 kΩ. From a, 2 kΩ and 6 kΩ go to ground. What is v(a)?",
+    "options": ["4.5 V", "6.75 V", "3.6 V", "5.4 V"],
+    "correct": 3,
+    "explanation": "KCL at a: (9 - v)/1000 = v/2000 + v/6000. Multiply by 6000: 54 - 6v = 4v, so v = 5.4 V."
+  },
+  {
+    "id": "04-02-post-3",
+    "stage": "post",
+    "question": "A circuit has 5 nodes. How many independent KCL equations does it give?",
+    "options": ["5", "4", "6", "It depends on the number of loops"],
+    "correct": 1,
+    "explanation": "Every branch current leaves one node and enters another, so the N equations add up to 0 = 0. Only N - 1 = 4 are independent."
+  },
+  {
+    "id": "04-02-post-4",
+    "stage": "post",
+    "question": "If 1 mA more flowed into a 10 pF node than out of it, how fast would its voltage rise?",
+    "options": ["About 100 V per microsecond", "About 1 V per second", "About 1 mV per second", "It would not change"],
+    "correct": 0,
+    "explanation": "In one microsecond the extra charge is 0.001 A × 1e-6 s = 1e-9 C; divided by 10e-12 F that is 100 V. Because this is absurdly fast, the voltage settles almost instantly where in equals out."
+  },
+  {
+    "id": "04-02-post-5",
+    "stage": "post",
+    "question": "A home residual current device (RCD) trips because:",
+    "options": ["The voltage is too high", "The total current is above the fuse rating", "The current going out on the live wire differs from the current returning on neutral", "The wires get too hot"],
+    "correct": 2,
+    "explanation": "By KCL, all current leaving on the live wire should return on neutral. A difference means current is leaking through another path, possibly a person."
+  },
+  {
+    "id": "04-02-post-6",
+    "stage": "post",
+    "question": "In the incidence matrix, why does every branch column have exactly one +1 and one -1?",
+    "options": ["Because resistors have two colour bands", "Because current is always positive", "Because ground is counted twice", "Because each branch leaves exactly one node and enters exactly one other node"],
+    "correct": 3,
+    "explanation": "A two-ended branch connects two nodes. Its current leaves one (+1) and arrives at the other (-1), which is also why the rows add up to zero."
+  }
+]

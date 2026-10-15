@@ -1,0 +1,102 @@
+{
+ "id": "09-05-voltages-add-as-arrows",
+ "title": "Two voltages that add to more than the source",
+ "kind": "ac",
+ "sim": {
+  "source": "V1",
+  "f_start": 10,
+  "f_stop": 100000,
+  "points": 201
+ },
+ "story": "A 1 V, 1 kHz sine drives a 1 kOhm resistor in series with a capacitor. Choose the capacitor so that, at 1 kHz, the capacitor gets about 0.71 of the source voltage (between -3.5 dB and -2.5 dB) and lags it by roughly 45 degrees. Then the resistor gets about 0.71 V too: the two add to more than 1 V, because they add as arrows.",
+ "board": {
+  "nodes": {
+   "in": [
+    1,
+    1
+   ],
+   "out": [
+    6,
+    1
+   ],
+   "gnd": [
+    1,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "sine_source",
+    "id": "V1",
+    "plus": "in",
+    "minus": "gnd",
+    "amplitude": 1,
+    "freq": 1000
+   },
+   {
+    "type": "resistor",
+    "id": "R1",
+    "a": "in",
+    "b": "out",
+    "ohms": 1000
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "out",
+    "b": "gnd",
+    "accepts": [
+     "capacitor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "capacitor",
+   "farads": 4.7e-08
+  },
+  {
+   "type": "capacitor",
+   "farads": 1.5e-07
+  },
+  {
+   "type": "capacitor",
+   "farads": 4.7e-07
+  },
+  {
+   "type": "capacitor",
+   "farads": 1e-06
+  }
+ ],
+ "goals": [
+  {
+   "measure": "gain_db_at",
+   "at": "out",
+   "freq": 1000,
+   "min": -3.5,
+   "max": -2.5,
+   "label": "capacitor voltage between -3.5 dB and -2.5 dB of the source at 1 kHz"
+  },
+  {
+   "measure": "phase_deg_at",
+   "at": "out",
+   "freq": 1000,
+   "min": -50,
+   "max": -40,
+   "label": "capacitor voltage lags the source by 40 to 50 degrees at 1 kHz"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "capacitor",
+   "farads": 1.5e-07
+  }
+ },
+ "hints": [
+  "The capacitor's share is 1 / (1 + j omega R C). Its size is 0.707 (-3 dB) when omega R C = 1.",
+  "At 1 kHz, omega = 6283 rad/s. With R = 1000 ohm you need C close to 1 / (6283 x 1000) = 159 nF."
+ ]
+}

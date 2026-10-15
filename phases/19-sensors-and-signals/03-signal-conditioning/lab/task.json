@@ -1,0 +1,38 @@
+{
+  "id": "19-03-signal-conditioning",
+  "title": "Stretch the sensor to fill the ADC",
+  "kind": "dc",
+  "story": "A temperature sensor gives 0.5 V at 0 C and 1.0 V at 50 C, but the ADC spans 0 to 3.3 V. A difference amplifier subtracts a 0.5 V reference and multiplies by R2 / R1, with R1 = 10 kohm. The op-amp runs from 5 V, so it could swing above 3.3 V and harm the ADC. Pick the two R2 resistors (they must be equal) so that at 50 C, with the sensor at 1.0 V, the output sits between 2.9 V and 3.3 V: most of the range, without going over.",
+  "board": {
+    "nodes": {"sensor": [0, 1], "ref": [0, 4], "plus": [3, 1], "minus": [3, 4], "out": [8, 3], "gnd": [5, 6]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "voltage_source", "id": "VS", "plus": "sensor", "minus": "gnd", "volts": 1.0},
+      {"type": "voltage_source", "id": "VREF", "plus": "ref", "minus": "gnd", "volts": 0.5},
+      {"type": "resistor", "id": "R1A", "a": "sensor", "b": "plus", "ohms": 10000},
+      {"type": "resistor", "id": "R1B", "a": "ref", "b": "minus", "ohms": 10000},
+      {"type": "opamp", "id": "U1", "plus": "plus", "minus": "minus", "out": "out"}
+    ],
+    "slots": [
+      {"id": "S1", "a": "plus", "b": "gnd", "accepts": ["resistor"], "label": "R2 to ground"},
+      {"id": "S2", "a": "minus", "b": "out", "accepts": ["resistor"], "label": "R2 feedback"}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 33000},
+    {"type": "resistor", "ohms": 62000},
+    {"type": "resistor", "ohms": 100000}
+  ],
+  "goals": [
+    {"measure": "voltage", "at": "out", "min": 2.9, "max": 3.3, "label": "output between 2.9 V and 3.3 V at 50 C"}
+  ],
+  "solution": {
+    "S1": {"type": "resistor", "ohms": 62000},
+    "S2": {"type": "resistor", "ohms": 62000}
+  },
+  "hints": [
+    "With matched resistors, Vout = (R2 / R1) x (Vsensor - Vref).",
+    "At 50 C, Vsensor - Vref = 0.5 V, so you want R2 / R1 a little under 3.3 / 0.5 = 6.6.",
+    "If the two R2 resistors differ, the amplifier no longer subtracts cleanly and the output is wrong."
+  ]
+}

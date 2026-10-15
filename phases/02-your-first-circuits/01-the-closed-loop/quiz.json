@@ -1,0 +1,93 @@
+[
+  {
+    "id": "02-01-pre-1",
+    "stage": "pre",
+    "question": "You connect one wire from the + end of a battery to one contact of a bulb, and leave the bulb's other contact unconnected. What happens?",
+    "options": [
+      "The bulb lights at half brightness",
+      "The bulb lights fully, because one wire carries the electricity in",
+      "The bulb does not light, because there is no path back to the battery",
+      "The battery quickly goes flat"
+    ],
+    "correct": 2,
+    "explanation": "A steady current needs a closed loop: out of the + end, through the bulb, and back into the - end. With the second contact hanging, the loop is open and no steady current flows."
+  },
+  {
+    "id": "02-01-pre-2",
+    "stage": "pre",
+    "question": "In a working flashlight, which statement about the bulb is true?",
+    "options": [
+      "The bulb uses up electrons, so fewer come out than go in",
+      "The same current that goes into the bulb comes out of it; the bulb takes energy, not charge",
+      "More current comes out of the bulb than goes in",
+      "Current only exists in the wire between the + end and the bulb"
+    ],
+    "correct": 1,
+    "explanation": "Charge does not pile up or disappear in a steady circuit. The bulb converts the energy carried by the charge into light and heat, and the charge returns to the battery."
+  },
+  {
+    "id": "02-01-post-1",
+    "stage": "post",
+    "question": "A 3 V flashlight carries 0.3 A when on. What is the current in the return strip between the bulb and the battery's - end?",
+    "options": [
+      "0.3 A",
+      "0 A, because the bulb used it",
+      "0.15 A",
+      "0.9 A"
+    ],
+    "correct": 0,
+    "explanation": "In a single loop the current is the same at every point. 0.3 A leaves the + end, 0.3 A passes the filament and 0.3 A returns through the strip."
+  },
+  {
+    "id": "02-01-post-2",
+    "stage": "post",
+    "question": "A loop carries 0.3 A. Roughly how many electrons pass any point each second? (e = 1.602e-19 C)",
+    "options": [
+      "1.9e-20",
+      "4.8e-20",
+      "3.0e17",
+      "1.9e18"
+    ],
+    "correct": 3,
+    "explanation": "Electrons per second = current / charge per electron = 0.3 / 1.602e-19 = about 1.87e18."
+  },
+  {
+    "id": "02-01-post-3",
+    "stage": "post",
+    "question": "Electrons in a flashlight wire drift at well under a millimetre per second. Why does the bulb light almost instantly when you close the switch?",
+    "options": [
+      "Electrons speed up to the speed of light when the switch closes",
+      "The wire is already full of free electrons, and the electric field that pushes them sets up around the loop almost instantly",
+      "The bulb stores light and releases it",
+      "The switch sends a separate fast signal to the bulb"
+    ],
+    "correct": 1,
+    "explanation": "The push travels as an electric field at close to the speed of light, and all the free electrons already in the loop start drifting at once, like water in a full hose."
+  },
+  {
+    "id": "02-01-post-4",
+    "stage": "post",
+    "question": "A string of lights in one single loop goes dark. A gap is somewhere in the loop. Where is the current zero?",
+    "options": [
+      "Only after the gap",
+      "Only before the gap",
+      "Everywhere in the loop",
+      "Only in the bulb nearest the gap"
+    ],
+    "correct": 2,
+    "explanation": "An open loop carries no steady current anywhere. The location of the gap does not matter."
+  },
+  {
+    "id": "02-01-post-5",
+    "stage": "post",
+    "question": "A car headlamp has only one wire going to it, yet it lights. How is the loop closed?",
+    "options": [
+      "The lamp's metal mounting touches the car body, which is connected to the battery's - terminal",
+      "Car lamps do not need a closed loop",
+      "The air carries the current back",
+      "The single wire carries current both ways at once"
+    ],
+    "correct": 0,
+    "explanation": "In cars the steel body is the return path. The loop is still closed: + terminal, wire, lamp, body, back to the - terminal."
+  }
+]

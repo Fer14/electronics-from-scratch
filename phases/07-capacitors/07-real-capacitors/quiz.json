@@ -1,0 +1,106 @@
+[
+  {
+    "id": "07-07-pre-1",
+    "stage": "pre",
+    "question": "Which kind of capacitor must be connected the right way round?",
+    "options": [
+      "C0G ceramic",
+      "Polypropylene film",
+      "Aluminium electrolytic",
+      "Air-gap variable capacitor"
+    ],
+    "correct": 2,
+    "explanation": "Aluminium electrolytics (and tantalums) are polarized: their oxide dielectric only works with the + terminal at the higher voltage."
+  },
+  {
+    "id": "07-07-pre-2",
+    "stage": "pre",
+    "question": "What does ESR stand for?",
+    "options": [
+      "Equivalent series resistance",
+      "Electric storage rating",
+      "Effective static reactance",
+      "External safety resistor"
+    ],
+    "correct": 0,
+    "explanation": "ESR is the equivalent series resistance: the small resistance in series with the ideal capacitance in a real part."
+  },
+  {
+    "id": "07-07-post-1",
+    "stage": "post",
+    "question": "A 1000 uF capacitor at 5 V with 1 Ohm ESR suddenly supplies 1 A. What is the output voltage right after the step?",
+    "options": [
+      "5 V, because a capacitor voltage cannot jump",
+      "4.5 V",
+      "4 V",
+      "0 V"
+    ],
+    "correct": 2,
+    "explanation": "The ideal capacitor's voltage cannot jump, but the 1 A flows through the 1 Ohm ESR at once, dropping 1 V: the output is 4 V. Then it slides down at I / C = 1 V/ms."
+  },
+  {
+    "id": "07-07-post-2",
+    "stage": "post",
+    "question": "How do we usually model leakage in a capacitor?",
+    "options": [
+      "A small resistor in series",
+      "A large resistor in parallel with the capacitance",
+      "An inductor in series",
+      "A second capacitor in series"
+    ],
+    "correct": 1,
+    "explanation": "Leakage is a small current through the dielectric at steady voltage, which behaves like a large resistance across the ideal capacitor."
+  },
+  {
+    "id": "07-07-post-3",
+    "stage": "post",
+    "question": "A 100 uF capacitor has a leakage resistance of 1 MOhm. Roughly how long until it loses 63% of its charge on its own?",
+    "options": [
+      "1 s",
+      "10 ms",
+      "About 3 hours",
+      "100 s"
+    ],
+    "correct": 3,
+    "explanation": "tau = R_leak x C = 1e6 x 100e-6 = 100 s. After one tau it has 37% left."
+  },
+  {
+    "id": "07-07-post-4",
+    "stage": "post",
+    "question": "You need an accurate 10 nF capacitor for an oscillator. Which type is the best choice?",
+    "options": [
+      "C0G (NP0) ceramic",
+      "Y5V ceramic",
+      "Aluminium electrolytic",
+      "Supercapacitor"
+    ],
+    "correct": 0,
+    "explanation": "C0G is stable with temperature and DC voltage and has low loss. Y5V and other class II ceramics drift a lot, and electrolytics are imprecise and leaky."
+  },
+  {
+    "id": "07-07-post-5",
+    "stage": "post",
+    "question": "Why can a \"10 uF, 6.3 V\" X5R ceramic behave like only about 4-5 uF in a 5 V circuit?",
+    "options": [
+      "Because its tolerance is +/-50%",
+      "Because of DC bias: the strong DC field reduces the ceramic's permittivity",
+      "Because of ESR",
+      "Because ceramics leak half their charge"
+    ],
+    "correct": 1,
+    "explanation": "Class II ceramics (barium titanate) lose permittivity under a DC field. Near its rated voltage a small part can lose more than half of its capacitance."
+  },
+  {
+    "id": "07-07-post-6",
+    "stage": "post",
+    "question": "An electrolytic carries 2 A rms of ripple current and has 0.1 Ohm of ESR. How much heat does the ESR produce?",
+    "options": [
+      "0.2 W",
+      "0.04 W",
+      "0.4 W",
+      "20 W"
+    ],
+    "correct": 2,
+    "explanation": "P = I_rms^2 x ESR = 4 x 0.1 = 0.4 W, inside a small can. Heat shortens electrolytic life."
+  }
+]

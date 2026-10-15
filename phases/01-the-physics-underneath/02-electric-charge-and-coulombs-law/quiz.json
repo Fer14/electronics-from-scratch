@@ -1,0 +1,106 @@
+[
+  {
+    "id": "01-02-pre-1",
+    "stage": "pre",
+    "question": "Two balloons are both rubbed on the same wool jumper. What happens when you hold them near each other?",
+    "options": [
+      "They attract, because charged things always attract",
+      "Nothing, because they are both neutral",
+      "They stick together and become neutral",
+      "They repel, because they carry the same kind of charge"
+    ],
+    "correct": 3,
+    "explanation": "Both balloons gained electrons from the wool, so both are negative. Like charges repel."
+  },
+  {
+    "id": "01-02-pre-2",
+    "stage": "pre",
+    "question": "In a wire connected to a battery, which way do the electrons drift through the outside circuit?",
+    "options": [
+      "From the + terminal to the - terminal, the same as conventional current",
+      "From the - terminal to the + terminal, opposite to conventional current",
+      "They do not move at all; only protons move",
+      "Back and forth with no overall direction"
+    ],
+    "correct": 1,
+    "explanation": "Franklin labelled the charges before the electron was known. Electrons are negative, so they drift from - to + through the outside circuit while conventional current is drawn from + to -."
+  },
+  {
+    "id": "01-02-post-1",
+    "stage": "post",
+    "question": "Two +1 uC charges are 10 cm apart and repel with 0.90 N. What is the force when they are 20 cm apart?",
+    "options": [
+      "0.45 N",
+      "1.80 N",
+      "0.225 N",
+      "3.60 N"
+    ],
+    "correct": 2,
+    "explanation": "Coulomb's force goes as 1/r^2. Doubling the distance divides the force by 2^2 = 4: 0.90 / 4 = 0.225 N."
+  },
+  {
+    "id": "01-02-post-2",
+    "stage": "post",
+    "question": "A comb picks up -16 nC of charge. About how many extra electrons is that? (e = 1.6 x 10^-19 C)",
+    "options": [
+      "1 x 10^11",
+      "1 x 10^-11",
+      "1.6 x 10^10",
+      "2.6 x 10^-27"
+    ],
+    "correct": 0,
+    "explanation": "n = Q / e = 16e-9 / 1.6e-19 = 1e11 electrons."
+  },
+  {
+    "id": "01-02-post-3",
+    "stage": "post",
+    "question": "Using F = k q1 q2 / r^2 with k = 9 x 10^9, what is the force between +2 nC and -3 nC placed 3 cm apart?",
+    "options": [
+      "6 x 10^-5 N, repelling",
+      "6 x 10^-5 N, attracting",
+      "1.8 x 10^-6 N, attracting",
+      "6 x 10^-3 N, attracting"
+    ],
+    "correct": 1,
+    "explanation": "F = 9e9 x 2e-9 x 3e-9 / (0.03)^2 = 5.4e-8 / 9e-4 = 6e-5 N. Opposite signs mean the force is attractive."
+  },
+  {
+    "id": "01-02-post-4",
+    "stage": "post",
+    "question": "A charge feels 3 uN pointing right from one neighbour and 4 uN pointing up from another. What is the size of the net force?",
+    "options": [
+      "7 uN",
+      "1 uN",
+      "12 uN",
+      "5 uN"
+    ],
+    "correct": 3,
+    "explanation": "Forces add as vectors: [3, 0] + [0, 4] = [3, 4]. Its length is sqrt(3^2 + 4^2) = 5 uN."
+  },
+  {
+    "id": "01-02-post-5",
+    "stage": "post",
+    "question": "Millikan found that every oil drop's charge was a whole-number multiple of about 1.6 x 10^-19 C. What does this show?",
+    "options": [
+      "Charge is quantized: it comes in units of the elementary charge e",
+      "Charge is conserved in every process",
+      "Oil is a good conductor",
+      "The electric force is stronger than gravity"
+    ],
+    "correct": 0,
+    "explanation": "Whole-number multiples of a smallest amount is exactly what quantization means. Conservation is a different law (total charge never changes)."
+  },
+  {
+    "id": "01-02-post-6",
+    "stage": "post",
+    "question": "Why can we ignore gravity between charged particles in a circuit?",
+    "options": [
+      "Because electrons have no mass",
+      "Because gravity only acts on neutral objects",
+      "Because the electric force between them is around 10^39 times stronger",
+      "Because gravity does not follow an inverse-square law"
+    ],
+    "correct": 2,
+    "explanation": "For an electron and a proton in a hydrogen atom the electric attraction is about 8.2 x 10^-8 N and gravity about 3.6 x 10^-47 N, a ratio near 2 x 10^39."
+  }
+]

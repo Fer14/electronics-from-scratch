@@ -1,0 +1,66 @@
+[
+  {
+    "id": "04-01-pre-1",
+    "stage": "pre",
+    "question": "A schematic shows a single resistor across a battery, drawn with four corners in the wire. How many nodes does it have?",
+    "options": ["Six, one per corner plus the two parts", "Four, one per corner", "Two: the top wire and the bottom wire", "One, because it is all connected"],
+    "correct": 2,
+    "explanation": "Corners in a plain wire do not create new nodes. Everything joined by bare wire is one node, so the top side is one node and the bottom side is another."
+  },
+  {
+    "id": "04-01-pre-2",
+    "stage": "pre",
+    "question": "Why can a long stretch of drawn wire be treated as one single point?",
+    "options": ["Because in a schematic a wire has zero resistance, so there is no voltage difference along it", "Because current stops inside wires", "Because wires store charge", "Because the electrons in a wire do not move"],
+    "correct": 0,
+    "explanation": "With zero resistance, Ohm's law gives zero voltage across the wire for any current, so every point of the wire shares one voltage. That set of points is a node."
+  },
+  {
+    "id": "04-01-post-1",
+    "stage": "post",
+    "question": "A circuit has 6 branches and 4 nodes, all in one connected piece. How many independent loops does it have?",
+    "options": ["2", "10", "4", "3"],
+    "correct": 3,
+    "explanation": "L = B - N + 1 = 6 - 4 + 1 = 3."
+  },
+  {
+    "id": "04-01-post-2",
+    "stage": "post",
+    "question": "In a ladder circuit with two windows, the outer loop around both windows is:",
+    "options": ["A third independent loop", "The sum of the two window loops, so it adds no new information", "Not a loop, because it is too long", "The only loop that matters"],
+    "correct": 1,
+    "explanation": "The shared middle branch is walked once in each direction when you combine the two windows, so it cancels and leaves the outer loop. Its equation is the sum of the other two."
+  },
+  {
+    "id": "04-01-post-3",
+    "stage": "post",
+    "question": "A schematic has five ground symbols scattered around the page. How many nodes do they represent?",
+    "options": ["One", "Five", "Zero, ground is not a node", "It depends on how far apart they are drawn"],
+    "correct": 0,
+    "explanation": "All identical ground symbols are the same node, as if an invisible wire joined them."
+  },
+  {
+    "id": "04-01-post-4",
+    "stage": "post",
+    "question": "You move the ground reference from the battery's minus terminal to another node. What changes?",
+    "options": ["The currents in every resistor", "The voltage differences across each resistor", "The single number assigned to each node, but not any difference between two nodes", "Nothing at all, not even the node numbers"],
+    "correct": 2,
+    "explanation": "Ground is like choosing sea level. Node voltages shift by the same amount, so every difference, and therefore every current, stays the same."
+  },
+  {
+    "id": "04-01-post-5",
+    "stage": "post",
+    "question": "Why does a spanning tree of a connected circuit with N nodes always have N - 1 branches?",
+    "options": ["Because one node is ground and is not counted", "Because each new branch of the tree connects exactly one new node, starting from one node", "Because every node needs two branches", "Because batteries are not counted"],
+    "correct": 1,
+    "explanation": "Starting from one node, each tree branch reaches one new node without closing a loop. To reach the other N - 1 nodes you need N - 1 branches. Every extra branch then closes one new loop, which gives L = B - N + 1."
+  },
+  {
+    "id": "04-01-post-6",
+    "stage": "post",
+    "question": "Which of these is a branch?",
+    "options": ["A dot where three wires meet", "A ground symbol", "A wire corner", "A battery"],
+    "correct": 3,
+    "explanation": "A branch is a two-ended element between two nodes. Batteries count; dots, corners and ground symbols are parts of nodes."
+  }
+]

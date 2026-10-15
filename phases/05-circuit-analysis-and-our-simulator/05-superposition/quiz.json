@@ -1,0 +1,93 @@
+[
+  {
+    "id": "05-05-pre-1",
+    "stage": "pre",
+    "question": "What does it mean to 'turn off' an ideal voltage source for superposition?",
+    "options": [
+      "Remove it and leave a gap",
+      "Replace it with a wire (0 V across it)",
+      "Double its voltage",
+      "Replace it with a 1 kOhm resistor"
+    ],
+    "correct": 1,
+    "explanation": "A 0 V source keeps zero voltage across itself whatever current flows: that is exactly a wire."
+  },
+  {
+    "id": "05-05-pre-2",
+    "stage": "pre",
+    "question": "What does it mean to 'turn off' an ideal current source?",
+    "options": [
+      "Replace it with a wire",
+      "Reverse its direction",
+      "Remove it and leave a gap (0 A through it)",
+      "Set its voltage to zero"
+    ],
+    "correct": 2,
+    "explanation": "A 0 A source lets no current through whatever voltage is across it: that is an open circuit."
+  },
+  {
+    "id": "05-05-pre-3",
+    "stage": "pre",
+    "question": "Why does superposition work for resistor circuits?",
+    "options": [
+      "Because all the rules (KCL, KVL, Ohm's law) only add and multiply by fixed numbers, so solutions can be added",
+      "Because resistors store energy",
+      "Because every circuit has only one source",
+      "Because current always flows clockwise"
+    ],
+    "correct": 0,
+    "explanation": "The equations are linear. The sum of two valid solutions is still a valid solution, and the solution is unique."
+  },
+  {
+    "id": "05-05-post-1",
+    "stage": "post",
+    "question": "A battery alone gives 3 V at node x; a current source alone gives -1 V at node x. What is vx with both on?",
+    "options": [
+      "4 V",
+      "3 V",
+      "-3 V",
+      "2 V"
+    ],
+    "correct": 3,
+    "explanation": "Add the contributions with their signs: 3 + (-1) = 2 V."
+  },
+  {
+    "id": "05-05-post-2",
+    "stage": "post",
+    "question": "With source A alone a 1 kOhm resistor carries 2 mA; with source B alone it carries 1 mA in the same direction. What is its power with both on?",
+    "options": [
+      "9 mW",
+      "5 mW",
+      "3 mW",
+      "4 mW"
+    ],
+    "correct": 0,
+    "explanation": "Add currents first: 3 mA. Then P = I^2 R = 9 mW. Adding powers (4 + 1 = 5 mW) is wrong because power is quadratic."
+  },
+  {
+    "id": "05-05-post-3",
+    "stage": "post",
+    "question": "In the workhorse, vb = (4/7) x V1 + (1/7 kOhm) x I1. If the battery sags to 10.5 V and I1 stays 1 mA, what is vb?",
+    "options": [
+      "7 V",
+      "6.14 V",
+      "5.86 V",
+      "6.29 V"
+    ],
+    "correct": 1,
+    "explanation": "(4/7) x 10.5 = 6.0 V from the battery, plus (1/7 kOhm) x 1 mA = 0.143 V from the current source: 6.14 V. No re-solving needed."
+  },
+  {
+    "id": "05-05-post-4",
+    "stage": "post",
+    "question": "Which circuit can you NOT analyse exactly with superposition?",
+    "options": [
+      "Two batteries and five resistors",
+      "A battery, a current source and a resistor ladder",
+      "A battery, a resistor and a diode",
+      "Three current sources and a resistor bridge"
+    ],
+    "correct": 2,
+    "explanation": "A diode is non-linear: its current is not proportional to its voltage, so contributions do not add."
+  }
+]

@@ -1,0 +1,99 @@
+{
+ "id": "02-07-meter-in-series",
+ "title": "Measure the bulb current without changing it",
+ "kind": "dc",
+ "story": "A 6 V battery lights a small bulb. When hot, the bulb behaves like a 30 ohm resistor. You have broken the loop between the battery's plus terminal and the bulb so you can put your multimeter in the gap. Which meter setup belongs in the gap? A good ammeter on its amps jack behaves like a plain wire (a closed switch). A meter left on its volts setting behaves like a 10 megohm resistor. A meter whose amps fuse has blown is an open switch.",
+ "board": {
+  "nodes": {
+   "vcc": [
+    1,
+    1
+   ],
+   "a": [
+    8,
+    1
+   ],
+   "gnd": [
+    4,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "B1",
+    "plus": "vcc",
+    "minus": "gnd",
+    "volts": 6
+   },
+   {
+    "type": "resistor",
+    "id": "R1",
+    "a": "a",
+    "b": "gnd",
+    "ohms": 30
+   }
+  ],
+  "slots": [
+   {
+    "id": "M1",
+    "a": "vcc",
+    "b": "a",
+    "accepts": [
+     "switch",
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 10000000
+  },
+  {
+   "type": "switch",
+   "closed": true
+  },
+  {
+   "type": "switch",
+   "closed": false
+  }
+ ],
+ "goals": [
+  {
+   "measure": "current",
+   "of": "M1",
+   "min": 0.19,
+   "max": 0.21,
+   "label": "the meter carries about 200 mA"
+  },
+  {
+   "measure": "voltage",
+   "between": [
+    "vcc",
+    "a"
+   ],
+   "max": 0.05,
+   "label": "the meter itself takes less than 0.05 V"
+  },
+  {
+   "measure": "voltage",
+   "at": "a",
+   "min": 5.9,
+   "label": "the bulb still gets its full 6 V"
+  }
+ ],
+ "solution": {
+  "M1": {
+   "type": "switch",
+   "closed": true
+  }
+ },
+ "hints": [
+  "To measure current, every bit of the loop's current must pass through the meter.",
+  "A good current meter should change the circuit as little as possible: it should look like a piece of wire.",
+  "The bulb alone: 6 V across 30 ohm. What current is that?"
+ ]
+}

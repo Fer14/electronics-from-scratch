@@ -1,0 +1,32 @@
+{
+  "id": "17-05-timers-and-interrupts",
+  "title": "Debounce a button with an RC",
+  "kind": "transient",
+  "story": "A button pulls an input pin to ground; a 10 kohm pull-up brings it back up when released. The contacts bounce for up to 5 ms. Add a capacitor from the pin to ground so that, after release, the pin does not reach the logic-1 threshold of 1.98 V before 5 ms, but does reach it within 50 ms. At t = 0 the button has just been released and the capacitor is empty.",
+  "sim": {"t_stop": 0.2, "dt": 2e-5},
+  "board": {
+    "nodes": {"vdd": [2, 1], "pin": [6, 3], "gnd": [2, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "VDD", "plus": "vdd", "minus": "gnd", "volts": 3.3},
+      {"type": "resistor", "id": "RPU", "a": "vdd", "b": "pin", "ohms": 10000}
+    ],
+    "slots": [
+      {"id": "S1", "a": "pin", "b": "gnd", "accepts": ["capacitor"]}
+    ]
+  },
+  "parts": [
+    {"type": "capacitor", "farads": 1e-7, "v0": 0},
+    {"type": "capacitor", "farads": 1e-6, "v0": 0},
+    {"type": "capacitor", "farads": 1e-5, "v0": 0}
+  ],
+  "goals": [
+    {"measure": "time_to_cross", "at": "pin", "level": 1.98, "direction": "rising", "min": 0.005, "max": 0.05, "label": "pin crosses 1.98 V between 5 ms and 50 ms after release"}
+  ],
+  "solution": {"S1": {"type": "capacitor", "farads": 1e-6, "v0": 0}},
+  "hints": [
+    "The pin charges like v(t) = 3.3 x (1 - e^(-t / RC)).",
+    "1.98 V is 60% of 3.3 V, reached at t = RC x ln(2.5) = 0.916 RC.",
+    "Compute RC for each capacitor with R = 10 kohm."
+  ]
+}

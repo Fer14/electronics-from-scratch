@@ -1,0 +1,106 @@
+[
+  {
+    "id": "05-08-pre-1",
+    "stage": "pre",
+    "question": "What is a dependent (controlled) source?",
+    "options": [
+      "A battery that is running out",
+      "A source whose value is set by a voltage or current somewhere else in the circuit",
+      "A source that only works in AC",
+      "A resistor with a variable value"
+    ],
+    "correct": 1,
+    "explanation": "Its output is a fixed multiple (gain) of a controlling voltage or current elsewhere in the circuit."
+  },
+  {
+    "id": "05-08-pre-2",
+    "stage": "pre",
+    "question": "Why can no network of resistors and batteries amplify a small signal into a bigger copy?",
+    "options": [
+      "Because resistors only work with large signals",
+      "Because batteries block signals",
+      "Because resistor networks can only divide; the output of a passive linear network never exceeds what its sources provide",
+      "Because amplification needs AC"
+    ],
+    "correct": 2,
+    "explanation": "Passive networks only divide voltages and currents. Amplification needs an active device, modelled by a dependent source fed by a power supply."
+  },
+  {
+    "id": "05-08-pre-3",
+    "stage": "pre",
+    "question": "In a real amplifier, where does the extra output power come from?",
+    "options": [
+      "From the power supply; the input only controls how much is let through",
+      "From the input signal",
+      "From the load resistor",
+      "It is created inside the dependent source from nothing"
+    ],
+    "correct": 0,
+    "explanation": "The supply provides the energy. The dependent source in the model hides the supply, which is why it seems to create power."
+  },
+  {
+    "id": "05-08-post-1",
+    "stage": "post",
+    "question": "A VCCS with gm = 20 mS pulls current through a 5 kOhm resistor from a 12 V supply. Its control voltage rises by 10 mV. How much does the output voltage change?",
+    "options": [
+      "+1 V",
+      "-0.1 V",
+      "-10 V",
+      "-1 V"
+    ],
+    "correct": 3,
+    "explanation": "Extra current = 20 mS x 10 mV = 0.2 mA; extra drop = 0.2 mA x 5 kOhm = 1 V, so the output falls by 1 V (gain -100)."
+  },
+  {
+    "id": "05-08-post-2",
+    "stage": "post",
+    "question": "During superposition, what do you do with a dependent source?",
+    "options": [
+      "Turn it off like any other source",
+      "Replace it with a wire",
+      "Keep it on; only independent sources are turned off",
+      "Replace it with a gap"
+    ],
+    "correct": 2,
+    "explanation": "A dependent source is part of the circuit's structure. Its value is decided by the circuit, not by you."
+  },
+  {
+    "id": "05-08-post-3",
+    "stage": "post",
+    "question": "An amplifier model has A = 50, Rin = 9 kOhm and Rout = 100 Ohm. It is driven by a source with 1 kOhm inside and loaded with 900 Ohm. What is the overall voltage gain?",
+    "options": [
+      "50",
+      "40.5",
+      "45",
+      "55.6"
+    ],
+    "correct": 1,
+    "explanation": "Input divider 9/10 = 0.9, then x50, then output divider 900/1000 = 0.9: 0.9 x 50 x 0.9 = 40.5."
+  },
+  {
+    "id": "05-08-post-4",
+    "stage": "post",
+    "question": "How do you find the Thevenin resistance of a circuit that contains a dependent source?",
+    "options": [
+      "Turn off all sources, including dependent ones, and combine resistors",
+      "Turn off independent sources, apply a test current at the port, and divide the port voltage by it",
+      "Add up all the resistors",
+      "It cannot be found"
+    ],
+    "correct": 1,
+    "explanation": "The dependent source reacts to the test current, so you must solve with it on. Rth = Vt / It."
+  },
+  {
+    "id": "05-08-post-5",
+    "stage": "post",
+    "question": "A follower built from a VCVS with gain 1000 and Rout = 100 Ohm has an output resistance of about:",
+    "options": [
+      "0.1 Ohm",
+      "100 Ohm",
+      "100 kOhm",
+      "1 Ohm"
+    ],
+    "correct": 0,
+    "explanation": "Feedback divides the output resistance by (1 + A): 100 / 1001 = about 0.1 Ohm."
+  }
+]

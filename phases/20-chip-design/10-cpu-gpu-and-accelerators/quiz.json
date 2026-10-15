@@ -1,0 +1,93 @@
+[
+  {
+    "id": "20-10-pre-1",
+    "stage": "pre",
+    "question": "What do the exponent bits of a floating-point number mostly decide?",
+    "options": [
+      "Its range: how large and how small the numbers can be",
+      "Its sign",
+      "Its precision relative to its size",
+      "How fast it can be added"
+    ],
+    "correct": 0,
+    "explanation": "The exponent sets the power of two; the mantissa sets the relative precision."
+  },
+  {
+    "id": "20-10-pre-2",
+    "stage": "pre",
+    "question": "Why does a GPU fit many more multiply-adds per area than a CPU core?",
+    "options": [
+      "It uses a different kind of transistor",
+      "It has no memory at all",
+      "Its lanes share control and run the same instructions, so far less area goes to caches, prediction and reordering per operation",
+      "It runs at a much higher clock"
+    ],
+    "correct": 2,
+    "explanation": "A CPU core spends most of its area making one instruction stream fast; a GPU shares control across many lanes."
+  },
+  {
+    "id": "20-10-post-1",
+    "stage": "post",
+    "question": "bf16 and fp32 have the same 8 exponent bits. What does bf16 give up?",
+    "options": [
+      "Range",
+      "Precision: 7 mantissa bits instead of 23",
+      "The sign bit",
+      "Nothing"
+    ],
+    "correct": 1,
+    "explanation": "Same range, much coarser spacing: a relative step of about 0.8% instead of about 1e-7."
+  },
+  {
+    "id": "20-10-post-2",
+    "stage": "post",
+    "question": "Weights of size about 0.02 are rounded to fp4 E2M1 without a scale factor. What happens?",
+    "options": [
+      "They are stored exactly",
+      "They round to 6, the largest value",
+      "They become negative",
+      "They all round to 0, because the smallest non-zero value is 0.5"
+    ],
+    "correct": 3,
+    "explanation": "Without scaling, the values fall below the format's smallest step and vanish (SNR 0 dB)."
+  },
+  {
+    "id": "20-10-post-3",
+    "stage": "post",
+    "question": "Why can int8 lose badly to fp8 on activations with rare large outliers?",
+    "options": [
+      "int8 cannot store negative numbers",
+      "fp8 has more bits",
+      "The int8 scale must stretch to fit the outliers, squeezing ordinary values into a few levels; fp8 keeps relative precision at every size",
+      "int8 is slower"
+    ],
+    "correct": 2,
+    "explanation": "Uniform integer steps sized for the outliers are far too coarse for the typical values."
+  },
+  {
+    "id": "20-10-post-4",
+    "stage": "post",
+    "question": "In our model a float multiplier is multiplier(m + 1) + adder(e). Which is closest to the area of an fp8 E4M3 multiplier?",
+    "options": [
+      "3,376 gates",
+      "96 gates",
+      "384 gates",
+      "24 gates"
+    ],
+    "correct": 1,
+    "explanation": "multiplier(4) + adder(4) = 76 + 20 = 96 gates."
+  },
+  {
+    "id": "20-10-post-5",
+    "stage": "post",
+    "question": "Why do tensor cores multiply in bf16 or fp8 but accumulate in fp32?",
+    "options": [
+      "fp32 adders are smaller",
+      "Because inputs come from memory in fp32",
+      "fp8 cannot be added",
+      "A large running total in a low-precision format cannot represent the small products being added, so they get rounded away"
+    ],
+    "correct": 3,
+    "explanation": "In the example, a bf16 accumulator over 4,096 products was off by 4.3 while fp32 was off by 6e-6."
+  }
+]

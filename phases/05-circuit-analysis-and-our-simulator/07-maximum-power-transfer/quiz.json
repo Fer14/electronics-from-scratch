@@ -1,0 +1,93 @@
+[
+  {
+    "id": "05-07-pre-1",
+    "stage": "pre",
+    "question": "A source has Vth = 6 V and Rth = 1 kOhm. Which load takes the most power: 10 Ohm, 1 kOhm or 1 MOhm?",
+    "options": [
+      "10 Ohm, because the most current flows",
+      "1 MOhm, because the full voltage appears across it",
+      "1 kOhm, equal to the source resistance",
+      "All three take the same power"
+    ],
+    "correct": 2,
+    "explanation": "Tiny loads get current but no voltage; huge loads get voltage but no current. The product peaks when RL = Rth."
+  },
+  {
+    "id": "05-07-pre-2",
+    "stage": "pre",
+    "question": "What is the power in a 2 kOhm resistor carrying 3 mA?",
+    "options": [
+      "6 mW",
+      "18 mW",
+      "1.5 mW",
+      "12 mW"
+    ],
+    "correct": 1,
+    "explanation": "P = I^2 x R = (3 mA)^2 x 2 kOhm = 9 x 2 = 18 mW (mA^2 x kOhm gives mW)."
+  },
+  {
+    "id": "05-07-pre-3",
+    "stage": "pre",
+    "question": "In a series loop of Rth and RL, how is the power split between them?",
+    "options": [
+      "Equally, always",
+      "Mostly into the smaller resistor",
+      "It depends on the battery chemistry",
+      "In proportion to their resistances, because the same current flows through both"
+    ],
+    "correct": 3,
+    "explanation": "Both burn I^2 x R with the same I, so each gets a share proportional to its R."
+  },
+  {
+    "id": "05-07-post-1",
+    "stage": "post",
+    "question": "What is the maximum power a source with Vth = 10 V and Rth = 25 Ohm can deliver to a load?",
+    "options": [
+      "1 W",
+      "4 W",
+      "0.4 W",
+      "2 W"
+    ],
+    "correct": 0,
+    "explanation": "P_max = Vth^2 / (4 Rth) = 100 / 100 = 1 W, into a 25 Ohm load."
+  },
+  {
+    "id": "05-07-post-2",
+    "stage": "post",
+    "question": "What is the efficiency when the load is matched (RL = Rth)?",
+    "options": [
+      "100 %",
+      "25 %",
+      "50 %",
+      "It depends on Vth"
+    ],
+    "correct": 2,
+    "explanation": "Efficiency = RL / (RL + Rth) = 1/2. As much power is burned inside the source as reaches the load."
+  },
+  {
+    "id": "05-07-post-3",
+    "stage": "post",
+    "question": "Why are power grids and battery-powered devices deliberately NOT matched?",
+    "options": [
+      "Because matching is impossible with AC",
+      "Because they care about efficiency, which needs RL much larger than Rth",
+      "Because matching gives too little power",
+      "Because their sources have no internal resistance"
+    ],
+    "correct": 1,
+    "explanation": "A matched system wastes half its energy inside the source. When energy costs money or heats the battery, you make RL >> Rth."
+  },
+  {
+    "id": "05-07-post-4",
+    "stage": "post",
+    "question": "With Rth = 2 kOhm, a 1 kOhm load and a 4 kOhm load receive:",
+    "options": [
+      "The same power",
+      "The 1 kOhm gets twice as much",
+      "The 4 kOhm gets twice as much",
+      "The 1 kOhm gets four times as much"
+    ],
+    "correct": 0,
+    "explanation": "Loads of Rth/k and k x Rth always get the same power: the curve is symmetric on a logarithmic axis."
+  }
+]

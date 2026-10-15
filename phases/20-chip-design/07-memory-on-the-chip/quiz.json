@@ -1,0 +1,93 @@
+[
+  {
+    "id": "20-07-pre-1",
+    "stage": "pre",
+    "question": "Which memory is usually the largest and the slowest?",
+    "options": [
+      "Registers",
+      "On-chip SRAM",
+      "A small cache",
+      "DRAM"
+    ],
+    "correct": 3,
+    "explanation": "DRAM is dense, so it holds gigabytes, but each access takes around 100 ns."
+  },
+  {
+    "id": "20-07-pre-2",
+    "stage": "pre",
+    "question": "How does a DRAM cell store a bit?",
+    "options": [
+      "As charge on a tiny capacitor behind one transistor",
+      "In a loop of two inverters",
+      "As a magnetic spot",
+      "In a flip-flop"
+    ],
+    "correct": 0,
+    "explanation": "One transistor and one capacitor (1T1C). The charge leaks, so the cell must be refreshed."
+  },
+  {
+    "id": "20-07-post-1",
+    "stage": "post",
+    "question": "Why did the naive loop order get 0% hits in a 1,024-word LRU cache while reading 4,096 weights repeatedly?",
+    "options": [
+      "The cache was broken",
+      "Each weight was thrown out before it was needed again, because the working set was larger than the cache",
+      "The weights changed every time",
+      "LRU caches never hit"
+    ],
+    "correct": 1,
+    "explanation": "Cycling through more data than the cache holds with LRU evicts every line just before it is reused."
+  },
+  {
+    "id": "20-07-post-2",
+    "stage": "post",
+    "question": "What does tiling do?",
+    "options": [
+      "It compresses the weights",
+      "It makes the cache larger",
+      "It reorders the work so a block that fits in fast memory is fully reused before moving on",
+      "It adds more MACs"
+    ],
+    "correct": 2,
+    "explanation": "With 32 x 32 tiles, each tile is loaded once and used for every input, raising the hit rate to 94%."
+  },
+  {
+    "id": "20-07-post-3",
+    "stage": "post",
+    "question": "Why do many AI accelerators prefer software-managed scratchpads to hardware caches?",
+    "options": [
+      "Scratchpads are made of DRAM",
+      "Caches cannot store weights",
+      "Scratchpads are always larger",
+      "The compiler knows the computation in advance, so it can schedule transfers exactly, avoiding tags and giving deterministic timing"
+    ],
+    "correct": 3,
+    "explanation": "Regular, known workloads let software decide what to load and when, with predictable latency and no tag overhead."
+  },
+  {
+    "id": "20-07-post-4",
+    "stage": "post",
+    "question": "With double buffering, loading a tile takes 200 cycles and computing on it 1,000 cycles. About how long do 10 tiles take?",
+    "options": [
+      "About 10,200 cycles",
+      "12,000 cycles",
+      "2,000 cycles",
+      "1,200 cycles"
+    ],
+    "correct": 0,
+    "explanation": "Loads overlap with compute: one initial load (200) + 10 * max(200, 1000) = 10,200 cycles."
+  },
+  {
+    "id": "20-07-post-5",
+    "stage": "post",
+    "question": "In the area-split table, why does an 8 x 8 array with a 4 kbit buffer deliver only 28 MACs per cycle instead of 64?",
+    "options": [
+      "Its clock is slower",
+      "The buffer holds too few inputs to reuse each weight enough, so DRAM bandwidth limits the array",
+      "4 kbit SRAM is defective",
+      "The array is too big for the chip"
+    ],
+    "correct": 1,
+    "explanation": "Only 14 inputs fit, so each weight is reused 14 times; 2 bytes/cycle * 14 = 28 MACs per cycle."
+  }
+]

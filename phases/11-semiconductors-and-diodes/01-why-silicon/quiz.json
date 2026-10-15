@@ -1,0 +1,78 @@
+[
+  {
+    "id": "11-01-pre-1",
+    "stage": "pre",
+    "question": "Which material conducts electricity best at room temperature?",
+    "options": ["Pure silicon", "Glass", "Copper", "Pure germanium"],
+    "correct": 2,
+    "explanation": "Copper has about one free electron per atom. Pure silicon has about one per seven trillion atoms, and glass essentially none."
+  },
+  {
+    "id": "11-01-pre-2",
+    "stage": "pre",
+    "question": "What is the main element in computer chips?",
+    "options": ["Silicon", "Copper", "Carbon", "Iron"],
+    "correct": 0,
+    "explanation": "Chips are built on silicon wafers; copper is used for the tiny wires connecting the transistors."
+  },
+  {
+    "id": "11-01-post-1",
+    "stage": "post",
+    "question": "Why does a completely full energy band carry no current?",
+    "options": [
+      "Its electrons are too heavy",
+      "Every slot is taken, so no electron can gain a little energy and change its motion",
+      "The electrons in it have no charge",
+      "Full bands only exist in insulators made of glass"
+    ],
+    "correct": 1,
+    "explanation": "To respond to a push an electron must move into a slightly higher empty slot. In a full band there is none, so the push changes nothing."
+  },
+  {
+    "id": "11-01-post-2",
+    "stage": "post",
+    "question": "What is kT at room temperature (300 K), in electronvolts?",
+    "options": ["1.12 eV", "0.7 eV", "8.6 eV", "0.026 eV"],
+    "correct": 3,
+    "explanation": "kT = 8.617e-5 eV/K x 300 K = 0.0259 eV, about 26 meV. Silicon's gap is about 43 times larger."
+  },
+  {
+    "id": "11-01-post-3",
+    "stage": "post",
+    "question": "What happens to the resistance of a piece of pure silicon when it warms up from 25 C to 100 C?",
+    "options": [
+      "It rises a little, like copper",
+      "It stays the same",
+      "It falls by a factor of about 100, because many more electrons are kicked across the gap",
+      "It becomes zero"
+    ],
+    "correct": 2,
+    "explanation": "The number of thermal carriers grows exponentially with temperature (the Boltzmann factor), so resistivity drops steeply: about 5900 to 53 ohm-metres in our model."
+  },
+  {
+    "id": "11-01-post-4",
+    "stage": "post",
+    "question": "What makes something a semiconductor rather than an insulator, in the band picture?",
+    "options": [
+      "A band gap small enough that heat lifts a few electrons across at room temperature",
+      "A half-full conduction band",
+      "Having no valence band",
+      "Being a metal mixed with glass"
+    ],
+    "correct": 0,
+    "explanation": "Semiconductors and insulators have the same structure (full band, gap, empty band); only the gap size differs: about 1 eV versus about 9 eV."
+  },
+  {
+    "id": "11-01-post-5",
+    "stage": "post",
+    "question": "Which is NOT a reason silicon displaced germanium?",
+    "options": [
+      "Its larger gap keeps thermal leakage low at higher temperatures",
+      "It grows an excellent insulating oxide",
+      "It is abundant and cheap (it comes from sand)",
+      "Its electrons move faster than in any other material"
+    ],
+    "correct": 3,
+    "explanation": "Silicon's electron mobility is modest; gallium arsenide and germanium are faster. Silicon won on gap, oxide and cost."
+  }
+]

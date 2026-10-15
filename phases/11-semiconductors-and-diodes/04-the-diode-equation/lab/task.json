@@ -1,0 +1,32 @@
+{
+  "id": "11-04-the-diode-equation",
+  "title": "Bias a diode at one milliamp",
+  "kind": "dc",
+  "story": "Small-signal diodes are usually characterised at about 1 mA. Your bench supply gives 5 V. Pick the resistor that sets the diode near 1 mA, so its voltage lands in the range the diode equation predicts for that current.",
+  "board": {
+    "nodes": {"vcc": [1, 1], "a": [6, 1], "gnd": [6, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "B1", "plus": "vcc", "minus": "gnd", "volts": 5},
+      {"type": "diode", "id": "D1", "anode": "a", "cathode": "gnd"}
+    ],
+    "slots": [
+      {"id": "S1", "a": "vcc", "b": "a", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 470},
+    {"type": "resistor", "ohms": 4700},
+    {"type": "resistor", "ohms": 47000}
+  ],
+  "goals": [
+    {"measure": "current", "of": "D1", "min": 0.0008, "max": 0.0015, "label": "diode current between 0.8 and 1.5 mA"},
+    {"measure": "voltage", "at": "a", "min": 0.62, "max": 0.68, "label": "diode voltage between 0.62 and 0.68 V"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 4700}},
+  "hints": [
+    "The diode will sit somewhere near 0.65 V, so the resistor sees about 5 - 0.65 V.",
+    "I = (5 - 0.65) / R. Which resistor gives about 1 mA?",
+    "Ten times more current costs only about 60 mV more diode voltage."
+  ]
+}

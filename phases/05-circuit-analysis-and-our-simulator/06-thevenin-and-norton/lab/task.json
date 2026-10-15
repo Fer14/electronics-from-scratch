@@ -1,0 +1,31 @@
+{
+  "id": "05-06-thevenin-and-norton",
+  "title": "Use Thevenin to pick a load for exactly 3 V",
+  "kind": "dc",
+  "story": "A 12 V battery drives a divider of 6 kOhm over 3 kOhm. Its output, across the 3 kOhm, has an empty load slot. Find the divider's Thevenin equivalent first, then choose the load that makes the output sit between 2.9 and 3.1 V.",
+  "board": {
+    "nodes": {"a": [1, 1], "p": [5, 1], "gnd": [5, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "V1", "plus": "a", "minus": "gnd", "volts": 12},
+      {"type": "resistor", "id": "R1", "a": "a", "b": "p", "ohms": 6000},
+      {"type": "resistor", "id": "R2", "a": "p", "b": "gnd", "ohms": 3000}
+    ],
+    "slots": [
+      {"id": "RL", "a": "p", "b": "gnd", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 2000},
+    {"type": "resistor", "ohms": 6000},
+    {"type": "resistor", "ohms": 20000}
+  ],
+  "goals": [
+    {"measure": "voltage", "at": "p", "min": 2.9, "max": 3.1, "label": "output between 2.9 and 3.1 V"}
+  ],
+  "solution": {"RL": {"type": "resistor", "ohms": 6000}},
+  "hints": [
+    "Open circuit: 12 x 3 / (6 + 3) = 4 V. Sources dead: 6 kOhm in parallel with 3 kOhm = 2 kOhm.",
+    "With the equivalent, V_load = 4 V x RL / (2 kOhm + RL). Solve for 3 V."
+  ]
+}

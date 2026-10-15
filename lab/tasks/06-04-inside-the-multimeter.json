@@ -1,0 +1,103 @@
+{
+ "id": "06-04-inside-the-multimeter",
+ "title": "Turn a needle into a 10 V voltmeter",
+ "kind": "dc",
+ "story": "You found an old moving-coil movement: its needle reaches full scale at 1 mA and its coil has 200 ohm. Connected to a 10 V test source, it should read (at or just below) full scale, never past it. Pick the multiplier resistor.",
+ "board": {
+  "nodes": {
+   "vcc": [
+    1,
+    1
+   ],
+   "coil": [
+    7,
+    1
+   ],
+   "gnd": [
+    1,
+    5
+   ],
+   "g2": [
+    7,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "voltage_source",
+    "id": "Vtest",
+    "plus": "vcc",
+    "minus": "gnd",
+    "volts": 10
+   },
+   {
+    "type": "resistor",
+    "id": "Mcoil",
+    "a": "coil",
+    "b": "g2",
+    "ohms": 200
+   },
+   {
+    "type": "switch",
+    "id": "SW1",
+    "a": "g2",
+    "b": "gnd",
+    "closed": true
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "vcc",
+    "b": "coil",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 4700
+  },
+  {
+   "type": "resistor",
+   "ohms": 9100
+  },
+  {
+   "type": "resistor",
+   "ohms": 10000
+  },
+  {
+   "type": "resistor",
+   "ohms": 22000
+  }
+ ],
+ "goals": [
+  {
+   "measure": "current",
+   "of": "Mcoil",
+   "max": 0.001,
+   "label": "needle does not go past full scale (1 mA)"
+  },
+  {
+   "measure": "current",
+   "of": "Mcoil",
+   "min": 0.00095,
+   "label": "needle reaches at least 95 % of full scale"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 10000
+  }
+ },
+ "hints": [
+  "At full range, 10 V must push 1 mA through the multiplier and the coil in series.",
+  "Total resistance = 10 V / 1 mA = 10 000 ohm. The coil already provides 200 ohm.",
+  "The exact answer, 9800 ohm, is not in the bin. A bit more resistance reads slightly low; a bit less pins the needle."
+ ]
+}

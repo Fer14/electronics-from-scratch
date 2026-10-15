@@ -1,0 +1,91 @@
+[
+  {
+    "id": "13-06-pre-1",
+    "stage": "pre",
+    "question": "A single RC low-pass filter attenuates frequencies well above its cutoff by how much per decade?",
+    "options": ["20 dB", "40 dB", "3 dB", "6 dB"],
+    "correct": 0,
+    "explanation": "One reactive element gives 20 dB per decade (Phase 10)."
+  },
+  {
+    "id": "13-06-pre-2",
+    "stage": "pre",
+    "question": "What does a high Q mean for a resonant circuit's response?",
+    "options": [
+      "A broad, gentle response",
+      "A sharp peak at its natural frequency",
+      "No response at all",
+      "A response independent of frequency"
+    ],
+    "correct": 1,
+    "explanation": "High Q means strong resonance: a tall, narrow peak (Phase 10)."
+  },
+  {
+    "id": "13-06-post-1",
+    "stage": "post",
+    "question": "An inverting amplifier has R_F = 10 k with C_F = 10 nF across it. What is its cutoff frequency?",
+    "options": ["10 kHz", "159 Hz", "1.59 kHz", "100 Hz"],
+    "correct": 2,
+    "explanation": "f_c = 1 / (2 pi x 10k x 10n) = 1592 Hz."
+  },
+  {
+    "id": "13-06-post-2",
+    "stage": "post",
+    "question": "Why does a passive RC-RC filter cut off much earlier than either RC section alone?",
+    "options": [
+      "Capacitors in series lose charge",
+      "The second section loads the first, lowering Q and blurring the corners",
+      "Resistors heat up",
+      "It doesn't; it cuts off at the same frequency"
+    ],
+    "correct": 1,
+    "explanation": "The simulation gave a -3 dB point of 375 Hz for sections designed for 1 kHz."
+  },
+  {
+    "id": "13-06-post-3",
+    "stage": "post",
+    "question": "For a unity-gain Sallen-Key low-pass with equal resistors, what capacitor ratio gives a Butterworth (Q = 0.707) response?",
+    "options": [
+      "C1 (to output) = C2 (to ground)",
+      "C1 = C2 / 2",
+      "C1 = 10 x C2",
+      "C1 (to output) = 2 x C2 (to ground)"
+    ],
+    "correct": 3,
+    "explanation": "Q = sqrt(C1/C2) / 2 = 0.707 requires C1/C2 = 2."
+  },
+  {
+    "id": "13-06-post-4",
+    "stage": "post",
+    "question": "Far above the corner, how fast does any second-order low-pass roll off?",
+    "options": ["20 dB/decade", "40 dB/decade", "60 dB/decade", "It depends only on Q"],
+    "correct": 1,
+    "explanation": "Two reactive elements: 40 dB/decade. Q only changes the shape near the corner."
+  },
+  {
+    "id": "13-06-post-5",
+    "stage": "post",
+    "question": "A Sallen-Key low-pass with Q = 2 shows what at its natural frequency?",
+    "options": [
+      "A dip of 6 dB",
+      "Exactly -3 dB",
+      "A peak of about +6 dB (gain Q = 2)",
+      "No change"
+    ],
+    "correct": 2,
+    "explanation": "At f0 the gain of a unity-gain second-order low-pass equals Q: 20 log 2 = 6 dB."
+  },
+  {
+    "id": "13-06-post-6",
+    "stage": "post",
+    "question": "How do you turn a Sallen-Key low-pass into a high-pass?",
+    "options": [
+      "Swap the resistors and capacitors",
+      "Reverse the op-amp's inputs",
+      "Double the capacitors",
+      "Remove the follower"
+    ],
+    "correct": 0,
+    "explanation": "Exchanging R and C mirrors the response; for Butterworth the resistor to ground becomes twice the feedback resistor."
+  }
+]

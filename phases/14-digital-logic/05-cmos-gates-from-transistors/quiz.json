@@ -1,0 +1,106 @@
+[
+  {
+    "id": "14-05-pre-1",
+    "stage": "pre",
+    "question": "An NMOS with its source on ground and Vth = 1 V has its gate at 5 V. What does it do?",
+    "options": [
+      "It is off",
+      "It conducts like a closed switch",
+      "It draws a large gate current",
+      "It reverses the supply"
+    ],
+    "correct": 1,
+    "explanation": "Vgs = 5 V is well above Vth, so the channel conducts. The gate itself is insulated and draws no steady current."
+  },
+  {
+    "id": "14-05-pre-2",
+    "stage": "pre",
+    "question": "When does a PMOS with its source on the 5 V supply conduct?",
+    "options": [
+      "When its gate is low (near 0 V)",
+      "When its gate is high (near 5 V)",
+      "Always",
+      "Never"
+    ],
+    "correct": 0,
+    "explanation": "A PMOS turns on when its gate is below its source by more than Vth."
+  },
+  {
+    "id": "14-05-post-1",
+    "stage": "post",
+    "question": "Why does a settled CMOS inverter draw almost no supply current?",
+    "options": [
+      "Its transistors have infinite resistance",
+      "The supply is disconnected",
+      "Its output capacitor blocks DC",
+      "In each settled state one of the two transistors is off, so there is no path from VDD to ground"
+    ],
+    "correct": 3,
+    "explanation": "Input 0: PMOS on, NMOS off. Input 1: PMOS off, NMOS on. Current only flows briefly during transitions."
+  },
+  {
+    "id": "14-05-post-2",
+    "stage": "post",
+    "question": "In a CMOS NAND gate, how are the NMOS transistors connected?",
+    "options": [
+      "In parallel between output and ground",
+      "In series between output and VDD",
+      "In series between output and ground",
+      "In parallel between output and VDD"
+    ],
+    "correct": 2,
+    "explanation": "The output must go to 0 only when a AND b are 1, so both NMOS must conduct: series. The PMOS pull-up is the dual: parallel to VDD."
+  },
+  {
+    "id": "14-05-post-3",
+    "stage": "post",
+    "question": "How many transistors does a CMOS 2-input AND gate need?",
+    "options": [
+      "2",
+      "4",
+      "6",
+      "8"
+    ],
+    "correct": 2,
+    "explanation": "A CMOS stage always inverts, so AND = NAND (4) + inverter (2) = 6."
+  },
+  {
+    "id": "14-05-post-4",
+    "stage": "post",
+    "question": "A chip has 2 nF of switched capacitance, 10 % activity, VDD = 1 V and f = 1 GHz. What is its dynamic power?",
+    "options": [
+      "0.02 W",
+      "0.2 W",
+      "2 W",
+      "20 W"
+    ],
+    "correct": 1,
+    "explanation": "P = 0.1 x 2e-9 x 1^2 x 1e9 = 0.2 W."
+  },
+  {
+    "id": "14-05-post-5",
+    "stage": "post",
+    "question": "Why are NAND gates preferred over NOR gates in CMOS?",
+    "options": [
+      "NOR puts the slower PMOS transistors in series, so it is bigger or slower for the same drive",
+      "NAND uses fewer transistors",
+      "NOR cannot be built in CMOS",
+      "NAND draws static current and NOR does not"
+    ],
+    "correct": 0,
+    "explanation": "Holes are slower than electrons. In a NAND the PMOS are in parallel; in a NOR they are in series, doubling an already higher resistance."
+  },
+  {
+    "id": "14-05-post-6",
+    "stage": "post",
+    "question": "Lowering a chip's supply from 1.2 V to 0.9 V, at the same frequency, changes its switching power by what factor?",
+    "options": [
+      "0.75",
+      "0.94",
+      "1.33",
+      "0.56"
+    ],
+    "correct": 3,
+    "explanation": "Switching power scales with VDD^2: (0.9 / 1.2)^2 = 0.5625."
+  }
+]

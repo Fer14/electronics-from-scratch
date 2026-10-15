@@ -1,0 +1,101 @@
+{
+ "id": "17-07-a-virtual-microcontroller",
+ "title": "Smooth the night light's PWM",
+ "kind": "transient",
+ "story": "The virtual night light makes 488 Hz PWM (period 2.048 ms) between 0 and 3.3 V. At 50% duty, a 10 kohm resistor and a capacitor turn it into a steady voltage for an analog dimmer. Choose the capacitor so that after 100 ms the output sits between 1.5 V and 1.8 V and its ripple (measured over the second half of the run) is under 0.25 V.",
+ "sim": {
+  "t_stop": 0.1,
+  "dt": 4e-06
+ },
+ "board": {
+  "nodes": {
+   "pwm": [
+    2,
+    1
+   ],
+   "out": [
+    7,
+    1
+   ],
+   "gnd": [
+    2,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "pulse_source",
+    "id": "PWM",
+    "plus": "pwm",
+    "minus": "gnd",
+    "low": 0,
+    "high": 3.3,
+    "period": 0.002048,
+    "duty": 0.5
+   },
+   {
+    "type": "resistor",
+    "id": "R1",
+    "a": "pwm",
+    "b": "out",
+    "ohms": 10000
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "out",
+    "b": "gnd",
+    "accepts": [
+     "capacitor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "capacitor",
+   "farads": 1e-08,
+   "v0": 0
+  },
+  {
+   "type": "capacitor",
+   "farads": 1e-06,
+   "v0": 0
+  },
+  {
+   "type": "capacitor",
+   "farads": 0.0001,
+   "v0": 0
+  }
+ ],
+ "goals": [
+  {
+   "measure": "voltage_at_time",
+   "at": "out",
+   "time": 0.1,
+   "min": 1.5,
+   "max": 1.8,
+   "label": "output between 1.5 V and 1.8 V at 100 ms"
+  },
+  {
+   "measure": "ripple",
+   "at": "out",
+   "max": 0.25,
+   "label": "ripple under 0.25 V"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "capacitor",
+   "farads": 1e-06,
+   "v0": 0
+  }
+ },
+ "hints": [
+  "The settled average is duty x 3.3 V = 1.65 V, but only if the filter has had a few time constants to get there.",
+  "Ripple is about 3.3 x 0.5 x 0.5 x 2.048 ms / RC.",
+  "Too small a capacitor ripples by volts; too big a one has not charged yet after 100 ms."
+ ]
+}

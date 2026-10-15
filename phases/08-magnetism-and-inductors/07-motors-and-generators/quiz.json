@@ -1,0 +1,93 @@
+[
+  {
+    "id": "08-07-pre-1",
+    "stage": "pre",
+    "question": "A DC motor draws 6 A at start-up but only 0.03 A when spinning freely. Why?",
+    "options": [
+      "The winding's resistance rises as it spins",
+      "The spinning motor generates a back-EMF that opposes the supply",
+      "The battery runs down",
+      "The brushes lose contact at high speed"
+    ],
+    "correct": 1,
+    "explanation": "A spinning coil in a field is a generator. Its back-EMF k omega cancels most of the supply voltage, leaving only a small voltage across the winding resistance."
+  },
+  {
+    "id": "08-07-pre-2",
+    "stage": "pre",
+    "question": "What does the commutator in a brushed DC motor do?",
+    "options": [
+      "Stores energy for the next turn",
+      "Measures the motor's speed",
+      "Reverses the coil's current every half turn so the torque keeps the same direction",
+      "Converts DC into heat"
+    ],
+    "correct": 2,
+    "explanation": "Without it, the torque would reverse every half turn and the coil would rock back and forth. The split ring and brushes swap the current direction at the right moment."
+  },
+  {
+    "id": "08-07-post-1",
+    "stage": "post",
+    "question": "A 24 V motor has a winding resistance of 4 ohm. What is its stall current?",
+    "options": [
+      "96 A",
+      "0.17 A",
+      "4 A",
+      "6 A"
+    ],
+    "correct": 3,
+    "explanation": "At stall there is no back-EMF, so I = V / R = 24 / 4 = 6 A."
+  },
+  {
+    "id": "08-07-post-2",
+    "stage": "post",
+    "question": "A motor with k = 0.02 V*s/rad runs from 12 V with R = 2 ohm and draws 1 A. What is its speed?",
+    "options": [
+      "500 rad/s",
+      "600 rad/s",
+      "100 rad/s",
+      "50 rad/s"
+    ],
+    "correct": 0,
+    "explanation": "Back-EMF = V - I R = 12 - 2 = 10 V, so omega = 10 / 0.02 = 500 rad/s (about 4775 rpm)."
+  },
+  {
+    "id": "08-07-post-3",
+    "stage": "post",
+    "question": "You draw more electrical power from a hand-cranked generator. What do you feel?",
+    "options": [
+      "It gets easier to turn",
+      "Nothing changes",
+      "It gets harder to turn, because the current makes a braking torque",
+      "It starts turning by itself"
+    ],
+    "correct": 2,
+    "explanation": "The output current flows in the winding and creates a torque k I that opposes the motion. The mechanical power you supply equals the electrical power plus losses."
+  },
+  {
+    "id": "08-07-post-4",
+    "stage": "post",
+    "question": "A motor has k = 0.05 N*m/A. What torque does it make at 3 A?",
+    "options": [
+      "0.017 N*m",
+      "0.15 N*m",
+      "60 N*m",
+      "1.5 N*m"
+    ],
+    "correct": 1,
+    "explanation": "T = k I = 0.05 x 3 = 0.15 N*m."
+  },
+  {
+    "id": "08-07-post-5",
+    "stage": "post",
+    "question": "A motor running at 12 V has a back-EMF of 9 V. What is its efficiency, ignoring friction?",
+    "options": [
+      "75 %",
+      "25 %",
+      "133 %",
+      "9 %"
+    ],
+    "correct": 0,
+    "explanation": "Efficiency = back-EMF / supply = 9 / 12 = 75 %. The rest is lost as I^2 R heat in the winding."
+  }
+]

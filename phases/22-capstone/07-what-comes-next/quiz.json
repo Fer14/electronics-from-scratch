@@ -1,0 +1,93 @@
+[
+  {
+    "id": "22-07-pre-1",
+    "stage": "pre",
+    "question": "What is a verification matrix?",
+    "options": [
+      "A matrix of resistor values",
+      "A table listing every requirement with the evidence that it is met and a verdict",
+      "The netlist in matrix form",
+      "The MNA matrix of the simulator"
+    ],
+    "correct": 1,
+    "explanation": "It closes a project: each requirement, its evidence, pass or fail."
+  },
+  {
+    "id": "22-07-pre-2",
+    "stage": "pre",
+    "question": "Which of these cannot be proven by simulation alone?",
+    "options": [
+      "That the thresholds are 194 codes apart in the model",
+      "That the model's PWM average is 5.7 mA",
+      "That real LDR samples, transistors and batteries behave like the models across temperature",
+      "That the model's battery budget gives 32 nights"
+    ],
+    "correct": 2,
+    "explanation": "Simulation predicts with models; real parts vary and must be measured."
+  },
+  {
+    "id": "22-07-post-1",
+    "stage": "post",
+    "question": "Why does replacing the NPN switch by a MOSFET add nights of battery life?",
+    "options": [
+      "The MOSFET makes the LED dimmer",
+      "The MOSFET stores energy",
+      "The MOSFET lowers the battery voltage",
+      "The MOSFET's gate draws no steady current, removing the base current from the budget"
+    ],
+    "correct": 3,
+    "explanation": "The NPN's 1.17 mA of base current while on was about 7% of the daily energy."
+  },
+  {
+    "id": "22-07-post-2",
+    "stage": "post",
+    "question": "The MOSFET version gives a slightly higher LED on-current. Which requirement needs re-checking because of that?",
+    "options": [
+      "R5, because the firmware's compensation was calibrated for the NPN version",
+      "R6, because MOSFETs cost more",
+      "R1, because the thresholds move",
+      "None"
+    ],
+    "correct": 0,
+    "explanation": "The duty-versus-battery formula was fitted to the NPN driver; a new switch needs a new calibration."
+  },
+  {
+    "id": "22-07-post-3",
+    "stage": "post",
+    "question": "Which version-2 idea would most increase battery life?",
+    "options": [
+      "A brighter LED",
+      "A light that turns on only when a motion sensor sees someone",
+      "A bigger board",
+      "A faster PWM"
+    ],
+    "correct": 1,
+    "explanation": "The LED uses about 92% of the energy; lighting it only when needed cuts that dramatically."
+  },
+  {
+    "id": "22-07-post-4",
+    "stage": "post",
+    "question": "Which earlier phase explains why the night light's PWM looks steady to the eye?",
+    "options": [
+      "Phase 20, Chip Design",
+      "Phase 21, PCB Design",
+      "Phases 07, 10 and 17: capacitors and RC filters, filters, and PWM, since the eye averages fast pulses like a low-pass filter",
+      "Phase 05, Mesh Analysis"
+    ],
+    "correct": 2,
+    "explanation": "Averaging fast pulses is low-pass filtering, met with RC circuits and PWM."
+  },
+  {
+    "id": "22-07-post-5",
+    "stage": "post",
+    "question": "Before selling a product to the public, what must it usually pass?",
+    "options": [
+      "Only a simulation",
+      "Safety and electromagnetic compatibility certification (for example CE or FCC)",
+      "A Verilog synthesis",
+      "Nothing"
+    ],
+    "correct": 1,
+    "explanation": "Certification ensures the product is safe and does not disturb, or get disturbed by, other devices."
+  }
+]

@@ -1,0 +1,190 @@
+{
+ "id": "16-03-address-decoder",
+ "title": "Address decoder for a 4-byte memory",
+ "kind": "logic",
+ "story": "A tiny memory has 4 bytes, so its address has 2 bits a1 a0. Exactly one row-select line y0..y3 must be 1: the one whose number equals the address. The inverted address bits are wired. Fill the four slots.",
+ "board": {
+  "inputs": [
+   "a1",
+   "a0"
+  ],
+  "outputs": [
+   "y0",
+   "y1",
+   "y2",
+   "y3"
+  ],
+  "nodes": {
+   "a1": [
+    1,
+    1
+   ],
+   "a0": [
+    1,
+    5
+   ],
+   "na1": [
+    3,
+    2
+   ],
+   "na0": [
+    3,
+    4
+   ],
+   "y0": [
+    8,
+    0
+   ],
+   "y1": [
+    8,
+    2
+   ],
+   "y2": [
+    8,
+    4
+   ],
+   "y3": [
+    8,
+    6
+   ]
+  },
+  "fixed": [
+   {
+    "type": "gate",
+    "id": "G1",
+    "op": "not",
+    "inputs": [
+     "a1"
+    ],
+    "output": "na1"
+   },
+   {
+    "type": "gate",
+    "id": "G2",
+    "op": "not",
+    "inputs": [
+     "a0"
+    ],
+    "output": "na0"
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "inputs": [
+     "na1",
+     "na0"
+    ],
+    "output": "y0",
+    "accepts": [
+     "gate"
+    ]
+   },
+   {
+    "id": "S2",
+    "inputs": [
+     "na1",
+     "a0"
+    ],
+    "output": "y1",
+    "accepts": [
+     "gate"
+    ]
+   },
+   {
+    "id": "S3",
+    "inputs": [
+     "a1",
+     "na0"
+    ],
+    "output": "y2",
+    "accepts": [
+     "gate"
+    ]
+   },
+   {
+    "id": "S4",
+    "inputs": [
+     "a1",
+     "a0"
+    ],
+    "output": "y3",
+    "accepts": [
+     "gate"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "gate",
+   "op": "and"
+  },
+  {
+   "type": "gate",
+   "op": "or"
+  },
+  {
+   "type": "gate",
+   "op": "nor"
+  },
+  {
+   "type": "gate",
+   "op": "nand"
+  }
+ ],
+ "goals": [
+  {
+   "measure": "truth_table",
+   "expect": {
+    "y0": [
+     1,
+     0,
+     0,
+     0
+    ],
+    "y1": [
+     0,
+     1,
+     0,
+     0
+    ],
+    "y2": [
+     0,
+     0,
+     1,
+     0
+    ],
+    "y3": [
+     0,
+     0,
+     0,
+     1
+    ]
+   },
+   "label": "exactly the line numbered by the address is 1, for all 4 addresses"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "gate",
+   "op": "and"
+  },
+  "S2": {
+   "type": "gate",
+   "op": "and"
+  },
+  "S3": {
+   "type": "gate",
+   "op": "and"
+  },
+  "S4": {
+   "type": "gate",
+   "op": "and"
+  }
+ },
+ "hints": [
+  "Each output is the minterm of its own address: y2 must be 1 only when a1 = 1 and a0 = 0.",
+  "The wires reaching each slot are already the right literals; you only need to combine them."
+ ]
+}

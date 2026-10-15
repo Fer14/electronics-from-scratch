@@ -1,0 +1,106 @@
+[
+  {
+    "id": "16-01-pre-1",
+    "stage": "pre",
+    "question": "What does 'stored-program computer' mean?",
+    "options": [
+      "The program is wired into the circuit",
+      "The program is kept on paper",
+      "The instructions are numbers stored in the same memory as the data",
+      "The computer can only run one program"
+    ],
+    "correct": 2,
+    "explanation": "Instructions are data in memory; changing the program means changing numbers, not wires."
+  },
+  {
+    "id": "16-01-pre-2",
+    "stage": "pre",
+    "question": "What does the program counter hold?",
+    "options": [
+      "The address of the next instruction to fetch",
+      "The number of instructions executed",
+      "The result of the last addition",
+      "The size of the program"
+    ],
+    "correct": 0,
+    "explanation": "The PC points at the next byte of the program; jumps change it."
+  },
+  {
+    "id": "16-01-post-1",
+    "stage": "post",
+    "question": "On the T8, what is the difference between LDI 16 and LDA 0x10?",
+    "options": [
+      "There is no difference",
+      "LDI loads the number 16; LDA loads the value stored at address 16",
+      "LDA loads 16; LDI loads memory[16]",
+      "LDI stores A at address 16"
+    ],
+    "correct": 1,
+    "explanation": "Immediate instructions use the operand as a number; memory instructions use it as an address."
+  },
+  {
+    "id": "16-01-post-2",
+    "stage": "post",
+    "question": "In the T8 encoding, what do the low 3 bits of an ALU-group opcode (0x20-0x2C) give?",
+    "options": [
+      "The register number",
+      "The address",
+      "The instruction length",
+      "The ALU operation (0 ADD, 1 SUB, 2 AND, 3 OR, 4 XOR)"
+    ],
+    "correct": 3,
+    "explanation": "The encoding was chosen so the IR bits can drive the ALU's operation inputs directly."
+  },
+  {
+    "id": "16-01-post-3",
+    "stage": "post",
+    "question": "After fetching the 2-byte instruction at address 0x06, what is the PC (before any jump)?",
+    "options": [
+      "0x06",
+      "0x07",
+      "0x08",
+      "0x00"
+    ],
+    "correct": 2,
+    "explanation": "The PC advances past the opcode and the operand: 0x06 + 2 = 0x08."
+  },
+  {
+    "id": "16-01-post-4",
+    "stage": "post",
+    "question": "Which feature lets a computer repeat a loop a variable number of times?",
+    "options": [
+      "A conditional jump that changes the PC only when a flag is set",
+      "A faster clock",
+      "More memory",
+      "The OUT instruction"
+    ],
+    "correct": 0,
+    "explanation": "JZ/JNZ/JC/JNC decide whether to go back, based on the result of the last ALU operation."
+  },
+  {
+    "id": "16-01-post-5",
+    "stage": "post",
+    "question": "A program accidentally jumps to an address that holds a data value. What does the T8 do?",
+    "options": [
+      "It stops with an error",
+      "It skips the data",
+      "It treats the data byte as an opcode and executes it",
+      "It converts the data to an instruction safely"
+    ],
+    "correct": 2,
+    "explanation": "Memory does not know which bytes are code; whatever the PC points at is executed."
+  },
+  {
+    "id": "16-01-post-6",
+    "stage": "post",
+    "question": "Why write a Python reference model of the T8 before building its hardware?",
+    "options": [
+      "Python is faster than hardware",
+      "It defines exactly what the hardware must do, so every hardware piece can be checked against it",
+      "The hardware needs Python to run",
+      "It replaces the control unit"
+    ],
+    "correct": 1,
+    "explanation": "Chip teams verify hardware against an instruction set simulator in the same way."
+  }
+]

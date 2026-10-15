@@ -1,0 +1,186 @@
+{
+  "id": "15-04-load-enable",
+  "title": "Give a register bit a load enable",
+  "kind": "logic",
+  "story": "One bit of a register is a D flip-flop that samples dn at every clock edge. It must only take the new value din when load = 1; when load = 0 it must keep its own value q. The inverter for load is in place. Fill the three slots in front of the flip-flop.",
+  "board": {
+    "inputs": [
+      "load",
+      "din"
+    ],
+    "outputs": [
+      "q"
+    ],
+    "clock": "clk",
+    "nodes": {
+      "din": [
+        1,
+        1
+      ],
+      "load": [
+        1,
+        3
+      ],
+      "nload": [
+        3,
+        4
+      ],
+      "p": [
+        5,
+        1
+      ],
+      "r": [
+        5,
+        5
+      ],
+      "dn": [
+        7,
+        3
+      ],
+      "q": [
+        9,
+        3
+      ]
+    },
+    "fixed": [
+      {
+        "type": "gate",
+        "id": "G1",
+        "op": "not",
+        "inputs": [
+          "load"
+        ],
+        "output": "nload"
+      },
+      {
+        "type": "dff",
+        "id": "F1",
+        "d": "dn",
+        "q": "q"
+      }
+    ],
+    "slots": [
+      {
+        "id": "S1",
+        "inputs": [
+          "din",
+          "load"
+        ],
+        "output": "p",
+        "accepts": [
+          "gate"
+        ]
+      },
+      {
+        "id": "S2",
+        "inputs": [
+          "q",
+          "nload"
+        ],
+        "output": "r",
+        "accepts": [
+          "gate"
+        ]
+      },
+      {
+        "id": "S3",
+        "inputs": [
+          "p",
+          "r"
+        ],
+        "output": "dn",
+        "accepts": [
+          "gate"
+        ]
+      }
+    ]
+  },
+  "parts": [
+    {
+      "type": "gate",
+      "op": "and"
+    },
+    {
+      "type": "gate",
+      "op": "or"
+    },
+    {
+      "type": "gate",
+      "op": "nand"
+    },
+    {
+      "type": "gate",
+      "op": "nor"
+    }
+  ],
+  "goals": [
+    {
+      "measure": "sequence",
+      "steps": [
+        {
+          "load": 1,
+          "din": 1
+        },
+        {
+          "load": 0,
+          "din": 0
+        },
+        {
+          "load": 0,
+          "din": 1
+        },
+        {
+          "load": 0,
+          "din": 0
+        },
+        {
+          "load": 1,
+          "din": 0
+        },
+        {
+          "load": 0,
+          "din": 1
+        },
+        {
+          "load": 1,
+          "din": 1
+        },
+        {
+          "load": 1,
+          "din": 0
+        }
+      ],
+      "expect": {
+        "q": [
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "label": "q takes din on edges with load = 1 and keeps its value otherwise (8 clock edges)"
+    }
+  ],
+  "solution": {
+    "S1": {
+      "type": "gate",
+      "op": "and"
+    },
+    "S2": {
+      "type": "gate",
+      "op": "and"
+    },
+    "S3": {
+      "type": "gate",
+      "op": "or"
+    }
+  },
+  "hints": [
+    "The flip-flop input must be dn = load·din + load'·q.",
+    "That is a 2-to-1 multiplexer with select load."
+  ]
+}

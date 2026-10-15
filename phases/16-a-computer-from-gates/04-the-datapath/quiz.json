@@ -1,0 +1,106 @@
+[
+  {
+    "id": "16-04-pre-1",
+    "stage": "pre",
+    "question": "Why do simple computers connect their parts with one shared bus?",
+    "options": [
+      "It is faster than direct connections",
+      "It needs far fewer wires than connecting every pair of parts directly",
+      "It stores data",
+      "It removes the need for a clock"
+    ],
+    "correct": 1,
+    "explanation": "One set of 8 wires replaces a separate path between every pair of parts, at the cost of moving one value per cycle."
+  },
+  {
+    "id": "16-04-pre-2",
+    "stage": "pre",
+    "question": "What happens if two tri-state outputs drive opposite values on the same bus wire?",
+    "options": [
+      "The higher value wins cleanly",
+      "The values are added",
+      "A short circuit through the two drivers and an undefined voltage",
+      "Nothing; buses are protected"
+    ],
+    "correct": 2,
+    "explanation": "One driver pulls up and the other pulls down: a bus conflict."
+  },
+  {
+    "id": "16-04-post-1",
+    "stage": "post",
+    "question": "Which control signals perform the transfer MAR <- PC?",
+    "options": [
+      "PC_OUT and MAR_IN",
+      "MAR_OUT and PC_IN",
+      "PC_INC and MAR_IN",
+      "MEM_OUT and MAR_IN"
+    ],
+    "correct": 0,
+    "explanation": "The PC drives the bus and MAR loads it at the edge."
+  },
+  {
+    "id": "16-04-post-2",
+    "stage": "post",
+    "question": "Why does fetching an instruction take two cycles on the T8?",
+    "options": [
+      "The PC must be incremented twice",
+      "Memory is too small",
+      "The ALU must check the opcode",
+      "The bus must first carry the address into MAR, then carry the byte from memory into IR"
+    ],
+    "correct": 3,
+    "explanation": "Two different values (address, then data) need the single bus in two different cycles."
+  },
+  {
+    "id": "16-04-post-3",
+    "stage": "post",
+    "question": "In the cycle 'A <- ALU' (ALU_OUT, A_IN), which value of A does the ALU use?",
+    "options": [
+      "The new value",
+      "The old value, because A only changes at the clock edge",
+      "Zero",
+      "The value of B"
+    ],
+    "correct": 1,
+    "explanation": "Registers sample at the edge, so during the cycle the ALU still sees the old A."
+  },
+  {
+    "id": "16-04-post-4",
+    "stage": "post",
+    "question": "During LDA a, cycle T3 has MEM_OUT and MAR_IN together. What does it do?",
+    "options": [
+      "Writes A to memory",
+      "Copies the PC into MAR",
+      "Loads the operand byte, which is the address a, into MAR",
+      "Loads the data at address a into A"
+    ],
+    "correct": 2,
+    "explanation": "Memory delivers mem[MAR] (the operand) on the bus and MAR loads it, so the next cycle can read address a."
+  },
+  {
+    "id": "16-04-post-5",
+    "stage": "post",
+    "question": "Which pair of signals may appear in the same control word without a problem?",
+    "options": [
+      "PC_OUT and A_OUT",
+      "MEM_OUT and ALU_OUT",
+      "A_OUT and ALU_OUT",
+      "MEM_OUT and PC_INC"
+    ],
+    "correct": 3,
+    "explanation": "PC_INC uses the PC's own counter, not the bus. Any two _OUT signals conflict."
+  },
+  {
+    "id": "16-04-post-6",
+    "stage": "post",
+    "question": "How many clock cycles does ADD a take on the T8 datapath, including the fetch?",
+    "options": [
+      "6",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 0,
+    "explanation": "2 (fetch) + 2 (operand address into MAR) + 1 (memory into B) + 1 (ALU into A)."
+  }
+]

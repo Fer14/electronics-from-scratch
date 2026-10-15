@@ -1,0 +1,37 @@
+{
+  "id": "04-05-the-voltage-divider",
+  "title": "Bring 5 V down to 3.3 V",
+  "kind": "dc",
+  "story": "A sensor board runs on 5 V, but the input pin you want to feed only tolerates about 3.3 V. Build a voltage divider with two resistors so the midpoint sits between 3.2 V and 3.4 V. The divider must not waste battery (at most 5 mA) but must not be so weak that any load drags it down (at least 0.5 mA).",
+  "board": {
+    "nodes": {"vcc": [2, 1], "mid": [6, 3], "gnd": [2, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "B1", "plus": "vcc", "minus": "gnd", "volts": 5}
+    ],
+    "slots": [
+      {"id": "S1", "a": "vcc", "b": "mid", "accepts": ["resistor"]},
+      {"id": "S2", "a": "mid", "b": "gnd", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 180},
+    {"type": "resistor", "ohms": 330},
+    {"type": "resistor", "ohms": 1000},
+    {"type": "resistor", "ohms": 1800},
+    {"type": "resistor", "ohms": 3300},
+    {"type": "resistor", "ohms": 33000}
+  ],
+  "goals": [
+    {"measure": "voltage", "at": "mid", "min": 3.2, "max": 3.4, "label": "midpoint between 3.2 V and 3.4 V"},
+    {"measure": "current", "of": "S1", "min": 0.0005, "max": 0.005, "label": "divider current between 0.5 mA and 5 mA"}
+  ],
+  "solution": {
+    "S1": {"type": "resistor", "ohms": 1800},
+    "S2": {"type": "resistor", "ohms": 3300}
+  },
+  "hints": [
+    "The output is Vin * R2 / (R1 + R2). You need R2 / (R1 + R2) close to 3.3 / 5 = 0.66, so R2 is roughly twice R1.",
+    "Two pairs have the right ratio. The current through both resistors is 5 V / (R1 + R2): use it to choose between them."
+  ]
+}

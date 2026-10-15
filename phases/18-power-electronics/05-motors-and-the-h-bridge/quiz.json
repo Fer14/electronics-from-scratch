@@ -1,0 +1,86 @@
+[
+  {
+    "id": "18-05-pre-1",
+    "stage": "pre",
+    "question": "When does a DC motor draw the most current?",
+    "options": [
+      "At full speed with no load",
+      "At the moment it starts, or when it is held still (stalled)",
+      "When it is switched off",
+      "The current is always the same"
+    ],
+    "correct": 1,
+    "explanation": "At standstill there is no back-EMF, so only the winding resistance limits the current: I = V / R."
+  },
+  {
+    "id": "18-05-pre-2",
+    "stage": "pre",
+    "question": "What is back-EMF?",
+    "options": [
+      "A fault in the wiring",
+      "The voltage of the battery",
+      "The voltage the spinning motor generates, which opposes the supply",
+      "The current that flows backwards in a diode"
+    ],
+    "correct": 2,
+    "explanation": "A spinning motor is also a generator. Its generated voltage, k x omega, opposes the applied voltage and grows with speed."
+  },
+  {
+    "id": "18-05-post-1",
+    "stage": "post",
+    "question": "A motor has R = 3 ohm and k = 0.05 V s/rad. On 12 V, what is its stall current and torque?",
+    "options": ["4 A and 0.2 N m", "4 A and 0.6 N m", "0.6 A and 4 N m", "12 A and 0.05 N m"],
+    "correct": 0,
+    "explanation": "Stall current = 12 / 3 = 4 A; stall torque = k x I = 0.05 x 4 = 0.2 N m."
+  },
+  {
+    "id": "18-05-post-2",
+    "stage": "post",
+    "question": "Ignoring friction, what is the no-load speed of a motor with k = 0.05 V s/rad on 12 V?",
+    "options": ["0.6 rad/s", "60 rad/s", "240 rad/s", "2400 rad/s"],
+    "correct": 2,
+    "explanation": "With no load and no friction the current is zero at steady state, so V = k omega: omega = 12 / 0.05 = 240 rad/s."
+  },
+  {
+    "id": "18-05-post-3",
+    "stage": "post",
+    "question": "In an H-bridge (S1, S2 on the left leg, S3, S4 on the right), which pair makes the motor run in the forward direction from A to B?",
+    "options": ["S1 and S2", "S3 and S4", "S1 and S4", "S2 and S4"],
+    "correct": 2,
+    "explanation": "S1 connects A to the supply and S4 connects B to ground, so current flows from A to B. S1 + S2 or S3 + S4 short the supply; S2 + S4 brakes."
+  },
+  {
+    "id": "18-05-post-4",
+    "stage": "post",
+    "question": "What happens if S1 and S2 (the same leg) are closed at the same time?",
+    "options": [
+      "The motor reverses",
+      "Shoot-through: the battery is shorted through the two switches",
+      "The motor brakes gently",
+      "Nothing, as long as the motor is stopped"
+    ],
+    "correct": 1,
+    "explanation": "Both switches of a leg connect the supply straight to ground. Only the switches' tiny resistances limit the current, which can reach hundreds of amps."
+  },
+  {
+    "id": "18-05-post-5",
+    "stage": "post",
+    "question": "Why does braking (shorting the motor terminals) stop a motor faster than coasting?",
+    "options": [
+      "The short circuit locks the shaft mechanically",
+      "Braking reverses the supply",
+      "The back-EMF drives a current through the winding, and that current produces a torque against the rotation",
+      "Coasting adds energy from the battery"
+    ],
+    "correct": 2,
+    "explanation": "Shorted, the motor works as a loaded generator: current k omega / R flows and creates an opposing torque. Coasting leaves only friction."
+  },
+  {
+    "id": "18-05-post-6",
+    "stage": "post",
+    "question": "A motor is driven by 20 kHz PWM from 12 V at D = 0.5. Roughly what speed does it reach compared with full 12 V?",
+    "options": ["The same speed", "Zero", "About a quarter", "About half"],
+    "correct": 3,
+    "explanation": "The inductance and inertia average the PWM, so the motor behaves as if supplied with D x 12 V = 6 V: about half the no-load speed."
+  }
+]

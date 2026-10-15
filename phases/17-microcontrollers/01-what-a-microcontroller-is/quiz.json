@@ -1,0 +1,93 @@
+[
+  {
+    "id": "17-01-pre-1",
+    "stage": "pre",
+    "question": "Which of these is the best description of a microcontroller?",
+    "options": [
+      "A very fast desktop processor",
+      "A single chip with a processor core, program memory, RAM and input/output peripherals",
+      "A memory chip that stores programs",
+      "A transistor that switches LEDs"
+    ],
+    "correct": 1,
+    "explanation": "A microcontroller combines a small core, flash for the program, RAM for variables and peripherals such as pins, timers and converters on one chip, so it can control hardware on its own."
+  },
+  {
+    "id": "17-01-pre-2",
+    "stage": "pre",
+    "question": "A clock runs at 16 MHz. How long is one clock cycle?",
+    "options": [
+      "16 ns",
+      "1.6 us",
+      "160 ns",
+      "62.5 ns"
+    ],
+    "correct": 3,
+    "explanation": "Cycle time = 1 / frequency = 1 / 16 000 000 s = 0.0000000625 s = 62.5 ns."
+  },
+  {
+    "id": "17-01-post-1",
+    "stage": "post",
+    "question": "Where does a microcontroller's program stay when the power is switched off?",
+    "options": [
+      "In flash memory",
+      "In RAM",
+      "In the registers",
+      "In the program counter"
+    ],
+    "correct": 0,
+    "explanation": "Flash is non-volatile: it keeps its contents without power. RAM and registers lose their contents when the power goes away."
+  },
+  {
+    "id": "17-01-post-2",
+    "stage": "post",
+    "question": "An 8-bit register holds 255. The program executes 'inc r0'. What does r0 hold now, and is the zero flag set?",
+    "options": [
+      "256, zero flag clear",
+      "255, zero flag clear",
+      "0, zero flag set",
+      "1, zero flag clear"
+    ],
+    "correct": 2,
+    "explanation": "8 bits can only hold 0 to 255. 255 + 1 wraps around to 0, and since the result is zero, the zero flag is set."
+  },
+  {
+    "id": "17-01-post-3",
+    "stage": "post",
+    "question": "What does 'memory-mapped I/O' mean?",
+    "options": [
+      "The program is copied from flash to RAM at start-up",
+      "Peripherals are controlled by reading and writing registers at fixed addresses, like memory",
+      "Every pin has its own small memory chip",
+      "Input and output are stored on an SD card"
+    ],
+    "correct": 1,
+    "explanation": "Each peripheral exposes registers at fixed addresses. Writing to such an address goes to the peripheral's flip-flops instead of RAM, and those flip-flops drive hardware such as pins."
+  },
+  {
+    "id": "17-01-post-4",
+    "stage": "post",
+    "question": "A loop takes 6 cycles per pass and runs 1000 times on an 8 MHz microcontroller. Roughly how long does it take?",
+    "options": [
+      "6 us",
+      "75 ns",
+      "0.75 ms",
+      "48 ms"
+    ],
+    "correct": 2,
+    "explanation": "6 x 1000 = 6000 cycles. At 8 MHz each cycle is 125 ns, so 6000 x 125 ns = 750 000 ns = 0.75 ms."
+  },
+  {
+    "id": "17-01-post-5",
+    "stage": "post",
+    "question": "The program writes 00000101 (binary) to PORTB. Which pins go high?",
+    "options": [
+      "PB0 and PB2",
+      "PB5 only",
+      "PB1 and PB3",
+      "All eight pins"
+    ],
+    "correct": 0,
+    "explanation": "Each bit is one pin, counting from bit 0 on the right. Bits 0 and 2 are 1, so PB0 and PB2 go high together."
+  }
+]

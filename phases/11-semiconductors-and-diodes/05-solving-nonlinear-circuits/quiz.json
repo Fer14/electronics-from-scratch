@@ -1,0 +1,91 @@
+[
+  {
+    "id": "11-05-pre-1",
+    "stage": "pre",
+    "question": "You are guessing a secret number between 1 and 100 and are told 'higher' or 'lower' after each guess. What strategy needs the fewest guesses in the worst case?",
+    "options": ["Always guess 1 more than before", "Guess randomly", "Always guess the middle of what is left", "Always guess 50"],
+    "correct": 2,
+    "explanation": "Halving the interval each time is bisection: at most 7 guesses for 100 numbers."
+  },
+  {
+    "id": "11-05-pre-2",
+    "stage": "pre",
+    "question": "Why can't we solve (5 - V)/1000 = I_S (e^(V/V_T) - 1) for V with ordinary algebra?",
+    "options": [
+      "Because it has no solution",
+      "Because V appears both plainly and inside an exponential, and they cannot be separated with +, -, x, / and logs",
+      "Because the resistor is too large",
+      "Because diodes have no voltage"
+    ],
+    "correct": 1,
+    "explanation": "Taking a log helps the exponential but then the plain V is stuck inside the log. It needs iteration (or a special function)."
+  },
+  {
+    "id": "11-05-post-1",
+    "stage": "post",
+    "question": "What is the Newton-Raphson update for solving f(V) = 0?",
+    "options": [
+      "V_next = V - f(V) / f'(V)",
+      "V_next = V + f(V) x f'(V)",
+      "V_next = (V + f(V)) / 2",
+      "V_next = f(V)"
+    ],
+    "correct": 0,
+    "explanation": "Follow the tangent line at V (slope f'(V)) down to where it crosses zero."
+  },
+  {
+    "id": "11-05-post-2",
+    "stage": "post",
+    "question": "In the companion model, a diode at its current guess is replaced by what?",
+    "options": [
+      "An open circuit",
+      "A 0.7 V battery",
+      "A short circuit",
+      "A conductance equal to the tangent slope, in parallel with a constant current source"
+    ],
+    "correct": 3,
+    "explanation": "I is approximately g_d V + I_eq near the guess: a linear element that MNA can stamp."
+  },
+  {
+    "id": "11-05-post-3",
+    "stage": "post",
+    "question": "Plain Newton started at 0.6 V jumps to about 1.36 V and then needs about 30 more steps. Why so slow?",
+    "options": [
+      "The resistor is nonlinear",
+      "From far above the answer, Newton on an exponential only moves down about one V_T (26 mV) per step",
+      "The computer runs out of memory",
+      "Newton always needs exactly 32 steps"
+    ],
+    "correct": 1,
+    "explanation": "Each tangent of e^(V/V_T) crosses zero V_T to the left of the point; it crawls down the exponential wall."
+  },
+  {
+    "id": "11-05-post-4",
+    "stage": "post",
+    "question": "What does junction hold-back (limiting) do?",
+    "options": [
+      "It shrinks large upward jumps of a junction voltage to the voltage the real exponential needs for the tangent's predicted current",
+      "It makes every step exactly 0.1 V",
+      "It removes the diode from the circuit",
+      "It increases the source voltage gradually"
+    ],
+    "correct": 0,
+    "explanation": "V_new = V_base + V_T ln(1 + (V_new - V_base)/V_T): the voltage moves only logarithmically, so the current cannot explode."
+  },
+  {
+    "id": "11-05-post-5",
+    "stage": "post",
+    "question": "Near the solution, Newton's error goes 1e-3, then about 1e-6, then about 1e-12. This behaviour is called:",
+    "options": ["Linear convergence", "Divergence", "Quadratic convergence", "Bisection"],
+    "correct": 2,
+    "explanation": "The error is roughly squared at each step, so the number of correct digits doubles."
+  },
+  {
+    "id": "11-05-post-6",
+    "stage": "post",
+    "question": "A diode carries 2.585 mA. What is its small-signal (dynamic) resistance, using g_d = I / V_T?",
+    "options": ["About 270 ohms", "About 1 ohm", "About 0.1 ohm", "About 10 ohms"],
+    "correct": 3,
+    "explanation": "g_d = 0.002585 / 0.02585 = 0.1 S, so r_d = 10 ohms."
+  }
+]

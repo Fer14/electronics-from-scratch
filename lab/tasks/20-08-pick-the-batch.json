@@ -1,0 +1,89 @@
+{
+ "id": "20-08-pick-the-batch",
+ "title": "Pick the batch that makes the layer compute-bound",
+ "kind": "chip",
+ "story": "Our THOTH-1 chip does 400 TFLOP/s and reads memory at 2 TB/s. One layer has an 8192 x 8192 weight matrix in bf16 (2 bytes per weight): reading it takes 134 MB / 2 TB/s = 67 us whatever the batch. Computing it takes 2 x batch x 8192^2 FLOPs / 400 TFLOP/s = 0.336 us per input. The two happen at the same time, so one layer step takes as long as the slower of them. In this lab one unit of delay is 1 microsecond: the fixed 'memory' branch is 67 units long, and the slot holds the 'compute' branch for the batch you choose (batch 32: 11 us, batch 128: 43 us, batch 256: 86 us, batch 1024: 344 us). Make the layer compute-bound (the step must take longer than the 67 us memory time) while keeping each step within 120 us so users still get fast answers.",
+ "board": {
+  "nodes": {
+   "in": [
+    1,
+    2
+   ],
+   "out": [
+    9,
+    2
+   ]
+  },
+  "fixed": [
+   {
+    "type": "wire",
+    "id": "MEMORY",
+    "a": "in",
+    "b": "out",
+    "bits": 16,
+    "length": 67
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "in",
+    "b": "out",
+    "accepts": [
+     "gates"
+    ],
+    "label": "compute for the chosen batch"
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "gates",
+   "area": 0,
+   "depth": 11,
+   "label": "batch 32"
+  },
+  {
+   "type": "gates",
+   "area": 0,
+   "depth": 43,
+   "label": "batch 128"
+  },
+  {
+   "type": "gates",
+   "area": 0,
+   "depth": 86,
+   "label": "batch 256"
+  },
+  {
+   "type": "gates",
+   "area": 0,
+   "depth": 344,
+   "label": "batch 1024"
+  }
+ ],
+ "goals": [
+  {
+   "measure": "critical_path",
+   "min": 68,
+   "label": "compute-bound: the step takes longer than the 67 us memory time"
+  },
+  {
+   "measure": "critical_path",
+   "max": 120,
+   "label": "each layer step finishes within 120 us"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "gates",
+   "area": 0,
+   "depth": 86,
+   "label": "batch 256"
+  }
+ },
+ "hints": [
+  "Arithmetic intensity is about equal to the batch size here; THOTH-1's ridge point is 400 / 2 = 200 FLOP per byte.",
+  "Below the ridge the step time is the memory time (67 us); above it, the compute time."
+ ]
+}

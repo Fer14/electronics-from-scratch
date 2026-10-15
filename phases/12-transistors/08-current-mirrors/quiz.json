@@ -1,0 +1,86 @@
+[
+  {
+    "id": "12-08-pre-1",
+    "stage": "pre",
+    "question": "An ideal current source connected to a 1 kohm resistor delivers 2 mA. What does it deliver into 2 kohm?",
+    "options": ["1 mA", "4 mA", "2 mA", "It depends on the supply"],
+    "correct": 2,
+    "explanation": "An ideal current source delivers its current whatever the load (Phase 06); only the voltage across the load changes."
+  },
+  {
+    "id": "12-08-pre-2",
+    "stage": "pre",
+    "question": "Two identical BJTs at the same temperature have the same V_BE. What can you say about their collector currents (both active)?",
+    "options": [
+      "They are equal",
+      "One is beta times the other",
+      "They depend on the collector resistors",
+      "Nothing"
+    ],
+    "correct": 0,
+    "explanation": "I_C = I_S e^(V_BE / V_T): same I_S, same V_BE, same T means the same current."
+  },
+  {
+    "id": "12-08-post-1",
+    "stage": "post",
+    "question": "What is the purpose of tying Q1's base to its collector?",
+    "options": [
+      "It turns Q1 off",
+      "It lets Q1 settle at exactly the V_BE that carries the reference current",
+      "It doubles the gain",
+      "It protects Q1 from overvoltage"
+    ],
+    "correct": 1,
+    "explanation": "A diode-connected transistor automatically finds the V_BE for the current forced into it; Q2 reuses that V_BE."
+  },
+  {
+    "id": "12-08-post-2",
+    "stage": "post",
+    "question": "A 9 V supply and R_REF = 8.2 kohm feed a basic BJT mirror. Roughly what is I_REF?",
+    "options": ["1.1 mA", "0.1 mA", "8.2 mA", "1.0 mA"],
+    "correct": 3,
+    "explanation": "I_REF = (9 - 0.65) / 8200 = 1.02 mA."
+  },
+  {
+    "id": "12-08-post-3",
+    "stage": "post",
+    "question": "In a basic BJT mirror with beta = 50, I_OUT / I_REF is about:",
+    "options": ["0.96", "0.50", "1.00", "0.98"],
+    "correct": 0,
+    "explanation": "beta / (beta + 2) = 50 / 52 = 0.962: two base currents are taken from I_REF."
+  },
+  {
+    "id": "12-08-post-4",
+    "stage": "post",
+    "question": "A mirror delivers 1 mA from a 5 V supply. Which load resistance is too large for it?",
+    "options": ["1 kohm", "3.3 kohm", "4.7 kohm", "10 kohm"],
+    "correct": 3,
+    "explanation": "10 kohm x 1 mA = 10 V, more than the 5 V available: the output transistor saturates and the current drops."
+  },
+  {
+    "id": "12-08-post-5",
+    "stage": "post",
+    "question": "Why does a MOSFET mirror have no beta error?",
+    "options": [
+      "MOSFETs have infinite beta because their gates draw no DC current",
+      "MOSFETs are always matched",
+      "MOSFET mirrors use a larger R_REF",
+      "It does have the same error"
+    ],
+    "correct": 0,
+    "explanation": "No gate current is stolen from I_REF, so all of it flows in the input transistor's drain."
+  },
+  {
+    "id": "12-08-post-6",
+    "stage": "post",
+    "question": "How do you make a mirror whose output is 4 times the reference?",
+    "options": [
+      "Use R_REF four times smaller",
+      "Make the output transistor 4 times larger (or 4 in parallel)",
+      "Use four times the supply voltage",
+      "It is impossible"
+    ],
+    "correct": 1,
+    "explanation": "At the same V_BE, a transistor with 4 times the area (4 times I_S) carries 4 times the current."
+  }
+]

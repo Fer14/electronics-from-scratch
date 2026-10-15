@@ -1,0 +1,34 @@
+{
+  "id": "03-03-ohms-law",
+  "title": "Nine milliamps from nine volts",
+  "kind": "dc",
+  "story": "A small 9 V battery has to push about 9 mA through a sensor circuit, and the only thing you can choose is one resistor. Too little resistance and the battery drains fast; too much and the circuit starves. Use Ohm's law to pick the resistor that gives a current between 8 mA and 10 mA.",
+  "board": {
+    "nodes": {"vcc": [1, 1], "a": [7, 1], "gnd": [1, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "B1", "plus": "vcc", "minus": "gnd", "volts": 9},
+      {"type": "switch", "id": "SW1", "a": "a", "b": "gnd", "closed": true}
+    ],
+    "slots": [
+      {"id": "S1", "a": "vcc", "b": "a", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 100},
+    {"type": "resistor", "ohms": 470},
+    {"type": "resistor", "ohms": 820},
+    {"type": "resistor", "ohms": 1000},
+    {"type": "resistor", "ohms": 1200},
+    {"type": "resistor", "ohms": 10000}
+  ],
+  "goals": [
+    {"measure": "current", "of": "S1", "min": 0.008, "max": 0.010, "label": "current between 8 mA and 10 mA"},
+    {"measure": "voltage", "between": ["vcc", "a"], "min": 8.9, "max": 9.1, "label": "the whole 9 V is across the resistor"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 1000}},
+  "hints": [
+    "Ohm's law solved for resistance: R = V / I.",
+    "Convert first: 9 mA = 0.009 A. Then 9 / 0.009 = ?"
+  ]
+}

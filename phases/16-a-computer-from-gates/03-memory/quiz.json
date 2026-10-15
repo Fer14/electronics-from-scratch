@@ -1,0 +1,106 @@
+[
+  {
+    "id": "16-03-pre-1",
+    "stage": "pre",
+    "question": "How many different addresses can an 8-bit address name?",
+    "options": [
+      "8",
+      "64",
+      "128",
+      "256"
+    ],
+    "correct": 3,
+    "explanation": "2^8 = 256, which is why the T8 has 256 bytes of memory."
+  },
+  {
+    "id": "16-03-pre-2",
+    "stage": "pre",
+    "question": "Which Phase 14 circuit turns an address into exactly one active row-select line?",
+    "options": [
+      "A decoder",
+      "An adder",
+      "A comparator",
+      "A shift register"
+    ],
+    "correct": 0,
+    "explanation": "A decoder has one-hot outputs, each the minterm of its address."
+  },
+  {
+    "id": "16-03-post-1",
+    "stage": "post",
+    "question": "In the gate-level RAM, what is the load enable of word w?",
+    "options": [
+      "we alone",
+      "sel_w alone",
+      "sel_w AND we",
+      "sel_w OR we"
+    ],
+    "correct": 2,
+    "explanation": "Only the addressed word, and only during a write, may load the data."
+  },
+  {
+    "id": "16-03-post-2",
+    "stage": "post",
+    "question": "How is bit i of the read data formed in the 16-byte RAM?",
+    "options": [
+      "By adding all words",
+      "As the OR over all words of (sel_w AND bit i of word w)",
+      "By the write enable",
+      "By a shift register"
+    ],
+    "correct": 1,
+    "explanation": "An AND-OR multiplexer driven by the one-hot select lines."
+  },
+  {
+    "id": "16-03-post-3",
+    "stage": "post",
+    "question": "Why are large memories built from SRAM or DRAM cells instead of flip-flops?",
+    "options": [
+      "Flip-flops cannot store bits",
+      "Flip-flops are volatile",
+      "Flip-flops are slower",
+      "A flip-flop needs about 20-25 transistors per bit, a 6T SRAM cell 6 and a DRAM cell 1"
+    ],
+    "correct": 3,
+    "explanation": "Density: millions of bits would need far too many transistors as flip-flops."
+  },
+  {
+    "id": "16-03-post-4",
+    "stage": "post",
+    "question": "Why must DRAM be refreshed?",
+    "options": [
+      "Its bits are stored as charge on tiny capacitors that leak",
+      "Its flip-flops forget",
+      "Its decoder overheats",
+      "Its data is compressed"
+    ],
+    "correct": 0,
+    "explanation": "Each row is read and rewritten periodically (about every 64 ms) before the charge leaks away."
+  },
+  {
+    "id": "16-03-post-5",
+    "stage": "post",
+    "question": "Which kind of memory keeps a microcontroller's program when the power is off?",
+    "options": [
+      "SRAM",
+      "DRAM",
+      "Flash",
+      "A register file"
+    ],
+    "correct": 2,
+    "explanation": "Flash traps charge on an insulated gate and keeps it for years without power."
+  },
+  {
+    "id": "16-03-post-6",
+    "stage": "post",
+    "question": "A memory has 4096 words. How many address bits does it need?",
+    "options": [
+      "10",
+      "12",
+      "16",
+      "4096"
+    ],
+    "correct": 1,
+    "explanation": "2^12 = 4096."
+  }
+]

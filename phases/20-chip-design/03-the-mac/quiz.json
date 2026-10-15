@@ -1,0 +1,93 @@
+[
+  {
+    "id": "20-03-pre-1",
+    "stage": "pre",
+    "question": "What is a dot product of two lists?",
+    "options": [
+      "The largest number in either list",
+      "The two lists joined together",
+      "Multiply the lists pair by pair and add up all the products",
+      "Add the lists pair by pair and multiply the results"
+    ],
+    "correct": 2,
+    "explanation": "w[0]x[0] + w[1]x[1] + ...: each output of a neural network layer is one dot product."
+  },
+  {
+    "id": "20-03-pre-2",
+    "stage": "pre",
+    "question": "A 4-bit counter holds 15 and you add 1. What does it show?",
+    "options": [
+      "0",
+      "16",
+      "15",
+      "An error"
+    ],
+    "correct": 0,
+    "explanation": "16 needs 5 bits. Keeping only the lowest 4 bits gives 0: overflow wraps around."
+  },
+  {
+    "id": "20-03-post-1",
+    "stage": "post",
+    "question": "How many MACs does a 1000 x 2000 matrix times a batch of 8 vectors (of length 2000) need?",
+    "options": [
+      "3,000",
+      "2,000,000",
+      "16,000",
+      "16,000,000"
+    ],
+    "correct": 3,
+    "explanation": "Rows x columns x batch = 1000 * 2000 * 8 = 16,000,000 MACs."
+  },
+  {
+    "id": "20-03-post-2",
+    "stage": "post",
+    "question": "Unsigned 8-bit inputs, dot products of length 64. How many accumulator bits are needed so it never overflows?",
+    "options": [
+      "16",
+      "22",
+      "64",
+      "8"
+    ],
+    "correct": 1,
+    "explanation": "Product bits (16) + log2(64) = 16 + 6 = 22 bits."
+  },
+  {
+    "id": "20-03-post-3",
+    "stage": "post",
+    "question": "What makes the MAC's adder and register a feedback loop?",
+    "options": [
+      "The multiplier feeds the register",
+      "The clock is fed back",
+      "The register's output is one of the adder's inputs, so each sum depends on the previous one",
+      "The inputs come from memory"
+    ],
+    "correct": 2,
+    "explanation": "acc = acc + product: the register output returns to the adder. This loop cannot be split without changing the result."
+  },
+  {
+    "id": "20-03-post-4",
+    "stage": "post",
+    "question": "In our cost model, what is the area of an 8-bit MAC with a 20-bit accumulator? (multiplier 344, adder 5 per bit, register 6 per bit)",
+    "options": [
+      "564 gates",
+      "344 gates",
+      "608 gates",
+      "464 gates"
+    ],
+    "correct": 0,
+    "explanation": "344 + 5 * 20 + 6 * 20 = 344 + 100 + 120 = 564 gates."
+  },
+  {
+    "id": "20-03-post-5",
+    "stage": "post",
+    "question": "A 16-bit accumulator gives 27,622 where the exact dot product is 4,352,998. By how much is it wrong, and why that amount?",
+    "options": [
+      "By a random amount caused by noise",
+      "By 4,325,376, an exact multiple of 2^16 = 65,536, because the top bits were lost",
+      "By 1, a rounding error",
+      "It is right; the display is in hexadecimal"
+    ],
+    "correct": 1,
+    "explanation": "4,352,998 - 27,622 = 4,325,376 = 66 * 65,536. Wrap-around removes whole multiples of 2^bits."
+  }
+]

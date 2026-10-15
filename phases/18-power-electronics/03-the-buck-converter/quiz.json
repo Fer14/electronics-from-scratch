@@ -1,0 +1,86 @@
+[
+  {
+    "id": "18-03-pre-1",
+    "stage": "pre",
+    "question": "A constant 5 V is applied across a 100 uH inductor for 2 us. How much does its current change?",
+    "options": ["0.1 A", "10 A", "1 A", "0.01 A"],
+    "correct": 0,
+    "explanation": "Change in current = V x time / L = 5 x 2e-6 / 100e-6 = 0.1 A."
+  },
+  {
+    "id": "18-03-pre-2",
+    "stage": "pre",
+    "question": "What does a buck converter do?",
+    "options": [
+      "Raises a DC voltage",
+      "Lowers a DC voltage efficiently by switching",
+      "Turns AC into DC with diodes",
+      "Lowers a voltage by burning the difference as heat"
+    ],
+    "correct": 1,
+    "explanation": "A buck converter steps a DC voltage down using a switch, an inductor and a capacitor, wasting very little energy."
+  },
+  {
+    "id": "18-03-post-1",
+    "stage": "post",
+    "question": "An ideal buck converter runs from 24 V with D = 0.25 in continuous conduction. What is Vout?",
+    "options": ["3 V", "96 V", "6 V", "18 V"],
+    "correct": 2,
+    "explanation": "Vout = D x Vin = 0.25 x 24 = 6 V."
+  },
+  {
+    "id": "18-03-post-2",
+    "stage": "post",
+    "question": "Where does Vout = D x Vin come from?",
+    "options": [
+      "From Ohm's law across the load",
+      "From the capacitor's energy",
+      "From the switch's resistance",
+      "From volt-second balance: the inductor's average voltage must be zero in steady state"
+    ],
+    "correct": 3,
+    "explanation": "(Vin - Vout) D T - Vout (1 - D) T = 0 gives Vout = D Vin."
+  },
+  {
+    "id": "18-03-post-3",
+    "stage": "post",
+    "question": "An ideal buck delivers 5 V at 2 A from 20 V. What average current does it draw from the input?",
+    "options": ["2 A", "0.5 A", "8 A", "0.25 A"],
+    "correct": 1,
+    "explanation": "Power in equals power out: 20 V x I_in = 5 V x 2 A = 10 W, so I_in = 0.5 A."
+  },
+  {
+    "id": "18-03-post-4",
+    "stage": "post",
+    "question": "You double the switching frequency of a buck, keeping L and C. What happens to the output ripple (from delta_I / (8 f C))?",
+    "options": [
+      "It doubles",
+      "It halves",
+      "It falls to a quarter, because delta_I halves and f doubles",
+      "It stays the same"
+    ],
+    "correct": 2,
+    "explanation": "delta_I = (Vin - Vout) D / (f L) halves, and delta_V = delta_I / (8 f C) divides by f again: one quarter."
+  },
+  {
+    "id": "18-03-post-5",
+    "stage": "post",
+    "question": "Why does a buck converter's output overshoot when it starts at full duty with an empty capacitor?",
+    "options": [
+      "The switches are too slow",
+      "The L and C form a resonant circuit; the inductor current builds up and carries the capacitor past its final voltage",
+      "The load resistance changes",
+      "The input voltage spikes"
+    ],
+    "correct": 1,
+    "explanation": "The LC filter rings at 1 / (2 pi sqrt(LC)). Soft start and feedback prevent the overshoot."
+  },
+  {
+    "id": "18-03-post-6",
+    "stage": "post",
+    "question": "A buck at 1 A has 40 mohm switches and a 60 mohm inductor. Roughly how much conduction loss is there?",
+    "options": ["1 W", "0.04 W", "0.1 W", "10 W"],
+    "correct": 2,
+    "explanation": "The load current always flows through one switch and the inductor: P = I^2 x (0.04 + 0.06) = 1 x 0.1 = 0.1 W."
+  }
+]

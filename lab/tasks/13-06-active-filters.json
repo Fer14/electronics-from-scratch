@@ -1,0 +1,166 @@
+{
+ "id": "13-06-active-filters",
+ "title": "A flat 1 kHz low-pass filter",
+ "kind": "ac",
+ "story": "A sensor signal lives below a few hundred hertz, but it picks up whine at 10 kHz and above. Build a second-order Sallen-Key low-pass filter: two 10 kOhm resistors, a 10 nF capacitor from the op-amp's plus input to ground, and the op-amp as a unity-gain follower. Choose the feedback capacitor (from the middle node to the output) so the filter is flat up to its cutoff near 1 kHz, without a resonant bump.",
+ "board": {
+  "nodes": {
+   "in": [
+    0,
+    3
+   ],
+   "a": [
+    3,
+    3
+   ],
+   "p": [
+    6,
+    3
+   ],
+   "out": [
+    9,
+    3
+   ],
+   "gnd": [
+    6,
+    6
+   ],
+   "gi": [
+    0,
+    6
+   ],
+   "fbt": [
+    3,
+    0
+   ],
+   "fbo": [
+    9,
+    0
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "sine_source",
+    "id": "VIN",
+    "plus": "in",
+    "minus": "gi",
+    "amplitude": 1,
+    "freq": 1000,
+    "offset": 0
+   },
+   {
+    "type": "wire",
+    "id": "W1",
+    "a": "gi",
+    "b": "gnd"
+   },
+   {
+    "type": "resistor",
+    "id": "R1",
+    "a": "in",
+    "b": "a",
+    "ohms": 10000
+   },
+   {
+    "type": "resistor",
+    "id": "R2",
+    "a": "a",
+    "b": "p",
+    "ohms": 10000
+   },
+   {
+    "type": "capacitor",
+    "id": "C2",
+    "a": "p",
+    "b": "gnd",
+    "farads": 1e-08
+   },
+   {
+    "type": "opamp",
+    "id": "U1",
+    "plus": "p",
+    "minus": "out",
+    "out": "out",
+    "gain": 100000
+   },
+   {
+    "type": "wire",
+    "id": "W2",
+    "a": "a",
+    "b": "fbt"
+   },
+   {
+    "type": "wire",
+    "id": "W3",
+    "a": "fbo",
+    "b": "out"
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "fbt",
+    "b": "fbo",
+    "accepts": [
+     "capacitor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "capacitor",
+   "farads": 4.7e-09
+  },
+  {
+   "type": "capacitor",
+   "farads": 2.2e-08
+  },
+  {
+   "type": "capacitor",
+   "farads": 1e-07
+  }
+ ],
+ "goals": [
+  {
+   "measure": "cutoff_frequency",
+   "at": "out",
+   "min": 950,
+   "max": 1300,
+   "label": "cutoff (-3 dB) between 950 Hz and 1.3 kHz"
+  },
+  {
+   "measure": "gain_db_at",
+   "at": "out",
+   "freq": 400,
+   "min": -1,
+   "max": 1,
+   "label": "flat pass band: within 1 dB at 400 Hz"
+  },
+  {
+   "measure": "gain_db_at",
+   "at": "out",
+   "freq": 10000,
+   "max": -35,
+   "label": "whine at 10 kHz cut by at least 35 dB"
+  }
+ ],
+ "sim": {
+  "source": "VIN",
+  "f_start": 10,
+  "f_stop": 100000,
+  "points": 401
+ },
+ "solution": {
+  "S1": {
+   "type": "capacitor",
+   "farads": 2.2e-08
+  }
+ },
+ "hints": [
+  "For this filter f0 = 1 / (2 pi R sqrt(C1 C2)) and Q = sqrt(C1 / C2) / 2.",
+  "A flat (Butterworth) response needs Q = 0.707, so C1 is about twice C2.",
+  "Too large a C1 makes Q big: a bump before the cutoff. Too small a C1 makes the filter sag early and gently."
+ ]
+}

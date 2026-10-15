@@ -1,0 +1,114 @@
+{
+ "id": "10-07-choose-the-q",
+ "title": "Sharp enough, but not too sharp",
+ "kind": "ac",
+ "story": "A receiver listens for a pilot tone at 1.59 kHz, made by a series 10 mH coil and 1 uF capacitor with the output across a resistor. The tone's transmitter drifts by up to 4 %, so 1.65 kHz must still come through within 6 dB. A strong interferer sits at 2 kHz and must be cut by at least 10 dB. The resistor sets the Q. Choose it.",
+ "sim": {
+  "source": "V1",
+  "f_start": 100,
+  "f_stop": 20000,
+  "points": 2000
+ },
+ "board": {
+  "nodes": {
+   "in": [
+    1,
+    1
+   ],
+   "a": [
+    4,
+    1
+   ],
+   "out": [
+    8,
+    1
+   ],
+   "gnd": [
+    8,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "sine_source",
+    "id": "V1",
+    "plus": "in",
+    "minus": "gnd",
+    "amplitude": 1,
+    "freq": 1592
+   },
+   {
+    "type": "inductor",
+    "id": "L1",
+    "a": "in",
+    "b": "a",
+    "henries": 0.01
+   },
+   {
+    "type": "capacitor",
+    "id": "C1",
+    "a": "a",
+    "b": "out",
+    "farads": 1e-06
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "out",
+    "b": "gnd",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 1
+  },
+  {
+   "type": "resistor",
+   "ohms": 10
+  },
+  {
+   "type": "resistor",
+   "ohms": 100
+  }
+ ],
+ "goals": [
+  {
+   "measure": "gain_db_at",
+   "at": "out",
+   "freq": 1592,
+   "min": -1,
+   "label": "1.59 kHz passes within 1 dB"
+  },
+  {
+   "measure": "gain_db_at",
+   "at": "out",
+   "freq": 1650,
+   "min": -6,
+   "label": "a drifted tone at 1.65 kHz still passes within 6 dB"
+  },
+  {
+   "measure": "gain_db_at",
+   "at": "out",
+   "freq": 2000,
+   "max": -10,
+   "label": "the 2 kHz interferer is cut by at least 10 dB"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 10
+  }
+ },
+ "hints": [
+  "Q = sqrt(L / C) / R, and the bandwidth is f0 / Q. Here sqrt(L / C) = 100 ohm.",
+  "The pass band must be wide enough to include 1.65 kHz but narrow enough to cut 2 kHz."
+ ]
+}

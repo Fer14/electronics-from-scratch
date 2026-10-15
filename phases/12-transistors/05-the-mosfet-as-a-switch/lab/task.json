@@ -1,0 +1,37 @@
+{
+  "id": "12-05-the-mosfet-as-a-switch",
+  "title": "Run a 12 V motor from a 3.3 V pin",
+  "kind": "dc",
+  "story": "A small 12 V motor draws about 2 A (it behaves like a 6 ohm resistor). A logic-level N-channel MOSFET (threshold 1.5 V) switches it, driven by a 3.3 V microcontroller pin. A 100 kOhm pull-down keeps the gate off when the pin is not driving. Choose the gate resistor between the pin and the gate so the motor gets its full current and the MOSFET stays cool.",
+  "board": {
+    "nodes": {"vm": [8, 0], "d": [8, 3], "pin": [1, 4], "g": [5, 4], "gnd": [8, 6], "gp": [5, 6], "g0": [1, 6]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "voltage_source", "id": "VM", "plus": "vm", "minus": "gnd", "volts": 12},
+      {"type": "voltage_source", "id": "PIN", "plus": "pin", "minus": "g0", "volts": 3.3},
+      {"type": "wire", "id": "W1", "a": "g0", "b": "gnd"},
+      {"type": "resistor", "id": "RM", "a": "vm", "b": "d", "ohms": 6, "label": "motor"},
+      {"type": "nmos", "id": "M1", "d": "d", "g": "g", "s": "gnd", "vth": 1.5, "k": 5.0},
+      {"type": "resistor", "id": "RPD", "a": "g", "b": "gp", "ohms": 100000},
+      {"type": "wire", "id": "W2", "a": "gp", "b": "gnd"}
+    ],
+    "slots": [
+      {"id": "S1", "a": "pin", "b": "g", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 100},
+    {"type": "resistor", "ohms": 100000},
+    {"type": "resistor", "ohms": 1000000}
+  ],
+  "goals": [
+    {"measure": "current", "of": "RM", "min": 1.8, "label": "motor current at least 1.8 A"},
+    {"measure": "power", "of": "M1", "max": 0.6, "label": "MOSFET dissipation below 0.6 W"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 100}},
+  "hints": [
+    "The gate draws no steady current, but the gate resistor and the pull-down form a voltage divider.",
+    "V_GS = 3.3 x 100k / (R_G + 100k). It must be well above the 1.5 V threshold.",
+    "A half-on MOSFET has volts across it AND amps through it: that is when it gets hot."
+  ]
+}

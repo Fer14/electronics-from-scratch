@@ -1,0 +1,100 @@
+{
+ "id": "10-02-pick-r-for-cutoff",
+ "title": "Put the cutoff near 1 kHz",
+ "kind": "ac",
+ "story": "You have a 10 nF capacitor from node out to ground and need an RC low-pass whose cutoff (the -3 dB point) lands between 900 Hz and 1.2 kHz, to keep speech and cut the hiss above it. Choose the series resistor. Only standard resistor values are in the drawer, so the exact value 1 / (2 pi f C) is not available.",
+ "sim": {
+  "source": "V1",
+  "f_start": 10,
+  "f_stop": 1000000,
+  "points": 400
+ },
+ "board": {
+  "nodes": {
+   "in": [
+    1,
+    1
+   ],
+   "out": [
+    6,
+    1
+   ],
+   "gnd": [
+    6,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "sine_source",
+    "id": "V1",
+    "plus": "in",
+    "minus": "gnd",
+    "amplitude": 1,
+    "freq": 1000
+   },
+   {
+    "type": "capacitor",
+    "id": "C1",
+    "a": "out",
+    "b": "gnd",
+    "farads": 1e-08
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "in",
+    "b": "out",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 1500
+  },
+  {
+   "type": "resistor",
+   "ohms": 4700
+  },
+  {
+   "type": "resistor",
+   "ohms": 15000
+  },
+  {
+   "type": "resistor",
+   "ohms": 150000
+  }
+ ],
+ "goals": [
+  {
+   "measure": "cutoff_frequency",
+   "at": "out",
+   "min": 900,
+   "max": 1200,
+   "label": "cutoff between 900 Hz and 1.2 kHz"
+  },
+  {
+   "measure": "gain_db_at",
+   "at": "out",
+   "freq": 100,
+   "min": -0.5,
+   "label": "100 Hz passes with less than 0.5 dB loss"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 15000
+  }
+ },
+ "hints": [
+  "fc = 1 / (2 pi R C), so R = 1 / (2 pi fc C).",
+  "With C = 10 nF and fc = 1 kHz the exact answer is about 15.9 k ohm."
+ ]
+}

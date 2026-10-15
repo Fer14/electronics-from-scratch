@@ -1,0 +1,83 @@
+[
+  {
+    "id": "17-07-pre-1",
+    "stage": "pre",
+    "question": "Why does battery-powered firmware usually put the core to sleep in its main loop?",
+    "options": [
+      "To let the flash memory cool down",
+      "Because the core draws far less current asleep, and an interrupt can wake it when there is work",
+      "Because the timer only works when the core sleeps",
+      "To erase RAM between tasks"
+    ],
+    "correct": 1,
+    "explanation": "Sleep stops the core clock. Peripherals like timers keep running and wake the core with an interrupt, so the chip is only awake for the short moments that need it."
+  },
+  {
+    "id": "17-07-pre-2",
+    "stage": "pre",
+    "question": "An LDR is on top of a divider with a fixed resistor to ground. The room gets brighter. What happens to the divider output?",
+    "options": [
+      "It falls",
+      "It stays the same",
+      "It rises, because the LDR's resistance falls",
+      "It becomes negative"
+    ],
+    "correct": 2,
+    "explanation": "More light lowers the LDR's resistance, so the fixed bottom resistor gets a bigger share of the supply: V = VDD x R_fixed / (R_LDR + R_fixed) rises."
+  },
+  {
+    "id": "17-07-post-1",
+    "stage": "post",
+    "question": "r1 holds 179. The firmware runs 'cpi r1, 200' then 'brsh daylight'. What happens?",
+    "options": [
+      "It does not branch: 179 - 200 borrows, so the carry flag is set and 'branch if same or higher' is false",
+      "It branches to daylight, because 179 is not zero",
+      "It branches, because the zero flag is set",
+      "The core resets"
+    ],
+    "correct": 0,
+    "explanation": "cpi computes 179 - 200 = -21: not zero, and a borrow sets the carry flag. brsh branches only when carry is clear, so the dark path runs."
+  },
+  {
+    "id": "17-07-post-2",
+    "stage": "post",
+    "question": "The timer runs at 1 MHz / 64 with TCOMP = 155. How often does the tick interrupt fire?",
+    "options": ["Every 155 us", "Every 64 us", "Every 1 ms", "Every 9.984 ms (about 100 Hz)"],
+    "correct": 3,
+    "explanation": "Each tick is 64 x (155 + 1) = 9984 cycles. At 1 MHz that is 9.984 ms, or 100.16 Hz."
+  },
+  {
+    "id": "17-07-post-3",
+    "stage": "post",
+    "question": "The firmware writes PWMDUTY but never sets DDRB bit 1. What does the LED do?",
+    "options": [
+      "It lights at the chosen brightness",
+      "It lights fully",
+      "Nothing: the pin is still an input, so the PWM never drives it",
+      "It flickers at 1 Hz"
+    ],
+    "correct": 2,
+    "explanation": "Peripherals compute their output, but a pin left as an input does not drive anything. Forgetting the direction register is one of the most common embedded bugs."
+  },
+  {
+    "id": "17-07-post-4",
+    "stage": "post",
+    "question": "An ISR takes 21 cycles and runs every 9984 cycles. What fraction of the time is the core awake, ignoring the rest of the code?",
+    "options": ["About 21%", "About 0.21%", "About 2.1%", "About 50%"],
+    "correct": 1,
+    "explanation": "21 / 9984 = 0.0021, about 0.21%. The rest of the time it can sleep."
+  },
+  {
+    "id": "17-07-post-5",
+    "stage": "post",
+    "question": "What makes our virtual microcontroller's simulation 'event-driven'?",
+    "options": [
+      "It runs every clock cycle one by one",
+      "It uses the UART to receive events",
+      "It only simulates the analog circuits",
+      "When the core is asleep, it jumps time straight to the next timer match instead of stepping through idle cycles"
+    ],
+    "correct": 3,
+    "explanation": "Nothing happens while the core sleeps, so the simulator skips directly to the next event. That is why a million-cycle second takes a fraction of a second to simulate."
+  }
+]

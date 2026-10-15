@@ -1,0 +1,29 @@
+{
+  "id": "ex-03-xor",
+  "title": "Build XOR from simple gates",
+  "kind": "logic",
+  "story": "XOR is 1 when exactly one input is 1. Build it from an OR, a NAND and one more gate.",
+  "board": {
+    "inputs": ["a", "b"],
+    "outputs": ["y"],
+    "nodes": {"a": [1, 2], "b": [1, 4], "o": [5, 1.5], "n": [5, 4.5], "y": [9, 3]},
+    "fixed": [
+      {"type": "gate", "id": "G1", "op": "or", "inputs": ["a", "b"], "output": "o"},
+      {"type": "gate", "id": "G2", "op": "nand", "inputs": ["a", "b"], "output": "n"}
+    ],
+    "slots": [
+      {"id": "S1", "inputs": ["o", "n"], "output": "y", "accepts": ["gate"]}
+    ]
+  },
+  "parts": [
+    {"type": "gate", "op": "and"},
+    {"type": "gate", "op": "or"},
+    {"type": "gate", "op": "nor"},
+    {"type": "gate", "op": "xor"}
+  ],
+  "goals": [
+    {"measure": "truth_table", "expect": {"y": [0, 1, 1, 0]}, "label": "y = a XOR b for every input"}
+  ],
+  "solution": {"S1": {"type": "gate", "op": "and"}},
+  "hints": ["OR says 'at least one'. NAND says 'not both'.", "You want 'at least one' and 'not both' at the same time."]
+}

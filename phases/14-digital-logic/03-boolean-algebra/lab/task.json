@@ -1,0 +1,128 @@
+{
+  "id": "14-03-greenhouse-nand",
+  "title": "Greenhouse fan from NAND gates",
+  "kind": "logic",
+  "story": "The fan must run when it is daytime and too hot, or daytime and too humid: y = a·b + b·c, with a = too hot, b = daytime, c = too humid. Your drawer has NAND, NOR and XOR gates but no AND or OR. Fill the three slots so y is right for all 8 cases.",
+  "board": {
+    "inputs": [
+      "a",
+      "b",
+      "c"
+    ],
+    "outputs": [
+      "y"
+    ],
+    "nodes": {
+      "a": [
+        1,
+        1
+      ],
+      "b": [
+        1,
+        3
+      ],
+      "c": [
+        1,
+        5
+      ],
+      "n1": [
+        5,
+        2
+      ],
+      "n2": [
+        5,
+        4
+      ],
+      "y": [
+        9,
+        3
+      ]
+    },
+    "fixed": [],
+    "slots": [
+      {
+        "id": "S1",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "output": "n1",
+        "accepts": [
+          "gate"
+        ]
+      },
+      {
+        "id": "S2",
+        "inputs": [
+          "b",
+          "c"
+        ],
+        "output": "n2",
+        "accepts": [
+          "gate"
+        ]
+      },
+      {
+        "id": "S3",
+        "inputs": [
+          "n1",
+          "n2"
+        ],
+        "output": "y",
+        "accepts": [
+          "gate"
+        ]
+      }
+    ]
+  },
+  "parts": [
+    {
+      "type": "gate",
+      "op": "nand"
+    },
+    {
+      "type": "gate",
+      "op": "nor"
+    },
+    {
+      "type": "gate",
+      "op": "xor"
+    }
+  ],
+  "goals": [
+    {
+      "measure": "truth_table",
+      "expect": {
+        "y": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      "label": "y = a·b + b·c for all 8 input combinations"
+    }
+  ],
+  "solution": {
+    "S1": {
+      "type": "gate",
+      "op": "nand"
+    },
+    "S2": {
+      "type": "gate",
+      "op": "nand"
+    },
+    "S3": {
+      "type": "gate",
+      "op": "nand"
+    }
+  },
+  "hints": [
+    "Apply double negation to the whole expression, then De Morgan to the outer OR: (X + Y) = (X'·Y')'.",
+    "A sum of products is a NAND of NANDs."
+  ]
+}

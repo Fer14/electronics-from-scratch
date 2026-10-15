@@ -1,0 +1,106 @@
+[
+  {
+    "id": "15-02-pre-1",
+    "stage": "pre",
+    "question": "A NOR gate has one input at 1. What is its output?",
+    "options": [
+      "1",
+      "0",
+      "The other input",
+      "It depends on the previous value"
+    ],
+    "correct": 1,
+    "explanation": "NOR outputs 1 only when all inputs are 0. This is why s = 1 forces qb = 0 in the NOR latch."
+  },
+  {
+    "id": "15-02-pre-2",
+    "stage": "pre",
+    "question": "An input named RESET' (or RESETn) is active-low. When does it reset the chip?",
+    "options": [
+      "When it is 1",
+      "When it is disconnected",
+      "When it is 0",
+      "On every clock edge"
+    ],
+    "correct": 2,
+    "explanation": "Active-low signals do their job when they are 0."
+  },
+  {
+    "id": "15-02-post-1",
+    "stage": "post",
+    "question": "Why is s = r = 1 forbidden in a NOR SR latch?",
+    "options": [
+      "It draws too much current",
+      "It sets q to 1 permanently",
+      "It is impossible to apply",
+      "q and qb both become 0, and releasing both inputs together causes an unpredictable race"
+    ],
+    "correct": 3,
+    "explanation": "The complementary outputs are lost, and which state the latch falls into after release depends on tiny delay differences."
+  },
+  {
+    "id": "15-02-post-2",
+    "stage": "post",
+    "question": "In a NAND S'R' latch, which inputs hold the stored bit?",
+    "options": [
+      "sn = 1, rn = 1",
+      "sn = 0, rn = 0",
+      "sn = 0, rn = 1",
+      "sn = 1, rn = 0"
+    ],
+    "correct": 0,
+    "explanation": "With both active-low inputs inactive (1), each NAND acts as an inverter of the other: the loop holds."
+  },
+  {
+    "id": "15-02-post-3",
+    "stage": "post",
+    "question": "What is the next-state equation of a gated D latch?",
+    "options": [
+      "Q+ = d",
+      "Q+ = en·d + en'·Q",
+      "Q+ = en + d",
+      "Q+ = d XOR Q"
+    ],
+    "correct": 1,
+    "explanation": "When en = 1 the latch takes d; when en = 0 it keeps Q. That is a 2-to-1 mux with select en."
+  },
+  {
+    "id": "15-02-post-4",
+    "stage": "post",
+    "question": "A D latch has en = 1. d changes from 0 to 1 and back to 0. What does q do?",
+    "options": [
+      "Stays at its old value",
+      "Changes only when en falls",
+      "Follows d: goes to 1 and back to 0",
+      "Goes to 1 and stays there"
+    ],
+    "correct": 2,
+    "explanation": "While enabled, a latch is transparent: its output follows its input."
+  },
+  {
+    "id": "15-02-post-5",
+    "stage": "post",
+    "question": "Why does a D latch have no forbidden input?",
+    "options": [
+      "Its internal set and reset come from d and NOT d, which can never both be 1",
+      "It has no feedback",
+      "It uses only NOR gates",
+      "Its enable is always 1"
+    ],
+    "correct": 0,
+    "explanation": "Since s = d and r = d', the combination s = r = 1 cannot occur."
+  },
+  {
+    "id": "15-02-post-6",
+    "stage": "post",
+    "question": "A D latch's d input is connected to its own NOT q. What happens while en = 1?",
+    "options": [
+      "q stays at 0",
+      "q toggles once",
+      "q stays at 1",
+      "q oscillates, because the loop through a transparent latch has an odd number of inversions"
+    ],
+    "correct": 3,
+    "explanation": "A transparent latch plus an inverter is a ring oscillator. Edge-triggered flip-flops fix this."
+  }
+]

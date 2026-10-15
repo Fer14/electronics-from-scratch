@@ -1,0 +1,93 @@
+[
+  {
+    "id": "07-06-pre-1",
+    "stage": "pre",
+    "question": "What does a charged capacitor really store?",
+    "options": [
+      "Extra electrons, so it has a net negative charge",
+      "Energy, in the electric field between separated charges",
+      "Current, which it releases later",
+      "Resistance"
+    ],
+    "correct": 1,
+    "explanation": "The total charge is zero (+Q and -Q). What it stores is energy, held in the electric field of the dielectric."
+  },
+  {
+    "id": "07-06-pre-2",
+    "stage": "pre",
+    "question": "If you double the voltage on a capacitor, its stored energy...",
+    "options": [
+      "stays the same",
+      "doubles",
+      "halves",
+      "becomes four times larger"
+    ],
+    "correct": 3,
+    "explanation": "E = 1/2 C V^2 grows with the square of the voltage: 2^2 = 4."
+  },
+  {
+    "id": "07-06-post-1",
+    "stage": "post",
+    "question": "How much energy is stored in 100 uF at 9 V?",
+    "options": [
+      "4.05 mJ",
+      "8.1 mJ",
+      "0.45 mJ",
+      "900 uJ"
+    ],
+    "correct": 0,
+    "explanation": "E = 0.5 x 100e-6 x 81 = 4.05e-3 J. 8.1 mJ is what the battery delivers while charging it; 900 uC is the charge, not energy."
+  },
+  {
+    "id": "07-06-post-2",
+    "stage": "post",
+    "question": "Why is the energy 1/2 Q V and not Q V?",
+    "options": [
+      "Because half of the charge leaks away",
+      "Because only one plate stores energy",
+      "Because the voltage grows from 0 to V while the charge is moved, so on average each coulomb crosses V / 2",
+      "Because the dielectric absorbs half"
+    ],
+    "correct": 2,
+    "explanation": "The first charge moves across 0 V, the last across nearly V. Since v grows linearly with charge, the average is V / 2, giving E = Q V / 2."
+  },
+  {
+    "id": "07-06-post-3",
+    "stage": "post",
+    "question": "A capacitor is charged from a fixed 9 V battery through 10 Ohm, then (empty again) through 100 kOhm. In which case is more energy lost as heat?",
+    "options": [
+      "Through 10 Ohm, because the current is larger",
+      "Through 100 kOhm, because the resistance is larger",
+      "The same in both: half of the energy the battery delivers",
+      "Neither, a resistor does not lose energy when charging a capacitor"
+    ],
+    "correct": 2,
+    "explanation": "The heat is 1/2 C V^2 whatever R is. A smaller R gives a larger current for a shorter time and the total comes out the same."
+  },
+  {
+    "id": "07-06-post-4",
+    "stage": "post",
+    "question": "A 220 uF capacitor supplies a circuit that works from 5 V down to 3 V. How much of its energy is usable?",
+    "options": [
+      "2.75 mJ",
+      "0.99 mJ",
+      "0.44 mJ",
+      "1.76 mJ"
+    ],
+    "correct": 3,
+    "explanation": "E_usable = 1/2 C (5^2 - 3^2) = 0.5 x 220e-6 x 16 = 1.76 mJ. 2.75 mJ is the total at 5 V; 0.99 mJ stays stranded below 3 V."
+  },
+  {
+    "id": "07-06-post-5",
+    "stage": "post",
+    "question": "Why are camera flashes powered by a capacitor rather than directly by the battery?",
+    "options": [
+      "The battery cannot deliver thousands of watts for a millisecond; the capacitor stores energy slowly and releases it very fast",
+      "Capacitors store more energy than batteries",
+      "Batteries cannot produce light",
+      "The capacitor makes the battery last forever"
+    ],
+    "correct": 0,
+    "explanation": "A few joules in about a millisecond is thousands of watts. Batteries hold far more energy but cannot release it that fast; capacitors excel at fast release."
+  }
+]

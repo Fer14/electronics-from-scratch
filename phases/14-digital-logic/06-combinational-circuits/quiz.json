@@ -1,0 +1,106 @@
+[
+  {
+    "id": "14-06-pre-1",
+    "stage": "pre",
+    "question": "What makes a circuit 'combinational'?",
+    "options": [
+      "It combines analog and digital parts",
+      "Once settled, its outputs depend only on its current inputs, not on the past",
+      "It has a clock",
+      "It uses more than one type of gate"
+    ],
+    "correct": 1,
+    "explanation": "Combinational circuits have no memory. Circuits with memory are sequential (Phase 15)."
+  },
+  {
+    "id": "14-06-pre-2",
+    "stage": "pre",
+    "question": "How many rows does the truth table of a comparator for two 3-bit numbers have?",
+    "options": [
+      "6",
+      "8",
+      "64",
+      "16"
+    ],
+    "correct": 2,
+    "explanation": "There are 6 input bits in total, so 2^6 = 64 rows."
+  },
+  {
+    "id": "14-06-post-1",
+    "stage": "post",
+    "question": "Which circuit outputs 1 exactly when 2-bit numbers A = a1a0 and B = b1b0 are equal?",
+    "options": [
+      "NOR(a1 XOR b1, a0 XOR b0)",
+      "OR(a1 XOR b1, a0 XOR b0)",
+      "AND(a1 XOR b1, a0 XOR b0)",
+      "XOR(a1 AND b1, a0 AND b0)"
+    ],
+    "correct": 0,
+    "explanation": "Each XOR flags a difference in one bit position. The numbers are equal when there is no difference at all: NOR."
+  },
+  {
+    "id": "14-06-post-2",
+    "stage": "post",
+    "question": "What is a 'don't care' in a truth table?",
+    "options": [
+      "An output that is always 0",
+      "An input that is disconnected",
+      "A row that the designer forgot",
+      "An output we may choose freely because that input combination never occurs"
+    ],
+    "correct": 3,
+    "explanation": "Don't-cares (X) can be treated as 0 or 1, whichever gives bigger Karnaugh groups and a simpler circuit."
+  },
+  {
+    "id": "14-06-post-3",
+    "stage": "post",
+    "question": "A circuit's paths have depths 2, 3 and 6 gates, each gate 7 ns. When is the output guaranteed to be settled?",
+    "options": [
+      "14 ns",
+      "21 ns",
+      "42 ns",
+      "77 ns"
+    ],
+    "correct": 2,
+    "explanation": "The critical (longest) path decides: 6 x 7 ns = 42 ns."
+  },
+  {
+    "id": "14-06-post-4",
+    "stage": "post",
+    "question": "In y = a·b + a'·c with b = c = 1, why can y briefly drop to 0 when a falls?",
+    "options": [
+      "Because the circuit has a bug in its truth table",
+      "The a·b term turns off before the a'·c term turns on, because a' arrives one inverter delay later",
+      "Because the OR gate is too slow",
+      "Because b and c are both 1"
+    ],
+    "correct": 1,
+    "explanation": "The two terms hand over the job of holding y at 1 through paths of different lengths, leaving a moment when neither holds it."
+  },
+  {
+    "id": "14-06-post-5",
+    "stage": "post",
+    "question": "Which extra term removes the glitch in y = a·b + a'·c?",
+    "options": [
+      "a·a'",
+      "a + b",
+      "a'·b'",
+      "b·c"
+    ],
+    "correct": 3,
+    "explanation": "The consensus term b·c does not change the truth table but stays 1 during the hand-over because it does not depend on a."
+  },
+  {
+    "id": "14-06-post-6",
+    "stage": "post",
+    "question": "Why do glitches usually not matter in clocked (synchronous) designs?",
+    "options": [
+      "Outputs are only sampled on a clock edge, after everything has settled",
+      "Clocks remove the delay of gates",
+      "Glitches cannot happen when there is a clock",
+      "The clock filters out short pulses electrically"
+    ],
+    "correct": 0,
+    "explanation": "The clock period is chosen longer than the critical path, so flip-flops sample settled values. Glitches still waste power and are dangerous on clock or reset lines."
+  }
+]

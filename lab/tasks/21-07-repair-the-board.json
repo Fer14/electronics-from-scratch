@@ -1,0 +1,129 @@
+{
+ "id": "21-07-repair-the-board",
+ "title": "Repair the board",
+ "kind": "dc",
+ "story": "A 9 V battery feeds a 5.1 V zener regulator (R1 = 220 ohm) that powers an indicator LED and a 10 k / 10 k divider whose middle should sit near 2.55 V. On the prototype, the multimeter reads 0.46 V at 'mid'. Something is wrong at the bottom resistor's position, slot S1: it might be a solder bridge (a wire), a cracked joint (an open), a resistor from the wrong reel (1 kohm) or the right one (10 kohm). Put in the part that makes the board meet its specification.",
+ "board": {
+  "nodes": {
+   "vin": [
+    1,
+    1
+   ],
+   "rail": [
+    4,
+    1
+   ],
+   "mid": [
+    6,
+    3
+   ],
+   "led_a": [
+    9,
+    2
+   ],
+   "gnd": [
+    5,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "B1",
+    "plus": "vin",
+    "minus": "gnd",
+    "volts": 9
+   },
+   {
+    "type": "resistor",
+    "id": "R1",
+    "a": "vin",
+    "b": "rail",
+    "ohms": 220
+   },
+   {
+    "type": "zener",
+    "id": "Z1",
+    "anode": "gnd",
+    "cathode": "rail",
+    "vz": 5.1
+   },
+   {
+    "type": "resistor",
+    "id": "R2",
+    "a": "rail",
+    "b": "mid",
+    "ohms": 10000
+   },
+   {
+    "type": "resistor",
+    "id": "R4",
+    "a": "rail",
+    "b": "led_a",
+    "ohms": 330
+   },
+   {
+    "type": "led",
+    "id": "D1",
+    "anode": "led_a",
+    "cathode": "gnd",
+    "color": "red"
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "mid",
+    "b": "gnd",
+    "accepts": [
+     "resistor",
+     "wire",
+     "open"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "wire"
+  },
+  {
+   "type": "open"
+  },
+  {
+   "type": "resistor",
+   "ohms": 1000
+  },
+  {
+   "type": "resistor",
+   "ohms": 10000
+  }
+ ],
+ "goals": [
+  {
+   "measure": "voltage",
+   "at": "mid",
+   "min": 2.4,
+   "max": 2.7,
+   "label": "mid sits between 2.4 and 2.7 V"
+  },
+  {
+   "measure": "voltage",
+   "at": "rail",
+   "min": 4.9,
+   "max": 5.3,
+   "label": "the rail is regulated near 5.1 V"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 10000
+  }
+ },
+ "hints": [
+  "With equal resistors, mid is half the rail.",
+  "A reading of 0.46 V is about rail * 1k / (10k + 1k)."
+ ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "03-02-resistivity-and-wires",
+  "title": "Cut the hot wire to the right length",
+  "kind": "dc",
+  "story": "You are building a foam cutter: a piece of 0.4 mm nichrome wire stretched between two posts and heated by a 12 V battery. That wire has 8.75 ohm for every meter. Too short and it pulls so much current that it glows orange and snaps; too long and it never gets hot enough to melt foam. The wire cuts cleanly when the current is between 1 A and 2 A. The four pieces in the box are 0.5 m (4.38 ohm), 1 m (8.75 ohm), 2 m (17.5 ohm) and 4 m (35 ohm). Clip the right piece between the posts.",
+  "board": {
+    "nodes": {"vcc": [1, 1], "post": [8, 1], "gnd": [1, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "B1", "plus": "vcc", "minus": "gnd", "volts": 12},
+      {"type": "switch", "id": "SW1", "a": "post", "b": "gnd", "closed": true}
+    ],
+    "slots": [
+      {"id": "S1", "a": "vcc", "b": "post", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 4.38},
+    {"type": "resistor", "ohms": 8.75},
+    {"type": "resistor", "ohms": 17.5},
+    {"type": "resistor", "ohms": 35}
+  ],
+  "goals": [
+    {"measure": "current", "of": "S1", "min": 1.0, "max": 2.0, "label": "hot-wire current between 1 A and 2 A"},
+    {"measure": "voltage", "between": ["vcc", "post"], "min": 11.5, "label": "almost all of the 12 V lands on the nichrome"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 8.75}},
+  "hints": [
+    "Resistance grows in proportion to length: every piece is just 8.75 ohm times its length in meters.",
+    "The current is the battery voltage divided by the wire's resistance: try 12 / R for each piece."
+  ]
+}

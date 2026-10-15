@@ -1,0 +1,93 @@
+[
+  {
+    "id": "20-08-pre-1",
+    "stage": "pre",
+    "question": "A memory delivers 1 TB/s and a computation does 3 operations per byte it reads. At most how fast can it run, if the arithmetic is not the limit?",
+    "options": [
+      "1 TFLOP/s",
+      "0.33 TFLOP/s",
+      "3 TFLOP/s",
+      "Unlimited"
+    ],
+    "correct": 2,
+    "explanation": "Bandwidth times intensity = 1e12 bytes/s * 3 FLOP/byte = 3e12 FLOP/s."
+  },
+  {
+    "id": "20-08-pre-2",
+    "stage": "pre",
+    "question": "Why might a chip advertised at 400 TFLOP/s run a program at only 2 TFLOP/s?",
+    "options": [
+      "The program is waiting for data from memory most of the time",
+      "The chip is overheating",
+      "FLOP/s are always quoted in a different unit",
+      "The program uses integers"
+    ],
+    "correct": 0,
+    "explanation": "If the program does few operations per byte, memory bandwidth limits it far below the arithmetic peak."
+  },
+  {
+    "id": "20-08-post-1",
+    "stage": "post",
+    "question": "A chip has a peak of 600 TFLOP/s and 3 TB/s of bandwidth. Where is its ridge point?",
+    "options": [
+      "2 FLOP/byte",
+      "1,800 FLOP/byte",
+      "600 FLOP/byte",
+      "200 FLOP/byte"
+    ],
+    "correct": 3,
+    "explanation": "Ridge = peak / bandwidth = 600e12 / 3e12 = 200 FLOP per byte."
+  },
+  {
+    "id": "20-08-post-2",
+    "stage": "post",
+    "question": "For a d x d layer with batch B much smaller than d, the arithmetic intensity is about...",
+    "options": [
+      "1, always",
+      "B, the batch size",
+      "d, the layer width",
+      "d^2"
+    ],
+    "correct": 1,
+    "explanation": "Each weight (2 bytes) is used for B MACs (2B FLOPs), so I is about B."
+  },
+  {
+    "id": "20-08-post-3",
+    "stage": "post",
+    "question": "On THOTH-1, going from batch 1 to batch 128 for the 8192 x 8192 layer changes the step time from 67.1 us to 69.2 us. What happens to throughput?",
+    "options": [
+      "It falls",
+      "It stays the same",
+      "It rises about 124 times, because the extra inputs ride along with the weights already being read",
+      "It doubles"
+    ],
+    "correct": 2,
+    "explanation": "128 inputs in 69.2 us vs 1 input in 67.1 us: about 124 times more inputs per second."
+  },
+  {
+    "id": "20-08-post-4",
+    "stage": "post",
+    "question": "Past the ridge point, what happens when you double the batch?",
+    "options": [
+      "Throughput doubles and latency stays the same",
+      "Both throughput and latency halve",
+      "Nothing changes",
+      "Throughput stays at the roof while the step time (latency) doubles"
+    ],
+    "correct": 3,
+    "explanation": "Compute-bound steps take time proportional to the work, so per-step latency doubles and throughput stays at peak."
+  },
+  {
+    "id": "20-08-post-5",
+    "stage": "post",
+    "question": "Why does batching many users not raise the arithmetic intensity of attention during decode?",
+    "options": [
+      "Each sequence reads its own KV cache, which no other sequence reuses",
+      "Attention has no multiplications",
+      "The KV cache is stored in registers",
+      "Batching is not allowed for attention"
+    ],
+    "correct": 0,
+    "explanation": "Weights are shared across the batch, but every sequence's keys and values are its own, so they are used once per step."
+  }
+]

@@ -1,0 +1,125 @@
+{
+ "id": "22-03-base-resistor",
+ "title": "Choose the transistor's base resistor",
+ "kind": "dc",
+ "story": "The microcontroller's PWM pin (3.3 V when high) switches the night light's NPN transistor through a base resistor in slot S1. The transistor connects the white LED and its 68 ohm resistor to ground, from the 4.5 V battery. With the pin high, the LED must get between 15 and 20 mA (the transistor fully on), and the pin must not have to supply more than 5 mA. The transistor's current gain is about 100.",
+ "board": {
+  "nodes": {
+   "vbat": [
+    1,
+    1
+   ],
+   "led_a": [
+    6,
+    1
+   ],
+   "led_k": [
+    6,
+    3
+   ],
+   "pin": [
+    1,
+    4
+   ],
+   "base": [
+    4,
+    4
+   ],
+   "gnd": [
+    6,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "BAT",
+    "plus": "vbat",
+    "minus": "gnd",
+    "volts": 4.5
+   },
+   {
+    "type": "voltage_source",
+    "id": "PB1",
+    "plus": "pin",
+    "minus": "gnd",
+    "volts": 3.3
+   },
+   {
+    "type": "resistor",
+    "id": "R5",
+    "a": "vbat",
+    "b": "led_a",
+    "ohms": 68
+   },
+   {
+    "type": "led",
+    "id": "D1",
+    "anode": "led_a",
+    "cathode": "led_k",
+    "color": "white"
+   },
+   {
+    "type": "npn",
+    "id": "Q1",
+    "c": "led_k",
+    "b": "base",
+    "e": "gnd"
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "pin",
+    "b": "base",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 100000
+  },
+  {
+   "type": "resistor",
+   "ohms": 22000
+  },
+  {
+   "type": "resistor",
+   "ohms": 2200
+  },
+  {
+   "type": "resistor",
+   "ohms": 47
+  }
+ ],
+ "goals": [
+  {
+   "measure": "current",
+   "of": "D1",
+   "min": 0.015,
+   "max": 0.02,
+   "label": "LED current between 15 and 20 mA"
+  },
+  {
+   "measure": "current",
+   "of": "S1",
+   "max": 0.005,
+   "label": "the pin supplies at most 5 mA"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 2200
+  }
+ },
+ "hints": [
+  "Base current = (3.3 V - 0.7 V) / R. The transistor can pass at most about 100 times that.",
+  "The LED needs about 19 mA, so the base needs comfortably more than 0.19 mA, but not tens of mA."
+ ]
+}

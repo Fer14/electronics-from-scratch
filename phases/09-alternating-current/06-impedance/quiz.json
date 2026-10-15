@@ -1,0 +1,93 @@
+[
+  {
+    "id": "09-06-pre-1",
+    "stage": "pre",
+    "question": "At DC (zero frequency), after everything settles, a capacitor behaves like:",
+    "options": [
+      "A short circuit",
+      "An open circuit",
+      "A 1 ohm resistor",
+      "A battery that never discharges"
+    ],
+    "correct": 1,
+    "explanation": "Once charged, no more current flows into a capacitor at DC, so it acts as an open circuit."
+  },
+  {
+    "id": "09-06-pre-2",
+    "stage": "pre",
+    "question": "Why does an inductor oppose fast-changing current more than slow-changing current?",
+    "options": [
+      "Its wire gets hotter at high frequency",
+      "Its resistance grows with frequency",
+      "The voltage it produces to fight a change is proportional to how fast the current changes (v = L di/dt)",
+      "Inductors only work at DC"
+    ],
+    "correct": 2,
+    "explanation": "Faraday's law: the opposing voltage is L times the rate of change of current, so faster changes are opposed more strongly."
+  },
+  {
+    "id": "09-06-post-1",
+    "stage": "post",
+    "question": "What is the impedance of a 10 mH inductor at 1 kHz?",
+    "options": [
+      "j62.83 ohm",
+      "-j62.83 ohm",
+      "10 ohm",
+      "j10 ohm"
+    ],
+    "correct": 0,
+    "explanation": "Z_L = j omega L = j x 2 pi x 1000 x 0.01 = j62.83 ohm."
+  },
+  {
+    "id": "09-06-post-2",
+    "stage": "post",
+    "question": "What is the impedance of a 1 microfarad capacitor at 1 kHz?",
+    "options": [
+      "j159.15 ohm",
+      "-j6283 ohm",
+      "159.15 ohm with no j",
+      "-j159.15 ohm"
+    ],
+    "correct": 3,
+    "explanation": "Z_C = 1 / (j omega C) = -j / (6283 x 1e-6) = -j159.15 ohm."
+  },
+  {
+    "id": "09-06-post-3",
+    "stage": "post",
+    "question": "100 ohm in series with an inductive reactance of j100 ohm has an impedance of size:",
+    "options": [
+      "200 ohm",
+      "141.4 ohm",
+      "100 ohm",
+      "50 ohm"
+    ],
+    "correct": 1,
+    "explanation": "Z = 100 + j100, size sqrt(100^2 + 100^2) = 141.4 ohm. Complex impedances add as arrows, not as sizes."
+  },
+  {
+    "id": "09-06-post-4",
+    "stage": "post",
+    "question": "In a series RLC circuit at some frequency, X_L = +62.8 ohm and X_C = -159.2 ohm. The circuit behaves:",
+    "options": [
+      "inductively, because L is listed first",
+      "like a pure resistor",
+      "capacitively, because the net reactance is negative",
+      "like an open circuit"
+    ],
+    "correct": 2,
+    "explanation": "Series reactances add: 62.8 - 159.2 = -96.4 ohm, a negative (capacitive) net reactance."
+  },
+  {
+    "id": "09-06-post-5",
+    "stage": "post",
+    "question": "An inductor L in series and a resistor R to ground form a divider. What does it do?",
+    "options": [
+      "Passes low frequencies and blocks high frequencies (a low-pass filter)",
+      "Passes high frequencies and blocks low frequencies",
+      "Blocks every frequency equally",
+      "Doubles the voltage at high frequency"
+    ],
+    "correct": 0,
+    "explanation": "V_out / V_in = R / (R + j omega L). At low frequency omega L is small and the ratio is near 1; at high frequency it falls."
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "id": "13-07-real-op-amp-limits",
+  "title": "Enough gain, enough bandwidth",
+  "kind": "ac",
+  "story": "This op-amp is not ideal, and it is drawn as its insides: it has a 1 MHz gain-bandwidth product (an input stage, a 500 uA/V transconductor charging 1 nF in parallel with 15.9 MOhm, and an output buffer). You need a non-inverting amplifier for an ultrasonic sensor: at least 25 dB of gain, and a bandwidth (-3 dB point) of at least 30 kHz. R_G is 1 kOhm. Choose R_F.",
+  "board": {
+    "nodes": {"in": [0, 2], "n": [2, 4], "x": [4, 2], "y": [6, 2], "out": [9, 2], "gnd": [5, 6], "gi": [0, 6], "fb": [9, 5], "gy": [6, 6]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "sine_source", "id": "VIN", "plus": "in", "minus": "gi", "amplitude": 1, "freq": 1000, "offset": 0},
+      {"type": "wire", "id": "W1", "a": "gi", "b": "gnd"},
+      {"type": "opamp", "id": "UIN", "plus": "in", "minus": "n", "out": "x", "gain": 12.566, "rails": [-1, 1]},
+      {"type": "vccs", "id": "GM", "plus": "gnd", "minus": "y", "cplus": "x", "cminus": "gnd", "gm": 0.0005},
+      {"type": "resistor", "id": "RY", "a": "y", "b": "gy", "ohms": 15915000},
+      {"type": "capacitor", "id": "CY", "a": "y", "b": "gy", "farads": 1e-9},
+      {"type": "wire", "id": "W2", "a": "gy", "b": "gnd"},
+      {"type": "opamp", "id": "UOUT", "plus": "y", "minus": "out", "out": "out", "gain": 100000, "rails": [-12, 12]},
+      {"type": "resistor", "id": "RG", "a": "n", "b": "gnd", "ohms": 1000},
+      {"type": "wire", "id": "W3", "a": "out", "b": "fb"}
+    ],
+    "slots": [
+      {"id": "S1", "a": "fb", "b": "n", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 2200},
+    {"type": "resistor", "ohms": 22000},
+    {"type": "resistor", "ohms": 220000}
+  ],
+  "goals": [
+    {"measure": "gain_db_at", "at": "out", "freq": 1000, "min": 25, "label": "gain at 1 kHz at least 25 dB"},
+    {"measure": "cutoff_frequency", "at": "out", "min": 30000, "label": "bandwidth at least 30 kHz"}
+  ],
+  "sim": {"source": "VIN", "f_start": 10, "f_stop": 10000000, "points": 601},
+  "solution": {"S1": {"type": "resistor", "ohms": 22000}},
+  "hints": [
+    "Closed-loop gain is 1 + R_F / R_G. 25 dB is a factor of about 17.8.",
+    "Closed-loop bandwidth is about GBW / gain = 1 MHz / gain.",
+    "You need a gain between about 17.8 and 33 to satisfy both goals."
+  ]
+}

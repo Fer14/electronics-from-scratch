@@ -1,0 +1,81 @@
+[
+  {
+    "id": "11-06-pre-1",
+    "stage": "pre",
+    "question": "What does the socket in your wall supply?",
+    "options": [
+      "Steady DC at 230 V or 120 V",
+      "AC that reverses direction 50 or 60 times per second",
+      "DC pulses at 1 kHz",
+      "Nothing until a device asks for current"
+    ],
+    "correct": 1,
+    "explanation": "Mains is a sine wave at 50 Hz (Europe) or 60 Hz (North America). Electronics needs DC, hence rectifiers."
+  },
+  {
+    "id": "11-06-pre-2",
+    "stage": "pre",
+    "question": "A capacitor alone supplies 10 mA to a load for 10 ms. Its capacitance is 1000 uF. How much does its voltage drop?",
+    "options": ["10 V", "1 V", "0.1 V", "0.01 V"],
+    "correct": 2,
+    "explanation": "Delta V = I x t / C = 0.01 x 0.01 / 0.001 = 0.1 V."
+  },
+  {
+    "id": "11-06-post-1",
+    "stage": "post",
+    "question": "A half-wave rectifier with a reservoir capacitor feeds 20 mA at 50 Hz. Roughly what ripple does a 1000 uF capacitor give?",
+    "options": ["0.4 V", "4 V", "0.04 V", "0.2 V"],
+    "correct": 0,
+    "explanation": "Delta V is about I / (f C) = 0.02 / (50 x 0.001) = 0.4 V."
+  },
+  {
+    "id": "11-06-post-2",
+    "stage": "post",
+    "question": "Why does a bridge rectifier give about half the ripple of a half-wave rectifier with the same capacitor?",
+    "options": [
+      "It uses bigger diodes",
+      "Its output is twice the voltage",
+      "It recharges the capacitor on every half-cycle, so the capacitor only has to bridge half a period",
+      "The four diodes store charge"
+    ],
+    "correct": 2,
+    "explanation": "Bumps arrive at 2f instead of f, so Delta V is about I / (2 f C)."
+  },
+  {
+    "id": "11-06-post-3",
+    "stage": "post",
+    "question": "A 12 V-peak source feeds a bridge rectifier. Approximately what is the peak output voltage?",
+    "options": ["12 V", "13.4 V", "11.3 V", "10.6 V"],
+    "correct": 3,
+    "explanation": "Current passes through two diodes on each half-cycle: 12 - 2 x 0.7 is about 10.6 V (the simulator gives 10.57 V)."
+  },
+  {
+    "id": "11-06-post-4",
+    "stage": "post",
+    "question": "With a large reservoir capacitor, the diode's peak current is much larger than the load's average current. Why?",
+    "options": [
+      "The diode only conducts briefly near each peak, so it must replace a whole cycle's charge in that short window",
+      "The capacitor amplifies current",
+      "The load draws pulses on purpose",
+      "Diodes always conduct 10 times the load current"
+    ],
+    "correct": 0,
+    "explanation": "Charge in = charge out per cycle. A short conduction window means a tall current pulse (400 mA pulses for an 11 mA load in our simulation)."
+  },
+  {
+    "id": "11-06-post-5",
+    "stage": "post",
+    "question": "In a half-wave rectifier with a capacitor charged to about +11 V and a 12 V-peak input, what reverse voltage does the diode see at the input's negative peak?",
+    "options": ["About 0.7 V", "About 12 V", "About 23 V", "About 6 V"],
+    "correct": 2,
+    "explanation": "The cathode sits at +11 V and the anode at -12 V: about 23 V reverse. Choose a diode rated well above that."
+  },
+  {
+    "id": "11-06-post-6",
+    "stage": "post",
+    "question": "A transformer is labelled 9 V AC. With no load, roughly what does the reservoir capacitor after a bridge charge to?",
+    "options": ["9 V", "11.3 V", "6.4 V", "18 V"],
+    "correct": 1,
+    "explanation": "9 V is the RMS value; the peak is 9 x 1.414 = 12.7 V. Minus two diode drops: about 11.3 V."
+  }
+]

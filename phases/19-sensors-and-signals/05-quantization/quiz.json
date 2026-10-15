@@ -1,0 +1,106 @@
+[
+  {
+    "id": "19-05-pre-1",
+    "stage": "pre",
+    "question": "An ADC reads a code back as the middle of its interval. What is the largest possible rounding error?",
+    "options": [
+      "One LSB",
+      "Half an LSB",
+      "Two LSB",
+      "Zero"
+    ],
+    "correct": 1,
+    "explanation": "Every input in an interval of width LSB is represented by its middle, so the error is at most LSB / 2 either way."
+  },
+  {
+    "id": "19-05-pre-2",
+    "stage": "pre",
+    "question": "How many levels does a 12-bit converter have?",
+    "options": [
+      "12",
+      "1024",
+      "4096",
+      "65 536"
+    ],
+    "correct": 2,
+    "explanation": "2^12 = 4096 codes."
+  },
+  {
+    "id": "19-05-post-1",
+    "stage": "post",
+    "question": "What is the RMS quantization error of a converter whose LSB is 1 mV?",
+    "options": [
+      "0.5 mV",
+      "1 mV",
+      "0.29 mV",
+      "0.083 mV"
+    ],
+    "correct": 2,
+    "explanation": "RMS = LSB / sqrt(12) = 1 mV / 3.464 = 0.289 mV."
+  },
+  {
+    "id": "19-05-post-2",
+    "stage": "post",
+    "question": "What is the ideal SQNR of a 10-bit converter for a full-scale sine?",
+    "options": [
+      "60.2 dB",
+      "61.96 dB",
+      "10 dB",
+      "20 dB"
+    ],
+    "correct": 1,
+    "explanation": "6.02 x 10 + 1.76 = 61.96 dB."
+  },
+  {
+    "id": "19-05-post-3",
+    "stage": "post",
+    "question": "A 16-bit ADC's datasheet gives SINAD = 80 dB. What is its effective number of bits?",
+    "options": [
+      "About 13",
+      "16",
+      "About 80",
+      "About 10"
+    ],
+    "correct": 0,
+    "explanation": "ENOB = (80 - 1.76) / 6.02 = 13.0 bits."
+  },
+  {
+    "id": "19-05-post-4",
+    "stage": "post",
+    "question": "You average 1000 readings of a perfectly steady, noise-free voltage. Why does the result not get more precise than one LSB?",
+    "options": [
+      "Because averaging only works on AC signals",
+      "Because every reading is the same code, so the average is that code",
+      "Because the ADC overheats",
+      "Because 1000 is too few readings"
+    ],
+    "correct": 1,
+    "explanation": "Without noise the input never crosses a code threshold. Some noise (dither) is needed for the average to carry information about where the input sits between codes."
+  },
+  {
+    "id": "19-05-post-5",
+    "stage": "post",
+    "question": "A sine of amplitude smaller than one LSB is quantized. What appears in the output's spectrum?",
+    "options": [
+      "Only the original tone, slightly quieter",
+      "Nothing at all",
+      "Strong harmonics at 3, 5, 7 times the signal frequency, because the output is a square-ish wave",
+      "A tone at half the frequency"
+    ],
+    "correct": 2,
+    "explanation": "For tiny signals the error is tied to the signal and the output toggles between a few codes: that is distortion, not uniform noise."
+  },
+  {
+    "id": "19-05-post-6",
+    "stage": "post",
+    "question": "A signal only reaches one tenth of an ideal 12-bit ADC's full scale. What SQNR does it get?",
+    "options": [
+      "74 dB",
+      "64 dB",
+      "7.4 dB",
+      "54 dB"
+    ],
+    "correct": 3,
+    "explanation": "One tenth of the amplitude is 20 dB less signal power: 74.0 - 20 = 54 dB."
+  }
+]

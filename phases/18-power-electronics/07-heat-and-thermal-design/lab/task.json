@@ -1,0 +1,34 @@
+{
+  "id": "18-07-heat-and-thermal-design",
+  "title": "Pick a heatsink for the regulator",
+  "kind": "dc",
+  "story": "Heat flow obeys an Ohm's law of its own, so this board is a thermal circuit: volts stand for degrees Celsius, amps for watts and ohms for kelvin per watt. A linear regulator turns 3.5 W into heat (the current source) inside a box at 40 C (the 40 V source). From the junction to the case is 5 K/W and through the thermal pad 0.5 K/W. Choose the heatsink so the junction stays below 110 C (a safe margin under its 125 C limit) and the heatsink itself stays below 85 C.",
+  "board": {
+    "nodes": {"j": [2, 1], "c": [5, 1], "s": [8, 1], "amb": [8, 5], "gnd": [2, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "voltage_source", "id": "TAMB", "plus": "amb", "minus": "gnd", "volts": 40},
+      {"type": "current_source", "id": "PDISS", "from": "gnd", "to": "j", "amps": 3.5},
+      {"type": "resistor", "id": "RJC", "a": "j", "b": "c", "ohms": 5},
+      {"type": "resistor", "id": "RCS", "a": "c", "b": "s", "ohms": 0.5}
+    ],
+    "slots": [
+      {"id": "S1", "a": "s", "b": "amb", "accepts": ["resistor"], "label": "heatsink to air"}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 50},
+    {"type": "resistor", "ohms": 25},
+    {"type": "resistor", "ohms": 12}
+  ],
+  "goals": [
+    {"measure": "voltage", "at": "j", "max": 110, "label": "junction below 110 C"},
+    {"measure": "voltage", "at": "s", "max": 85, "label": "heatsink below 85 C"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 12}},
+  "hints": [
+    "Temperatures add up like voltages along a chain: Tj = 40 + 3.5 x (5 + 0.5 + theta_SA).",
+    "For Tj under 110 C you need 5.5 + theta_SA under 70 / 3.5 = 20 K/W.",
+    "A bigger, finned heatsink has a smaller thermal resistance."
+  ]
+}

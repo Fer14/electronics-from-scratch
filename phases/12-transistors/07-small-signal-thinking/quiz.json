@@ -1,0 +1,81 @@
+[
+  {
+    "id": "12-07-pre-1",
+    "stage": "pre",
+    "question": "If you zoom in very far on a smooth curve at one point, what does it look like?",
+    "options": ["A circle", "A straight line (its tangent)", "A step", "A spiral"],
+    "correct": 1,
+    "explanation": "That is the idea of linearisation, used by Newton-Raphson and by small-signal analysis."
+  },
+  {
+    "id": "12-07-pre-2",
+    "stage": "pre",
+    "question": "What is the thermal voltage V_T at room temperature?",
+    "options": ["0.7 V", "2.6 V", "26 mV", "1.12 V"],
+    "correct": 2,
+    "explanation": "kT/q is about 25.85 mV at 300 K (Phase 11)."
+  },
+  {
+    "id": "12-07-post-1",
+    "stage": "post",
+    "question": "What is g_m of a BJT biased at I_C = 2 mA?",
+    "options": ["About 77 mA/V", "About 2 mA/V", "About 26 mA/V", "About 0.77 A/V"],
+    "correct": 0,
+    "explanation": "g_m = I_C / V_T = 2 mA / 25.85 mV = 77.4 mA/V, for any silicon BJT."
+  },
+  {
+    "id": "12-07-post-2",
+    "stage": "post",
+    "question": "With beta = 100 and g_m = 40 mA/V, what is r_pi?",
+    "options": ["25 ohm", "4 kohm", "2.5 kohm", "400 ohm"],
+    "correct": 2,
+    "explanation": "r_pi = beta / g_m = 100 / 0.04 = 2500 ohm."
+  },
+  {
+    "id": "12-07-post-3",
+    "stage": "post",
+    "question": "When drawing the small-signal circuit, what happens to a 12 V DC supply?",
+    "options": [
+      "It becomes a 12 V AC source",
+      "It is removed and its terminals left open",
+      "It is replaced by a short to ground, because its voltage does not change",
+      "It is doubled"
+    ],
+    "correct": 2,
+    "explanation": "Small-signal analysis only tracks changes; a constant voltage source has zero change, so it acts as a short."
+  },
+  {
+    "id": "12-07-post-4",
+    "stage": "post",
+    "question": "The hybrid-pi model consists of:",
+    "options": [
+      "A diode from base to emitter and a resistor from collector to emitter",
+      "A resistor r_pi from base to emitter and a current source g_m v_be from collector to emitter",
+      "A voltage source of 0.7 V and a resistor",
+      "Two diodes back to back"
+    ],
+    "correct": 1,
+    "explanation": "Plus, in fuller models, an output resistance r_o and junction capacitances."
+  },
+  {
+    "id": "12-07-post-5",
+    "stage": "post",
+    "question": "A bare base-emitter junction is driven with a 5 mV sine. Roughly how much second-harmonic distortion appears?",
+    "options": ["0.05 %", "50 %", "About 5 %", "About 0.5 %"],
+    "correct": 2,
+    "explanation": "HD2 is about v / (4 V_T) = 5 / 103 = 4.8 %."
+  },
+  {
+    "id": "12-07-post-6",
+    "stage": "post",
+    "question": "Why does the simulator's AC analysis never show clipping?",
+    "options": [
+      "Because it uses a linearised model at the operating point, valid only for small signals",
+      "Because the simulator is broken",
+      "Because clipping only happens with MOSFETs",
+      "Because the supply is removed"
+    ],
+    "correct": 0,
+    "explanation": "AC analysis is small-signal analysis. Clipping and distortion need a transient (time-domain) simulation."
+  }
+]

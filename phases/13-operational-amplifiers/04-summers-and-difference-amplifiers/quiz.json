@@ -1,0 +1,81 @@
+[
+  {
+    "id": "13-04-pre-1",
+    "stage": "pre",
+    "question": "In an inverting amplifier, the minus input sits at what voltage?",
+    "options": ["The input voltage", "0 V (virtual ground)", "The supply voltage", "Half the output"],
+    "correct": 1,
+    "explanation": "The plus input is grounded and feedback makes V- = V+ = 0 V (lesson 03)."
+  },
+  {
+    "id": "13-04-pre-2",
+    "stage": "pre",
+    "question": "Currents of 1 mA, 2 mA and 3 mA flow into a node. With nothing else connected except one wire out, what flows out through it?",
+    "options": ["2 mA", "1 mA", "3 mA", "6 mA"],
+    "correct": 3,
+    "explanation": "Kirchhoff's current law: everything that flows in flows out."
+  },
+  {
+    "id": "13-04-post-1",
+    "stage": "post",
+    "question": "An inverting summer has R_F = 10 k and three 10 k inputs at 1 V, 2 V and -0.5 V. What is the output?",
+    "options": ["-2.5 V", "2.5 V", "-3.5 V", "3.5 V"],
+    "correct": 0,
+    "explanation": "V_out = -(1 + 2 - 0.5) = -2.5 V."
+  },
+  {
+    "id": "13-04-post-2",
+    "stage": "post",
+    "question": "Why don't the inputs of a summing amplifier interfere with each other?",
+    "options": [
+      "The op-amp isolates them with diodes",
+      "They are at different frequencies",
+      "The summing node is held at 0 V, so each input's current depends only on its own voltage and resistor",
+      "The feedback resistor is very large"
+    ],
+    "correct": 2,
+    "explanation": "The virtual ground fixes the node voltage; I_k = V_k / R_k regardless of the other inputs."
+  },
+  {
+    "id": "13-04-post-3",
+    "stage": "post",
+    "question": "In a 4-bit binary-weighted DAC, the input resistors are in what ratio?",
+    "options": ["1 : 1 : 1 : 1", "1 : 2 : 3 : 4", "1 : 10 : 100 : 1000", "1 : 2 : 4 : 8"],
+    "correct": 3,
+    "explanation": "Each bit weighs twice the next, so its resistor is half as big."
+  },
+  {
+    "id": "13-04-post-4",
+    "stage": "post",
+    "question": "A difference amplifier with four equal resistors gets V1 = 3.30 V and V2 = 3.25 V. What is the output?",
+    "options": ["50 mV", "6.55 V", "3.275 V", "-50 mV"],
+    "correct": 0,
+    "explanation": "V_out = V1 - V2 = 0.05 V; the shared 3.25 V is rejected."
+  },
+  {
+    "id": "13-04-post-5",
+    "stage": "post",
+    "question": "What limits the common-mode rejection of a four-resistor difference amplifier?",
+    "options": [
+      "The op-amp's supply voltage",
+      "How well the resistor ratios R2/R1 and R4/R3 match",
+      "The frequency of the signal only",
+      "The size of the difference signal"
+    ],
+    "correct": 1,
+    "explanation": "A 1 % mismatch gave about 46 dB of CMRR: 25 mV of error from 5 V of common mode."
+  },
+  {
+    "id": "13-04-post-6",
+    "stage": "post",
+    "question": "Why do instrumentation amplifiers buffer their inputs before subtracting?",
+    "options": [
+      "To add gain at high frequencies only",
+      "To invert the signal",
+      "So the source (e.g. a bridge) is not loaded and its resistance does not unbalance the matched resistors",
+      "To reduce the supply current"
+    ],
+    "correct": 2,
+    "explanation": "Buffers present a very high input resistance; the precision subtraction happens after them."
+  }
+]

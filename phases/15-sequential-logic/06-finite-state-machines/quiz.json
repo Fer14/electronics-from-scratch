@@ -1,0 +1,106 @@
+[
+  {
+    "id": "15-06-pre-1",
+    "stage": "pre",
+    "question": "What does the 'state' of a state machine represent?",
+    "options": [
+      "The supply voltage",
+      "Everything about the past inputs that the machine needs to decide its future",
+      "The current input",
+      "The clock frequency"
+    ],
+    "correct": 1,
+    "explanation": "A state summarises the relevant history, so the next state depends only on the state and the current input."
+  },
+  {
+    "id": "15-06-pre-2",
+    "stage": "pre",
+    "question": "How many flip-flops do you need to encode 6 states in binary?",
+    "options": [
+      "2",
+      "6",
+      "3",
+      "4"
+    ],
+    "correct": 2,
+    "explanation": "2^2 = 4 is too few; 2^3 = 8 is enough."
+  },
+  {
+    "id": "15-06-post-1",
+    "stage": "post",
+    "question": "What distinguishes a Moore machine from a Mealy machine?",
+    "options": [
+      "Moore outputs depend only on the state; Mealy outputs also depend on the current inputs",
+      "Moore machines have no clock",
+      "Mealy machines cannot have more than 4 states",
+      "Moore machines use one-hot encoding"
+    ],
+    "correct": 0,
+    "explanation": "That is why Mealy outputs can react in the same cycle, and Moore outputs only after the next edge."
+  },
+  {
+    "id": "15-06-post-2",
+    "stage": "post",
+    "question": "In the 101 detector, the machine is in D (just saw 101) and x = 0 arrives. Where does it go?",
+    "options": [
+      "A",
+      "B",
+      "D",
+      "C"
+    ],
+    "correct": 3,
+    "explanation": "The stream now ends in '10' (the last 1 of 101 plus the new 0), so the machine goes to C. This handles overlapping patterns."
+  },
+  {
+    "id": "15-06-post-3",
+    "stage": "post",
+    "question": "With one-hot encoding, how is the next-state logic of a state's flip-flop formed?",
+    "options": [
+      "As a binary counter",
+      "As the OR of all transitions (state AND input condition) that point into that state",
+      "As the XOR of all state bits",
+      "It needs no logic"
+    ],
+    "correct": 1,
+    "explanation": "For example D+ = C·x: the only arrow into D comes from C when x = 1."
+  },
+  {
+    "id": "15-06-post-4",
+    "stage": "post",
+    "question": "A Moore 101 detector receives the stream 1 0 1 0 1. After which inputs is z = 1?",
+    "options": [
+      "Only after the 3rd input",
+      "After the 2nd and 4th inputs",
+      "After the 3rd and 5th inputs",
+      "Only after the 5th input"
+    ],
+    "correct": 2,
+    "explanation": "Patterns end at positions 3 and 5 (they overlap on the middle 1)."
+  },
+  {
+    "id": "15-06-post-5",
+    "stage": "post",
+    "question": "A 5-state machine uses 3 flip-flops in binary. What should the designer do about the 3 unused codes?",
+    "options": [
+      "Nothing; they can never occur",
+      "Use them as extra outputs",
+      "Remove one flip-flop",
+      "Make them lead back to a valid state (and provide a reset), in case a glitch or power-up lands there"
+    ],
+    "correct": 3,
+    "explanation": "Unused states can be reached by power-up or upsets; a safe machine always recovers."
+  },
+  {
+    "id": "15-06-post-6",
+    "stage": "post",
+    "question": "Which of these is a finite state machine?",
+    "options": [
+      "A 4-bit synchronous counter",
+      "A 2-input XOR gate",
+      "A 4-to-1 multiplexer",
+      "A ripple-carry adder"
+    ],
+    "correct": 0,
+    "explanation": "A counter has state (its value) and next-state logic; the others are purely combinational."
+  }
+]

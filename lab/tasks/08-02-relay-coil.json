@@ -1,0 +1,92 @@
+{
+ "id": "08-02-relay-coil",
+ "title": "Pull in the relay without cooking its coil",
+ "kind": "dc",
+ "story": "A relay is a switch flipped by an electromagnet. Its coil has 400 ohms of wire resistance and makes enough magnetic field to pull the contacts closed when 25 to 35 mA flow through it; more than that only heats the coil. Your supply is 24 V, so you need a series resistor. At DC the coil behaves like its 400 ohm resistance.",
+ "board": {
+  "nodes": {
+   "vcc": [
+    1,
+    1
+   ],
+   "coil": [
+    6,
+    1
+   ],
+   "gnd": [
+    6,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "B1",
+    "plus": "vcc",
+    "minus": "gnd",
+    "volts": 24
+   },
+   {
+    "type": "resistor",
+    "id": "Rcoil",
+    "a": "coil",
+    "b": "gnd",
+    "ohms": 400
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "vcc",
+    "b": "coil",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 100
+  },
+  {
+   "type": "resistor",
+   "ohms": 470
+  },
+  {
+   "type": "resistor",
+   "ohms": 1000
+  },
+  {
+   "type": "resistor",
+   "ohms": 2200
+  }
+ ],
+ "goals": [
+  {
+   "measure": "current",
+   "of": "Rcoil",
+   "min": 0.025,
+   "max": 0.035,
+   "label": "coil current between 25 and 35 mA"
+  },
+  {
+   "measure": "power",
+   "of": "S1",
+   "max": 0.5,
+   "label": "the series resistor stays under 1/2 W"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 470
+  }
+ },
+ "hints": [
+  "The coil and the series resistor share the 24 V, and the same current flows through both.",
+  "I = 24 / (R + 400). For 30 mA you need a total of 800 ohms."
+ ]
+}

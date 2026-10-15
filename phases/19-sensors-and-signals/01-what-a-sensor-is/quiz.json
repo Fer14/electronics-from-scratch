@@ -1,0 +1,93 @@
+[
+  {
+    "id": "19-01-pre-1",
+    "stage": "pre",
+    "question": "What does a sensor do?",
+    "options": [
+      "Stores measurements",
+      "Converts a physical quantity like temperature into an electrical quantity",
+      "Amplifies any signal",
+      "Turns electrical energy into motion"
+    ],
+    "correct": 1,
+    "explanation": "A sensor's output (voltage, current, resistance or capacitance) changes with the measurand, so a circuit can measure it."
+  },
+  {
+    "id": "19-01-pre-2",
+    "stage": "pre",
+    "question": "A ruler has marks every millimetre but is printed 2% too long. Which is true?",
+    "options": [
+      "It has good resolution but poor accuracy",
+      "It has poor resolution and poor accuracy",
+      "It has good accuracy and good resolution",
+      "It has poor resolution but good accuracy"
+    ],
+    "correct": 0,
+    "explanation": "Fine marks give good resolution, but every length it shows is 2% wrong: poor accuracy. They are different properties."
+  },
+  {
+    "id": "19-01-post-1",
+    "stage": "post",
+    "question": "A sensor gives 0.5 V at 0 C and 10 mV per degree. What temperature does 0.82 V mean?",
+    "options": [
+      "82 C",
+      "32 C",
+      "8.2 C",
+      "132 C"
+    ],
+    "correct": 1,
+    "explanation": "T = (0.82 - 0.5) / 0.010 = 32 C."
+  },
+  {
+    "id": "19-01-post-2",
+    "stage": "post",
+    "question": "A sensor has a sensitivity of 20 mV/C and is read by an ADC with 1.22 mV steps. What is the resolution?",
+    "options": [
+      "0.061 C",
+      "1.22 C",
+      "20 C",
+      "16.4 C"
+    ],
+    "correct": 0,
+    "explanation": "Resolution = LSB / sensitivity = 1.22 / 20 = 0.061 C."
+  },
+  {
+    "id": "19-01-post-3",
+    "stage": "post",
+    "question": "Why does loading a potentiometer's wiper with a low resistance make the reading wrong?",
+    "options": [
+      "The load adds noise",
+      "The load changes the supply voltage",
+      "The load is in parallel with the bottom part of the pot, changing the divider ratio",
+      "The load reverses the wiper"
+    ],
+    "correct": 2,
+    "explanation": "The reading circuit draws current from the wiper. In parallel with the lower part it lowers the output, most at mid-travel where the pot's Thevenin resistance is largest."
+  },
+  {
+    "id": "19-01-post-4",
+    "stage": "post",
+    "question": "A sensor's readings are always 1.5 C too high but very consistent. What fixes this?",
+    "options": [
+      "Averaging many readings",
+      "A higher-resolution ADC",
+      "Calibration against a known reference",
+      "A faster sample rate"
+    ],
+    "correct": 2,
+    "explanation": "The error is a bias, not noise. Averaging cannot remove a bias; calibration can."
+  },
+  {
+    "id": "19-01-post-5",
+    "stage": "post",
+    "question": "What does a two-point calibration correct?",
+    "options": [
+      "Only the offset",
+      "Non-linearity of any shape",
+      "Only noise",
+      "Both the offset and the gain (slope) error"
+    ],
+    "correct": 3,
+    "explanation": "Two known points define a straight line, which corrects both where the line starts (offset) and how steep it is (gain). Curvature remains."
+  }
+]

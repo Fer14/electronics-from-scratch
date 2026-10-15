@@ -1,0 +1,78 @@
+[
+  {
+    "id": "19-02-pre-1",
+    "stage": "pre",
+    "question": "What happens to an NTC thermistor's resistance as it gets warmer?",
+    "options": ["It rises", "It falls", "It stays the same", "It becomes negative"],
+    "correct": 1,
+    "explanation": "NTC means negative temperature coefficient: more heat frees more charge carriers, so the resistance falls."
+  },
+  {
+    "id": "19-02-pre-2",
+    "stage": "pre",
+    "question": "A sensor is a resistor. What is the simplest way to turn its resistance into a voltage for an ADC?",
+    "options": [
+      "Connect it straight to the ADC pin",
+      "Put it in series with a capacitor",
+      "Put it in a voltage divider with a fixed resistor",
+      "Connect it across the battery"
+    ],
+    "correct": 2,
+    "explanation": "In a divider, V = VDD x R_fixed / (R_sensor + R_fixed), so a change of R_sensor changes the voltage."
+  },
+  {
+    "id": "19-02-post-1",
+    "stage": "post",
+    "question": "Why must the B equation use kelvin?",
+    "options": [
+      "Because Celsius is not allowed in electronics",
+      "Because the physics depends on absolute temperature: 1/T only makes sense measured from absolute zero",
+      "Because kelvin values are larger",
+      "It does not matter which unit is used"
+    ],
+    "correct": 1,
+    "explanation": "The carrier population depends on absolute temperature. 1/T with T in Celsius would even blow up at 0 C."
+  },
+  {
+    "id": "19-02-post-2",
+    "stage": "post",
+    "question": "A thermistor is 40 kohm at the cold end of a range and 4 kohm at the hot end. Which fixed resistor gives the largest output swing?",
+    "options": ["About 12.6 kohm", "22 kohm", "4 kohm", "40 kohm"],
+    "correct": 0,
+    "explanation": "The best value is the geometric mean: sqrt(40 x 4) = sqrt(160) = 12.6 kohm."
+  },
+  {
+    "id": "19-02-post-3",
+    "stage": "post",
+    "question": "The divider's supply is also the ADC's reference. The supply drifts from 3.30 V to 3.25 V. What happens to the reading?",
+    "options": [
+      "It drifts by 1.5%",
+      "It doubles",
+      "It becomes noisy",
+      "It does not change: the measurement is ratiometric"
+    ],
+    "correct": 3,
+    "explanation": "Both the divider output and the ADC's full scale scale with the supply, so the code depends only on the resistance ratio."
+  },
+  {
+    "id": "19-02-post-4",
+    "stage": "post",
+    "question": "Why does a thermistor read slightly high when the divider current is large?",
+    "options": [
+      "Self-heating: the current dissipates power in the thermistor and warms it above its surroundings",
+      "The ADC adds an offset",
+      "Large currents lower the B value",
+      "The fixed resistor cools down"
+    ],
+    "correct": 0,
+    "explanation": "P = I^2 R warms the thermistor; divided by the dissipation constant, that is how many kelvin it reads too warm."
+  },
+  {
+    "id": "19-02-post-5",
+    "stage": "post",
+    "question": "A type K thermocouple (about 41 uV/C) has its hot end at 200 C and its cold junction at 30 C. Roughly what voltage does it make?",
+    "options": ["8.2 mV", "7.0 mV", "41 mV", "0.2 V"],
+    "correct": 1,
+    "explanation": "V = 41 uV/C x (200 - 30) = 41 x 170 = 6970 uV, about 7.0 mV. The cold junction temperature must be known to recover 200 C."
+  }
+]

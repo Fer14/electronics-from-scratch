@@ -1,0 +1,106 @@
+[
+  {
+    "id": "14-07-pre-1",
+    "stage": "pre",
+    "question": "In binary, what is 1 + 1?",
+    "options": [
+      "2",
+      "1",
+      "10 (write 0, carry 1)",
+      "11"
+    ],
+    "correct": 2,
+    "explanation": "Two in binary is 10: a 0 in this column and a carry into the next."
+  },
+  {
+    "id": "14-07-pre-2",
+    "stage": "pre",
+    "question": "In a half adder, which gate produces the sum bit?",
+    "options": [
+      "XOR",
+      "AND",
+      "OR",
+      "NAND"
+    ],
+    "correct": 0,
+    "explanation": "The sum bit is 1 when exactly one input is 1: XOR. The carry is AND."
+  },
+  {
+    "id": "14-07-post-1",
+    "stage": "post",
+    "question": "A full adder receives a = 1, b = 1, cin = 1. What are s and cout?",
+    "options": [
+      "s = 0, cout = 1",
+      "s = 1, cout = 0",
+      "s = 0, cout = 0",
+      "s = 1, cout = 1"
+    ],
+    "correct": 3,
+    "explanation": "1 + 1 + 1 = 3 = binary 11."
+  },
+  {
+    "id": "14-07-post-2",
+    "stage": "post",
+    "question": "How does an adder/subtractor compute a - b?",
+    "options": [
+      "It uses a separate subtractor circuit",
+      "It inverts every bit of b with XOR gates and sets the carry in to 1, then adds",
+      "It inverts a and adds b",
+      "It shifts b right by one bit"
+    ],
+    "correct": 1,
+    "explanation": "a - b = a + (b' + 1), the two's complement of b."
+  },
+  {
+    "id": "14-07-post-3",
+    "stage": "post",
+    "question": "In 4 bits, 6 + 7 gives the pattern 1101 with carry out 0. What happened?",
+    "options": [
+      "Nothing: 1101 is correct both unsigned and signed",
+      "Unsigned overflow only",
+      "Signed overflow: 13 is outside -8..+7, so the signed reading -3 is wrong",
+      "The adder is broken"
+    ],
+    "correct": 2,
+    "explanation": "As unsigned, 13 fits. As signed, two positives gave a negative: the overflow flag (carry into top XOR carry out) is 1."
+  },
+  {
+    "id": "14-07-post-4",
+    "stage": "post",
+    "question": "What limits the speed of a ripple-carry adder?",
+    "options": [
+      "The carry must travel through every column, about 2 gate delays per bit",
+      "The XOR gates are slower than AND gates",
+      "The inputs must be loaded one bit at a time",
+      "The sum bits are computed last"
+    ],
+    "correct": 0,
+    "explanation": "In the worst case (e.g. 1111 + 0001) a carry created in column 0 ripples to the top, so the delay grows in proportion to the width."
+  },
+  {
+    "id": "14-07-post-5",
+    "stage": "post",
+    "question": "In carry-lookahead, what does 'propagate' p = a XOR b mean for a column?",
+    "options": [
+      "The column always produces a carry",
+      "The column never produces a carry",
+      "The column's sum is 0",
+      "A carry coming into this column will go out of it"
+    ],
+    "correct": 3,
+    "explanation": "If exactly one of a, b is 1, then cin = 1 makes the column total 2, so the carry passes through."
+  },
+  {
+    "id": "14-07-post-6",
+    "stage": "post",
+    "question": "Doubling the width of a ripple-carry adder from 16 to 32 bits roughly does what to its worst-case delay?",
+    "options": [
+      "Leaves it unchanged",
+      "Doubles it",
+      "Adds one gate delay",
+      "Quadruples it"
+    ],
+    "correct": 1,
+    "explanation": "The carry chain is twice as long. A lookahead tree would add only a few gate delays instead."
+  }
+]

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "10-08-pre-1",
+    "stage": "pre",
+    "question": "Why can a linear circuit driven by a single sine be analysed with complex numbers instead of time steps?",
+    "options": [
+      "Because every voltage and current settles to a sine of the same frequency, described by an amplitude and a phase",
+      "Because capacitors and inductors disappear at AC",
+      "Because complex numbers are faster for computers",
+      "Because the circuit stops changing"
+    ],
+    "correct": 0,
+    "explanation": "Linear parts never create new frequencies, so in steady state each quantity is a sine at the drive frequency: one complex phasor captures it."
+  },
+  {
+    "id": "10-08-pre-2",
+    "stage": "pre",
+    "question": "In the DC MNA of Phase 05, what does a resistor R add to the matrix?",
+    "options": [
+      "R on the diagonal",
+      "+1/R on the two diagonal entries of its nodes and -1/R on the two off-diagonal entries",
+      "A new row and column",
+      "Nothing, resistors only appear on the right-hand side"
+    ],
+    "correct": 1,
+    "explanation": "The conductance stamp: +G at (a,a) and (b,b), -G at (a,b) and (b,a). AC analysis uses the same stamp with a complex admittance."
+  },
+  {
+    "id": "10-08-post-1",
+    "stage": "post",
+    "question": "What is the admittance of a 1 uF capacitor at omega = 1000 rad/s?",
+    "options": [
+      "1000 S",
+      "-1000j S",
+      "0.001j S",
+      "1e-6 S"
+    ],
+    "correct": 2,
+    "explanation": "Y_C = j omega C = j x 1000 x 1e-6 = 0.001j S."
+  },
+  {
+    "id": "10-08-post-2",
+    "stage": "post",
+    "question": "Why does our simple AC solver fail at exactly 0 Hz when the circuit contains an inductor?",
+    "options": [
+      "Because resistors have no admittance at DC",
+      "Because numpy cannot solve complex systems",
+      "Because the source has no phase at DC",
+      "Because the inductor's admittance 1 / (j omega L) divides by zero"
+    ],
+    "correct": 3,
+    "explanation": "At omega = 0 an inductor is a perfect short with infinite admittance. Simulators avoid this by giving inductors their own current unknown."
+  },
+  {
+    "id": "10-08-post-3",
+    "stage": "post",
+    "question": "Our solver and sim's AC analysis differ by about 1e-8 dB. What causes it?",
+    "options": [
+      "A bug in one of them",
+      "sim adds a tiny gmin conductance from every node to ground",
+      "sim uses time steps",
+      "The capacitors have tolerance"
+    ],
+    "correct": 1,
+    "explanation": "gmin = 1e-12 S keeps the matrix solvable for floating nodes; at kilo-ohm impedance levels it changes results only in the eighth digit."
+  },
+  {
+    "id": "10-08-post-4",
+    "stage": "post",
+    "question": "During AC analysis with V1 as the source, what happens to another independent DC voltage source in the circuit?",
+    "options": [
+      "It is set to zero, so it behaves like a short circuit",
+      "It is removed, leaving an open circuit",
+      "It is added to V1",
+      "It doubles"
+    ],
+    "correct": 0,
+    "explanation": "By superposition, AC analysis drives one source at a time. Other voltage sources keep their branch but have zero value: a short."
+  },
+  {
+    "id": "10-08-post-5",
+    "stage": "post",
+    "question": "An AC analysis says V(out) = 0.36 at +69 degrees at 1400 Hz. What does a transient simulation show after it settles?",
+    "options": [
+      "A square wave",
+      "Nothing, transient and AC analyses are unrelated",
+      "A 1400 Hz sine of amplitude 0.36 leading the input by 69 degrees",
+      "A 2800 Hz sine"
+    ],
+    "correct": 2,
+    "explanation": "The phasor is a description of the steady-state sine: its size is the amplitude and its angle the phase relative to the input."
+  }
+]

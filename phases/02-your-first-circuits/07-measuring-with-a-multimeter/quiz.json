@@ -1,0 +1,93 @@
+[
+  {
+    "id": "02-07-pre-1",
+    "stage": "pre",
+    "question": "To measure the voltage across a resistor in a working circuit, how do you connect the meter?",
+    "options": [
+      "Break the loop and put the meter in the gap",
+      "Touch the two probes to the two ends of the resistor, without disconnecting anything",
+      "Take the resistor out first and then measure it",
+      "Connect only the red probe to the resistor"
+    ],
+    "correct": 1,
+    "explanation": "Voltage is a difference between two points, so the meter goes across the part (in parallel) while the circuit runs. Its 10 Mohm input takes almost no current, so it barely disturbs the circuit."
+  },
+  {
+    "id": "02-07-pre-2",
+    "stage": "pre",
+    "question": "To measure the current in a loop, where does the meter go?",
+    "options": [
+      "Across the battery terminals",
+      "Across the resistor",
+      "In series: open the loop at one point and let the meter close it",
+      "Anywhere, as long as the dial is on amps"
+    ],
+    "correct": 2,
+    "explanation": "Current is charge passing a point per second, so it must pass through the meter. You break the loop and the meter becomes part of it."
+  },
+  {
+    "id": "02-07-pre-3",
+    "stage": "pre",
+    "question": "Your 2000-count meter is on the 2 V range and you measure a 9 V battery. What does the display show?",
+    "options": [
+      "OL, because 9 V is too big for the 2 V range",
+      "1.999",
+      "0.009",
+      "9.00"
+    ],
+    "correct": 0,
+    "explanation": "OL means overload: the value is above what the range can display (1.999 V). Switch to the 20 V range to read 9.00 V."
+  },
+  {
+    "id": "02-07-post-1",
+    "stage": "post",
+    "question": "With the red lead still in the mA jack (about 1 ohm inside), you touch the probes across a 9 V battery with 1.5 ohm internal resistance. What happens to the meter's 0.2 A fuse?",
+    "options": [
+      "Nothing: the meter shows 9 V",
+      "It survives: only 0.2 A flows",
+      "The meter shows OL and nothing else happens",
+      "It blows: about 9 / (1.5 + 1) = 3.6 A flows"
+    ],
+    "correct": 3,
+    "explanation": "In current mode the meter is nearly a wire, so across a battery it is a short circuit. 3.6 A is 18 times the fuse rating, and the fuse melts to protect the meter."
+  },
+  {
+    "id": "02-07-post-2",
+    "stage": "post",
+    "question": "You accidentally put a voltmeter (10 Mohm input) in series with a 9 V battery and a 3 kohm load. What do you observe?",
+    "options": [
+      "The meter reads 0 V and the load works normally",
+      "The meter reads about 9 V and the load gets almost no current",
+      "The meter reads 3 V",
+      "The meter's fuse blows"
+    ],
+    "correct": 1,
+    "explanation": "The 10 Mohm meter is now by far the biggest resistance in the loop, so it takes almost all the battery's push (about 8.997 V) and the current falls to 9 / 10 003 000 = 0.9 microamps."
+  },
+  {
+    "id": "02-07-post-3",
+    "stage": "post",
+    "question": "A meter specified at ±(0.5 % + 2 counts) on its 20 V range (step 0.01 V) reads 6.00 V. What range could the true voltage be in?",
+    "options": [
+      "5.95 V to 6.05 V",
+      "5.99 V to 6.01 V",
+      "5.70 V to 6.30 V",
+      "Exactly 6.00 V"
+    ],
+    "correct": 0,
+    "explanation": "0.5 % of 6.00 V is 0.03 V, and 2 counts of 0.01 V are 0.02 V, so the uncertainty is ±0.05 V."
+  },
+  {
+    "id": "02-07-post-4",
+    "stage": "post",
+    "question": "Why must you turn the power off before measuring a resistance?",
+    "options": [
+      "Because resistors only have resistance when cold",
+      "Because the meter's battery would be drained",
+      "Because the ohmmeter computes R from its own small test current and the voltage it sees; the circuit's own voltage corrupts that reading",
+      "Because the meter's fuse only works with the power off"
+    ],
+    "correct": 2,
+    "explanation": "The ohmmeter pushes a known test current and divides the voltage it sees by it. If the circuit is powered, that voltage includes the circuit's own, so the result is meaningless (our model shows 60 700 ohm for a 2000 ohm resistor)."
+  }
+]

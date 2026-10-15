@@ -1,0 +1,93 @@
+[
+  {
+    "id": "08-03-pre-1",
+    "stage": "pre",
+    "question": "A strong magnet sits still next to a coil connected to a meter. What does the meter show?",
+    "options": [
+      "Zero, because the flux is not changing",
+      "A steady current proportional to the field",
+      "A current that grows over time",
+      "A current only if the magnet is neodymium"
+    ],
+    "correct": 0,
+    "explanation": "Faraday's law depends on the rate of change of flux. A steady field, however strong, induces nothing in a still coil."
+  },
+  {
+    "id": "08-03-pre-2",
+    "stage": "pre",
+    "question": "Which change would NOT induce a voltage in a loop of wire?",
+    "options": [
+      "Moving a magnet towards the loop",
+      "Spinning the loop in a steady field",
+      "Stretching the loop to a bigger area in a steady field",
+      "Holding the loop and a magnet still, side by side"
+    ],
+    "correct": 3,
+    "explanation": "Flux depends on field, area and angle. If none of them changes, there is no induced EMF."
+  },
+  {
+    "id": "08-03-post-1",
+    "stage": "post",
+    "question": "A 100-turn coil's flux per turn changes from 0 to 50 uWb in 10 ms. What is the size of the average EMF?",
+    "options": [
+      "0.05 V",
+      "5 V",
+      "0.5 V",
+      "50 V"
+    ],
+    "correct": 2,
+    "explanation": "EMF = N x dPhi / dt = 100 x 50e-6 / 0.01 = 0.5 V (with a minus sign from Lenz's law)."
+  },
+  {
+    "id": "08-03-post-2",
+    "stage": "post",
+    "question": "A coil spins steadily in a uniform field. When is its EMF largest?",
+    "options": [
+      "When the flux through it is largest",
+      "When the coil faces the field squarely",
+      "It is the same at every angle",
+      "When the flux through it passes through zero, because it is changing fastest"
+    ],
+    "correct": 3,
+    "explanation": "EMF follows the rate of change of flux. The cosine-shaped flux changes fastest as it crosses zero, so the sine-shaped EMF peaks there."
+  },
+  {
+    "id": "08-03-post-3",
+    "stage": "post",
+    "question": "Why does Lenz's law say the induced current OPPOSES the change in flux?",
+    "options": [
+      "Because copper has resistance",
+      "Because otherwise the coil would help the change, creating energy from nothing",
+      "Because magnetic fields always point south",
+      "Because electrons are negative"
+    ],
+    "correct": 1,
+    "explanation": "If the induced current helped the change, it would accelerate it and produce more current without limit, violating energy conservation."
+  },
+  {
+    "id": "08-03-post-4",
+    "stage": "post",
+    "question": "What is the peak EMF of a 200-turn coil of area 0.005 m^2 spinning at 50 Hz in a 0.2 T field? (peak = N B A omega)",
+    "options": [
+      "62.8 V",
+      "10 V",
+      "31.4 V",
+      "6.28 V"
+    ],
+    "correct": 0,
+    "explanation": "omega = 2 pi 50 = 314.16 rad/s. Peak = 200 x 0.2 x 0.005 x 314.16 = 62.8 V."
+  },
+  {
+    "id": "08-03-post-5",
+    "stage": "post",
+    "question": "A magnet falls through a horizontal coil. The voltage shows two pulses. Why is the second one taller?",
+    "options": [
+      "The coil heats up and its resistance drops",
+      "The magnet's south pole is stronger",
+      "The magnet is moving faster when it leaves, so the flux changes faster",
+      "The first pulse is partly cancelled by gravity"
+    ],
+    "correct": 2,
+    "explanation": "Gravity accelerates the magnet, so the same change in flux happens in less time on the way out, giving a bigger EMF of the opposite sign."
+  }
+]

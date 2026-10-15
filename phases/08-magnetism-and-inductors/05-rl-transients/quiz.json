@@ -1,0 +1,93 @@
+[
+  {
+    "id": "08-05-pre-1",
+    "stage": "pre",
+    "question": "A 12 V source is connected to a coil and a resistor in series, starting from rest. What is the current at the very first instant?",
+    "options": [
+      "12 V divided by the resistance",
+      "Zero, because the inductor's current cannot jump",
+      "Infinite",
+      "Half of the final value"
+    ],
+    "correct": 1,
+    "explanation": "An inductor's current is continuous. It was zero before, so it is zero just after, and all 12 V appear across the inductor."
+  },
+  {
+    "id": "08-05-pre-2",
+    "stage": "pre",
+    "question": "Why do relay coils usually have a diode connected across them?",
+    "options": [
+      "To make the relay switch on faster",
+      "To reduce the coil's resistance",
+      "To give the coil's current a safe path when switched off, preventing a large voltage spike",
+      "To convert AC to DC"
+    ],
+    "correct": 2,
+    "explanation": "When the drive is switched off, the coil's current must keep flowing. Without a path it makes a huge voltage. The diode provides the path and clamps the voltage."
+  },
+  {
+    "id": "08-05-post-1",
+    "stage": "post",
+    "question": "What is the time constant of a 200 mH inductor in series with 50 ohm?",
+    "options": [
+      "10 s",
+      "0.25 ms",
+      "4 ms",
+      "40 ms"
+    ],
+    "correct": 2,
+    "explanation": "tau = L / R = 0.2 / 50 = 0.004 s = 4 ms."
+  },
+  {
+    "id": "08-05-post-2",
+    "stage": "post",
+    "question": "In an RL circuit you replace the resistor with a larger one. What happens?",
+    "options": [
+      "The current settles faster, at a smaller final value",
+      "The current settles slower, at a larger final value",
+      "Nothing changes",
+      "The current settles slower, at a smaller final value"
+    ],
+    "correct": 0,
+    "explanation": "tau = L / R gets smaller, so the transient is faster, and the final current V / R is smaller."
+  },
+  {
+    "id": "08-05-post-3",
+    "stage": "post",
+    "question": "With V = 10 V, L = 100 mH and R = 100 ohm, what is the current after 1 ms?",
+    "options": [
+      "100 mA",
+      "36.8 mA",
+      "50 mA",
+      "63.2 mA"
+    ],
+    "correct": 3,
+    "explanation": "tau = 1 ms and the final current is 100 mA. After one tau the current reaches 63.2 % of the final value."
+  },
+  {
+    "id": "08-05-post-4",
+    "stage": "post",
+    "question": "A coil carries 50 mA when the switch feeding it opens, and the only remaining path is a 20 k ohm resistance. About how large is the voltage spike?",
+    "options": [
+      "1000 V",
+      "50 V",
+      "20 V",
+      "The supply voltage"
+    ],
+    "correct": 0,
+    "explanation": "The current must continue at 50 mA through 20 k ohm: v = 0.05 x 20,000 = 1000 V."
+  },
+  {
+    "id": "08-05-post-5",
+    "stage": "post",
+    "question": "After the source of an RL circuit drops to 0 V, the current falls as I0 e^(-t/tau). What fraction is left after 3 tau?",
+    "options": [
+      "36.8 %",
+      "13.5 %",
+      "5.0 %",
+      "0.7 %"
+    ],
+    "correct": 2,
+    "explanation": "e^(-3) = 0.050, so 5 % of the starting current remains."
+  }
+]

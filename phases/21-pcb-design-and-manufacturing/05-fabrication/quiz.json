@@ -1,0 +1,93 @@
+[
+  {
+    "id": "21-05-pre-1",
+    "stage": "pre",
+    "question": "How does a factory decide which copper stays on a board?",
+    "options": [
+      "A robot cuts each trace with a knife",
+      "Photoresist exposed to a UV pattern protects the copper that should stay, and an etchant dissolves the rest",
+      "Copper is painted on with a brush",
+      "Traces are glued on as thin wires"
+    ],
+    "correct": 1,
+    "explanation": "The pattern is printed with light onto photoresist; the unprotected copper is then etched away chemically."
+  },
+  {
+    "id": "21-05-pre-2",
+    "stage": "pre",
+    "question": "Why are 500 boards much cheaper per board than 5 boards?",
+    "options": [
+      "The fixed setup cost is shared among more boards",
+      "Large orders use thinner copper",
+      "Large orders skip the electrical test",
+      "Copper is cheaper on Mondays"
+    ],
+    "correct": 0,
+    "explanation": "Total cost = setup + quantity * per-board cost. The setup part divided by quantity shrinks as quantity grows."
+  },
+  {
+    "id": "21-05-post-1",
+    "stage": "post",
+    "question": "A 150 um trace is drawn in 35 um copper and the etch factor is 3.5. About how wide is it after etching?",
+    "options": [
+      "150 um",
+      "140 um",
+      "130 um",
+      "80 um"
+    ],
+    "correct": 2,
+    "explanation": "Undercut per side = 35 / 3.5 = 10 um; final width = 150 - 2 * 10 = 130 um."
+  },
+  {
+    "id": "21-05-post-2",
+    "stage": "post",
+    "question": "Why does thicker copper require larger minimum trace widths and gaps?",
+    "options": [
+      "Thick copper conducts worse",
+      "Thick copper is harder to drill",
+      "The solder mask does not stick",
+      "Etching through more copper also eats more sideways, so fine features would be lost or bridged"
+    ],
+    "correct": 3,
+    "explanation": "Undercut grows with the depth etched. Twice the thickness roughly doubles the sideways loss."
+  },
+  {
+    "id": "21-05-post-3",
+    "stage": "post",
+    "question": "With defect density D = 0.1 per dm^2, what is the yield of a 1 dm^2 board?",
+    "options": [
+      "About 90%",
+      "99%",
+      "10%",
+      "50%"
+    ],
+    "correct": 0,
+    "explanation": "Yield = exp(-0.1 * 1) = 0.905, about 90%."
+  },
+  {
+    "id": "21-05-post-4",
+    "stage": "post",
+    "question": "How is the wall of a drilled via made conductive?",
+    "options": [
+      "It is filled with solder paste",
+      "A thin chemical copper seed is deposited, then copper is electroplated onto it",
+      "A copper wire is pushed through",
+      "The heat of drilling melts the copper into the hole"
+    ],
+    "correct": 1,
+    "explanation": "Electroless copper makes the insulating wall conductive, then electroplating builds about 20-25 um of copper."
+  },
+  {
+    "id": "21-05-post-5",
+    "stage": "post",
+    "question": "In a 4-layer board, when are the through-holes drilled and plated?",
+    "options": [
+      "Before the inner layers are etched",
+      "Never; 4-layer boards have no holes",
+      "After all layers are pressed together, so the plating connects every layer",
+      "Only on the inner layers"
+    ],
+    "correct": 2,
+    "explanation": "Inner layers are etched, stacked with prepreg and pressed into one block; then holes are drilled through everything and plated."
+  }
+]

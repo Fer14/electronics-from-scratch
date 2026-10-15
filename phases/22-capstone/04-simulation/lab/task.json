@@ -1,0 +1,38 @@
+{
+  "id": "22-04-pwm-brightness",
+  "title": "Dim the night light with PWM",
+  "kind": "transient",
+  "story": "With a fresh 4.5 V battery, the LED draws about 19 mA whenever the transistor is on. The night light should give an average of about 5.7 mA (30% of full brightness). Choose the PWM signal for the microcontroller pin (slot S1, 1 kHz, 0 to 3.3 V). To measure the average current, a 1 ohm resistor sits under the transistor's emitter (so 1 mV means 1 mA) and a 10 kohm / 1 uF low-pass filter (time constant 10 ms) smooths its voltage, just like a multimeter would. After 60 ms the filtered voltage must read between 5.0 and 6.5 mV.",
+  "board": {
+    "nodes": {"vbat": [1, 1], "led_a": [5, 1], "led_k": [5, 3], "pin": [1, 4], "base": [3, 4], "sense": [5, 5], "avg": [8, 5], "gnd": [5, 6]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "BAT", "plus": "vbat", "minus": "gnd", "volts": 4.5},
+      {"type": "resistor", "id": "R5", "a": "vbat", "b": "led_a", "ohms": 68},
+      {"type": "led", "id": "D1", "anode": "led_a", "cathode": "led_k", "color": "white"},
+      {"type": "resistor", "id": "R4", "a": "pin", "b": "base", "ohms": 2200},
+      {"type": "npn", "id": "Q1", "c": "led_k", "b": "base", "e": "sense"},
+      {"type": "resistor", "id": "R_SENSE", "a": "sense", "b": "gnd", "ohms": 1},
+      {"type": "resistor", "id": "R_F", "a": "sense", "b": "avg", "ohms": 10000},
+      {"type": "capacitor", "id": "C_F", "a": "avg", "b": "gnd", "farads": 1e-6}
+    ],
+    "slots": [
+      {"id": "S1", "a": "pin", "b": "gnd", "accepts": ["pulse_source"]}
+    ]
+  },
+  "parts": [
+    {"type": "pulse_source", "low": 0, "high": 3.3, "period": 0.001, "duty": 0.1},
+    {"type": "pulse_source", "low": 0, "high": 3.3, "period": 0.001, "duty": 0.3},
+    {"type": "pulse_source", "low": 0, "high": 3.3, "period": 0.001, "duty": 0.5},
+    {"type": "pulse_source", "low": 0, "high": 3.3, "period": 0.001, "duty": 0.9}
+  ],
+  "sim": {"t_stop": 0.06, "dt": 5e-6},
+  "goals": [
+    {"measure": "voltage", "at": "avg", "min": 0.005, "max": 0.0065, "label": "average LED current between 5.0 and 6.5 mA (filtered sense voltage)"}
+  ],
+  "solution": {"S1": {"type": "pulse_source", "low": 0, "high": 3.3, "period": 0.001, "duty": 0.3}},
+  "hints": [
+    "Average current = duty x on-current, with about 19 mA when on.",
+    "5.7 mA / 19 mA = 0.3."
+  ]
+}

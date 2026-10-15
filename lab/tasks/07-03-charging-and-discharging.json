@@ -1,0 +1,108 @@
+{
+ "id": "07-03-charging-and-discharging",
+ "title": "Soften the edges, keep the levels",
+ "kind": "transient",
+ "story": "A 5 V square wave (10 ms high, 10 ms low) drives a 10 uF capacitor through a resistor. You want soft edges: 1 ms after the wave jumps high the capacitor must still be at 3 V or less. But the signal must still reach its levels: at least 4.8 V just before the wave falls, and 0.2 V or less just before it rises again. Pick the resistor.",
+ "board": {
+  "nodes": {
+   "in": [
+    1,
+    1
+   ],
+   "cap": [
+    6,
+    1
+   ],
+   "gnd": [
+    3,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "pulse_source",
+    "id": "V1",
+    "plus": "in",
+    "minus": "gnd",
+    "low": 0,
+    "high": 5,
+    "period": 0.02,
+    "duty": 0.5
+   },
+   {
+    "type": "capacitor",
+    "id": "C1",
+    "a": "cap",
+    "b": "gnd",
+    "farads": 1e-05
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "in",
+    "b": "cap",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 47
+  },
+  {
+   "type": "resistor",
+   "ohms": 220
+  },
+  {
+   "type": "resistor",
+   "ohms": 470
+  },
+  {
+   "type": "resistor",
+   "ohms": 1000
+  }
+ ],
+ "sim": {
+  "t_stop": 0.02,
+  "dt": 1e-05
+ },
+ "goals": [
+  {
+   "measure": "voltage_at_time",
+   "at": "cap",
+   "time": 0.001,
+   "max": 3.0,
+   "label": "soft edge: 3 V or less 1 ms after the rise"
+  },
+  {
+   "measure": "voltage_at_time",
+   "at": "cap",
+   "time": 0.0099,
+   "min": 4.8,
+   "label": "reaches at least 4.8 V before the fall"
+  },
+  {
+   "measure": "voltage_at_time",
+   "at": "cap",
+   "time": 0.0199,
+   "max": 0.2,
+   "label": "drops to 0.2 V or less before the next rise"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 220
+  }
+ },
+ "hints": [
+  "Charging: v = 5 x (1 - e^(-t / RC)). Discharging: v = V0 x e^(-t / RC).",
+  "Reaching 4.8 V of 5 V means the missing part is 4%: e^(-9.9 ms / RC) must be 0.04 or less.",
+  "Being at 3 V or less after 1 ms means e^(-1 ms / RC) must be 0.4 or more. Turn both into limits on RC, then divide by 10 uF."
+ ]
+}

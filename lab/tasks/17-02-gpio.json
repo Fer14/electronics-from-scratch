@@ -1,0 +1,100 @@
+{
+ "id": "17-02-gpio",
+ "title": "An LED on a 3.3 V pin",
+ "kind": "dc",
+ "story": "A microcontroller pin set to output-high is a 3.3 V source with about 40 ohm of driver resistance inside the chip. You want a red status LED on it. Pick the series resistor so the LED is clearly lit (2 to 8 mA) and the pin still sits above 3.0 V, a clean logic 1.",
+ "board": {
+  "nodes": {
+   "drv": [
+    1,
+    1
+   ],
+   "pin": [
+    4,
+    1
+   ],
+   "a": [
+    8,
+    1
+   ],
+   "gnd": [
+    1,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "voltage_source",
+    "id": "PIN",
+    "plus": "drv",
+    "minus": "gnd",
+    "volts": 3.3
+   },
+   {
+    "type": "resistor",
+    "id": "RDRV",
+    "a": "drv",
+    "b": "pin",
+    "ohms": 40
+   },
+   {
+    "type": "led",
+    "id": "D1",
+    "anode": "a",
+    "cathode": "gnd",
+    "color": "red"
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "pin",
+    "b": "a",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 10
+  },
+  {
+   "type": "resistor",
+   "ohms": 220
+  },
+  {
+   "type": "resistor",
+   "ohms": 2200
+  }
+ ],
+ "goals": [
+  {
+   "measure": "current",
+   "of": "D1",
+   "min": 0.002,
+   "max": 0.008,
+   "label": "LED current between 2 and 8 mA"
+  },
+  {
+   "measure": "voltage",
+   "at": "pin",
+   "min": 3.0,
+   "label": "pin stays above 3.0 V"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 220
+  }
+ },
+ "hints": [
+  "The LED keeps roughly 1.8 to 1.9 V across itself. The rest is shared by the 40 ohm driver and your resistor.",
+  "I = (3.3 - 1.85) / (40 + R). Then the pin voltage is 3.3 - I x 40.",
+  "A tiny resistor gives a big current that also drags the pin down; a huge one gives too little light."
+ ]
+}

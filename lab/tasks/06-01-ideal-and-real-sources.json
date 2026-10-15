@@ -1,0 +1,113 @@
+{
+ "id": "06-01-ideal-and-real-sources",
+ "title": "Catch the current before it leaks",
+ "kind": "dc",
+ "story": "A lab current source is set to 10 mA, but it is not ideal: a 1 kohm path inside it lets some current leak back. Your sensor needs at least 9 mA flowing through it and at least 0.5 V across it to wake up. Pick the sensor's load resistor.",
+ "board": {
+  "nodes": {
+   "a": [
+    3,
+    1
+   ],
+   "b": [
+    7,
+    1
+   ],
+   "gnd": [
+    3,
+    5
+   ],
+   "g2": [
+    7,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "current_source",
+    "id": "I1",
+    "from": "gnd",
+    "to": "a",
+    "amps": 0.01
+   },
+   {
+    "type": "resistor",
+    "id": "Rsh",
+    "a": "a",
+    "b": "gnd",
+    "ohms": 1000
+   },
+   {
+    "type": "switch",
+    "id": "SW1",
+    "a": "a",
+    "b": "b",
+    "closed": true
+   },
+   {
+    "type": "switch",
+    "id": "SW2",
+    "a": "g2",
+    "b": "gnd",
+    "closed": true
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "b",
+    "b": "g2",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 22
+  },
+  {
+   "type": "resistor",
+   "ohms": 82
+  },
+  {
+   "type": "resistor",
+   "ohms": 220
+  },
+  {
+   "type": "resistor",
+   "ohms": 1000
+  }
+ ],
+ "goals": [
+  {
+   "measure": "current",
+   "of": "S1",
+   "min": 0.009,
+   "label": "at least 9 mA reaches the sensor"
+  },
+  {
+   "measure": "voltage",
+   "between": [
+    "b",
+    "g2"
+   ],
+   "min": 0.5,
+   "label": "at least 0.5 V across the sensor"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 82
+  }
+ },
+ "hints": [
+  "The 10 mA splits between the 1 kohm inside and your resistor, like a current divider.",
+  "Load current = 10 mA * 1000 / (1000 + R). For 9 mA you need R of about 111 ohm or less.",
+  "Voltage = load current * R. Too small a resistor gives almost all the current but almost no voltage."
+ ]
+}

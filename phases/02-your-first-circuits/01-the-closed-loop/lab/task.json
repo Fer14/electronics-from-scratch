@@ -1,0 +1,34 @@
+{
+  "id": "02-01-closed-loop",
+  "title": "Close the loop and light the flashlight",
+  "kind": "dc",
+  "story": "A flashlight has two AA cells (3 V together) and a small bulb. When the bulb is hot it behaves like a 10 Ω resistor, so it should carry about 0.3 A. Two gaps are left in the path: one between the battery's + end and the bulb, and one between the bulb and the battery's - end. Fill both gaps so the bulb lights. A wire is a closed switch.",
+  "board": {
+    "nodes": {"vcc": [1, 1], "a": [5, 1], "b": [5, 5], "gnd": [1, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "B1", "plus": "vcc", "minus": "gnd", "volts": 3},
+      {"type": "resistor", "id": "L1", "a": "a", "b": "b", "ohms": 10}
+    ],
+    "slots": [
+      {"id": "S1", "a": "vcc", "b": "a", "accepts": ["switch", "resistor"]},
+      {"id": "S2", "a": "b", "b": "gnd", "accepts": ["switch", "resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "switch", "closed": true},
+    {"type": "switch", "closed": true},
+    {"type": "switch", "closed": false},
+    {"type": "resistor", "ohms": 1000000}
+  ],
+  "goals": [
+    {"measure": "current", "of": "L1", "min": 0.25, "max": 0.35, "label": "bulb current between 0.25 and 0.35 A (it glows)"},
+    {"measure": "voltage", "between": ["a", "b"], "min": 2.8, "max": 3.2, "label": "almost the full 3 V appears across the bulb"}
+  ],
+  "solution": {"S1": {"type": "switch", "closed": true}, "S2": {"type": "switch", "closed": true}},
+  "hints": [
+    "Charge has to leave the + end, go through the bulb and come back into the - end. Both gaps are part of that one path.",
+    "An open switch is a gap of air, and a 1 MΩ resistor is like a piece of dry plastic: neither lets a useful current through.",
+    "A wire is a closed switch. With wires in both gaps the bulb sees the full 3 V."
+  ]
+}

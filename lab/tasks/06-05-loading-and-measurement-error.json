@@ -1,0 +1,121 @@
+{
+ "id": "06-05-loading-and-measurement-error",
+ "title": "Pick a voltmeter that doesn't lie",
+ "kind": "dc",
+ "story": "A 10 V source feeds two 100 kohm resistors in series. The true voltage in the middle is 5 V. You must check it with a voltmeter, and the reading must be within 1 % of the truth. In the slot, a voltmeter is just its input resistance. Which meter do you grab?",
+ "board": {
+  "nodes": {
+   "vcc": [
+    1,
+    1
+   ],
+   "mid": [
+    5,
+    3
+   ],
+   "gnd": [
+    1,
+    5
+   ],
+   "m": [
+    8,
+    3
+   ],
+   "g2": [
+    8,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "voltage_source",
+    "id": "V1",
+    "plus": "vcc",
+    "minus": "gnd",
+    "volts": 10
+   },
+   {
+    "type": "resistor",
+    "id": "R1",
+    "a": "vcc",
+    "b": "mid",
+    "ohms": 100000
+   },
+   {
+    "type": "resistor",
+    "id": "R2",
+    "a": "mid",
+    "b": "gnd",
+    "ohms": 100000
+   },
+   {
+    "type": "switch",
+    "id": "SW1",
+    "a": "mid",
+    "b": "m",
+    "closed": true
+   },
+   {
+    "type": "switch",
+    "id": "SW2",
+    "a": "g2",
+    "b": "gnd",
+    "closed": true
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "m",
+    "b": "g2",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 20000
+  },
+  {
+   "type": "resistor",
+   "ohms": 200000
+  },
+  {
+   "type": "resistor",
+   "ohms": 1000000
+  },
+  {
+   "type": "resistor",
+   "ohms": 10000000
+  }
+ ],
+ "goals": [
+  {
+   "measure": "voltage",
+   "at": "mid",
+   "min": 4.95,
+   "label": "the reading is no more than 1 % low"
+  },
+  {
+   "measure": "voltage",
+   "at": "mid",
+   "max": 5.05,
+   "label": "the reading is no more than 1 % high"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 10000000
+  }
+ },
+ "hints": [
+  "Seen from the middle node, the divider is 5 V behind R_th = 100 k parallel 100 k = 50 kohm.",
+  "The reading is 5 * R_m / (R_m + 50 000). For 1 % error you need R_m of about 100 times 50 kohm.",
+  "A 1 Mohm meter reads 5 * 1 / 1.05 = 4.76 V: almost 5 % low."
+ ]
+}

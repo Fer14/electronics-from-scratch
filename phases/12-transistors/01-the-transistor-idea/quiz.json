@@ -1,0 +1,81 @@
+[
+  {
+    "id": "12-01-pre-1",
+    "stage": "pre",
+    "question": "When you turn a garden tap a little, where does the energy of the water coming out come from?",
+    "options": ["Your hand", "The tap itself", "The water main behind the tap", "Gravity inside the tap"],
+    "correct": 2,
+    "explanation": "The handle only controls the flow; the energy is in the pressurised supply. A transistor works the same way with the power supply."
+  },
+  {
+    "id": "12-01-pre-2",
+    "stage": "pre",
+    "question": "How many terminals does a typical transistor have?",
+    "options": ["Two", "Three", "Four", "Six"],
+    "correct": 1,
+    "explanation": "Three: one control terminal (base or gate) and two for the main path (collector/emitter or drain/source)."
+  },
+  {
+    "id": "12-01-post-1",
+    "stage": "post",
+    "question": "An ideal transistor with g_m = 10 mA/V drives a 2 kohm load. What is its voltage gain?",
+    "options": ["-20", "-0.2", "-5", "-200"],
+    "correct": 0,
+    "explanation": "A_v = -g_m x R_L = -0.010 A/V x 2000 ohm = -20."
+  },
+  {
+    "id": "12-01-post-2",
+    "stage": "post",
+    "question": "In the ideal-valve table, 4 uW of control power steers 100 mW of load power. Where do the 100 mW come from?",
+    "options": [
+      "From the control signal, amplified",
+      "From the transistor's stored energy",
+      "From the load resistor",
+      "From the 10 V supply"
+    ],
+    "correct": 3,
+    "explanation": "The transistor only decides how much of the supply's energy reaches the load."
+  },
+  {
+    "id": "12-01-post-3",
+    "stage": "post",
+    "question": "Why can't a transistor between a load and ground push its output below 0 V?",
+    "options": [
+      "It can, if the gain is large enough",
+      "At best it connects its output to ground; it cannot generate a voltage below its own rail",
+      "Because the load resistor is too small",
+      "Because transistors only work with AC"
+    ],
+    "correct": 1,
+    "explanation": "Outputs are confined between the supply rails. The ideal VCCS model ignores this, which is why it predicted -5 V."
+  },
+  {
+    "id": "12-01-post-4",
+    "stage": "post",
+    "question": "In the real NPN table, going from V_BE = 0.60 V to 0.66 V multiplies the collector current by about:",
+    "options": ["10", "1.1", "2", "100"],
+    "correct": 0,
+    "explanation": "60 mV is one decade of the exponential: 0.120 mA becomes 1.22 mA."
+  },
+  {
+    "id": "12-01-post-5",
+    "stage": "post",
+    "question": "Using a transistor only fully on or fully off is called:",
+    "options": ["Amplifier mode", "Biasing", "Switch mode", "Small-signal mode"],
+    "correct": 2,
+    "explanation": "Switch mode: two states, used for logic and for driving loads such as LEDs and motors."
+  },
+  {
+    "id": "12-01-post-6",
+    "stage": "post",
+    "question": "What happened at V_BE = 0.72 V in the real-transistor table?",
+    "options": [
+      "The transistor broke",
+      "The collector current reached 12.6 mA",
+      "Cutoff: the current stopped",
+      "Saturation: the load limited the current to about 10 mA and I_C / I_B collapsed"
+    ],
+    "correct": 3,
+    "explanation": "10 V across 1 kohm allows at most 10 mA; the transistor is 'as on as it can be' and the extra base current is wasted."
+  }
+]

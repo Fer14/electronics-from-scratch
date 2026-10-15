@@ -1,0 +1,95 @@
+{
+ "id": "05-08-dependent-sources",
+ "title": "Bias a transistor-like stage at mid-supply",
+ "kind": "dc",
+ "story": "A voltage-controlled current source (gm = 40 mS) models a transistor. With 50 mV at its input it pulls current from the output node, and that current must come through the resistor from the 10 V supply. Choose that resistor so the output rests between 4.5 and 5.5 V, the middle of the supply.",
+ "board": {
+  "nodes": {
+   "vcc": [
+    6,
+    0
+   ],
+   "out": [
+    6,
+    3
+   ],
+   "in": [
+    2,
+    3
+   ],
+   "gnd": [
+    4,
+    6
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "VCC",
+    "plus": "vcc",
+    "minus": "gnd",
+    "volts": 10
+   },
+   {
+    "type": "battery",
+    "id": "VIN",
+    "plus": "in",
+    "minus": "gnd",
+    "volts": 0.05
+   },
+   {
+    "type": "vccs",
+    "id": "G1",
+    "plus": "out",
+    "minus": "gnd",
+    "cplus": "in",
+    "cminus": "gnd",
+    "gm": 0.04
+   }
+  ],
+  "slots": [
+   {
+    "id": "RC",
+    "a": "vcc",
+    "b": "out",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 1000
+  },
+  {
+   "type": "resistor",
+   "ohms": 2400
+  },
+  {
+   "type": "resistor",
+   "ohms": 4700
+  }
+ ],
+ "goals": [
+  {
+   "measure": "voltage",
+   "at": "out",
+   "min": 4.5,
+   "max": 5.5,
+   "label": "output between 4.5 and 5.5 V"
+  }
+ ],
+ "solution": {
+  "RC": {
+   "type": "resistor",
+   "ohms": 2400
+  }
+ },
+ "hints": [
+  "G1 pulls gm x v(in) = 0.04 S x 0.05 V = 2 mA out of the output node.",
+  "v(out) = 10 V - 2 mA x RC. For about 5 V you need a drop of about 5 V."
+ ]
+}

@@ -1,0 +1,178 @@
+{
+ "id": "14-07-full-adder",
+ "title": "Finish the full adder",
+ "kind": "logic",
+ "story": "A full adder adds three bits, a + b + cin, and gives a 2-bit answer: the sum bit s and the carry out cout. The generate gate g = a\u00b7b and the final OR are already wired. Fill the three slots: the half-sum p of a and b, the sum s, and the propagate-carry t.",
+ "board": {
+  "inputs": [
+   "a",
+   "b",
+   "cin"
+  ],
+  "outputs": [
+   "s",
+   "cout"
+  ],
+  "nodes": {
+   "a": [
+    1,
+    1
+   ],
+   "b": [
+    1,
+    2
+   ],
+   "cin": [
+    1,
+    4
+   ],
+   "p": [
+    4,
+    1
+   ],
+   "s": [
+    9,
+    1
+   ],
+   "t": [
+    6,
+    4
+   ],
+   "g": [
+    4,
+    5
+   ],
+   "cout": [
+    9,
+    5
+   ]
+  },
+  "fixed": [
+   {
+    "type": "gate",
+    "id": "G1",
+    "op": "and",
+    "inputs": [
+     "a",
+     "b"
+    ],
+    "output": "g"
+   },
+   {
+    "type": "gate",
+    "id": "G2",
+    "op": "or",
+    "inputs": [
+     "g",
+     "t"
+    ],
+    "output": "cout"
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "inputs": [
+     "a",
+     "b"
+    ],
+    "output": "p",
+    "accepts": [
+     "gate"
+    ]
+   },
+   {
+    "id": "S2",
+    "inputs": [
+     "p",
+     "cin"
+    ],
+    "output": "s",
+    "accepts": [
+     "gate"
+    ]
+   },
+   {
+    "id": "S3",
+    "inputs": [
+     "p",
+     "cin"
+    ],
+    "output": "t",
+    "accepts": [
+     "gate"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "gate",
+   "op": "xor"
+  },
+  {
+   "type": "gate",
+   "op": "and"
+  },
+  {
+   "type": "gate",
+   "op": "or"
+  },
+  {
+   "type": "gate",
+   "op": "nand"
+  }
+ ],
+ "goals": [
+  {
+   "measure": "truth_table",
+   "expect": {
+    "s": [
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     1
+    ]
+   },
+   "label": "s is the low bit of a + b + cin (all 8 rows)"
+  },
+  {
+   "measure": "truth_table",
+   "expect": {
+    "cout": [
+     0,
+     0,
+     0,
+     1,
+     0,
+     1,
+     1,
+     1
+    ]
+   },
+   "label": "cout is the high bit of a + b + cin (all 8 rows)"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "gate",
+   "op": "xor"
+  },
+  "S2": {
+   "type": "gate",
+   "op": "xor"
+  },
+  "S3": {
+   "type": "gate",
+   "op": "and"
+  }
+ },
+ "hints": [
+  "The sum bit is 1 when an odd number of the three inputs are 1.",
+  "A carry comes out when a and b are both 1 (that is g), or when exactly one of them is 1 and cin is 1."
+ ]
+}

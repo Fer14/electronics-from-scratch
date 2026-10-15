@@ -1,0 +1,86 @@
+[
+  {
+    "id": "13-05-pre-1",
+    "stage": "pre",
+    "question": "A constant current of 1 mA flows into a 1 uF capacitor. How fast does its voltage rise?",
+    "options": ["1 V/s", "1000 V/s", "1 mV/s", "It does not rise"],
+    "correct": 1,
+    "explanation": "dV/dt = I / C = 0.001 / 0.000001 = 1000 V/s."
+  },
+  {
+    "id": "13-05-pre-2",
+    "stage": "pre",
+    "question": "A car's speedometer shows the rate of change of which quantity?",
+    "options": ["Fuel", "Acceleration", "Temperature", "Distance travelled"],
+    "correct": 3,
+    "explanation": "Speed is the derivative of distance; distance is the integral of speed."
+  },
+  {
+    "id": "13-05-post-1",
+    "stage": "post",
+    "question": "Why does an op-amp integrator produce a straight ramp, unlike a plain RC circuit?",
+    "options": [
+      "The op-amp supplies infinite current",
+      "The virtual ground keeps the current through R equal to V_in / R, so the capacitor is charged by a constant current",
+      "The capacitor is larger",
+      "The ramp is not actually straight"
+    ],
+    "correct": 1,
+    "explanation": "In a plain RC the current shrinks as the capacitor charges; with the virtual ground it does not."
+  },
+  {
+    "id": "13-05-post-2",
+    "stage": "post",
+    "question": "An integrator has R = 10 kohm and C = 100 nF. The input is a constant -2 V. What is the output's ramp rate?",
+    "options": ["+2000 V/s", "-2000 V/s", "+200 V/s", "+20 V/s"],
+    "correct": 0,
+    "explanation": "dV_out/dt = -V_in / (RC) = -(-2) / 0.001 = +2000 V/s."
+  },
+  {
+    "id": "13-05-post-3",
+    "stage": "post",
+    "question": "What does a square wave become after an integrator?",
+    "options": ["A sine wave", "A square wave", "A triangle wave", "A DC level"],
+    "correct": 2,
+    "explanation": "Each flat half-cycle produces a straight ramp; alternating ramps make a triangle."
+  },
+  {
+    "id": "13-05-post-4",
+    "stage": "post",
+    "question": "Why does a plain integrator's output drift to a rail even with no input?",
+    "options": [
+      "The capacitor discharges",
+      "The supply voltage changes",
+      "The feedback resistor heats up",
+      "It integrates tiny DC errors such as the op-amp's offset voltage, forever"
+    ],
+    "correct": 3,
+    "explanation": "A 1 mV offset with R = 10 k, C = 100 nF ramps the output at 1 V/s."
+  },
+  {
+    "id": "13-05-post-5",
+    "stage": "post",
+    "question": "How does the gain of an ideal integrator change with frequency?",
+    "options": [
+      "It rises by 20 dB per decade",
+      "It falls by 20 dB per decade",
+      "It is constant",
+      "It falls by 40 dB per decade"
+    ],
+    "correct": 1,
+    "explanation": "|gain| = 1/(2 pi f R C): ten times the frequency, one tenth the gain."
+  },
+  {
+    "id": "13-05-post-6",
+    "stage": "post",
+    "question": "Why is a resistor usually added in series with a differentiator's input capacitor?",
+    "options": [
+      "To limit the gain at high frequencies so noise is not amplified without bound",
+      "To make it integrate instead",
+      "To set the DC operating point",
+      "To protect the capacitor from overvoltage"
+    ],
+    "correct": 0,
+    "explanation": "Above 1/(2 pi R_S C) the gain levels off at R_F / R_S instead of rising forever."
+  }
+]

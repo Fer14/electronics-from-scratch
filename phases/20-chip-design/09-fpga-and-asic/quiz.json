@@ -1,0 +1,93 @@
+[
+  {
+    "id": "20-09-pre-1",
+    "stage": "pre",
+    "question": "What is the main difference between an FPGA and an ASIC?",
+    "options": [
+      "An FPGA's circuit is set by configuration bits after manufacture; an ASIC's circuit is fixed by its masks",
+      "An FPGA is analog and an ASIC is digital",
+      "ASICs cannot contain memory",
+      "FPGAs are always faster"
+    ],
+    "correct": 0,
+    "explanation": "An FPGA can become any circuit by loading a bitstream; an ASIC is one circuit forever."
+  },
+  {
+    "id": "20-09-pre-2",
+    "stage": "pre",
+    "question": "How many rows does the truth table of a 4-input function have?",
+    "options": [
+      "4",
+      "8",
+      "16",
+      "32"
+    ],
+    "correct": 2,
+    "explanation": "2^4 = 16 input combinations, so a LUT4 stores 16 bits."
+  },
+  {
+    "id": "20-09-post-1",
+    "stage": "post",
+    "question": "A LUT3 is configured with bits 00010111 (row 0 first). Which function is it?",
+    "options": [
+      "XOR of the three inputs",
+      "Majority: 1 when at least two inputs are 1",
+      "AND of the three inputs",
+      "OR of the three inputs"
+    ],
+    "correct": 1,
+    "explanation": "Rows 3 (011), 5 (101), 6 (110) and 7 (111) are 1: exactly the rows with two or more 1s."
+  },
+  {
+    "id": "20-09-post-2",
+    "stage": "post",
+    "question": "How many 2:1 multiplexers does a k-input LUT's selection tree need?",
+    "options": [
+      "k",
+      "2k",
+      "k^2",
+      "2^k - 1"
+    ],
+    "correct": 3,
+    "explanation": "Each level halves the candidates: 2^(k-1) + ... + 2 + 1 = 2^k - 1 multiplexers."
+  },
+  {
+    "id": "20-09-post-3",
+    "stage": "post",
+    "question": "According to Kuon and Rose's measurements, roughly how much more area does an FPGA need than an ASIC for the same logic (LUTs only)?",
+    "options": [
+      "About the same",
+      "About 2x",
+      "About 35x",
+      "About 1000x"
+    ],
+    "correct": 2,
+    "explanation": "About 35x with logic only, about 18x when hard multipliers and memories are used."
+  },
+  {
+    "id": "20-09-post-4",
+    "stage": "post",
+    "question": "ASIC: $1,000,000 NRE and $2 per chip. FPGA: $0 NRE and $22 per chip. What is the break-even volume?",
+    "options": [
+      "50,000 units",
+      "45,455 units",
+      "500,000 units",
+      "1,000,000 units"
+    ],
+    "correct": 0,
+    "explanation": "(1,000,000 - 0) / (22 - 2) = 50,000 units."
+  },
+  {
+    "id": "20-09-post-5",
+    "stage": "post",
+    "question": "Which situation favours an FPGA over an ASIC?",
+    "options": [
+      "A phone chip shipped in 100 million units",
+      "A battery-powered device that must use the least possible power",
+      "A stable design needing the highest clock speed",
+      "A few hundred instruments whose function will change with new standards"
+    ],
+    "correct": 3,
+    "explanation": "Low volume and the need to change the circuit after shipping are the FPGA's strengths."
+  }
+]

@@ -1,0 +1,108 @@
+{
+ "id": "18-03-the-buck-converter",
+ "title": "Set the buck's duty cycle",
+ "kind": "transient",
+ "story": "A buck converter runs from a 12 V battery at 100 kHz and must power a 5 V board that draws 1 A (a 5 ohm load). With ideal switches, its switch node is simply a square wave between 0 V and 12 V, drawn here as a pulse source. The inductor (100 uH) and capacitor (47 uF) are fitted. Choose the pulse source with the right duty cycle so the output sits between 4.8 V and 5.2 V after 4 ms.",
+ "sim": {
+  "t_stop": 0.004,
+  "dt": 1e-07
+ },
+ "board": {
+  "nodes": {
+   "sw": [
+    2,
+    1
+   ],
+   "out": [
+    7,
+    1
+   ],
+   "gnd": [
+    2,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "inductor",
+    "id": "L1",
+    "a": "sw",
+    "b": "out",
+    "henries": 0.0001
+   },
+   {
+    "type": "capacitor",
+    "id": "C1",
+    "a": "out",
+    "b": "gnd",
+    "farads": 4.7e-05,
+    "v0": 0
+   },
+   {
+    "type": "resistor",
+    "id": "RL",
+    "a": "out",
+    "b": "gnd",
+    "ohms": 5
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "plus": "sw",
+    "minus": "gnd",
+    "accepts": [
+     "pulse_source"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "pulse_source",
+   "low": 0,
+   "high": 12,
+   "period": 1e-05,
+   "duty": 0.25
+  },
+  {
+   "type": "pulse_source",
+   "low": 0,
+   "high": 12,
+   "period": 1e-05,
+   "duty": 0.42
+  },
+  {
+   "type": "pulse_source",
+   "low": 0,
+   "high": 12,
+   "period": 1e-05,
+   "duty": 0.5
+  }
+ ],
+ "goals": [
+  {
+   "measure": "voltage_at_time",
+   "at": "out",
+   "time": 0.004,
+   "min": 4.8,
+   "max": 5.2,
+   "label": "output between 4.8 V and 5.2 V at 4 ms"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "pulse_source",
+   "low": 0,
+   "high": 12,
+   "period": 1e-05,
+   "duty": 0.42
+  }
+ },
+ "hints": [
+  "In steady state the inductor's average voltage is zero, so the output equals the average of the switch node.",
+  "Vout = D x Vin. Solve for D.",
+  "The start-up overshoots and rings for about a millisecond; by 4 ms it has settled."
+ ]
+}

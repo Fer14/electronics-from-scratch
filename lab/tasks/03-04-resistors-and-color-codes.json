@@ -1,0 +1,90 @@
+{
+ "id": "03-04-resistors-and-color-codes",
+ "title": "Find the yellow-violet-red resistor",
+ "kind": "dc",
+ "story": "A 12 V circuit needs a resistor that lets about 2.5 mA flow. The schematic says 4k7, and the bag of loose resistors on your desk has no labels, only color bands: brown-black-red, red-red-red, yellow-violet-red, yellow-violet-orange, and brown-black-orange. Decode the bands and drop the right one in the slot so the current lands between 2.3 mA and 2.8 mA.",
+ "board": {
+  "nodes": {
+   "vcc": [
+    1,
+    1
+   ],
+   "a": [
+    7,
+    1
+   ],
+   "gnd": [
+    1,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "B1",
+    "plus": "vcc",
+    "minus": "gnd",
+    "volts": 12
+   },
+   {
+    "type": "switch",
+    "id": "SW1",
+    "a": "a",
+    "b": "gnd",
+    "closed": true
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "vcc",
+    "b": "a",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 1000
+  },
+  {
+   "type": "resistor",
+   "ohms": 2200
+  },
+  {
+   "type": "resistor",
+   "ohms": 4700
+  },
+  {
+   "type": "resistor",
+   "ohms": 47000
+  },
+  {
+   "type": "resistor",
+   "ohms": 10000
+  }
+ ],
+ "goals": [
+  {
+   "measure": "current",
+   "of": "S1",
+   "min": 0.0023,
+   "max": 0.0028,
+   "label": "current between 2.3 mA and 2.8 mA"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 4700
+  }
+ },
+ "hints": [
+  "Yellow is 4, violet is 7, and a red third band means 'add two zeros'.",
+  "Check with Ohm's law: 12 V / 4700 ohm = ?"
+ ]
+}

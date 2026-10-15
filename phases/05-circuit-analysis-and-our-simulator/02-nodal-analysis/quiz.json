@@ -1,0 +1,93 @@
+[
+  {
+    "id": "05-02-pre-1",
+    "stage": "pre",
+    "question": "What is the conductance of a 4 kOhm resistor?",
+    "options": [
+      "4000 S",
+      "0.25 mS",
+      "4 mS",
+      "0.4 S"
+    ],
+    "correct": 1,
+    "explanation": "G = 1/R = 1/4000 Ohm = 0.00025 S = 0.25 mS."
+  },
+  {
+    "id": "05-02-pre-2",
+    "stage": "pre",
+    "question": "A resistor of 2 kOhm connects node x (at 5 V) and node y (at 1 V). What current flows from x to y?",
+    "options": [
+      "3 mA",
+      "8 mA",
+      "-2 mA",
+      "2 mA"
+    ],
+    "correct": 3,
+    "explanation": "Current from x to y = (vx - vy) / R = (5 - 1) V / 2 kOhm = 2 mA."
+  },
+  {
+    "id": "05-02-pre-3",
+    "stage": "pre",
+    "question": "In nodal analysis, why do we never need to write KVL equations?",
+    "options": [
+      "Because every voltage is measured from the same ground, so voltage drops around any loop cancel automatically",
+      "Because KVL is only an approximation",
+      "Because nodal analysis only works without loops",
+      "Because KVL and KCL are the same law"
+    ],
+    "correct": 0,
+    "explanation": "If each node has one voltage, any loop sum is (v1 - v2) + (v2 - v3) + ... + (vn - v1) = 0. KVL is built in."
+  },
+  {
+    "id": "05-02-post-1",
+    "stage": "post",
+    "question": "Node b has three resistors attached: 1 kOhm to a, 2 kOhm to ground and 2 kOhm to c. What is the diagonal entry for b in the conductance matrix?",
+    "options": [
+      "5 kOhm",
+      "1 mS",
+      "2 mS",
+      "0.5 mS"
+    ],
+    "correct": 2,
+    "explanation": "The diagonal is the sum of conductances touching the node: 1 + 0.5 + 0.5 = 2 mS."
+  },
+  {
+    "id": "05-02-post-2",
+    "stage": "post",
+    "question": "In the same circuit, what is the entry in row b, column c?",
+    "options": [
+      "-0.5 mS",
+      "+0.5 mS",
+      "-2 mS",
+      "0"
+    ],
+    "correct": 0,
+    "explanation": "Off-diagonal entries are minus the conductance that directly joins the two nodes: -1/2 kOhm = -0.5 mS."
+  },
+  {
+    "id": "05-02-post-3",
+    "stage": "post",
+    "question": "A 9 V battery connects node a to ground. How does nodal analysis treat va?",
+    "options": [
+      "As an unknown like any other",
+      "As zero, because it touches ground",
+      "As known (9 V); terms with va move to the right side as injected current G x 9 V",
+      "It cannot handle that battery at all"
+    ],
+    "correct": 2,
+    "explanation": "A grounded voltage source fixes its node's voltage, which removes one unknown. Its neighbours see it as a known voltage behind a conductance."
+  },
+  {
+    "id": "05-02-post-4",
+    "stage": "post",
+    "question": "Why does plain nodal analysis get stuck with a battery between two non-ground nodes?",
+    "options": [
+      "Because the battery's voltage is unknown",
+      "Because the current through the battery is unknown and appears in the KCL of both nodes",
+      "Because batteries cannot be placed between two nodes",
+      "Because the conductance of a battery is negative"
+    ],
+    "correct": 1,
+    "explanation": "A voltage source takes whatever current the circuit asks for. That current is a new unknown. The supernode trick, or modified nodal analysis (Lesson 04), handles it."
+  }
+]

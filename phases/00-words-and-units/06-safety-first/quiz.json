@@ -1,0 +1,106 @@
+[
+  {
+    "id": "00-06-pre-1",
+    "stage": "pre",
+    "question": "In an electric shock, what is it that directly harms nerves, muscles and the heart?",
+    "options": [
+      "The voltage alone, whatever current flows",
+      "The colour of the wire",
+      "The current flowing through the body",
+      "The frequency of the electrons"
+    ],
+    "correct": 2,
+    "explanation": "Current, the charge passing through you per second, triggers muscles and nerves and can upset the heart. Voltage matters because it is what pushes that current through your body's resistance."
+  },
+  {
+    "id": "00-06-pre-2",
+    "stage": "pre",
+    "question": "Which of these is the most dangerous to short-circuit with a piece of wire?",
+    "options": [
+      "An 18650 lithium-ion cell (3.7 V)",
+      "A CR2032 coin cell (3 V)",
+      "A disconnected LED",
+      "A 1 kΩ resistor"
+    ],
+    "correct": 0,
+    "explanation": "The lithium cell has a tiny internal resistance (about 0.04 Ω), so a short can draw around 90 A and turn hundreds of watts into heat, risking fire. The coin cell's internal resistance (about 15 Ω) limits it to about 0.2 A."
+  },
+  {
+    "id": "00-06-post-1",
+    "stage": "post",
+    "question": "Using I = V / R, what current flows through wet hands (about 1 kΩ) touching 50 V?",
+    "options": [
+      "0.05 mA",
+      "50 mA",
+      "5 mA",
+      "500 mA"
+    ],
+    "correct": 1,
+    "explanation": "I = 50 V / 1000 Ω = 0.05 A = 50 mA. For AC this is in the zone where breathing can stop and the heart is at risk."
+  },
+  {
+    "id": "00-06-post-2",
+    "stage": "post",
+    "question": "Roughly what AC current through the body makes the hand muscles lock so you may not be able to let go?",
+    "options": [
+      "About 1 µA",
+      "About 1 mA",
+      "About 1 A",
+      "About 10-30 mA"
+    ],
+    "correct": 3,
+    "explanation": "Around 1 mA is just felt; around 10 to 30 mA AC the forearm muscles clamp; above about 100 mA the heart can fibrillate. The numbers are rough and vary between people."
+  },
+  {
+    "id": "00-06-post-3",
+    "stage": "post",
+    "question": "Why is 230 V mains far more dangerous than our simple 100 kΩ dry-skin estimate (2.3 mA) suggests?",
+    "options": [
+      "Above roughly 50 V the voltage breaks down the skin, so body resistance falls to about 1-2 kΩ and the current reaches 100-200 mA",
+      "Mains electrons are heavier",
+      "Mains is DC, which is always worse than AC",
+      "Because 230 is a prime number"
+    ],
+    "correct": 0,
+    "explanation": "The dry outer skin layer is punctured by high voltage, removing most of your resistance. 230 V / 1-2 kΩ gives roughly 115-230 mA, in the deadly zone. Mains is also AC, which is worse than DC at the same current."
+  },
+  {
+    "id": "00-06-post-4",
+    "stage": "post",
+    "question": "A 100 Ω, 1/4 W resistor is connected directly across 12 V. What happens?",
+    "options": [
+      "Nothing; 12 V is safe",
+      "It dissipates 0.12 W and stays cool",
+      "It dissipates 1.44 W, almost six times its rating, and will overheat and smoke",
+      "It stores the energy for later"
+    ],
+    "correct": 2,
+    "explanation": "P = V^2 / R = 144 / 100 = 1.44 W, far above 0.25 W. Low voltage protects you from shock, not from heat."
+  },
+  {
+    "id": "00-06-post-5",
+    "stage": "post",
+    "question": "You find an unplugged disposable camera. Why should you not take out and touch its flash capacitor?",
+    "options": [
+      "It contains lithium",
+      "It can still hold around 330 V and several joules, enough to drive a painful, muscle-locking current through your hands",
+      "Capacitors only work when plugged in, so it is just a waste of time",
+      "It is magnetic"
+    ],
+    "correct": 1,
+    "explanation": "Capacitors keep their charge after the power is removed. 330 V across sweaty hands (10 kΩ) pushes about 33 mA, and the stored energy is about 6.5 J."
+  },
+  {
+    "id": "00-06-post-6",
+    "stage": "post",
+    "question": "Which of these is a rule of this course?",
+    "options": [
+      "Mains circuits are fine if you wear gloves",
+      "Test 9 V batteries by touching them to your tongue",
+      "Change wiring with the power on so you can see what happens",
+      "Stay at 12 V DC or below, and never open anything that plugs into the wall"
+    ],
+    "correct": 3,
+    "explanation": "Our ceiling is 12 V DC from batteries, USB or a current-limited supply. Mains equipment stays closed, even unplugged, because of stored charge. Power off before changing a circuit."
+  }
+]

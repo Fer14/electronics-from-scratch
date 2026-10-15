@@ -1,0 +1,956 @@
+{
+ "phases": [
+  {
+   "number": "01",
+   "slug": "01-the-physics-underneath",
+   "title": "The Physics Underneath",
+   "tasks": [
+    {
+     "id": "01-07-lantern-bulb",
+     "title": "Pick the lantern bulb",
+     "kind": "dc",
+     "lesson": "07-energy-and-power",
+     "source": "phases/01-the-physics-underneath/07-energy-and-power/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "02",
+   "slug": "02-your-first-circuits",
+   "title": "Your First Circuits",
+   "tasks": [
+    {
+     "id": "02-01-closed-loop",
+     "title": "Close the loop and light the flashlight",
+     "kind": "dc",
+     "lesson": "01-the-closed-loop",
+     "source": "phases/02-your-first-circuits/01-the-closed-loop/lab/task.json"
+    },
+    {
+     "id": "02-02-match-the-bulb",
+     "title": "Match the bulb to the battery",
+     "kind": "dc",
+     "lesson": "02-batteries-and-loads",
+     "source": "phases/02-your-first-circuits/02-batteries-and-loads/lab/task.json"
+    },
+    {
+     "id": "02-03-open-not-short",
+     "title": "Clip across the lamp without starting a fire",
+     "kind": "dc",
+     "lesson": "03-switches-open-and-short-circuits",
+     "source": "phases/02-your-first-circuits/03-switches-open-and-short-circuits/lab/task.json"
+    },
+    {
+     "id": "02-04-parallel-bulbs",
+     "title": "Two bulbs, both at full brightness",
+     "kind": "dc",
+     "lesson": "04-series-and-parallel-intuition",
+     "source": "phases/02-your-first-circuits/04-series-and-parallel-intuition/lab/task.json"
+    },
+    {
+     "id": "02-06-missing-jumper",
+     "title": "Push in the missing jumper wire",
+     "kind": "dc",
+     "lesson": "06-the-breadboard",
+     "source": "phases/02-your-first-circuits/06-the-breadboard/lab/task.json"
+    },
+    {
+     "id": "02-07-meter-in-series",
+     "title": "Measure the bulb current without changing it",
+     "kind": "dc",
+     "lesson": "07-measuring-with-a-multimeter",
+     "source": "phases/02-your-first-circuits/07-measuring-with-a-multimeter/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "03",
+   "slug": "03-resistance-and-ohms-law",
+   "title": "Resistance and Ohm's Law",
+   "tasks": [
+    {
+     "id": "03-02-resistivity-and-wires",
+     "title": "Cut the hot wire to the right length",
+     "kind": "dc",
+     "lesson": "02-resistivity-and-wires",
+     "source": "phases/03-resistance-and-ohms-law/02-resistivity-and-wires/lab/task.json"
+    },
+    {
+     "id": "03-03-ohms-law",
+     "title": "Nine milliamps from nine volts",
+     "kind": "dc",
+     "lesson": "03-ohms-law",
+     "source": "phases/03-resistance-and-ohms-law/03-ohms-law/lab/task.json"
+    },
+    {
+     "id": "03-04-resistors-and-color-codes",
+     "title": "Find the yellow-violet-red resistor",
+     "kind": "dc",
+     "lesson": "04-resistors-and-color-codes",
+     "source": "phases/03-resistance-and-ohms-law/04-resistors-and-color-codes/lab/task.json"
+    },
+    {
+     "id": "03-05-power-and-heat",
+     "title": "Warm the bottle, don't cook it",
+     "kind": "dc",
+     "lesson": "05-power-and-heat",
+     "source": "phases/03-resistance-and-ohms-law/05-power-and-heat/lab/task.json"
+    },
+    {
+     "id": "03-06-tolerances-and-ratings",
+     "title": "Keep the power bank awake",
+     "kind": "dc",
+     "lesson": "06-tolerances-and-ratings",
+     "source": "phases/03-resistance-and-ohms-law/06-tolerances-and-ratings/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "04",
+   "slug": "04-kirchhoffs-laws",
+   "title": "Kirchhoff's Laws",
+   "tasks": [
+    {
+     "id": "04-02-kirchhoffs-current-law",
+     "title": "Make the meter read 15 mA",
+     "kind": "dc",
+     "lesson": "02-kirchhoffs-current-law",
+     "source": "phases/04-kirchhoffs-laws/02-kirchhoffs-current-law/lab/task.json"
+    },
+    {
+     "id": "04-03-kirchhoffs-voltage-law",
+     "title": "Give the sensor its 3 volts",
+     "kind": "dc",
+     "lesson": "03-kirchhoffs-voltage-law",
+     "source": "phases/04-kirchhoffs-laws/03-kirchhoffs-voltage-law/lab/task.json"
+    },
+    {
+     "id": "04-04-series-and-parallel-resistors",
+     "title": "Make the battery see 1.5 kilohms",
+     "kind": "dc",
+     "lesson": "04-series-and-parallel-resistors",
+     "source": "phases/04-kirchhoffs-laws/04-series-and-parallel-resistors/lab/task.json"
+    },
+    {
+     "id": "04-05-the-voltage-divider",
+     "title": "Bring 5 V down to 3.3 V",
+     "kind": "dc",
+     "lesson": "05-the-voltage-divider",
+     "source": "phases/04-kirchhoffs-laws/05-the-voltage-divider/lab/task.json"
+    },
+    {
+     "id": "04-06-the-current-divider",
+     "title": "Protect the meter with a shunt",
+     "kind": "dc",
+     "lesson": "06-the-current-divider",
+     "source": "phases/04-kirchhoffs-laws/06-the-current-divider/lab/task.json"
+    },
+    {
+     "id": "04-07-the-wheatstone-bridge",
+     "title": "Balance the bridge",
+     "kind": "dc",
+     "lesson": "07-the-wheatstone-bridge",
+     "source": "phases/04-kirchhoffs-laws/07-the-wheatstone-bridge/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "05",
+   "slug": "05-circuit-analysis-and-our-simulator",
+   "title": "Circuit Analysis and Our Simulator",
+   "tasks": [
+    {
+     "id": "05-01-systematic-analysis",
+     "title": "Find the missing resistor in a two-source network",
+     "kind": "dc",
+     "lesson": "01-systematic-analysis",
+     "source": "phases/05-circuit-analysis-and-our-simulator/01-systematic-analysis/lab/task.json"
+    },
+    {
+     "id": "05-02-nodal-analysis",
+     "title": "Set a node voltage under a current source",
+     "kind": "dc",
+     "lesson": "02-nodal-analysis",
+     "source": "phases/05-circuit-analysis-and-our-simulator/02-nodal-analysis/lab/task.json"
+    },
+    {
+     "id": "05-03-mesh-analysis",
+     "title": "Balance two batteries with the middle resistor",
+     "kind": "dc",
+     "lesson": "03-mesh-analysis",
+     "source": "phases/05-circuit-analysis-and-our-simulator/03-mesh-analysis/lab/task.json"
+    },
+    {
+     "id": "05-04-modified-nodal-analysis",
+     "title": "Lift a node with a floating battery",
+     "kind": "dc",
+     "lesson": "04-modified-nodal-analysis-from-scratch",
+     "source": "phases/05-circuit-analysis-and-our-simulator/04-modified-nodal-analysis-from-scratch/lab/task.json"
+    },
+    {
+     "id": "05-05-superposition",
+     "title": "Two sources, one node, land on 4 V",
+     "kind": "dc",
+     "lesson": "05-superposition",
+     "source": "phases/05-circuit-analysis-and-our-simulator/05-superposition/lab/task.json"
+    },
+    {
+     "id": "05-06-thevenin-and-norton",
+     "title": "Use Thevenin to pick a load for exactly 3 V",
+     "kind": "dc",
+     "lesson": "06-thevenin-and-norton",
+     "source": "phases/05-circuit-analysis-and-our-simulator/06-thevenin-and-norton/lab/task.json"
+    },
+    {
+     "id": "05-07-maximum-power-transfer",
+     "title": "Squeeze the most power out of a source",
+     "kind": "dc",
+     "lesson": "07-maximum-power-transfer",
+     "source": "phases/05-circuit-analysis-and-our-simulator/07-maximum-power-transfer/lab/task.json"
+    },
+    {
+     "id": "05-08-dependent-sources",
+     "title": "Bias a transistor-like stage at mid-supply",
+     "kind": "dc",
+     "lesson": "08-dependent-sources",
+     "source": "phases/05-circuit-analysis-and-our-simulator/08-dependent-sources/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "06",
+   "slug": "06-sources-batteries-and-measurement",
+   "title": "Sources, Batteries and Measurement",
+   "tasks": [
+    {
+     "id": "06-01-ideal-and-real-sources",
+     "title": "Catch the current before it leaks",
+     "kind": "dc",
+     "lesson": "01-ideal-and-real-sources",
+     "source": "phases/06-sources-batteries-and-measurement/01-ideal-and-real-sources/lab/task.json"
+    },
+    {
+     "id": "06-02-internal-resistance",
+     "title": "Radio on a coin cell",
+     "kind": "dc",
+     "lesson": "02-internal-resistance",
+     "source": "phases/06-sources-batteries-and-measurement/02-internal-resistance/lab/task.json"
+    },
+    {
+     "id": "06-04-inside-the-multimeter",
+     "title": "Turn a needle into a 10 V voltmeter",
+     "kind": "dc",
+     "lesson": "04-inside-the-multimeter",
+     "source": "phases/06-sources-batteries-and-measurement/04-inside-the-multimeter/lab/task.json"
+    },
+    {
+     "id": "06-05-loading-and-measurement-error",
+     "title": "Pick a voltmeter that doesn't lie",
+     "kind": "dc",
+     "lesson": "05-loading-and-measurement-error",
+     "source": "phases/06-sources-batteries-and-measurement/05-loading-and-measurement-error/lab/task.json"
+    },
+    {
+     "id": "06-07-lab-power-supplies",
+     "title": "Don't lose the volts in the leads",
+     "kind": "dc",
+     "lesson": "07-lab-power-supplies",
+     "source": "phases/06-sources-batteries-and-measurement/07-lab-power-supplies/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "07",
+   "slug": "07-capacitors",
+   "title": "Capacitors",
+   "tasks": [
+    {
+     "id": "07-02-capacitance",
+     "title": "Find the 1 V ramp",
+     "kind": "transient",
+     "lesson": "02-capacitance",
+     "source": "phases/07-capacitors/02-capacitance/lab/task.json"
+    },
+    {
+     "id": "07-03-charging-and-discharging",
+     "title": "Soften the edges, keep the levels",
+     "kind": "transient",
+     "lesson": "03-charging-and-discharging",
+     "source": "phases/07-capacitors/03-charging-and-discharging/lab/task.json"
+    },
+    {
+     "id": "07-04-the-time-constant",
+     "title": "Release reset at the right moment",
+     "kind": "transient",
+     "lesson": "04-the-time-constant",
+     "source": "phases/07-capacitors/04-the-time-constant/lab/task.json"
+    },
+    {
+     "id": "07-05-capacitors-in-series-and-parallel",
+     "title": "Build the missing capacitor",
+     "kind": "transient",
+     "lesson": "05-capacitors-in-series-and-parallel",
+     "source": "phases/07-capacitors/05-capacitors-in-series-and-parallel/lab/task.json"
+    },
+    {
+     "id": "07-06-energy-in-the-electric-field",
+     "title": "Ride through the power cut",
+     "kind": "transient",
+     "lesson": "06-energy-in-the-electric-field",
+     "source": "phases/07-capacitors/06-energy-in-the-electric-field/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "08",
+   "slug": "08-magnetism-and-inductors",
+   "title": "Magnetism and Inductors",
+   "tasks": [
+    {
+     "id": "08-02-relay-coil",
+     "title": "Pull in the relay without cooking its coil",
+     "kind": "dc",
+     "lesson": "02-electromagnetism",
+     "source": "phases/08-magnetism-and-inductors/02-electromagnetism/lab/task.json"
+    },
+    {
+     "id": "08-04-dc-choke",
+     "title": "Let the DC through",
+     "kind": "dc",
+     "lesson": "04-the-inductor",
+     "source": "phases/08-magnetism-and-inductors/04-the-inductor/lab/task.json"
+    },
+    {
+     "id": "08-05-rl-time-constant",
+     "title": "Set the RL time constant to 1 ms",
+     "kind": "transient",
+     "lesson": "05-rl-transients",
+     "source": "phases/08-magnetism-and-inductors/05-rl-transients/lab/task.json"
+    },
+    {
+     "id": "08-07-motor-flyback",
+     "title": "Switch off the motor without a spark",
+     "kind": "transient",
+     "lesson": "07-motors-and-generators",
+     "source": "phases/08-magnetism-and-inductors/07-motors-and-generators/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "09",
+   "slug": "09-alternating-current",
+   "title": "Alternating Current",
+   "tasks": [
+    {
+     "id": "09-03-same-heat-on-dc",
+     "title": "Same heat on DC",
+     "kind": "dc",
+     "lesson": "03-rms-values",
+     "source": "phases/09-alternating-current/03-rms-values/lab/task.json"
+    },
+    {
+     "id": "09-05-voltages-add-as-arrows",
+     "title": "Two voltages that add to more than the source",
+     "kind": "ac",
+     "lesson": "05-phasors",
+     "source": "phases/09-alternating-current/05-phasors/lab/task.json"
+    },
+    {
+     "id": "09-06-pass-50hz-stop-10khz",
+     "title": "Let 50 Hz through, stop 10 kHz",
+     "kind": "ac",
+     "lesson": "06-impedance",
+     "source": "phases/09-alternating-current/06-impedance/lab/task.json"
+    },
+    {
+     "id": "09-07-fix-the-power-factor",
+     "title": "Fix the motor's power factor",
+     "kind": "ac",
+     "lesson": "07-ac-power-and-power-factor",
+     "source": "phases/09-alternating-current/07-ac-power-and-power-factor/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "10",
+   "slug": "10-filters-and-resonance",
+   "title": "Filters and Resonance",
+   "tasks": [
+    {
+     "id": "10-01-make-a-low-pass",
+     "title": "Keep the bass, drop the hiss",
+     "kind": "ac",
+     "lesson": "01-what-a-filter-does",
+     "source": "phases/10-filters-and-resonance/01-what-a-filter-does/lab/task.json"
+    },
+    {
+     "id": "10-02-pick-r-for-cutoff",
+     "title": "Put the cutoff near 1 kHz",
+     "kind": "ac",
+     "lesson": "02-rc-low-pass-and-high-pass",
+     "source": "phases/10-filters-and-resonance/02-rc-low-pass-and-high-pass/lab/task.json"
+    },
+    {
+     "id": "10-03-exactly-minus-20-db",
+     "title": "Attenuate by exactly 20 dB",
+     "kind": "ac",
+     "lesson": "03-decibels-and-bode-plots",
+     "source": "phases/10-filters-and-resonance/03-decibels-and-bode-plots/lab/task.json"
+    },
+    {
+     "id": "10-04-woofer-coil",
+     "title": "Keep the treble out of the woofer",
+     "kind": "ac",
+     "lesson": "04-rl-filters",
+     "source": "phases/10-filters-and-resonance/04-rl-filters/lab/task.json"
+    },
+    {
+     "id": "10-05-tune-to-1khz",
+     "title": "Tune the circuit to the 1 kHz tone",
+     "kind": "ac",
+     "lesson": "05-rlc-resonance",
+     "source": "phases/10-filters-and-resonance/05-rlc-resonance/lab/task.json"
+    },
+    {
+     "id": "10-06-kill-the-hum",
+     "title": "Kill the 50 Hz hum",
+     "kind": "ac",
+     "lesson": "06-band-pass-and-band-stop",
+     "source": "phases/10-filters-and-resonance/06-band-pass-and-band-stop/lab/task.json"
+    },
+    {
+     "id": "10-07-choose-the-q",
+     "title": "Sharp enough, but not too sharp",
+     "kind": "ac",
+     "lesson": "07-quality-factor",
+     "source": "phases/10-filters-and-resonance/07-quality-factor/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "11",
+   "slug": "11-semiconductors-and-diodes",
+   "title": "Semiconductors and Diodes",
+   "tasks": [
+    {
+     "id": "11-04-the-diode-equation",
+     "title": "Bias a diode at one milliamp",
+     "kind": "dc",
+     "lesson": "04-the-diode-equation",
+     "source": "phases/11-semiconductors-and-diodes/04-the-diode-equation/lab/task.json"
+    },
+    {
+     "id": "11-05-solving-nonlinear-circuits",
+     "title": "A two-diode voltage reference",
+     "kind": "dc",
+     "lesson": "05-solving-nonlinear-circuits",
+     "source": "phases/11-semiconductors-and-diodes/05-solving-nonlinear-circuits/lab/task.json"
+    },
+    {
+     "id": "11-06-rectifiers",
+     "title": "Smooth the bumps",
+     "kind": "transient",
+     "lesson": "06-rectifiers",
+     "source": "phases/11-semiconductors-and-diodes/06-rectifiers/lab/task.json"
+    },
+    {
+     "id": "11-07-leds",
+     "title": "A green power light for a USB gadget",
+     "kind": "dc",
+     "lesson": "07-leds",
+     "source": "phases/11-semiconductors-and-diodes/07-leds/lab/task.json"
+    },
+    {
+     "id": "11-08-zener-diodes",
+     "title": "A 5 V rail from a 12 V battery",
+     "kind": "dc",
+     "lesson": "08-zener-diodes",
+     "source": "phases/11-semiconductors-and-diodes/08-zener-diodes/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "12",
+   "slug": "12-transistors",
+   "title": "Transistors",
+   "tasks": [
+    {
+     "id": "12-02-the-bjt",
+     "title": "Set the collector current with the base",
+     "kind": "dc",
+     "lesson": "02-the-bjt",
+     "source": "phases/12-transistors/02-the-bjt/lab/task.json"
+    },
+    {
+     "id": "12-03-the-bjt-as-a-switch",
+     "title": "Let a 3.3 V pin switch a 20 mA LED",
+     "kind": "dc",
+     "lesson": "03-the-bjt-as-a-switch",
+     "source": "phases/12-transistors/03-the-bjt-as-a-switch/lab/task.json"
+    },
+    {
+     "id": "12-05-the-mosfet-as-a-switch",
+     "title": "Run a 12 V motor from a 3.3 V pin",
+     "kind": "dc",
+     "lesson": "05-the-mosfet-as-a-switch",
+     "source": "phases/12-transistors/05-the-mosfet-as-a-switch/lab/task.json"
+    },
+    {
+     "id": "12-06-amplifiers-and-biasing",
+     "title": "A common-emitter amplifier with a gain of 10",
+     "kind": "ac",
+     "lesson": "06-amplifiers-and-biasing",
+     "source": "phases/12-transistors/06-amplifiers-and-biasing/lab/task.json"
+    },
+    {
+     "id": "12-08-current-mirrors",
+     "title": "Copy one milliamp",
+     "kind": "dc",
+     "lesson": "08-current-mirrors",
+     "source": "phases/12-transistors/08-current-mirrors/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "13",
+   "slug": "13-operational-amplifiers",
+   "title": "Operational Amplifiers",
+   "tasks": [
+    {
+     "id": "13-01-the-ideal-op-amp",
+     "title": "Buffer the divider",
+     "kind": "dc",
+     "lesson": "01-the-ideal-op-amp",
+     "source": "phases/13-operational-amplifiers/01-the-ideal-op-amp/lab/task.json"
+    },
+    {
+     "id": "13-02-the-comparator",
+     "title": "A frost alarm at 2.0 V",
+     "kind": "transient",
+     "lesson": "02-the-comparator",
+     "source": "phases/13-operational-amplifiers/02-the-comparator/lab/task.json"
+    },
+    {
+     "id": "13-03-inverting-and-non-inverting-amplifiers",
+     "title": "An op-amp amplifier with a gain of 10",
+     "kind": "dc",
+     "lesson": "03-inverting-and-non-inverting-amplifiers",
+     "source": "phases/13-operational-amplifiers/03-inverting-and-non-inverting-amplifiers/lab/task.json"
+    },
+    {
+     "id": "13-04-summers-and-difference-amplifiers",
+     "title": "Measure a 0.2 V difference sitting on 5 V",
+     "kind": "dc",
+     "lesson": "04-summers-and-difference-amplifiers",
+     "source": "phases/13-operational-amplifiers/04-summers-and-difference-amplifiers/lab/task.json"
+    },
+    {
+     "id": "13-05-integrators-and-differentiators",
+     "title": "A ramp that reaches 5 V in about a millisecond",
+     "kind": "transient",
+     "lesson": "05-integrators-and-differentiators",
+     "source": "phases/13-operational-amplifiers/05-integrators-and-differentiators/lab/task.json"
+    },
+    {
+     "id": "13-06-active-filters",
+     "title": "A flat 1 kHz low-pass filter",
+     "kind": "ac",
+     "lesson": "06-active-filters",
+     "source": "phases/13-operational-amplifiers/06-active-filters/lab/task.json"
+    },
+    {
+     "id": "13-07-real-op-amp-limits",
+     "title": "Enough gain, enough bandwidth",
+     "kind": "ac",
+     "lesson": "07-real-op-amp-limits",
+     "source": "phases/13-operational-amplifiers/07-real-op-amp-limits/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "14",
+   "slug": "14-digital-logic",
+   "title": "Digital Logic",
+   "tasks": [
+    {
+     "id": "14-03-greenhouse-nand",
+     "title": "Greenhouse fan from NAND gates",
+     "kind": "logic",
+     "lesson": "03-boolean-algebra",
+     "source": "phases/14-digital-logic/03-boolean-algebra/lab/task.json"
+    },
+    {
+     "id": "14-04-xor-from-nand",
+     "title": "Build XOR from four NAND gates",
+     "kind": "logic",
+     "lesson": "04-logic-gates",
+     "source": "phases/14-digital-logic/04-logic-gates/lab/task.json"
+    },
+    {
+     "id": "14-05-cmos-pull-up",
+     "title": "Pick the pull-up of a CMOS inverter",
+     "kind": "dc",
+     "lesson": "05-cmos-gates-from-transistors",
+     "source": "phases/14-digital-logic/05-cmos-gates-from-transistors/lab/task.json"
+    },
+    {
+     "id": "14-06-equality-comparator",
+     "title": "Are two 2-bit numbers equal?",
+     "kind": "logic",
+     "lesson": "06-combinational-circuits",
+     "source": "phases/14-digital-logic/06-combinational-circuits/lab/task.json"
+    },
+    {
+     "id": "14-07-full-adder",
+     "title": "Finish the full adder",
+     "kind": "logic",
+     "lesson": "07-adders",
+     "source": "phases/14-digital-logic/07-adders/lab/task.json"
+    },
+    {
+     "id": "14-08-two-to-one-mux",
+     "title": "Build a 2-to-1 multiplexer",
+     "kind": "logic",
+     "lesson": "08-multiplexers-and-decoders",
+     "source": "phases/14-digital-logic/08-multiplexers-and-decoders/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "15",
+   "slug": "15-sequential-logic",
+   "title": "Sequential Logic",
+   "tasks": [
+    {
+     "id": "15-02-nand-d-latch",
+     "title": "Build a gated D latch from NAND gates",
+     "kind": "logic",
+     "lesson": "02-latches",
+     "source": "phases/15-sequential-logic/02-latches/lab/task.json"
+    },
+    {
+     "id": "15-04-load-enable",
+     "title": "Give a register bit a load enable",
+     "kind": "logic",
+     "lesson": "04-registers",
+     "source": "phases/15-sequential-logic/04-registers/lab/task.json"
+    },
+    {
+     "id": "15-05-two-bit-counter",
+     "title": "Next-state logic of a 2-bit counter",
+     "kind": "logic",
+     "lesson": "05-counters",
+     "source": "phases/15-sequential-logic/05-counters/lab/task.json"
+    },
+    {
+     "id": "15-06-detect-101",
+     "title": "Next-state logic of a 101 detector",
+     "kind": "logic",
+     "lesson": "06-finite-state-machines",
+     "source": "phases/15-sequential-logic/06-finite-state-machines/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "16",
+   "slug": "16-a-computer-from-gates",
+   "title": "A Computer from Gates",
+   "tasks": [
+    {
+     "id": "16-02-alu-slice",
+     "title": "One bit of an ALU",
+     "kind": "logic",
+     "lesson": "02-the-alu",
+     "source": "phases/16-a-computer-from-gates/02-the-alu/lab/task.json"
+    },
+    {
+     "id": "16-03-address-decoder",
+     "title": "Address decoder for a 4-byte memory",
+     "kind": "logic",
+     "lesson": "03-memory",
+     "source": "phases/16-a-computer-from-gates/03-memory/lab/task.json"
+    },
+    {
+     "id": "16-05-mar-in-decode",
+     "title": "Decode the MAR_IN control signal",
+     "kind": "logic",
+     "lesson": "05-the-control-unit",
+     "source": "phases/16-a-computer-from-gates/05-the-control-unit/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "17",
+   "slug": "17-microcontrollers",
+   "title": "Microcontrollers",
+   "tasks": [
+    {
+     "id": "17-02-gpio",
+     "title": "An LED on a 3.3 V pin",
+     "kind": "dc",
+     "lesson": "02-gpio",
+     "source": "phases/17-microcontrollers/02-gpio/lab/task.json"
+    },
+    {
+     "id": "17-03-pwm",
+     "title": "PWM duty for a target voltage",
+     "kind": "transient",
+     "lesson": "03-pwm",
+     "source": "phases/17-microcontrollers/03-pwm/lab/task.json"
+    },
+    {
+     "id": "17-04-adc-and-dac",
+     "title": "Fit a car battery into a 3.3 V ADC",
+     "kind": "dc",
+     "lesson": "04-adc-and-dac",
+     "source": "phases/17-microcontrollers/04-adc-and-dac/lab/task.json"
+    },
+    {
+     "id": "17-05-timers-and-interrupts",
+     "title": "Debounce a button with an RC",
+     "kind": "transient",
+     "lesson": "05-timers-and-interrupts",
+     "source": "phases/17-microcontrollers/05-timers-and-interrupts/lab/task.json"
+    },
+    {
+     "id": "17-06-uart-i2c-and-spi",
+     "title": "Pull-up for a fast I2C bus",
+     "kind": "transient",
+     "lesson": "06-uart-i2c-and-spi",
+     "source": "phases/17-microcontrollers/06-uart-i2c-and-spi/lab/task.json"
+    },
+    {
+     "id": "17-07-a-virtual-microcontroller",
+     "title": "Smooth the night light's PWM",
+     "kind": "transient",
+     "lesson": "07-a-virtual-microcontroller",
+     "source": "phases/17-microcontrollers/07-a-virtual-microcontroller/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "18",
+   "slug": "18-power-electronics",
+   "title": "Power Electronics",
+   "tasks": [
+    {
+     "id": "18-01-linear-regulators",
+     "title": "A zener regulator that survives",
+     "kind": "dc",
+     "lesson": "01-linear-regulators",
+     "source": "phases/18-power-electronics/01-linear-regulators/lab/task.json"
+    },
+    {
+     "id": "18-03-the-buck-converter",
+     "title": "Set the buck's duty cycle",
+     "kind": "transient",
+     "lesson": "03-the-buck-converter",
+     "source": "phases/18-power-electronics/03-the-buck-converter/lab/task.json"
+    },
+    {
+     "id": "18-05-motors-and-the-h-bridge",
+     "title": "Drive the motor forwards",
+     "kind": "dc",
+     "lesson": "05-motors-and-the-h-bridge",
+     "source": "phases/18-power-electronics/05-motors-and-the-h-bridge/lab/task.json"
+    },
+    {
+     "id": "18-07-heat-and-thermal-design",
+     "title": "Pick a heatsink for the regulator",
+     "kind": "dc",
+     "lesson": "07-heat-and-thermal-design",
+     "source": "phases/18-power-electronics/07-heat-and-thermal-design/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "19",
+   "slug": "19-sensors-and-signals",
+   "title": "Sensors and Signals",
+   "tasks": [
+    {
+     "id": "19-02-temperature-light-and-force",
+     "title": "A thermistor divider for the ADC",
+     "kind": "dc",
+     "lesson": "02-temperature-light-and-force",
+     "source": "phases/19-sensors-and-signals/02-temperature-light-and-force/lab/task.json"
+    },
+    {
+     "id": "19-03-signal-conditioning",
+     "title": "Stretch the sensor to fill the ADC",
+     "kind": "dc",
+     "lesson": "03-signal-conditioning",
+     "source": "phases/19-sensors-and-signals/03-signal-conditioning/lab/task.json"
+    },
+    {
+     "id": "19-04-sampling-and-nyquist",
+     "title": "An anti-aliasing RC filter",
+     "kind": "ac",
+     "lesson": "04-sampling-and-nyquist",
+     "source": "phases/19-sensors-and-signals/04-sampling-and-nyquist/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "20",
+   "slug": "20-chip-design",
+   "title": "Chip Design",
+   "tasks": [
+    {
+     "id": "20-01-four-bit-adder",
+     "title": "Finish the 4-bit adder",
+     "kind": "logic",
+     "lesson": "01-from-gates-to-adders",
+     "source": "phases/20-chip-design/01-from-gates-to-adders/lab/task.json"
+    },
+    {
+     "id": "20-02-trim-the-multiplier",
+     "title": "Trim the 4x4 multiplier to 64 gates",
+     "kind": "logic",
+     "lesson": "02-multiplying-in-hardware",
+     "source": "phases/20-chip-design/02-multiplying-in-hardware/lab/task.json"
+    },
+    {
+     "id": "20-03-size-the-accumulator",
+     "title": "Size the accumulator",
+     "kind": "chip",
+     "lesson": "03-the-mac",
+     "source": "phases/20-chip-design/03-the-mac/lab/task.json"
+    },
+    {
+     "id": "20-05-meet-the-clock",
+     "title": "Pipeline the datapath to meet the clock",
+     "kind": "chip",
+     "lesson": "05-clocks-critical-paths-and-pipelining",
+     "source": "phases/20-chip-design/05-clocks-critical-paths-and-pipelining/lab/task.json"
+    },
+    {
+     "id": "20-07-split-the-area",
+     "title": "Split the area between MACs and memory",
+     "kind": "chip",
+     "lesson": "07-memory-on-the-chip",
+     "source": "phases/20-chip-design/07-memory-on-the-chip/lab/task.json"
+    },
+    {
+     "id": "20-08-pick-the-batch",
+     "title": "Pick the batch that makes the layer compute-bound",
+     "kind": "chip",
+     "lesson": "08-the-roofline",
+     "source": "phases/20-chip-design/08-the-roofline/lab/task.json"
+    },
+    {
+     "id": "20-09-program-the-lut",
+     "title": "Program the LUT as a majority vote",
+     "kind": "logic",
+     "lesson": "09-fpga-and-asic",
+     "source": "phases/20-chip-design/09-fpga-and-asic/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "21",
+   "slug": "21-pcb-design-and-manufacturing",
+   "title": "PCB Design and Manufacturing",
+   "tasks": [
+    {
+     "id": "21-02-wide-enough-trace",
+     "title": "Pick a trace wide enough for the heater",
+     "kind": "dc",
+     "lesson": "02-footprints-and-traces",
+     "source": "phases/21-pcb-design-and-manufacturing/02-footprints-and-traces/lab/task.json"
+    },
+    {
+     "id": "21-03-shared-ground",
+     "title": "Stop the heater from lying to the sensor",
+     "kind": "dc",
+     "lesson": "03-ground-planes-and-current-return",
+     "source": "phases/21-pcb-design-and-manufacturing/03-ground-planes-and-current-return/lab/task.json"
+    },
+    {
+     "id": "21-04-decoupling-rule",
+     "title": "Follow the decoupling rule",
+     "kind": "transient",
+     "lesson": "04-design-rules",
+     "source": "phases/21-pcb-design-and-manufacturing/04-design-rules/lab/task.json"
+    },
+    {
+     "id": "21-06-thermal-relief",
+     "title": "Make the ground pad solderable",
+     "kind": "transient",
+     "lesson": "06-soldering-and-assembly",
+     "source": "phases/21-pcb-design-and-manufacturing/06-soldering-and-assembly/lab/task.json"
+    },
+    {
+     "id": "21-07-repair-the-board",
+     "title": "Repair the board",
+     "kind": "dc",
+     "lesson": "07-debugging-a-board",
+     "source": "phases/21-pcb-design-and-manufacturing/07-debugging-a-board/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "22",
+   "slug": "22-capstone",
+   "title": "Capstone",
+   "tasks": [
+    {
+     "id": "22-01-sensor-divider",
+     "title": "Size the light sensor's divider",
+     "kind": "dc",
+     "lesson": "01-requirements",
+     "source": "phases/22-capstone/01-requirements/lab/task.json"
+    },
+    {
+     "id": "22-03-base-resistor",
+     "title": "Choose the transistor's base resistor",
+     "kind": "dc",
+     "lesson": "03-schematic",
+     "source": "phases/22-capstone/03-schematic/lab/task.json"
+    },
+    {
+     "id": "22-04-pwm-brightness",
+     "title": "Dim the night light with PWM",
+     "kind": "transient",
+     "lesson": "04-simulation",
+     "source": "phases/22-capstone/04-simulation/lab/task.json"
+    },
+    {
+     "id": "22-06-dim-led",
+     "title": "Fix the dim night light",
+     "kind": "dc",
+     "lesson": "06-bring-up",
+     "source": "phases/22-capstone/06-bring-up/lab/task.json"
+    }
+   ]
+  },
+  {
+   "number": "ex",
+   "slug": "zz-examples",
+   "title": "Examples",
+   "tasks": [
+    {
+     "id": "ex-01-led-resistor",
+     "title": "Light the LED without burning it",
+     "kind": "dc",
+     "lesson": "led-resistor",
+     "source": "lab/examples/led-resistor/task.json"
+    },
+    {
+     "id": "ex-02-rc-timer",
+     "title": "A one-second timer",
+     "kind": "transient",
+     "lesson": "rc-timer",
+     "source": "lab/examples/rc-timer/task.json"
+    },
+    {
+     "id": "ex-03-xor",
+     "title": "Build XOR from simple gates",
+     "kind": "logic",
+     "lesson": "xor-gate",
+     "source": "lab/examples/xor-gate/task.json"
+    }
+   ]
+  }
+ ]
+}

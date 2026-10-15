@@ -1,0 +1,93 @@
+[
+  {
+    "id": "22-02-pre-1",
+    "stage": "pre",
+    "question": "A part draws 2 mA for 10 hours and 0.01 mA for 14 hours each day. About how much charge per day?",
+    "options": [
+      "20.14 mAh",
+      "2.01 mAh",
+      "24 mAh",
+      "201 mAh"
+    ],
+    "correct": 0,
+    "explanation": "2 * 10 + 0.01 * 14 = 20 + 0.14 = 20.14 mAh."
+  },
+  {
+    "id": "22-02-pre-2",
+    "stage": "pre",
+    "question": "What is quiescent current?",
+    "options": [
+      "The largest current a part can survive",
+      "The current a part draws just by being powered, doing no useful work",
+      "The current through a short circuit",
+      "The current of a battery when new"
+    ],
+    "correct": 1,
+    "explanation": "For battery devices that sleep a lot, quiescent currents can dominate the budget."
+  },
+  {
+    "id": "22-02-post-1",
+    "stage": "post",
+    "question": "Why does the LED current fall so much (19 mA to about 7 mA) when the battery drops from 4.5 V to 3.6 V?",
+    "options": [
+      "The LED's voltage rises with age",
+      "The transistor turns off",
+      "The resistor heats up",
+      "Only the difference between the battery and the LED's 3.1 V (plus the transistor) drives current through the resistor, and that difference shrinks a lot"
+    ],
+    "correct": 3,
+    "explanation": "I = (Vbat - 3.1 - 0.1) / 68: the numerator falls from 1.3 V to 0.4 V."
+  },
+  {
+    "id": "22-02-post-2",
+    "stage": "post",
+    "question": "Why is the LDR divider powered from a microcontroller pin instead of the 3.3 V rail?",
+    "options": [
+      "The pin gives a more accurate voltage",
+      "The rail cannot supply 0.165 mA",
+      "So the divider draws current only during the 2 ms measurements, about 0.2% of the time",
+      "Because the ADC needs a pin to be high"
+    ],
+    "correct": 2,
+    "explanation": "Switching the divider off between measurements removes almost all of its consumption."
+  },
+  {
+    "id": "22-02-post-3",
+    "stage": "post",
+    "question": "Which block uses most of the night light's daily energy?",
+    "options": [
+      "The microcontroller",
+      "The LDO",
+      "The battery-sense divider",
+      "The LED"
+    ],
+    "correct": 3,
+    "explanation": "About 92% goes to the LED and 7% to the transistor's base; everything else is under 1%."
+  },
+  {
+    "id": "22-02-post-4",
+    "stage": "post",
+    "question": "What would replacing the NPN switch by a logic-level MOSFET save?",
+    "options": [
+      "The base current (about 7% of the energy), because a MOSFET's gate draws no steady current",
+      "Nothing, MOSFETs need more current",
+      "The LED current",
+      "The LDO quiescent current"
+    ],
+    "correct": 0,
+    "explanation": "A MOSFET gate is a capacitor: it takes current only while switching."
+  },
+  {
+    "id": "22-02-post-5",
+    "stage": "post",
+    "question": "At 3.9 V the LED draws 10.7 mA when on. What PWM duty keeps the average at 5.7 mA?",
+    "options": [
+      "30%",
+      "About 53%",
+      "100%",
+      "10.7%"
+    ],
+    "correct": 1,
+    "explanation": "Duty = 5.7 / 10.7 = 0.53."
+  }
+]

@@ -1,0 +1,96 @@
+{
+ "id": "19-04-sampling-and-nyquist",
+ "title": "An anti-aliasing RC filter",
+ "kind": "ac",
+ "story": "A vibration sensor's useful signal is below 100 Hz, and the ADC samples at 10 000 samples per second. Anything near or above the 5 kHz Nyquist frequency will fold back and pollute the readings. A 100 nF capacitor is fitted; choose the resistor of the RC low-pass in front of the ADC so the signal at 100 Hz loses less than 1 dB while anything at 5 kHz is attenuated by at least 12 dB.",
+ "sim": {
+  "f_start": 10,
+  "f_stop": 100000,
+  "points": 300,
+  "source": "VIN"
+ },
+ "board": {
+  "nodes": {
+   "in": [
+    1,
+    2
+   ],
+   "out": [
+    7,
+    2
+   ],
+   "gnd": [
+    1,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "voltage_source",
+    "id": "VIN",
+    "plus": "in",
+    "minus": "gnd",
+    "volts": 0
+   },
+   {
+    "type": "capacitor",
+    "id": "C1",
+    "a": "out",
+    "b": "gnd",
+    "farads": 1e-07
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "in",
+    "b": "out",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 160
+  },
+  {
+   "type": "resistor",
+   "ohms": 1600
+  },
+  {
+   "type": "resistor",
+   "ohms": 16000
+  }
+ ],
+ "goals": [
+  {
+   "measure": "gain_db_at",
+   "at": "out",
+   "freq": 100,
+   "min": -1.0,
+   "label": "signal at 100 Hz loses less than 1 dB"
+  },
+  {
+   "measure": "gain_db_at",
+   "at": "out",
+   "freq": 5000,
+   "max": -12.0,
+   "label": "at least 12 dB of attenuation at 5 kHz"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 1600
+  }
+ },
+ "hints": [
+  "The cutoff frequency is f_c = 1 / (2 pi R C).",
+  "Well above the cutoff, a first-order RC loses about 20 dB for every factor of 10 in frequency.",
+  "The cutoff must sit well above 100 Hz but well below 5 kHz: try each resistor with C = 100 nF."
+ ]
+}

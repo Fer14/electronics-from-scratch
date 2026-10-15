@@ -1,0 +1,76 @@
+[
+  {
+    "id": "19-06-pre-1",
+    "stage": "pre",
+    "question": "Where does the noise voltage across a plain resistor sitting on a table come from?",
+    "options": [
+      "From radio stations only",
+      "From the random thermal motion of its electrons",
+      "It has none unless current flows",
+      "From manufacturing defects only"
+    ],
+    "correct": 1,
+    "explanation": "Thermal (Johnson) noise comes from the thermal jiggling of electrons in any conductor above absolute zero, even with no current."
+  },
+  {
+    "id": "19-06-pre-2",
+    "stage": "pre",
+    "question": "You average many noisy readings of a steady value. What generally happens to the random scatter?",
+    "options": ["It grows", "It stays the same", "It shrinks", "It becomes a sine wave"],
+    "correct": 2,
+    "explanation": "Independent random errors partly cancel in an average; for white noise the scatter falls as 1 / sqrt(N)."
+  },
+  {
+    "id": "19-06-post-1",
+    "stage": "post",
+    "question": "A 10 kohm resistor has 1.29 uV RMS of thermal noise over 10 kHz. What does it have over 40 kHz?",
+    "options": ["5.16 uV", "1.29 uV", "0.65 uV", "2.58 uV"],
+    "correct": 3,
+    "explanation": "Thermal noise is white: RMS grows as sqrt(B). Four times the bandwidth gives twice the RMS: 2.58 uV."
+  },
+  {
+    "id": "19-06-post-2",
+    "stage": "post",
+    "question": "Each reading has 4 mV RMS of white noise. What is the noise of the average of 64 readings?",
+    "options": ["0.5 mV", "0.0625 mV", "4 mV", "1 mV"],
+    "correct": 0,
+    "explanation": "sigma / sqrt(N) = 4 / 8 = 0.5 mV."
+  },
+  {
+    "id": "19-06-post-3",
+    "stage": "post",
+    "question": "Independent noises of 6 uV and 8 uV RMS are present together. What is the total RMS?",
+    "options": ["14 uV", "10 uV", "2 uV", "48 uV"],
+    "correct": 1,
+    "explanation": "Independent noises add as powers: sqrt(36 + 64) = sqrt(100) = 10 uV."
+  },
+  {
+    "id": "19-06-post-4",
+    "stage": "post",
+    "question": "Why does averaging for longer and longer stop improving a real sensor's reading?",
+    "options": [
+      "Because the ADC overflows",
+      "Because 1/f noise and drift are concentrated at low frequencies, which long averages still let through",
+      "Because white noise grows with time",
+      "Because the sensor switches off"
+    ],
+    "correct": 1,
+    "explanation": "Averaging is a low-pass filter. It removes high-frequency white noise but not slow wander, which dominates at long times."
+  },
+  {
+    "id": "19-06-post-5",
+    "stage": "post",
+    "question": "A DC measurement is spoiled by 50 Hz hum. Which averaging window cancels the hum exactly?",
+    "options": ["15 ms", "25 ms", "40 ms", "30 ms"],
+    "correct": 2,
+    "explanation": "One 50 Hz period is 20 ms. Averaging over a whole number of periods (40 ms is two) cancels the sine completely."
+  },
+  {
+    "id": "19-06-post-6",
+    "stage": "post",
+    "question": "What is the shot noise of a 1 uA current over 10 kHz (q = 1.6e-19 C)?",
+    "options": ["About 57 pA", "About 1.6 pA", "About 1 uA", "About 5.7 nA"],
+    "correct": 0,
+    "explanation": "sqrt(2 x 1.6e-19 x 1e-6 x 1e4) = sqrt(3.2e-21) = 5.7e-11 A = 57 pA."
+  }
+]

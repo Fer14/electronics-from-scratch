@@ -1,0 +1,32 @@
+{
+  "id": "05-07-maximum-power-transfer",
+  "title": "Squeeze the most power out of a source",
+  "kind": "dc",
+  "story": "A 12 V battery drives 3 kOhm over 6 kOhm, and the load slot sits across the 6 kOhm. Get at least 7.5 mW into the load. Only one of the four resistors can do it.",
+  "board": {
+    "nodes": {"a": [1, 1], "p": [5, 1], "gnd": [5, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "V1", "plus": "a", "minus": "gnd", "volts": 12},
+      {"type": "resistor", "id": "R1", "a": "a", "b": "p", "ohms": 3000},
+      {"type": "resistor", "id": "R2", "a": "p", "b": "gnd", "ohms": 6000}
+    ],
+    "slots": [
+      {"id": "RL", "a": "p", "b": "gnd", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 1000},
+    {"type": "resistor", "ohms": 2000},
+    {"type": "resistor", "ohms": 4000},
+    {"type": "resistor", "ohms": 10000}
+  ],
+  "goals": [
+    {"measure": "power", "of": "RL", "min": 0.0075, "label": "at least 7.5 mW in the load"}
+  ],
+  "solution": {"RL": {"type": "resistor", "ohms": 2000}},
+  "hints": [
+    "Find the Thevenin equivalent: Vth = 12 x 6 / 9 = 8 V, Rth = 3 kOhm || 6 kOhm = 2 kOhm.",
+    "The most any load can get is Vth^2 / (4 Rth) = 8 mW, and only when RL = Rth. Half or double Rth gives just 7.1 mW."
+  ]
+}

@@ -1,0 +1,118 @@
+{
+ "id": "10-06-kill-the-hum",
+ "title": "Kill the 50 Hz hum",
+ "kind": "ac",
+ "story": "A guitar signal picks up a loud 50 Hz hum from the mains wiring. A 1 k ohm resistor feeds node out, and from out to ground runs a series trap: an empty capacitor slot, then a 1 H coil with 10 ohm of winding resistance. At its resonant frequency the trap shorts node out to ground. Pick the capacitor that cuts 50 Hz by at least 20 dB while the guitar's notes around 1 kHz lose less than 1 dB.",
+ "sim": {
+  "source": "V1",
+  "f_start": 10,
+  "f_stop": 10000,
+  "points": 600
+ },
+ "board": {
+  "nodes": {
+   "in": [
+    1,
+    1
+   ],
+   "out": [
+    5,
+    1
+   ],
+   "m": [
+    5,
+    3
+   ],
+   "w": [
+    5,
+    4
+   ],
+   "gnd": [
+    5,
+    6
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "sine_source",
+    "id": "V1",
+    "plus": "in",
+    "minus": "gnd",
+    "amplitude": 1,
+    "freq": 50
+   },
+   {
+    "type": "resistor",
+    "id": "R1",
+    "a": "in",
+    "b": "out",
+    "ohms": 1000
+   },
+   {
+    "type": "inductor",
+    "id": "L1",
+    "a": "m",
+    "b": "w",
+    "henries": 1
+   },
+   {
+    "type": "resistor",
+    "id": "Rw",
+    "a": "w",
+    "b": "gnd",
+    "ohms": 10
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "out",
+    "b": "m",
+    "accepts": [
+     "capacitor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "capacitor",
+   "farads": 1e-06
+  },
+  {
+   "type": "capacitor",
+   "farads": 1e-05
+  },
+  {
+   "type": "capacitor",
+   "farads": 0.0001
+  }
+ ],
+ "goals": [
+  {
+   "measure": "gain_db_at",
+   "at": "out",
+   "freq": 50,
+   "max": -20,
+   "label": "50 Hz hum cut by at least 20 dB"
+  },
+  {
+   "measure": "gain_db_at",
+   "at": "out",
+   "freq": 1000,
+   "min": -1,
+   "label": "1 kHz notes lose less than 1 dB"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "capacitor",
+   "farads": 1e-05
+  }
+ },
+ "hints": [
+  "The trap has its lowest impedance at f0 = 1 / (2 pi sqrt(L C)). Put f0 on 50 Hz.",
+  "C = 1 / ((2 pi x 50)^2 x 1 H) is about 10 uF."
+ ]
+}

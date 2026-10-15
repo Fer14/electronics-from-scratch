@@ -1,0 +1,106 @@
+[
+  {
+    "id": "10-03-pre-1",
+    "stage": "pre",
+    "question": "What is log10(10,000)?",
+    "options": [
+      "4",
+      "1000",
+      "10",
+      "40"
+    ],
+    "correct": 0,
+    "explanation": "10^4 = 10,000, so the logarithm is 4. For powers of ten, count the zeros."
+  },
+  {
+    "id": "10-03-pre-2",
+    "stage": "pre",
+    "question": "A filter halves the voltage. How many dB is that?",
+    "options": [
+      "-3 dB",
+      "-0.5 dB",
+      "-6 dB",
+      "-50 dB"
+    ],
+    "correct": 2,
+    "explanation": "20 log10(0.5) = 20 x (-0.301) = -6.02 dB."
+  },
+  {
+    "id": "10-03-post-1",
+    "stage": "post",
+    "question": "What voltage ratio is -40 dB?",
+    "options": [
+      "0.4",
+      "0.1",
+      "0.001",
+      "0.01"
+    ],
+    "correct": 3,
+    "explanation": "10^(-40/20) = 10^(-2) = 0.01."
+  },
+  {
+    "id": "10-03-post-2",
+    "stage": "post",
+    "question": "How fast does a first-order RC low-pass roll off far above its cutoff?",
+    "options": [
+      "-20 dB per decade",
+      "-3 dB per decade",
+      "-40 dB per decade",
+      "-10 dB per octave"
+    ],
+    "correct": 0,
+    "explanation": "|H| is about fc/f, so each factor of 10 in frequency divides the gain by 10: -20 dB per decade, or -6 dB per octave."
+  },
+  {
+    "id": "10-03-post-3",
+    "stage": "post",
+    "question": "Two buffered stages have gains of +20 dB and -6 dB. What is the total gain as a plain voltage ratio?",
+    "options": [
+      "14",
+      "5",
+      "20",
+      "0.2"
+    ],
+    "correct": 1,
+    "explanation": "+20 - 6 = +14 dB, and 10^(14/20) = 5.0 (that is 10 x 0.5)."
+  },
+  {
+    "id": "10-03-post-4",
+    "stage": "post",
+    "question": "On a Bode plot of an RC low-pass, how far is the true curve from the straight-line asymptotes at the corner frequency?",
+    "options": [
+      "0 dB, it touches them",
+      "20 dB below",
+      "6 dB above",
+      "3 dB below"
+    ],
+    "correct": 3,
+    "explanation": "At fc the gain is 0.707 = -3 dB, while both asymptotes meet at 0 dB."
+  },
+  {
+    "id": "10-03-post-5",
+    "stage": "post",
+    "question": "A transmitter outputs 100 mW. How many dBm is that?",
+    "options": [
+      "+100 dBm",
+      "+10 dBm",
+      "+20 dBm",
+      "-10 dBm"
+    ],
+    "correct": 2,
+    "explanation": "10 log10(100 mW / 1 mW) = 10 x 2 = +20 dBm."
+  },
+  {
+    "id": "10-03-post-6",
+    "stage": "post",
+    "question": "Two identical RC low-passes are connected directly, without a buffer. Why is the total gain at fc worse than -6 dB?",
+    "options": [
+      "Because dB never add",
+      "Because the second stage loads the first, pulling its output down",
+      "Because the capacitors are in series",
+      "Because the phase shifts cancel"
+    ],
+    "correct": 1,
+    "explanation": "The second RC draws current from the first stage's capacitor, changing its response. dB add exactly only for stages that do not load each other."
+  }
+]

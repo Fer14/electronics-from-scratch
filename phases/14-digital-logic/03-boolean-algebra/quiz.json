@@ -1,0 +1,106 @@
+[
+  {
+    "id": "14-03-pre-1",
+    "stage": "pre",
+    "question": "A lamp is wired through two switches in series. When does it light?",
+    "options": [
+      "When either switch is closed",
+      "When both switches are closed",
+      "When both switches are open",
+      "Always"
+    ],
+    "correct": 1,
+    "explanation": "Series switches need every switch closed to complete the loop: that is AND."
+  },
+  {
+    "id": "14-03-pre-2",
+    "stage": "pre",
+    "question": "How many rows does the truth table of a 4-input function have?",
+    "options": [
+      "4",
+      "8",
+      "12",
+      "16"
+    ],
+    "correct": 3,
+    "explanation": "Each input doubles the number of combinations: 2^4 = 16."
+  },
+  {
+    "id": "14-03-post-1",
+    "stage": "post",
+    "question": "In Boolean algebra, what is 1 + 1?",
+    "options": [
+      "1",
+      "2",
+      "0",
+      "10"
+    ],
+    "correct": 0,
+    "explanation": "+ means OR: true or true is true."
+  },
+  {
+    "id": "14-03-post-2",
+    "stage": "post",
+    "question": "By De Morgan's law, (a + b)' equals:",
+    "options": [
+      "a' + b'",
+      "a + b",
+      "a'·b'",
+      "(a·b)'"
+    ],
+    "correct": 2,
+    "explanation": "Push the NOT inside: negate each variable and swap OR for AND."
+  },
+  {
+    "id": "14-03-post-3",
+    "stage": "post",
+    "question": "Simplify a·b + a·b'.",
+    "options": [
+      "b",
+      "a",
+      "1",
+      "a·b"
+    ],
+    "correct": 1,
+    "explanation": "Factor a: a·(b + b') = a·1 = a."
+  },
+  {
+    "id": "14-03-post-4",
+    "stage": "post",
+    "question": "Why are the columns of a 3-variable Karnaugh map ordered 00, 01, 11, 10?",
+    "options": [
+      "It is alphabetical",
+      "It makes the map smaller",
+      "It is the order the inputs arrive",
+      "Neighbouring columns then differ in exactly one bit, so adjacent 1s can merge"
+    ],
+    "correct": 3,
+    "explanation": "This Gray-code order makes adjacency on the map mean 'differs in one variable', which is what the merging rule X·c + X·c' = X needs."
+  },
+  {
+    "id": "14-03-post-5",
+    "stage": "post",
+    "question": "y = a·b + c·d is built only from 2-input NAND gates. Which circuit is correct?",
+    "options": [
+      "NAND(NAND(a, b), NAND(c, d))",
+      "NAND(NAND(a, c), NAND(b, d))",
+      "NAND(a, b) and NAND(c, d) joined by a wire",
+      "It cannot be built from NANDs"
+    ],
+    "correct": 0,
+    "explanation": "By De Morgan, NAND(X', Y') = X + Y, so NAND of the two product NANDs is the OR of the products."
+  },
+  {
+    "id": "14-03-post-6",
+    "stage": "post",
+    "question": "A truth table has output 1 only on the row a=1, b=0, c=1. What is its minterm?",
+    "options": [
+      "a + b' + c",
+      "a·b'·c",
+      "a'·b·c'",
+      "a·b·c"
+    ],
+    "correct": 1,
+    "explanation": "Use each variable plain where it is 1 and negated where it is 0, and AND them."
+  }
+]

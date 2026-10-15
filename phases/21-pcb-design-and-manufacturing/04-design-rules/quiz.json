@@ -1,0 +1,93 @@
+[
+  {
+    "id": "21-04-pre-1",
+    "stage": "pre",
+    "question": "Why does a PCB factory have a minimum gap between two traces?",
+    "options": [
+      "To save copper",
+      "Because etching is imprecise: gaps that are too small can be left bridged by copper",
+      "Because solder mask cannot be green otherwise",
+      "Because the board would be too heavy"
+    ],
+    "correct": 1,
+    "explanation": "The etching process has a finite precision and undercuts edges; very small gaps may not be fully cleared, causing shorts."
+  },
+  {
+    "id": "21-04-pre-2",
+    "stage": "pre",
+    "question": "What is the annular ring of a via?",
+    "options": [
+      "The copper ring left around the drilled hole",
+      "The solder mask around a pad",
+      "The outline of the board",
+      "The silkscreen circle around a part"
+    ],
+    "correct": 0,
+    "explanation": "It is (pad diameter - drill diameter) / 2. If it is too thin, a slightly off-centre drill breaks out of the pad."
+  },
+  {
+    "id": "21-04-post-1",
+    "stage": "post",
+    "question": "Two 0.3 mm wide traces have centre lines 0.5 mm apart. What is the copper gap?",
+    "options": [
+      "0.5 mm",
+      "0.35 mm",
+      "0.2 mm",
+      "0.8 mm"
+    ],
+    "correct": 2,
+    "explanation": "Gap = 0.5 - 0.15 - 0.15 = 0.2 mm: subtract half of each width from the centre-line distance."
+  },
+  {
+    "id": "21-04-post-2",
+    "stage": "post",
+    "question": "A via has a 0.25 mm drill and a 0.50 mm pad. Against rules of 0.30 mm minimum drill and 0.15 mm annular ring, which rules fail?",
+    "options": [
+      "Only the drill rule",
+      "Only the annular ring rule",
+      "Neither",
+      "Both: the drill is too small and the ring is only 0.125 mm"
+    ],
+    "correct": 3,
+    "explanation": "Ring = (0.50 - 0.25)/2 = 0.125 mm < 0.15 mm, and 0.25 mm < 0.30 mm minimum drill."
+  },
+  {
+    "id": "21-04-post-3",
+    "stage": "post",
+    "question": "Why do higher voltages need bigger clearances?",
+    "options": [
+      "Higher voltage makes copper expand",
+      "A larger voltage across the same gap means a stronger electric field, which can cause sparks or surface leakage",
+      "The factory charges more for high voltage",
+      "High voltage makes traces thinner"
+    ],
+    "correct": 1,
+    "explanation": "The field across a gap is roughly V / d. Keeping it below the breakdown and leakage limits means d must grow with V."
+  },
+  {
+    "id": "21-04-post-4",
+    "stage": "post",
+    "question": "A supply rule says droop must stay below 0.1 V for a 1 A step through 1 uH. Using droop ~ I sqrt(L/C), what is the minimum capacitance?",
+    "options": [
+      "100 uF",
+      "10 uF",
+      "1 uF",
+      "1000 uF"
+    ],
+    "correct": 0,
+    "explanation": "sqrt(L/C) <= 0.1 ohm, so L/C <= 0.01 and C >= 1e-6 / 0.01 = 1e-4 F = 100 uF."
+  },
+  {
+    "id": "21-04-post-5",
+    "stage": "post",
+    "question": "A layout passes DRC with zero errors. What can you conclude?",
+    "options": [
+      "The board will work",
+      "The board meets the geometric rules you gave the checker, but electrical issues like decoupling placement still need review",
+      "No simulation is needed",
+      "The schematic is correct"
+    ],
+    "correct": 1,
+    "explanation": "DRC checks only the rules it knows. Circuit-level problems and badly chosen rules are not caught."
+  }
+]

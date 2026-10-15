@@ -1,0 +1,93 @@
+[
+  {
+    "id": "02-06-pre-1",
+    "stage": "pre",
+    "question": "On a standard breadboard, which two holes are connected to each other with nothing plugged in?",
+    "options": [
+      "a10 and a11",
+      "b10 and d10",
+      "e10 and f10",
+      "a10 and j10"
+    ],
+    "correct": 1,
+    "explanation": "Holes a to e of the same row share one metal clip, so b10 and d10 are connected. a10/a11 are different rows, and e10/f10 (or a10/j10) are on opposite sides of the centre gap."
+  },
+  {
+    "id": "02-06-pre-2",
+    "stage": "pre",
+    "question": "What is the long groove down the middle of a breadboard for?",
+    "options": [
+      "Cooling the parts",
+      "Holding the battery",
+      "It is only decoration",
+      "Separating the two halves of each row, so a chip can sit across it without its opposite legs being joined"
+    ],
+    "correct": 3,
+    "explanation": "The centre gap is 0.3 inch wide, matching DIP chips. It splits every row into two independent strips."
+  },
+  {
+    "id": "02-06-pre-3",
+    "stage": "pre",
+    "question": "How are the holes of a power rail (the long columns marked red + and blue -) connected?",
+    "options": [
+      "All holes along one rail line are joined, down the length of the board",
+      "In groups of five across the board, like the rows",
+      "Not at all, each hole is independent",
+      "Every rail is joined to every other rail"
+    ],
+    "correct": 0,
+    "explanation": "Each rail is one long strip running the length of the board (on some full-size boards split in the middle). Different rails are separate until you add a jumper."
+  },
+  {
+    "id": "02-06-post-1",
+    "stage": "post",
+    "question": "You push a resistor in with one leg in b12 and the other in e12. What does the resistor do in the circuit?",
+    "options": [
+      "It works normally",
+      "It doubles its resistance",
+      "Nothing: both legs are in the same strip, so it is shorted out",
+      "It blocks all current in row 12"
+    ],
+    "correct": 2,
+    "explanation": "b12 and e12 are on the same clip, so the clip connects the two legs directly. Current takes the near-zero-ohm clip and the resistor is bypassed."
+  },
+  {
+    "id": "02-06-post-2",
+    "stage": "post",
+    "question": "Your LED circuit is wired: plus rail -> resistor -> row 10 -> LED -> row 13. Row 13 holds only the LED's cathode. What is wrong?",
+    "options": [
+      "Nothing, the LED should light",
+      "The loop is open: row 13 needs a wire to the minus rail",
+      "The LED is shorted out",
+      "The battery is short-circuited"
+    ],
+    "correct": 1,
+    "explanation": "A net with only one lead in it is a dead end. Without a path from row 13 back to the minus rail, no current flows and the LED stays dark."
+  },
+  {
+    "id": "02-06-post-3",
+    "stage": "post",
+    "question": "An LED has its anode in e7 and its cathode in f7. Is that a problem?",
+    "options": [
+      "Yes, both legs are in row 7 so the LED is shorted",
+      "Yes, LEDs must never cross the gap",
+      "Only if the battery is above 5 V",
+      "No: e7 and f7 are on different sides of the gap, so they are different nets"
+    ],
+    "correct": 3,
+    "explanation": "Same row number is not the same net. The centre gap separates e7 from f7, so the LED's legs are in two different strips, which is perfectly fine."
+  },
+  {
+    "id": "02-06-post-4",
+    "stage": "post",
+    "question": "In the union-find model of the board, when are two holes electrically connected?",
+    "options": [
+      "When find() returns the same root (leader) for both",
+      "When they have the same letter",
+      "When they are next to each other",
+      "When they have the same row number"
+    ],
+    "correct": 0,
+    "explanation": "Every clip and every jumper wire merges groups with union(). Two holes are connected exactly when they end up in the same group, which means find() gives the same root."
+  }
+]

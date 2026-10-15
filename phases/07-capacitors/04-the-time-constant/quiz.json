@@ -1,0 +1,93 @@
+[
+  {
+    "id": "07-04-pre-1",
+    "stage": "pre",
+    "question": "What are the units of R x C (ohms times farads)?",
+    "options": [
+      "Volts",
+      "Amperes",
+      "Watts",
+      "Seconds"
+    ],
+    "correct": 3,
+    "explanation": "Ohms are volts per ampere, farads are coulombs per volt. The product is coulombs per ampere, and an ampere is a coulomb per second, so the result is seconds."
+  },
+  {
+    "id": "07-04-pre-2",
+    "stage": "pre",
+    "question": "After one time constant, how far has a charging capacitor got toward its final voltage?",
+    "options": [
+      "About 63%",
+      "50%",
+      "100%",
+      "About 37%"
+    ],
+    "correct": 0,
+    "explanation": "v = V (1 - e^-1) = 0.632 V. 37% is what is still missing."
+  },
+  {
+    "id": "07-04-post-1",
+    "stage": "post",
+    "question": "Which pair has the same time constant as 1 kOhm with 1 uF?",
+    "options": [
+      "10 kOhm with 1 uF",
+      "10 kOhm with 100 nF",
+      "100 Ohm with 1 uF",
+      "1 kOhm with 100 nF"
+    ],
+    "correct": 1,
+    "explanation": "1 kOhm x 1 uF = 1 ms, and 10,000 Ohm x 100e-9 F = 1e-3 s = 1 ms. The others are 10 ms, 0.1 ms and 0.1 ms."
+  },
+  {
+    "id": "07-04-post-2",
+    "stage": "post",
+    "question": "How long does an RC charging from 0 V take to reach half of the supply voltage?",
+    "options": [
+      "0.5 tau",
+      "1 tau",
+      "0.693 tau",
+      "2.2 tau"
+    ],
+    "correct": 2,
+    "explanation": "t = tau x ln(V / (V - V/2)) = tau x ln 2 = 0.693 tau."
+  },
+  {
+    "id": "07-04-post-3",
+    "stage": "post",
+    "question": "A 3.3 V supply charges an RC with tau = 2 ms. When does the capacitor cross 2.0 V?",
+    "options": [
+      "About 1.21 ms",
+      "About 1.87 ms",
+      "About 2.00 ms",
+      "About 4.6 ms"
+    ],
+    "correct": 1,
+    "explanation": "t = 2 ms x ln(3.3 / (3.3 - 2.0)) = 2 ms x ln(2.538) = 2 ms x 0.932 = 1.86 ms."
+  },
+  {
+    "id": "07-04-post-4",
+    "stage": "post",
+    "question": "What is the 10%-90% rise time of a signal slowed by an RC with tau = 5 ns?",
+    "options": [
+      "5 ns",
+      "About 3.5 ns",
+      "About 25 ns",
+      "About 11 ns"
+    ],
+    "correct": 3,
+    "explanation": "The 10%-90% rise time of a first-order RC is 2.2 tau = 2.2 x 5 ns = 11 ns."
+  },
+  {
+    "id": "07-04-post-5",
+    "stage": "post",
+    "question": "You need a 5 V RC to cross 2.5 V at about 5 ms using 100 nF. Roughly which resistor?",
+    "options": [
+      "About 72 kOhm",
+      "About 50 kOhm",
+      "About 7.2 kOhm",
+      "About 720 kOhm"
+    ],
+    "correct": 0,
+    "explanation": "0.693 tau = 5 ms gives tau = 7.21 ms. R = tau / C = 7.21e-3 / 100e-9 = 72.1 kOhm."
+  }
+]

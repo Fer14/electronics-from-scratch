@@ -1,0 +1,176 @@
+{
+ "id": "15-05-two-bit-counter",
+ "title": "Next-state logic of a 2-bit counter",
+ "kind": "logic",
+ "story": "Two flip-flops hold a count q1 q0 that must go 00, 01, 10, 11, 00, ... advancing by one at each clock edge where en = 1 and staying put where en = 0. The AND that computes t1 = q0\u00b7en is already wired. Fill the slots that compute the next value of each bit.",
+ "board": {
+  "inputs": [
+   "en"
+  ],
+  "outputs": [
+   "q1",
+   "q0"
+  ],
+  "clock": "clk",
+  "nodes": {
+   "en": [
+    1,
+    3
+   ],
+   "q0": [
+    8,
+    5
+   ],
+   "n0": [
+    5,
+    5
+   ],
+   "t1": [
+    4,
+    2
+   ],
+   "n1": [
+    6,
+    1
+   ],
+   "q1": [
+    8,
+    1
+   ]
+  },
+  "fixed": [
+   {
+    "type": "gate",
+    "id": "G1",
+    "op": "and",
+    "inputs": [
+     "q0",
+     "en"
+    ],
+    "output": "t1"
+   },
+   {
+    "type": "dff",
+    "id": "F0",
+    "d": "n0",
+    "q": "q0"
+   },
+   {
+    "type": "dff",
+    "id": "F1",
+    "d": "n1",
+    "q": "q1"
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "inputs": [
+     "q0",
+     "en"
+    ],
+    "output": "n0",
+    "accepts": [
+     "gate"
+    ]
+   },
+   {
+    "id": "S2",
+    "inputs": [
+     "q1",
+     "t1"
+    ],
+    "output": "n1",
+    "accepts": [
+     "gate"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "gate",
+   "op": "xor"
+  },
+  {
+   "type": "gate",
+   "op": "and"
+  },
+  {
+   "type": "gate",
+   "op": "or"
+  },
+  {
+   "type": "gate",
+   "op": "nand"
+  }
+ ],
+ "goals": [
+  {
+   "measure": "sequence",
+   "steps": [
+    {
+     "en": 1
+    },
+    {
+     "en": 1
+    },
+    {
+     "en": 0
+    },
+    {
+     "en": 1
+    },
+    {
+     "en": 1
+    },
+    {
+     "en": 1
+    },
+    {
+     "en": 0
+    },
+    {
+     "en": 1
+    }
+   ],
+   "expect": {
+    "q0": [
+     1,
+     0,
+     0,
+     1,
+     0,
+     1,
+     1,
+     0
+    ],
+    "q1": [
+     0,
+     1,
+     1,
+     1,
+     0,
+     0,
+     0,
+     1
+    ]
+   },
+   "label": "the count advances by one on each edge with en = 1 and holds with en = 0 (8 edges)"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "gate",
+   "op": "xor"
+  },
+  "S2": {
+   "type": "gate",
+   "op": "xor"
+  }
+ },
+ "hints": [
+  "A bit of a binary counter flips when every lower bit is 1 (and counting is enabled), and stays otherwise.",
+  "Which gate flips one input when the other input is 1 and passes it unchanged when it is 0?"
+ ]
+}

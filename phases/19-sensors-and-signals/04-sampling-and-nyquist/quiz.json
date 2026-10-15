@@ -1,0 +1,106 @@
+[
+  {
+    "id": "19-04-pre-1",
+    "stage": "pre",
+    "question": "An ADC takes 2000 samples per second. How long is it between samples?",
+    "options": [
+      "2 ms",
+      "0.5 ms",
+      "20 ms",
+      "50 us"
+    ],
+    "correct": 1,
+    "explanation": "Ts = 1 / fs = 1 / 2000 s = 0.0005 s = 0.5 ms."
+  },
+  {
+    "id": "19-04-pre-2",
+    "stage": "pre",
+    "question": "In old films, why can wagon wheels appear to turn slowly backwards?",
+    "options": [
+      "The wheels really turned backwards",
+      "The film was played in reverse",
+      "The camera samples too slowly for the spokes' motion, so a fast rotation looks like a slow backwards one",
+      "The projector was broken"
+    ],
+    "correct": 2,
+    "explanation": "This is aliasing: each frame catches the spokes slightly behind where they were, which the eye reads as backwards motion."
+  },
+  {
+    "id": "19-04-post-1",
+    "stage": "post",
+    "question": "A signal is sampled at 1000 samples/s. At what frequency does a 1300 Hz tone appear in the samples?",
+    "options": [
+      "300 Hz",
+      "1300 Hz",
+      "700 Hz",
+      "500 Hz"
+    ],
+    "correct": 0,
+    "explanation": "f_alias = |1300 - 1000 x round(1.3)| = |1300 - 1000| = 300 Hz."
+  },
+  {
+    "id": "19-04-post-2",
+    "stage": "post",
+    "question": "What is the Nyquist frequency for a sampling rate of 48 kHz?",
+    "options": [
+      "96 kHz",
+      "48 kHz",
+      "24 kHz",
+      "12 kHz"
+    ],
+    "correct": 2,
+    "explanation": "The Nyquist frequency is half the sampling rate: 24 kHz."
+  },
+  {
+    "id": "19-04-post-3",
+    "stage": "post",
+    "question": "Noise at 950 Hz has aliased to 50 Hz in your samples. Which fix works?",
+    "options": [
+      "A digital 50 Hz notch filter after the ADC",
+      "Averaging the samples",
+      "A low-pass filter before the ADC, or a higher sampling rate",
+      "Using a 16-bit ADC instead of 10-bit"
+    ],
+    "correct": 2,
+    "explanation": "Once aliased, the noise is indistinguishable from a real 50 Hz signal. It must be removed before sampling or pushed below Nyquist by sampling faster."
+  },
+  {
+    "id": "19-04-post-4",
+    "stage": "post",
+    "question": "What does the sampling theorem promise?",
+    "options": [
+      "Any signal can be rebuilt from samples at any rate",
+      "A signal with no content at or above fs / 2 can be rebuilt exactly from its samples",
+      "Sampling always loses information",
+      "Sampling at exactly the signal frequency is enough"
+    ],
+    "correct": 1,
+    "explanation": "If everything is below Nyquist, sinc interpolation of the samples recovers the continuous signal exactly."
+  },
+  {
+    "id": "19-04-post-5",
+    "stage": "post",
+    "question": "An RC low-pass has R = 1 kohm and C = 100 nF. Roughly where is its cutoff, and how much does it attenuate at ten times that frequency?",
+    "options": [
+      "About 1.6 kHz, and about 20 dB at 16 kHz",
+      "About 10 kHz, and 3 dB at 100 kHz",
+      "About 160 Hz, and 40 dB at 1.6 kHz",
+      "About 1.6 kHz, and 3 dB at 16 kHz"
+    ],
+    "correct": 0,
+    "explanation": "f_c = 1 / (2 pi x 1000 x 1e-7) = 1592 Hz. A first-order filter falls about 20 dB per decade above the cutoff."
+  },
+  {
+    "id": "19-04-post-6",
+    "stage": "post",
+    "question": "Why do modern designs often sample much faster than twice the signal bandwidth?",
+    "options": [
+      "To use more memory",
+      "Because slow sampling damages ADCs",
+      "Because the Nyquist theorem requires ten times",
+      "To make the analog anti-aliasing filter easy (it only has to stop very high frequencies) and do the rest with digital filters"
+    ],
+    "correct": 3,
+    "explanation": "Oversampling moves the Nyquist frequency far above the signal, so a simple RC suffices and digital filters (Lesson 07) handle the band in between."
+  }
+]

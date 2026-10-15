@@ -1,0 +1,142 @@
+{
+  "id": "14-08-two-to-one-mux",
+  "title": "Build a 2-to-1 multiplexer",
+  "kind": "logic",
+  "story": "A multiplexer is a digital selector switch: when the select input s is 0 the output y copies a, when s is 1 it copies b. The inverter for s is already wired. Fill the two gating slots and the combining slot.",
+  "board": {
+    "inputs": [
+      "s",
+      "a",
+      "b"
+    ],
+    "outputs": [
+      "y"
+    ],
+    "nodes": {
+      "s": [
+        1,
+        3
+      ],
+      "ns": [
+        3,
+        2
+      ],
+      "a": [
+        1,
+        1
+      ],
+      "b": [
+        1,
+        5
+      ],
+      "p": [
+        6,
+        1
+      ],
+      "q": [
+        6,
+        5
+      ],
+      "y": [
+        9,
+        3
+      ]
+    },
+    "fixed": [
+      {
+        "type": "gate",
+        "id": "G1",
+        "op": "not",
+        "inputs": [
+          "s"
+        ],
+        "output": "ns"
+      }
+    ],
+    "slots": [
+      {
+        "id": "S1",
+        "inputs": [
+          "a",
+          "ns"
+        ],
+        "output": "p",
+        "accepts": [
+          "gate"
+        ]
+      },
+      {
+        "id": "S2",
+        "inputs": [
+          "b",
+          "s"
+        ],
+        "output": "q",
+        "accepts": [
+          "gate"
+        ]
+      },
+      {
+        "id": "S3",
+        "inputs": [
+          "p",
+          "q"
+        ],
+        "output": "y",
+        "accepts": [
+          "gate"
+        ]
+      }
+    ]
+  },
+  "parts": [
+    {
+      "type": "gate",
+      "op": "and"
+    },
+    {
+      "type": "gate",
+      "op": "or"
+    },
+    {
+      "type": "gate",
+      "op": "nor"
+    }
+  ],
+  "goals": [
+    {
+      "measure": "truth_table",
+      "expect": {
+        "y": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      "label": "y = a when s = 0 and y = b when s = 1 (all 8 rows)"
+    }
+  ],
+  "solution": {
+    "S1": {
+      "type": "gate",
+      "op": "and"
+    },
+    "S2": {
+      "type": "gate",
+      "op": "and"
+    },
+    "S3": {
+      "type": "gate",
+      "op": "or"
+    }
+  },
+  "hints": [
+    "p should let a through only while s = 0, and q should let b through only while s = 1.",
+    "An AND gate with one input at 1 copies its other input; with one input at 0 it outputs 0."
+  ]
+}

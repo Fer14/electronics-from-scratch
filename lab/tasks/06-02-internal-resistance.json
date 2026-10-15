@@ -1,0 +1,106 @@
+{
+ "id": "06-02-internal-resistance",
+ "title": "Radio on a coin cell",
+ "kind": "dc",
+ "story": "A CR2032 coin cell (3.0 V inside, about 15 ohm of internal resistance) powers a tiny radio module. The module needs at least 2.7 V at its pins, and it must draw at least 10 mA to transmit. The resistor in the slot stands for how hard the module works. Pick it.",
+ "board": {
+  "nodes": {
+   "emf": [
+    1,
+    1
+   ],
+   "plus": [
+    5,
+    1
+   ],
+   "gnd": [
+    1,
+    5
+   ],
+   "g2": [
+    5,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "B1",
+    "plus": "emf",
+    "minus": "gnd",
+    "volts": 3.0
+   },
+   {
+    "type": "resistor",
+    "id": "Rint",
+    "a": "emf",
+    "b": "plus",
+    "ohms": 15
+   },
+   {
+    "type": "switch",
+    "id": "SW1",
+    "a": "g2",
+    "b": "gnd",
+    "closed": true
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "plus",
+    "b": "g2",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 47
+  },
+  {
+   "type": "resistor",
+   "ohms": 100
+  },
+  {
+   "type": "resistor",
+   "ohms": 150
+  },
+  {
+   "type": "resistor",
+   "ohms": 470
+  }
+ ],
+ "goals": [
+  {
+   "measure": "voltage",
+   "between": [
+    "plus",
+    "g2"
+   ],
+   "min": 2.7,
+   "label": "at least 2.7 V reaches the module"
+  },
+  {
+   "measure": "current",
+   "of": "S1",
+   "min": 0.01,
+   "label": "the module draws at least 10 mA"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 150
+  }
+ },
+ "hints": [
+  "Rint (15 ohm) and the module are in series: I = 3.0 / (15 + R).",
+  "The module's voltage is 3.0 * R / (R + 15). For 2.7 V you need R of at least 135 ohm.",
+  "For 10 mA you need 15 + R of at most 300 ohm, so R of at most 285 ohm."
+ ]
+}

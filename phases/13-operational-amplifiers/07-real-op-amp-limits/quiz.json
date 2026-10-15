@@ -1,0 +1,76 @@
+[
+  {
+    "id": "13-07-pre-1",
+    "stage": "pre",
+    "question": "Above its corner frequency, a first-order low-pass response falls at:",
+    "options": ["40 dB per decade", "20 dB per decade", "3 dB per decade", "It stays flat"],
+    "correct": 1,
+    "explanation": "One pole, 20 dB per decade (Phase 10). An op-amp's open-loop gain does the same above its dominant pole."
+  },
+  {
+    "id": "13-07-pre-2",
+    "stage": "pre",
+    "question": "A constant current I charges a capacitor C. Its voltage rises at:",
+    "options": ["I x C volts per second", "C / I volts per second", "I / C volts per second", "Exponentially"],
+    "correct": 2,
+    "explanation": "dV/dt = I / C. This is where an op-amp's slew rate comes from."
+  },
+  {
+    "id": "13-07-post-1",
+    "stage": "post",
+    "question": "An op-amp has GBW = 1 MHz. What is the bandwidth of a non-inverting amplifier with gain 50?",
+    "options": ["50 MHz", "1 MHz", "200 kHz", "20 kHz"],
+    "correct": 3,
+    "explanation": "Bandwidth is about GBW / gain = 1 MHz / 50 = 20 kHz."
+  },
+  {
+    "id": "13-07-post-2",
+    "stage": "post",
+    "question": "Why do most op-amps have a deliberate dominant pole at a few hertz?",
+    "options": [
+      "To keep them stable in any negative-feedback configuration down to a gain of 1",
+      "To save power",
+      "To reduce the offset voltage",
+      "To increase the slew rate"
+    ],
+    "correct": 0,
+    "explanation": "Rolling off the gain early prevents the internal phase lags from turning negative feedback into positive feedback."
+  },
+  {
+    "id": "13-07-post-3",
+    "stage": "post",
+    "question": "An op-amp with a slew rate of 0.5 V/us must output a 10 V-peak sine. What is the highest frequency it can handle without slew distortion?",
+    "options": ["50 kHz", "8 kHz", "0.5 MHz", "80 kHz"],
+    "correct": 1,
+    "explanation": "f_max = SR / (2 pi V_peak) = 500,000 / (2 pi x 10) = 7.96 kHz."
+  },
+  {
+    "id": "13-07-post-4",
+    "stage": "post",
+    "question": "A non-inverting amplifier with a gain of 500 uses an op-amp with 1 mV of offset. With the input grounded, the output is about:",
+    "options": ["1 mV", "0 V", "0.5 V", "500 V"],
+    "correct": 2,
+    "explanation": "The offset is multiplied by the noise gain: 1 mV x 500 = 0.5 V."
+  },
+  {
+    "id": "13-07-post-5",
+    "stage": "post",
+    "question": "A follower's + input is fed through 100 kohm and draws 100 nA of bias current. How can you cancel the resulting 10 mV error?",
+    "options": [
+      "Add 100 kohm in the feedback path so the minus input sees the same resistance",
+      "Increase the supply voltage",
+      "Add a capacitor at the output",
+      "Use a larger gain"
+    ],
+    "correct": 0,
+    "explanation": "Equal resistances make the two bias-current drops equal, and they cancel; only the offset current remains."
+  },
+  {
+    "id": "13-07-post-6",
+    "stage": "post",
+    "question": "A follower with 1 MHz of bandwidth outputs only a 2.5 V-peak triangle when given a 5 V-peak, 50 kHz sine. What is limiting it?",
+    "options": ["Its gain-bandwidth product", "Its offset voltage", "Its output current", "Its slew rate"],
+    "correct": 3,
+    "explanation": "The sine needs 2 pi x 50 kHz x 5 V = 1.57 V/us; the op-amp can only do 0.5 V/us. Large signals are slew-limited."
+  }
+]

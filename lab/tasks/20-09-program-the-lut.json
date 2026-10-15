@@ -1,0 +1,420 @@
+{
+ "id": "20-09-program-the-lut",
+ "title": "Program the LUT as a majority vote",
+ "kind": "logic",
+ "story": "This is one 3-input lookup table (LUT), the basic cell of an FPGA. A tree of 2:1 multiplexers uses the inputs a, b and c to pick one of eight configuration bits: row a b c = 0 0 0 picks bit 0, row 0 0 1 picks bit 1, and so on up to row 1 1 1, which picks bit 7. Each configuration slot is fed from a constant 1: a 'buf' gate passes the 1 through (the bit is 1), a 'not' gate turns it into 0. Program the LUT so that its output is 1 when at least two of the three inputs are 1 (a majority vote, as used to combine three redundant sensors).",
+ "board": {
+  "inputs": [
+   "a",
+   "b",
+   "c"
+  ],
+  "outputs": [
+   "out"
+  ],
+  "fixed": [
+   {
+    "type": "gate",
+    "id": "ONE",
+    "op": "not",
+    "inputs": [
+     "zero"
+    ],
+    "output": "one"
+   },
+   {
+    "type": "gate",
+    "id": "N_a",
+    "op": "not",
+    "inputs": [
+     "a"
+    ],
+    "output": "na"
+   },
+   {
+    "type": "gate",
+    "id": "N_b",
+    "op": "not",
+    "inputs": [
+     "b"
+    ],
+    "output": "nb"
+   },
+   {
+    "type": "gate",
+    "id": "N_c",
+    "op": "not",
+    "inputs": [
+     "c"
+    ],
+    "output": "nc"
+   },
+   {
+    "type": "gate",
+    "id": "M1_0.0",
+    "op": "and",
+    "inputs": [
+     "cfg0",
+     "nc"
+    ],
+    "output": "M1_0.x0"
+   },
+   {
+    "type": "gate",
+    "id": "M1_0.1",
+    "op": "and",
+    "inputs": [
+     "cfg1",
+     "c"
+    ],
+    "output": "M1_0.x1"
+   },
+   {
+    "type": "gate",
+    "id": "M1_0.or",
+    "op": "or",
+    "inputs": [
+     "M1_0.x0",
+     "M1_0.x1"
+    ],
+    "output": "m1_0"
+   },
+   {
+    "type": "gate",
+    "id": "M1_1.0",
+    "op": "and",
+    "inputs": [
+     "cfg2",
+     "nc"
+    ],
+    "output": "M1_1.x0"
+   },
+   {
+    "type": "gate",
+    "id": "M1_1.1",
+    "op": "and",
+    "inputs": [
+     "cfg3",
+     "c"
+    ],
+    "output": "M1_1.x1"
+   },
+   {
+    "type": "gate",
+    "id": "M1_1.or",
+    "op": "or",
+    "inputs": [
+     "M1_1.x0",
+     "M1_1.x1"
+    ],
+    "output": "m1_1"
+   },
+   {
+    "type": "gate",
+    "id": "M1_2.0",
+    "op": "and",
+    "inputs": [
+     "cfg4",
+     "nc"
+    ],
+    "output": "M1_2.x0"
+   },
+   {
+    "type": "gate",
+    "id": "M1_2.1",
+    "op": "and",
+    "inputs": [
+     "cfg5",
+     "c"
+    ],
+    "output": "M1_2.x1"
+   },
+   {
+    "type": "gate",
+    "id": "M1_2.or",
+    "op": "or",
+    "inputs": [
+     "M1_2.x0",
+     "M1_2.x1"
+    ],
+    "output": "m1_2"
+   },
+   {
+    "type": "gate",
+    "id": "M1_3.0",
+    "op": "and",
+    "inputs": [
+     "cfg6",
+     "nc"
+    ],
+    "output": "M1_3.x0"
+   },
+   {
+    "type": "gate",
+    "id": "M1_3.1",
+    "op": "and",
+    "inputs": [
+     "cfg7",
+     "c"
+    ],
+    "output": "M1_3.x1"
+   },
+   {
+    "type": "gate",
+    "id": "M1_3.or",
+    "op": "or",
+    "inputs": [
+     "M1_3.x0",
+     "M1_3.x1"
+    ],
+    "output": "m1_3"
+   },
+   {
+    "type": "gate",
+    "id": "M2_0.0",
+    "op": "and",
+    "inputs": [
+     "m1_0",
+     "nb"
+    ],
+    "output": "M2_0.x0"
+   },
+   {
+    "type": "gate",
+    "id": "M2_0.1",
+    "op": "and",
+    "inputs": [
+     "m1_1",
+     "b"
+    ],
+    "output": "M2_0.x1"
+   },
+   {
+    "type": "gate",
+    "id": "M2_0.or",
+    "op": "or",
+    "inputs": [
+     "M2_0.x0",
+     "M2_0.x1"
+    ],
+    "output": "m2_0"
+   },
+   {
+    "type": "gate",
+    "id": "M2_1.0",
+    "op": "and",
+    "inputs": [
+     "m1_2",
+     "nb"
+    ],
+    "output": "M2_1.x0"
+   },
+   {
+    "type": "gate",
+    "id": "M2_1.1",
+    "op": "and",
+    "inputs": [
+     "m1_3",
+     "b"
+    ],
+    "output": "M2_1.x1"
+   },
+   {
+    "type": "gate",
+    "id": "M2_1.or",
+    "op": "or",
+    "inputs": [
+     "M2_1.x0",
+     "M2_1.x1"
+    ],
+    "output": "m2_1"
+   },
+   {
+    "type": "gate",
+    "id": "M3.0",
+    "op": "and",
+    "inputs": [
+     "m2_0",
+     "na"
+    ],
+    "output": "M3.x0"
+   },
+   {
+    "type": "gate",
+    "id": "M3.1",
+    "op": "and",
+    "inputs": [
+     "m2_1",
+     "a"
+    ],
+    "output": "M3.x1"
+   },
+   {
+    "type": "gate",
+    "id": "M3.or",
+    "op": "or",
+    "inputs": [
+     "M3.x0",
+     "M3.x1"
+    ],
+    "output": "out"
+   }
+  ],
+  "slots": [
+   {
+    "id": "S0",
+    "inputs": [
+     "one"
+    ],
+    "output": "cfg0",
+    "accepts": [
+     "gate"
+    ],
+    "label": "configuration bit 0 (row a b c = 0 0 0)"
+   },
+   {
+    "id": "S1",
+    "inputs": [
+     "one"
+    ],
+    "output": "cfg1",
+    "accepts": [
+     "gate"
+    ],
+    "label": "configuration bit 1 (row a b c = 0 0 1)"
+   },
+   {
+    "id": "S2",
+    "inputs": [
+     "one"
+    ],
+    "output": "cfg2",
+    "accepts": [
+     "gate"
+    ],
+    "label": "configuration bit 2 (row a b c = 0 1 0)"
+   },
+   {
+    "id": "S3",
+    "inputs": [
+     "one"
+    ],
+    "output": "cfg3",
+    "accepts": [
+     "gate"
+    ],
+    "label": "configuration bit 3 (row a b c = 0 1 1)"
+   },
+   {
+    "id": "S4",
+    "inputs": [
+     "one"
+    ],
+    "output": "cfg4",
+    "accepts": [
+     "gate"
+    ],
+    "label": "configuration bit 4 (row a b c = 1 0 0)"
+   },
+   {
+    "id": "S5",
+    "inputs": [
+     "one"
+    ],
+    "output": "cfg5",
+    "accepts": [
+     "gate"
+    ],
+    "label": "configuration bit 5 (row a b c = 1 0 1)"
+   },
+   {
+    "id": "S6",
+    "inputs": [
+     "one"
+    ],
+    "output": "cfg6",
+    "accepts": [
+     "gate"
+    ],
+    "label": "configuration bit 6 (row a b c = 1 1 0)"
+   },
+   {
+    "id": "S7",
+    "inputs": [
+     "one"
+    ],
+    "output": "cfg7",
+    "accepts": [
+     "gate"
+    ],
+    "label": "configuration bit 7 (row a b c = 1 1 1)"
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "gate",
+   "op": "buf"
+  },
+  {
+   "type": "gate",
+   "op": "not"
+  }
+ ],
+ "goals": [
+  {
+   "measure": "truth_table",
+   "expect": {
+    "out": [
+     0,
+     0,
+     0,
+     1,
+     0,
+     1,
+     1,
+     1
+    ]
+   },
+   "label": "out is the majority of a, b and c"
+  }
+ ],
+ "solution": {
+  "S0": {
+   "type": "gate",
+   "op": "not"
+  },
+  "S1": {
+   "type": "gate",
+   "op": "not"
+  },
+  "S2": {
+   "type": "gate",
+   "op": "not"
+  },
+  "S3": {
+   "type": "gate",
+   "op": "buf"
+  },
+  "S4": {
+   "type": "gate",
+   "op": "not"
+  },
+  "S5": {
+   "type": "gate",
+   "op": "buf"
+  },
+  "S6": {
+   "type": "gate",
+   "op": "buf"
+  },
+  "S7": {
+   "type": "gate",
+   "op": "buf"
+  }
+ },
+ "hints": [
+  "Write the truth table first: which of the 8 rows have at least two 1s?",
+  "Configuration bit i is simply the output you want in row i."
+ ]
+}

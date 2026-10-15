@@ -1,0 +1,33 @@
+{
+  "id": "17-04-adc-and-dac",
+  "title": "Fit a car battery into a 3.3 V ADC",
+  "kind": "dc",
+  "story": "Your 3.3 V microcontroller must measure a car battery that can reach 14.4 V while charging. A 33 kohm resistor is already fitted from the battery to the ADC pin. Choose the bottom resistor so that at 14.4 V the pin sits between 2.7 V and 3.3 V: inside the ADC's range, but using most of it.",
+  "board": {
+    "nodes": {"bat": [2, 1], "adc": [6, 3], "gnd": [2, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "B1", "plus": "bat", "minus": "gnd", "volts": 14.4},
+      {"type": "resistor", "id": "RTOP", "a": "bat", "b": "adc", "ohms": 33000}
+    ],
+    "slots": [
+      {"id": "S1", "a": "adc", "b": "gnd", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 4700},
+    {"type": "resistor", "ohms": 8200},
+    {"type": "resistor", "ohms": 10000},
+    {"type": "resistor", "ohms": 22000}
+  ],
+  "goals": [
+    {"measure": "voltage", "at": "adc", "min": 2.7, "max": 3.3, "label": "ADC pin between 2.7 V and 3.3 V at 14.4 V"},
+    {"measure": "current", "of": "RTOP", "max": 0.0005, "label": "divider draws under 0.5 mA from the battery"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 8200}},
+  "hints": [
+    "V_pin = 14.4 x R_bottom / (33 k + R_bottom).",
+    "You want a ratio between 2.7 / 14.4 = 0.1875 and 3.3 / 14.4 = 0.229.",
+    "10 k looks tidy, but 14.4 x 10 / 43 is a little too much."
+  ]
+}

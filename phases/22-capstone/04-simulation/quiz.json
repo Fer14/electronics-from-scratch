@@ -1,0 +1,93 @@
+[
+  {
+    "id": "22-04-pre-1",
+    "stage": "pre",
+    "question": "An LED is pulsed at 1 kHz with 25% duty and 20 mA when on. What average current does the eye effectively see?",
+    "options": [
+      "20 mA",
+      "5 mA",
+      "1 mA",
+      "80 mA"
+    ],
+    "correct": 1,
+    "explanation": "Average = duty * on-current = 0.25 * 20 mA = 5 mA."
+  },
+  {
+    "id": "22-04-pre-2",
+    "stage": "pre",
+    "question": "Why can't a DC operating-point analysis check that the night light ignores passing headlights?",
+    "options": [
+      "Headlights are AC",
+      "DC analysis cannot simulate LEDs",
+      "The headlights are too bright",
+      "It is a behaviour over time: it depends on how the firmware reacts to a short event"
+    ],
+    "correct": 3,
+    "explanation": "Time-dependent behaviour needs a time simulation of the circuit and the firmware."
+  },
+  {
+    "id": "22-04-post-1",
+    "stage": "post",
+    "question": "The firmware averages the last 4 light readings, taken once per second. A 60 lux flash lasts 2 seconds while the room is at 0.5 lux. Why does the LED stay on?",
+    "options": [
+      "The flash changes only 2 of the 4 averaged readings, so the average stays below the off threshold",
+      "The LDR cannot see headlights",
+      "The PWM hides the flash",
+      "The battery is too low"
+    ],
+    "correct": 0,
+    "explanation": "About (2 * 796 + 2 * 112) / 4 = 454, still under the off threshold of 584."
+  },
+  {
+    "id": "22-04-post-2",
+    "stage": "post",
+    "question": "Using I_on = (Vbat - 3.09) / 75, what duty gives 5.7 mA at Vbat = 3.84 V?",
+    "options": [
+      "30%",
+      "100%",
+      "57%",
+      "10%"
+    ],
+    "correct": 2,
+    "explanation": "I_on = 0.75 / 75 = 10 mA; duty = 5.7 / 10 = 0.57."
+  },
+  {
+    "id": "22-04-post-3",
+    "stage": "post",
+    "question": "In the night scenario, the naive firmware switched 32 times and the final one 2 times, but both were on for about 10.4 hours. What does that show?",
+    "options": [
+      "Both are equally good",
+      "The naive one saves energy",
+      "Flicker is a timing problem that a simple 'total hours on' test would miss",
+      "The scenario is wrong"
+    ],
+    "correct": 2,
+    "explanation": "The chattering happens in short bursts around dusk and dawn; only a detailed time scenario reveals it."
+  },
+  {
+    "id": "22-04-post-4",
+    "stage": "post",
+    "question": "Why is the firmware's on-current formula fitted to simulated points instead of written from nominal LED and transistor voltages?",
+    "options": [
+      "Because the microcontroller cannot do subtraction",
+      "Calibration against the real (or simulated) behaviour gives accurate compensation across the whole battery range",
+      "Because the LED voltage is always exactly 3.1 V",
+      "To save memory"
+    ],
+    "correct": 1,
+    "explanation": "The LED's voltage changes with current; a fitted line matched the simulation within about 1% at every battery voltage."
+  },
+  {
+    "id": "22-04-post-5",
+    "stage": "post",
+    "question": "A 1 ohm sense resistor and a 10 kohm / 1 uF filter measure the PWM LED current. What does 5.7 mV at the filter output mean?",
+    "options": [
+      "5.7 A peak",
+      "57 mA average",
+      "The filter is broken",
+      "About 5.7 mA average LED current"
+    ],
+    "correct": 3,
+    "explanation": "1 ohm turns 1 mA into 1 mV, and the 10 ms filter averages the 1 ms PWM pulses."
+  }
+]

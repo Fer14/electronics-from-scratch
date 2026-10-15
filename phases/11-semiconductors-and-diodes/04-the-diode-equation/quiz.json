@@ -1,0 +1,81 @@
+[
+  {
+    "id": "11-04-pre-1",
+    "stage": "pre",
+    "question": "A quantity is multiplied by 10 every time its input grows by the same fixed step. What kind of growth is that?",
+    "options": ["Linear", "Exponential", "Constant", "Quadratic"],
+    "correct": 1,
+    "explanation": "Multiplying by the same factor per fixed step is the signature of exponential growth."
+  },
+  {
+    "id": "11-04-pre-2",
+    "stage": "pre",
+    "question": "Roughly what voltage does a conducting silicon diode drop in everyday circuits?",
+    "options": ["0.07 V", "7 V", "0.7 V", "70 V"],
+    "correct": 2,
+    "explanation": "About 0.6 to 0.75 V for currents from 0.1 mA to 100 mA, hence the famous '0.7 V'."
+  },
+  {
+    "id": "11-04-post-1",
+    "stage": "post",
+    "question": "With I_S = 1e-14 A, n = 1 and V_T = 25.85 mV, what is the diode voltage at 1 mA?",
+    "options": ["0.655 V", "0.700 V", "0.596 V", "0.774 V"],
+    "correct": 0,
+    "explanation": "V = V_T ln(I/I_S) = 0.02585 x ln(1e11) = 0.02585 x 25.33 = 0.655 V."
+  },
+  {
+    "id": "11-04-post-2",
+    "stage": "post",
+    "question": "For a diode with ideality factor n = 2, how much extra voltage is needed for each tenfold increase in current?",
+    "options": ["About 30 mV", "About 60 mV", "About 0.7 V", "About 119 mV"],
+    "correct": 3,
+    "explanation": "n V_T ln 10 = 2 x 25.85 mV x 2.303 = 119 mV per decade."
+  },
+  {
+    "id": "11-04-post-3",
+    "stage": "post",
+    "question": "A 1.2 V supply feeds a diode through 100 ohms. Which model would mislead you most?",
+    "options": [
+      "The exponential model",
+      "The ideal switch model (0 V drop)",
+      "The constant 0.7 V drop model",
+      "All three give the same answer"
+    ],
+    "correct": 1,
+    "explanation": "The ideal switch predicts 12 mA; the diode actually takes about 0.7 V, leaving about 5 mA. When the supply is close to 0.7 V the drop cannot be ignored."
+  },
+  {
+    "id": "11-04-post-4",
+    "stage": "post",
+    "question": "A diode is held at a constant 1 mA and heated by 50 C. What happens to its forward voltage?",
+    "options": [
+      "It falls by about 100 mV",
+      "It rises by about 100 mV",
+      "It stays at 0.7 V",
+      "It falls by about 1.3 V"
+    ],
+    "correct": 0,
+    "explanation": "I_S grows steeply with temperature, so less voltage is needed for the same current: about -2 mV/C x 50 C = -100 mV."
+  },
+  {
+    "id": "11-04-post-5",
+    "stage": "post",
+    "question": "What is the current through the diode (I_S = 1e-14 A) at a reverse voltage of -3 V, before breakdown?",
+    "options": ["-3 A", "Exactly zero", "About -1e-14 A", "About -0.7 A"],
+    "correct": 2,
+    "explanation": "e^(-3/0.02585) is essentially zero, so I = I_S (0 - 1) = -I_S."
+  },
+  {
+    "id": "11-04-post-6",
+    "stage": "post",
+    "question": "Why does the 'knee' of a diode curve disappear on a logarithmic current axis?",
+    "options": [
+      "The diode stops conducting",
+      "Log axes hide all curves",
+      "An exponential plotted on a log axis is a straight line; the knee only comes from the chosen linear scale",
+      "Because of series resistance"
+    ],
+    "correct": 2,
+    "explanation": "log(I) is proportional to V, so the curve is a straight line with no special point; the knee is where the current becomes visible on a linear mA scale."
+  }
+]

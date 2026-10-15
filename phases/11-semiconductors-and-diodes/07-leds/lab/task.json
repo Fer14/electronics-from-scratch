@@ -1,0 +1,33 @@
+{
+  "id": "11-07-leds",
+  "title": "A green power light for a USB gadget",
+  "kind": "dc",
+  "story": "Your gadget runs from USB: 5 V. You want a green 'power on' LED, which looks good at about 10 mA and keeps about 2.2 V across itself. Pick the series resistor so the LED is bright but safe, and the resistor stays cool.",
+  "board": {
+    "nodes": {"vcc": [1, 1], "a": [6, 1], "gnd": [6, 5], "g": [1, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "B1", "plus": "vcc", "minus": "g", "volts": 5},
+      {"type": "wire", "id": "W1", "a": "g", "b": "gnd"},
+      {"type": "led", "id": "D1", "anode": "a", "cathode": "gnd", "color": "green"}
+    ],
+    "slots": [
+      {"id": "S1", "a": "vcc", "b": "a", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 33},
+    {"type": "resistor", "ohms": 270},
+    {"type": "resistor", "ohms": 2700}
+  ],
+  "goals": [
+    {"measure": "current", "of": "D1", "min": 0.007, "max": 0.015, "label": "LED current between 7 and 15 mA"},
+    {"measure": "power", "of": "S1", "max": 0.125, "label": "resistor below 1/8 W"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 270}},
+  "hints": [
+    "The LED keeps about 2.2 V; the resistor gets what is left of the 5 V.",
+    "R = (5 - 2.2) / 0.010.",
+    "Check the resistor's power: P = I x I x R."
+  ]
+}

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "20-02-pre-1",
+    "stage": "pre",
+    "question": "In binary, what does multiplying a number by 2 do to its bits?",
+    "options": [
+      "Inverts every bit",
+      "Shifts every bit one place to the left (a 0 enters on the right)",
+      "Adds 1 to the number",
+      "Removes the leftmost bit"
+    ],
+    "correct": 1,
+    "explanation": "Each bit moves to the next power of two. In hardware a shift is just wiring, it costs no gates."
+  },
+  {
+    "id": "20-02-pre-2",
+    "stage": "pre",
+    "question": "Two 8-bit unsigned numbers are multiplied. How many bits can the product need?",
+    "options": [
+      "8",
+      "9",
+      "16",
+      "64"
+    ],
+    "correct": 2,
+    "explanation": "The largest product is 255 * 255 = 65025, which needs 16 bits. In general an N x N product needs 2N bits."
+  },
+  {
+    "id": "20-02-post-1",
+    "stage": "post",
+    "question": "Which gate computes one bit of a partial product, a_i times b_j?",
+    "options": [
+      "AND",
+      "OR",
+      "XOR",
+      "NOT"
+    ],
+    "correct": 0,
+    "explanation": "Multiplying two bits gives 1 only if both are 1: that is exactly AND."
+  },
+  {
+    "id": "20-02-post-2",
+    "stage": "post",
+    "question": "In our model, the multiplier area is N^2 + 5N(N - 1). What is it for N = 6?",
+    "options": [
+      "66",
+      "150",
+      "216",
+      "186"
+    ],
+    "correct": 3,
+    "explanation": "36 + 5 * 6 * 5 = 36 + 150 = 186 gates."
+  },
+  {
+    "id": "20-02-post-3",
+    "stage": "post",
+    "question": "A full adder's carry-in is always 0. What can replace it without changing the result?",
+    "options": [
+      "A half adder (one XOR and one AND)",
+      "A single OR gate",
+      "Nothing, it must stay a full adder",
+      "A NOT gate"
+    ],
+    "correct": 0,
+    "explanation": "With cin = 0: s = a XOR b and cout = a AND b, which is exactly a half adder, 2 gates instead of 5."
+  },
+  {
+    "id": "20-02-post-4",
+    "stage": "post",
+    "question": "Roughly how many times more 4-bit multipliers than 8-bit multipliers fit in the same silicon area?",
+    "options": [
+      "2 times",
+      "About 4 to 5 times",
+      "16 times",
+      "The same number"
+    ],
+    "correct": 1,
+    "explanation": "Area grows with the square of the width: (8/4)^2 = 4, and in our model 344 / 76 = 4.5."
+  },
+  {
+    "id": "20-02-post-5",
+    "stage": "post",
+    "question": "Why do AI accelerators favour 8-bit and 4-bit multipliers?",
+    "options": [
+      "Low-precision multipliers are more accurate",
+      "Because neural networks only use small integers",
+      "Much smaller multipliers mean many more per chip, and neural networks tolerate coarse numbers",
+      "Because 32-bit multipliers do not exist"
+    ],
+    "correct": 2,
+    "explanation": "Area and energy per multiply fall roughly with the square of the width, so lower precision buys more operations per area and per joule."
+  }
+]

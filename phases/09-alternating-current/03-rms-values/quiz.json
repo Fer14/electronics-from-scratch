@@ -1,0 +1,93 @@
+[
+  {
+    "id": "09-03-pre-1",
+    "stage": "pre",
+    "question": "What is the plain average of a sine wave over one full period?",
+    "options": [
+      "Its peak value",
+      "Zero",
+      "0.7071 times the peak",
+      "Half the peak"
+    ],
+    "correct": 1,
+    "explanation": "A sine wave is positive for half the cycle and equally negative for the other half, so the plain average is zero."
+  },
+  {
+    "id": "09-03-pre-2",
+    "stage": "pre",
+    "question": "A resistor has -20 V across it at one instant and +20 V at another. How does the heating compare at those two instants?",
+    "options": [
+      "The negative voltage cools the resistor",
+      "The positive voltage heats twice as much",
+      "They heat exactly the same, because power goes with voltage squared",
+      "The negative voltage produces no heat"
+    ],
+    "correct": 2,
+    "explanation": "p = v x v / R. (-20) x (-20) = 400 = 20 x 20, so the heating is identical."
+  },
+  {
+    "id": "09-03-post-1",
+    "stage": "post",
+    "question": "What does 'RMS' stand for, in the order you actually compute it?",
+    "options": [
+      "Square each value, take the mean, take the square root",
+      "Take the root, then the mean, then square",
+      "Take the mean, then square it, then take the root",
+      "Remove the minus signs, then average"
+    ],
+    "correct": 0,
+    "explanation": "Root mean square is read backwards: square, then mean, then root."
+  },
+  {
+    "id": "09-03-post-2",
+    "stage": "post",
+    "question": "The mains is labelled 230 V. What is its peak voltage?",
+    "options": [
+      "230 V",
+      "163 V",
+      "460 V",
+      "325 V"
+    ],
+    "correct": 3,
+    "explanation": "Labels give RMS values. For a sine, V_peak = sqrt(2) x V_rms = 1.4142 x 230 = 325.3 V."
+  },
+  {
+    "id": "09-03-post-3",
+    "stage": "post",
+    "question": "A sine wave of 10 V peak drives a 50 ohm resistor. What is the average power?",
+    "options": [
+      "2 W",
+      "1 W",
+      "0.5 W",
+      "0 W"
+    ],
+    "correct": 1,
+    "explanation": "V_rms = 10 / sqrt(2) = 7.071 V, and P = 7.071 x 7.071 / 50 = 1 W. Using the peak would wrongly give 2 W."
+  },
+  {
+    "id": "09-03-post-4",
+    "stage": "post",
+    "question": "A square wave switches between +5 V and -5 V. What is its RMS value?",
+    "options": [
+      "3.54 V",
+      "2.5 V",
+      "5 V",
+      "0 V"
+    ],
+    "correct": 2,
+    "explanation": "The square of the signal is 25 V^2 all the time, so the mean square is 25 and the root is 5 V. The factor 0.7071 applies only to sines."
+  },
+  {
+    "id": "09-03-post-5",
+    "stage": "post",
+    "question": "Why can a cheap (non true-RMS) multimeter read wrongly on a distorted waveform?",
+    "options": [
+      "It measures the rectified average and multiplies by 1.111, a factor that is only correct for sine waves",
+      "It cannot measure AC at all",
+      "It always shows the peak value",
+      "It measures the frequency instead of the voltage"
+    ],
+    "correct": 0,
+    "explanation": "Averaging meters scale the rectified average by 0.7071 / 0.6366 = 1.111, which is right only when the waveform is a sine."
+  }
+]

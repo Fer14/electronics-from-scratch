@@ -1,0 +1,93 @@
+[
+  {
+    "id": "19-03-pre-1",
+    "stage": "pre",
+    "question": "A sensor's output only spans 0.5 V of a 3.3 V ADC range. What is the main problem?",
+    "options": [
+      "The ADC will be damaged",
+      "Most of the ADC's codes are unused, so the resolution in physical units is poor",
+      "The sensor will overheat",
+      "The reading will be negative"
+    ],
+    "correct": 1,
+    "explanation": "Only about 15% of the codes are used. Amplifying and shifting the signal to fill the range makes each code worth a smaller physical step."
+  },
+  {
+    "id": "19-03-pre-2",
+    "stage": "pre",
+    "question": "What does a voltage follower (unity-gain buffer) do?",
+    "options": [
+      "Doubles the voltage",
+      "Inverts the voltage",
+      "Copies a voltage while drawing almost no current from the source",
+      "Filters out all noise"
+    ],
+    "correct": 2,
+    "explanation": "Its output equals its input, but the source only has to supply the op-amp's tiny input current; the op-amp drives the load."
+  },
+  {
+    "id": "19-03-post-1",
+    "stage": "post",
+    "question": "A sensor gives 1.0 V to 2.0 V and must map to 0 V to 3.0 V. Which offset and gain are needed?",
+    "options": [
+      "Subtract 1.0 V, gain 3",
+      "Subtract 2.0 V, gain 1.5",
+      "No offset, gain 1.5",
+      "Subtract 1.0 V, gain 1.5"
+    ],
+    "correct": 0,
+    "explanation": "Subtracting 1.0 V gives 0 to 1.0 V; a gain of 3.0 / 1.0 = 3 stretches that to 0 to 3.0 V."
+  },
+  {
+    "id": "19-03-post-2",
+    "stage": "post",
+    "question": "A matched difference amplifier has R1 = 10 k and R2 = 47 k. The inputs are 1.30 V and 1.20 V. What is the output?",
+    "options": [
+      "0.10 V",
+      "4.7 V",
+      "0.47 V",
+      "6.1 V"
+    ],
+    "correct": 2,
+    "explanation": "Vout = (R2 / R1) x (V+ - V-) = 4.7 x 0.10 = 0.47 V."
+  },
+  {
+    "id": "19-03-post-3",
+    "stage": "post",
+    "question": "An op-amp powered from 0 V and 3.3 V is asked to output 4.1 V. What happens?",
+    "options": [
+      "It outputs 4.1 V anyway",
+      "It clips at (or near) its upper rail, about 3.3 V",
+      "It outputs 0 V",
+      "It oscillates forever"
+    ],
+    "correct": 1,
+    "explanation": "The output stage cannot exceed its supply. A rail-to-rail op-amp gets close to 3.3 V; others stop further below."
+  },
+  {
+    "id": "19-03-post-4",
+    "stage": "post",
+    "question": "A strain-gauge bridge with 5 V excitation and gauge factor 2 sees 200 microstrain. Roughly what is the bridge output?",
+    "options": [
+      "0.5 mV",
+      "2 mV",
+      "0.2 V",
+      "5 mV"
+    ],
+    "correct": 0,
+    "explanation": "V = Vex x GF x strain / 4 = 5 x 2 x 0.0002 / 4 = 0.5 mV."
+  },
+  {
+    "id": "19-03-post-5",
+    "stage": "post",
+    "question": "Both inputs of a difference amplifier sit at 2.5 V with no signal, and its resistor ratios differ by 1%. What happens?",
+    "options": [
+      "Nothing, the difference is zero",
+      "The output is exactly 2.5 V",
+      "The amplifier's gain doubles",
+      "About 1% of the 2.5 V common-mode voltage appears as a false output, roughly 25 mV"
+    ],
+    "correct": 3,
+    "explanation": "Mismatch lets common-mode voltage through. That is why bridges use instrumentation amplifiers with very well matched resistors and high CMRR."
+  }
+]

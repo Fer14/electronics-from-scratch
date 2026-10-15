@@ -1,0 +1,32 @@
+{
+  "id": "07-06-energy-in-the-electric-field",
+  "title": "Ride through the power cut",
+  "kind": "transient",
+  "story": "A small logger draws about as much as a 100 Ohm resistor and keeps working down to 3 V. When its 5 V supply disappears, a capacitor charged to 5 V must keep it at 3 V or more for 10 ms so it can save its data. The board has no room for anything bigger than 220 uF. Choose the capacitor.",
+  "board": {
+    "nodes": {"rail": [4, 1], "gnd": [4, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "resistor", "id": "Rload", "a": "rail", "b": "gnd", "ohms": 100}
+    ],
+    "slots": [
+      {"id": "S1", "a": "rail", "b": "gnd", "accepts": ["capacitor"]}
+    ]
+  },
+  "parts": [
+    {"type": "capacitor", "farads": 2.2e-5, "v0": 5},
+    {"type": "capacitor", "farads": 4.7e-5, "v0": 5},
+    {"type": "capacitor", "farads": 1e-4, "v0": 5},
+    {"type": "capacitor", "farads": 2.2e-4, "v0": 5}
+  ],
+  "sim": {"t_stop": 0.02, "dt": 1e-5},
+  "goals": [
+    {"measure": "voltage_at_time", "at": "rail", "time": 0.01, "min": 3.0, "label": "still at least 3 V after 10 ms"}
+  ],
+  "solution": {"S1": {"type": "capacitor", "farads": 2.2e-4, "v0": 5}},
+  "hints": [
+    "The capacitor discharges into the load: v = 5 x e^(-t / RC).",
+    "You need e^(-10 ms / RC) to be at least 3/5, so RC must be at least 10 ms / ln(5/3) = 19.6 ms.",
+    "With R = 100 Ohm, C must be at least 196 uF. In energy terms, the logger uses 1/2 x C x (5^2 - 3^2) on the way down."
+  ]
+}

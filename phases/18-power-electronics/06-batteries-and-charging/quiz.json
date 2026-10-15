@@ -1,0 +1,106 @@
+[
+  {
+    "id": "18-06-pre-1",
+    "stage": "pre",
+    "question": "A battery is rated 2000 mAh. Ideally, how long can it supply 500 mA?",
+    "options": [
+      "4 hours",
+      "0.25 hours",
+      "2 hours",
+      "40 hours"
+    ],
+    "correct": 0,
+    "explanation": "2000 mAh / 500 mA = 4 h."
+  },
+  {
+    "id": "18-06-pre-2",
+    "stage": "pre",
+    "question": "Why does a battery's voltage drop when it delivers a large current?",
+    "options": [
+      "The current uses up the voltage permanently",
+      "Its internal resistance causes an I x R drop inside the battery",
+      "The wires get longer",
+      "The battery switches off"
+    ],
+    "correct": 1,
+    "explanation": "Every real battery has internal resistance. The terminal voltage is the internal voltage minus I x R_internal."
+  },
+  {
+    "id": "18-06-post-1",
+    "stage": "post",
+    "question": "A 3.7 V, 5 Ah cell. How much energy does it store?",
+    "options": [
+      "5 Wh",
+      "18.5 Wh",
+      "1.35 Wh",
+      "0.74 Wh"
+    ],
+    "correct": 1,
+    "explanation": "Energy = Ah x V = 5 x 3.7 = 18.5 Wh."
+  },
+  {
+    "id": "18-06-post-2",
+    "stage": "post",
+    "question": "What is a 2C discharge current for a 3 Ah cell?",
+    "options": [
+      "1.5 A",
+      "3 A",
+      "6 A",
+      "2 A"
+    ],
+    "correct": 2,
+    "explanation": "1C = 3 A for this cell, so 2C = 6 A (it would empty the cell in about half an hour)."
+  },
+  {
+    "id": "18-06-post-3",
+    "stage": "post",
+    "question": "Why does a cell deliver fewer Ah at 4C than at 0.2C before reaching the cut-off voltage?",
+    "options": [
+      "High current destroys capacity permanently",
+      "The internal resistance and polarization pull the terminal voltage down to the cut-off while charge remains inside",
+      "The charger was faulty",
+      "The cut-off voltage changes with current"
+    ],
+    "correct": 1,
+    "explanation": "The cell stops when the terminal voltage, not the OCV, reaches the cut-off. A big I x R plus polarization gets there early."
+  },
+  {
+    "id": "18-06-post-4",
+    "stage": "post",
+    "question": "In CC/CV charging of a lithium-ion cell, what happens when the terminal voltage reaches 4.2 V?",
+    "options": [
+      "The charger stops immediately",
+      "The charger raises the current",
+      "The charger switches to constant voltage and the current gradually falls",
+      "The charger reverses the current"
+    ],
+    "correct": 2,
+    "explanation": "Holding 4.2 V, the current is set by (4.2 - internal voltage) / R, which shrinks as the cell fills, until termination at C/10-C/20."
+  },
+  {
+    "id": "18-06-post-5",
+    "stage": "post",
+    "question": "Six cells of 3.7 V, 2 Ah, 50 mohm each are arranged as 3S2P. What are the pack's voltage, capacity and internal resistance?",
+    "options": [
+      "22.2 V, 2 Ah, 300 mohm",
+      "11.1 V, 2 Ah, 150 mohm",
+      "7.4 V, 6 Ah, 33 mohm",
+      "11.1 V, 4 Ah, 75 mohm"
+    ],
+    "correct": 3,
+    "explanation": "3 in series: 3 x 3.7 = 11.1 V and 3 x 50 = 150 mohm per string; 2 strings in parallel: 4 Ah and 150 / 2 = 75 mohm."
+  },
+  {
+    "id": "18-06-post-6",
+    "stage": "post",
+    "question": "Why would connecting an empty lithium cell straight to a 4.2 V supply be a bad charger?",
+    "options": [
+      "The cell would charge too slowly",
+      "4.2 V is too low to charge",
+      "The initial current (4.2 - 3.0) / R_internal could be tens of amps",
+      "Lithium cells must be charged with AC"
+    ],
+    "correct": 2,
+    "explanation": "With 60 mohm, (4.2 - 3.0) / 0.06 = 20 A. That is why the CC phase limits the current first."
+  }
+]

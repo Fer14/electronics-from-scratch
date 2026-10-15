@@ -1,0 +1,93 @@
+[
+  {
+    "id": "08-01-pre-1",
+    "stage": "pre",
+    "question": "You cut a bar magnet exactly in half between its north and south ends. What do you get?",
+    "options": [
+      "A lonely north pole and a lonely south pole",
+      "Two non-magnetic pieces",
+      "Two smaller magnets, each with its own north and south pole",
+      "One magnet and one piece of plain iron"
+    ],
+    "correct": 2,
+    "explanation": "Magnetic poles always come in pairs. Every piece of a magnet, down to single atoms, has both a north and a south end."
+  },
+  {
+    "id": "08-01-pre-2",
+    "stage": "pre",
+    "question": "Which of these does a magnet stick to?",
+    "options": [
+      "A steel paperclip",
+      "An aluminium can",
+      "A copper wire",
+      "A plastic ruler"
+    ],
+    "correct": 0,
+    "explanation": "Only ferromagnetic materials such as iron, steel, nickel and cobalt are attracted. Aluminium and copper are not."
+  },
+  {
+    "id": "08-01-pre-3",
+    "stage": "pre",
+    "question": "A charged balloon sits perfectly still next to a strong magnet. What magnetic force does it feel?",
+    "options": [
+      "A strong pull towards the north pole",
+      "A push away from the magnet",
+      "A force along the field lines",
+      "None, because magnetic forces only act on moving charges"
+    ],
+    "correct": 3,
+    "explanation": "F = q v B: with v = 0 the magnetic force is zero. Only moving charges feel magnetic forces."
+  },
+  {
+    "id": "08-01-post-1",
+    "stage": "post",
+    "question": "A small magnet's field is 400 uT at 4 cm on its axis. Far from the magnet the field falls as 1/z^3. What is it at 8 cm?",
+    "options": [
+      "200 uT",
+      "50 uT",
+      "100 uT",
+      "25 uT"
+    ],
+    "correct": 1,
+    "explanation": "Doubling the distance divides the field by 2 x 2 x 2 = 8, so 400 / 8 = 50 uT."
+  },
+  {
+    "id": "08-01-post-2",
+    "stage": "post",
+    "question": "An electron moves along a field line, parallel to B. What is the magnetic force on it?",
+    "options": [
+      "Maximum, because it follows the field",
+      "Zero, because sin(0) = 0",
+      "Half the maximum",
+      "It depends on whether the field points north or south"
+    ],
+    "correct": 1,
+    "explanation": "F = q v B sin(theta) and theta = 0, so the force vanishes. Only motion across the field is pushed."
+  },
+  {
+    "id": "08-01-post-3",
+    "stage": "post",
+    "question": "Why can a magnetic field alone never speed up or slow down a charged particle?",
+    "options": [
+      "Because magnetic forces are too weak",
+      "Because the particle's charge cancels the field",
+      "Because the force is always perpendicular to the motion, so it does no work",
+      "Because magnetic fields only exist inside magnets"
+    ],
+    "correct": 2,
+    "explanation": "A force at right angles to the velocity changes the direction of motion but not the speed, so no energy is transferred by the magnetic force itself."
+  },
+  {
+    "id": "08-01-post-4",
+    "stage": "post",
+    "question": "How many gauss is 0.25 T?",
+    "options": [
+      "25 G",
+      "250 G",
+      "25,000 G",
+      "2,500 G"
+    ],
+    "correct": 3,
+    "explanation": "1 T = 10,000 G, so 0.25 T = 0.25 x 10,000 = 2,500 G."
+  }
+]

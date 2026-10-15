@@ -1,0 +1,58 @@
+[
+  {
+    "id": "03-03-pre-1",
+    "stage": "pre",
+    "question": "A 1 kilohm resistor sits across a 9 V battery. How much current flows?",
+    "options": ["9 A", "9 mA", "0.9 mA", "9000 A"],
+    "correct": 1,
+    "explanation": "I = V / R = 9 / 1000 = 0.009 A = 9 mA."
+  },
+  {
+    "id": "03-03-pre-2",
+    "stage": "pre",
+    "question": "If you double the voltage across a resistor (same temperature), the current",
+    "options": ["halves", "stays the same", "quadruples", "doubles"],
+    "correct": 3,
+    "explanation": "Ohm's law: current is proportional to voltage for an ohmic part."
+  },
+  {
+    "id": "03-03-post-1",
+    "stage": "post",
+    "question": "20 mA flows through a 330 ohm resistor. What is the voltage across it?",
+    "options": ["6.6 V", "16.5 V", "0.66 V", "66 V"],
+    "correct": 0,
+    "explanation": "V = I R = 0.020 x 330 = 6.6 V."
+  },
+  {
+    "id": "03-03-post-2",
+    "stage": "post",
+    "question": "In the derivation of Ohm's law from drift, which assumption makes current proportional to voltage?",
+    "options": ["Electrons move at the speed of light", "The wire has no free electrons", "The time between collisions does not depend on the applied voltage", "The battery is ideal"],
+    "correct": 2,
+    "explanation": "If tau, n, the area and length are fixed, I = [n e^2 tau A / (m L)] V: a constant times V."
+  },
+  {
+    "id": "03-03-post-3",
+    "stage": "post",
+    "question": "On a graph with voltage horizontal and current vertical, which line belongs to the smallest resistance?",
+    "options": ["The flattest line", "The steepest line", "A horizontal line at zero", "All lines are the same"],
+    "correct": 1,
+    "explanation": "The slope is current per volt, 1/R. Steeper means more current per volt, so less resistance."
+  },
+  {
+    "id": "03-03-post-4",
+    "stage": "post",
+    "question": "You want 10 mA from a 5 V supply through one resistor. Which value do you need?",
+    "options": ["50 ohm", "2 kilohm", "0.5 ohm", "500 ohm"],
+    "correct": 3,
+    "explanation": "R = V / I = 5 / 0.010 = 500 ohm (or 5 V / 10 mA = 0.5 kilohm)."
+  },
+  {
+    "id": "03-03-post-5",
+    "stage": "post",
+    "question": "Which of these does NOT obey Ohm's law?",
+    "options": ["An LED", "A metal-film resistor at room temperature", "A short copper wire", "A nichrome heater wire at steady temperature"],
+    "correct": 0,
+    "explanation": "An LED's current rises steeply above about 2 V and is almost zero below it: its I-V curve is not a straight line through zero."
+  }
+]

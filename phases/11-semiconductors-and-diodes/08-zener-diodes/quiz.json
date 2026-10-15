@@ -1,0 +1,91 @@
+[
+  {
+    "id": "11-08-pre-1",
+    "stage": "pre",
+    "question": "A voltage divider makes 5 V from 12 V with no load. What happens when you connect a load to its output?",
+    "options": [
+      "The output stays at exactly 5 V",
+      "The output drops, because the load is in parallel with the bottom resistor",
+      "The output rises to 12 V",
+      "The divider stops working completely"
+    ],
+    "correct": 1,
+    "explanation": "The load lowers the effective bottom resistance, so the divider's ratio, and its output, fall."
+  },
+  {
+    "id": "11-08-pre-2",
+    "stage": "pre",
+    "question": "What happens to an ordinary diode under a small reverse voltage, like 2 V?",
+    "options": ["It conducts heavily", "It glows", "It blocks: only a tiny leakage current flows", "It acts like a 2 V battery"],
+    "correct": 2,
+    "explanation": "The barrier gets taller and only minority carriers trickle across (lessons 03-04)."
+  },
+  {
+    "id": "11-08-post-1",
+    "stage": "post",
+    "question": "Which mechanism dominates breakdown in a 3.3 V zener diode?",
+    "options": [
+      "Quantum tunnelling through a very thin depletion region (the Zener effect)",
+      "Avalanche multiplication",
+      "Thermal runaway",
+      "Light emission"
+    ],
+    "correct": 0,
+    "explanation": "Low-voltage zeners are heavily doped, so the depletion region is thin enough for tunnelling. Avalanche dominates above about 6-7 V."
+  },
+  {
+    "id": "11-08-post-2",
+    "stage": "post",
+    "question": "A zener regulator has R_S = 220 ohm, V_Z = 5.1 V and a 12 V input. With no load, how much current flows in the zener?",
+    "options": ["5.1 mA", "54.5 mA", "23 mA", "31 mA"],
+    "correct": 3,
+    "explanation": "All of R_S's current goes into the zener: (12 - 5.1) / 220 = 31.4 mA (the simulator gives 31.15 mA because V_Z is slightly above 5.1 V at that current)."
+  },
+  {
+    "id": "11-08-post-3",
+    "stage": "post",
+    "question": "When designing a zener regulator, at which conditions do you check that the output stays regulated?",
+    "options": [
+      "Maximum input, no load",
+      "Minimum input, maximum load",
+      "Typical input, typical load",
+      "Maximum input, maximum load"
+    ],
+    "correct": 1,
+    "explanation": "The resistor delivers the least current at minimum input, and the load wants the most at maximum load: if the zener still has its minimum current then, it always does."
+  },
+  {
+    "id": "11-08-post-4",
+    "stage": "post",
+    "question": "And when do you check the zener's power rating?",
+    "options": [
+      "Maximum input, no load",
+      "Minimum input, maximum load",
+      "Only at power-up",
+      "Minimum input, no load"
+    ],
+    "correct": 0,
+    "explanation": "At maximum input the resistor delivers the most current, and with no load the zener absorbs all of it."
+  },
+  {
+    "id": "11-08-post-5",
+    "stage": "post",
+    "question": "A zener with dynamic resistance 10 ohm is fed through 490 ohm. The input moves by 5 V. Roughly how much does the output move?",
+    "options": ["5 V", "1 V", "10 mV", "0.1 V"],
+    "correct": 3,
+    "explanation": "Delta V_out is about Delta V_in x r_z / (r_z + R_S) = 5 x 10 / 500 = 0.1 V."
+  },
+  {
+    "id": "11-08-post-6",
+    "stage": "post",
+    "question": "Why are 5-6 V zeners often the most temperature-stable?",
+    "options": [
+      "They are made of germanium",
+      "They carry the least current",
+      "The negative drift of tunnelling and the positive drift of avalanche roughly cancel there",
+      "They have no depletion region"
+    ],
+    "correct": 2,
+    "explanation": "Below about 5 V the tempco is negative (Zener effect), above about 6 V positive (avalanche); in between both mechanisms contribute and the drift nearly cancels."
+  }
+]

@@ -1,0 +1,113 @@
+{
+ "id": "20-07-split-the-area",
+ "title": "Split the area between MACs and memory",
+ "kind": "chip",
+ "story": "You have 60,000 gates of silicon for a small matrix engine: a systolic array of 8-bit MACs (608 gates each) and an on-chip SRAM buffer (1 gate per bit) between it and DRAM. DRAM delivers 2 bytes per cycle, so the array is only busy if each weight it fetches is reused across a batch of at least 32 inputs held in the buffer. For an 8 x 8 array that needs a buffer of at least 16 kbit (16,384 bits). The engine must reach 64 MACs per cycle. Choose the array (slot S1) and the buffer (slot S2).",
+ "board": {
+  "nodes": {
+   "dram": [
+    1,
+    2
+   ],
+   "buffer": [
+    5,
+    2
+   ],
+   "out": [
+    9,
+    2
+   ]
+  },
+  "fixed": [],
+  "slots": [
+   {
+    "id": "S2",
+    "a": "dram",
+    "b": "buffer",
+    "accepts": [
+     "sram"
+    ],
+    "label": "on-chip buffer"
+   },
+   {
+    "id": "S1",
+    "a": "buffer",
+    "b": "out",
+    "accepts": [
+     "systolic_array"
+    ],
+    "label": "MAC array"
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "systolic_array",
+   "rows": 4,
+   "cols": 4,
+   "bits": 8
+  },
+  {
+   "type": "systolic_array",
+   "rows": 8,
+   "cols": 8,
+   "bits": 8
+  },
+  {
+   "type": "systolic_array",
+   "rows": 16,
+   "cols": 16,
+   "bits": 8
+  },
+  {
+   "type": "sram",
+   "bits": 4096,
+   "width": 16
+  },
+  {
+   "type": "sram",
+   "bits": 16384,
+   "width": 16
+  },
+  {
+   "type": "sram",
+   "bits": 65536,
+   "width": 16
+  }
+ ],
+ "goals": [
+  {
+   "measure": "throughput",
+   "min": 64,
+   "label": "at least 64 MACs per cycle"
+  },
+  {
+   "measure": "bits",
+   "of": "S2",
+   "min": 16384,
+   "label": "the buffer holds at least 16 kbit"
+  },
+  {
+   "measure": "area",
+   "max": 60000,
+   "label": "total area at most 60,000 gates"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "systolic_array",
+   "rows": 8,
+   "cols": 8,
+   "bits": 8
+  },
+  "S2": {
+   "type": "sram",
+   "bits": 16384,
+   "width": 16
+  }
+ },
+ "hints": [
+  "An N x N array does N^2 MACs per cycle and costs 608 N^2 gates.",
+  "Add the array's area and the buffer's bits: both must fit in 60,000."
+ ]
+}

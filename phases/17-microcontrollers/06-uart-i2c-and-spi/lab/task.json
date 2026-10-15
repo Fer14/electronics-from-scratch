@@ -1,0 +1,33 @@
+{
+  "id": "17-06-uart-i2c-and-spi",
+  "title": "Pull-up for a fast I2C bus",
+  "kind": "transient",
+  "story": "An I2C bus at 3.3 V has 200 pF of wiring and pin capacitance. At t = 0 a device lets go of SDA, which starts at 0 V, and the pull-up must lift it. For fast-mode timing, SDA must pass 70% of VDD (2.31 V) within 400 ns. But a device holding the line low only has to sink 3 mA, so the pull-up current at 0 V must be 3 mA or less. Choose the pull-up.",
+  "sim": {"t_stop": 4e-6, "dt": 2e-9},
+  "board": {
+    "nodes": {"vdd": [2, 1], "sda": [7, 3], "gnd": [2, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "VDD", "plus": "vdd", "minus": "gnd", "volts": 3.3},
+      {"type": "capacitor", "id": "CBUS", "a": "sda", "b": "gnd", "farads": 2e-10, "v0": 0}
+    ],
+    "slots": [
+      {"id": "S1", "a": "vdd", "b": "sda", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 680},
+    {"type": "resistor", "ohms": 1500},
+    {"type": "resistor", "ohms": 4700}
+  ],
+  "goals": [
+    {"measure": "time_to_cross", "at": "sda", "level": 2.31, "direction": "rising", "max": 4e-7, "label": "SDA passes 2.31 V within 400 ns"},
+    {"measure": "current_at_time", "of": "S1", "time": 0, "max": 0.003, "label": "pull-up current at 0 V is at most 3 mA"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 1500}},
+  "hints": [
+    "The time to reach 70% of VDD from 0 V is RC x ln(1 / 0.3) = 1.204 RC.",
+    "With C = 200 pF, 400 ns allows RC up to 332 ns, so R up to about 1.66 kohm.",
+    "With the line at 0 V the pull-up carries 3.3 V / R: R must be at least 1.1 kohm."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "12-08-current-mirrors",
+  "title": "Copy one milliamp",
+  "kind": "dc",
+  "story": "A sensor must be fed a steady current of about 1 mA, whatever its resistance (here 2.2 kOhm). Two matched NPN transistors form a current mirror on a 5 V supply: Q1 is wired as a diode and sets the reference, Q2 copies it into the sensor. Pick the reference resistor.",
+  "board": {
+    "nodes": {"vcc": [5, 0], "x": [2, 3], "out": [8, 3], "gnd": [5, 6], "left": [2, 0], "right": [8, 0]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "voltage_source", "id": "VCC", "plus": "vcc", "minus": "gnd", "volts": 5},
+      {"type": "wire", "id": "W1", "a": "vcc", "b": "left"},
+      {"type": "wire", "id": "W2", "a": "vcc", "b": "right"},
+      {"type": "npn", "id": "Q1", "c": "x", "b": "x", "e": "gnd", "beta": 100},
+      {"type": "npn", "id": "Q2", "c": "out", "b": "x", "e": "gnd", "beta": 100},
+      {"type": "resistor", "id": "RL", "a": "right", "b": "out", "ohms": 2200, "label": "sensor"}
+    ],
+    "slots": [
+      {"id": "S1", "a": "left", "b": "x", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 470},
+    {"type": "resistor", "ohms": 4700},
+    {"type": "resistor", "ohms": 47000}
+  ],
+  "goals": [
+    {"measure": "current", "of": "Q2", "min": 0.00085, "max": 0.0011, "label": "sensor current between 0.85 and 1.1 mA"},
+    {"measure": "voltage", "at": "out", "min": 0.3, "label": "Q2 not saturated (V_CE above 0.3 V)"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 4700}},
+  "hints": [
+    "Q1 is a diode: its base-emitter voltage is about 0.65 V.",
+    "I_REF = (5 - 0.65) / R. Q2 copies it (minus about 2 %).",
+    "If the copied current times 2.2 kOhm is more than about 4.8 V, Q2 runs out of room and saturates."
+  ]
+}

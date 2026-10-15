@@ -1,0 +1,86 @@
+[
+  {
+    "id": "13-02-pre-1",
+    "stage": "pre",
+    "question": "A thermostat turns the heater on at 19 C and off at 21 C. Why not use a single temperature?",
+    "options": [
+      "To save money on the thermostat",
+      "So it does not switch on and off rapidly when the temperature hovers near one value",
+      "Because heaters need two voltages",
+      "There is no reason"
+    ],
+    "correct": 1,
+    "explanation": "Two thresholds (hysteresis) stop small fluctuations from causing rapid switching."
+  },
+  {
+    "id": "13-02-pre-2",
+    "stage": "pre",
+    "question": "What does an op-amp's output do, open loop, when V+ is 1 mV above V-?",
+    "options": ["Outputs 1 mV", "Outputs 0 V", "Goes to (near) the positive rail", "Goes to the negative rail"],
+    "correct": 2,
+    "explanation": "With a gain of 100,000 it saturates at the positive rail (lesson 01)."
+  },
+  {
+    "id": "13-02-post-1",
+    "stage": "post",
+    "question": "A comparator's threshold is set by a divider: R_T = 15 k from 5 V, R_B = 10 k to ground. What is the threshold?",
+    "options": ["3.0 V", "2.0 V", "2.5 V", "1.5 V"],
+    "correct": 1,
+    "explanation": "5 x 10k / (15k + 10k) = 2.0 V."
+  },
+  {
+    "id": "13-02-post-2",
+    "stage": "post",
+    "question": "You want the output HIGH when a sensor voltage drops below a reference. Where does the sensor go?",
+    "options": ["The inverting (-) input", "The non-inverting (+) input", "The output", "The supply pin"],
+    "correct": 0,
+    "explanation": "With the sensor on -, V+ - V- = V_ref - V_sensor is positive (output HIGH) when the sensor is below the reference."
+  },
+  {
+    "id": "13-02-post-3",
+    "stage": "post",
+    "question": "Why does a plain comparator produce several edges when a noisy signal crosses the threshold?",
+    "options": [
+      "The comparator is too slow",
+      "The reference voltage changes",
+      "Near the crossing, the noise alone pushes the input back and forth across the threshold",
+      "Comparators always produce an even number of edges"
+    ],
+    "correct": 2,
+    "explanation": "While the slow signal is within the noise amplitude of the threshold, each noise wiggle can cross it."
+  },
+  {
+    "id": "13-02-post-4",
+    "stage": "post",
+    "question": "An inverting Schmitt trigger has V_ref = 2.5 V, R1 = 10 k (from V_ref to +), R2 = 100 k (from output to +), output 0 or 5 V. What is its hysteresis?",
+    "options": ["0.05 V", "2.5 V", "0.455 V", "5 V"],
+    "correct": 2,
+    "explanation": "Hysteresis = 5 V x R1/(R1+R2) = 5 x 10/110 = 0.455 V; thresholds 2.273 and 2.727 V."
+  },
+  {
+    "id": "13-02-post-5",
+    "stage": "post",
+    "question": "What kind of feedback creates hysteresis?",
+    "options": [
+      "Negative feedback to the minus input",
+      "Positive feedback to the plus input",
+      "No feedback",
+      "Feedback through a capacitor"
+    ],
+    "correct": 1,
+    "explanation": "Feeding part of the output to the + input moves the threshold away from the input after each switch."
+  },
+  {
+    "id": "13-02-post-6",
+    "stage": "post",
+    "question": "An LM393 has an open-collector output. What must you add for it to output a logic HIGH?",
+    "options": [
+      "A pull-up resistor from the output to the logic supply",
+      "A capacitor to ground",
+      "A diode in series",
+      "Nothing, it outputs 5 V on its own"
+    ],
+    "correct": 0,
+    "explanation": "The output transistor can only pull low; the pull-up provides the HIGH level (and lets you pick 3.3 V or 5 V)."
+  }
+]

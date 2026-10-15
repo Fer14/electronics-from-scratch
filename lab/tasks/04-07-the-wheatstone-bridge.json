@@ -1,0 +1,111 @@
+{
+ "id": "04-07-the-wheatstone-bridge",
+ "title": "Balance the bridge",
+ "kind": "dc",
+ "story": "A sensor (RX) sits in the lower-left arm of a Wheatstone bridge and right now reads 3.3 kOhm. The top arms are 10 kOhm (left) and 1 kOhm (right). Choose the resistor for the lower-right arm so the bridge is balanced: the voltage between the two midpoints must be within 10 mV of zero.",
+ "board": {
+  "nodes": {
+   "vcc": [
+    5,
+    0
+   ],
+   "left": [
+    2,
+    3
+   ],
+   "right": [
+    8,
+    3
+   ],
+   "gnd": [
+    5,
+    6
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "B1",
+    "plus": "vcc",
+    "minus": "gnd",
+    "volts": 9
+   },
+   {
+    "type": "resistor",
+    "id": "R1",
+    "a": "vcc",
+    "b": "left",
+    "ohms": 10000
+   },
+   {
+    "type": "resistor",
+    "id": "RX",
+    "a": "left",
+    "b": "gnd",
+    "ohms": 3300
+   },
+   {
+    "type": "resistor",
+    "id": "R3",
+    "a": "vcc",
+    "b": "right",
+    "ohms": 1000
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "right",
+    "b": "gnd",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 270
+  },
+  {
+   "type": "resistor",
+   "ohms": 330
+  },
+  {
+   "type": "resistor",
+   "ohms": 390
+  },
+  {
+   "type": "resistor",
+   "ohms": 1000
+  },
+  {
+   "type": "resistor",
+   "ohms": 3300
+  }
+ ],
+ "goals": [
+  {
+   "measure": "voltage",
+   "between": [
+    "left",
+    "right"
+   ],
+   "min": -0.01,
+   "max": 0.01,
+   "label": "bridge output between -10 mV and +10 mV"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 330
+  }
+ },
+ "hints": [
+  "Each side of the bridge is a voltage divider. The bridge is balanced when both midpoints sit at the same voltage.",
+  "Balance means R1 x R4 = RX x R3. Here the top arms have a 10 to 1 ratio, so the bottom arms need the same 10 to 1 ratio."
+ ]
+}

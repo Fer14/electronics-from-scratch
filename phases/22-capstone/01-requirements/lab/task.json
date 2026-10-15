@@ -1,0 +1,31 @@
+{
+  "id": "22-01-sensor-divider",
+  "title": "Size the light sensor's divider",
+  "kind": "dc",
+  "story": "The night light's light sensor is a photoresistor (LDR) on top of a fixed resistor, powered from the microcontroller's 3.3 V. The decision point between the on and off thresholds is about 10 lux, where our LDR measures 10 kohm (shown here as a fixed 10 kohm resistor). Choose the fixed resistor so that at 10 lux the ADC sees between 1.5 and 1.8 V (the middle of its 0-3.3 V range, where it can tell small changes apart best), and the divider draws no more than 0.2 mA while it is switched on.",
+  "board": {
+    "nodes": {"vdd": [1, 1], "sense": [5, 3], "gnd": [5, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "voltage_source", "id": "VDD", "plus": "vdd", "minus": "gnd", "volts": 3.3},
+      {"type": "resistor", "id": "LDR", "a": "vdd", "b": "sense", "ohms": 10000}
+    ],
+    "slots": [
+      {"id": "S1", "a": "sense", "b": "gnd", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 1000},
+    {"type": "resistor", "ohms": 10000},
+    {"type": "resistor", "ohms": 100000}
+  ],
+  "goals": [
+    {"measure": "voltage", "at": "sense", "min": 1.5, "max": 1.8, "label": "sense between 1.5 and 1.8 V at 10 lux"},
+    {"measure": "current", "of": "S1", "max": 0.0002, "label": "divider current at most 0.2 mA"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 10000}},
+  "hints": [
+    "V(sense) = 3.3 * R_fixed / (10 kohm + R_fixed).",
+    "Equal resistors put the sense node at exactly half the supply."
+  ]
+}

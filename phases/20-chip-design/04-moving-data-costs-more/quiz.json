@@ -1,0 +1,93 @@
+[
+  {
+    "id": "20-04-pre-1",
+    "stage": "pre",
+    "question": "On a modern chip, which usually costs more energy?",
+    "options": [
+      "Multiplying two 8-bit numbers",
+      "Adding two 8-bit numbers",
+      "Reading the two numbers from off-chip DRAM",
+      "They all cost about the same"
+    ],
+    "correct": 2,
+    "explanation": "A DRAM read costs thousands of times more energy than an 8-bit multiply."
+  },
+  {
+    "id": "20-04-pre-2",
+    "stage": "pre",
+    "question": "Why does sending a bit along a wire cost energy?",
+    "options": [
+      "The wire is a capacitor that must be charged to the supply voltage when the bit changes",
+      "Electrons are used up",
+      "The wire glows",
+      "It does not; wires are free"
+    ],
+    "correct": 0,
+    "explanation": "Each charge of the wire's capacitance takes C * V^2 from the supply."
+  },
+  {
+    "id": "20-04-post-1",
+    "stage": "post",
+    "question": "With 0.2 pF per mm and 0.9 V, what does moving 1 bit across 5 mm cost?",
+    "options": [
+      "0.16 pJ",
+      "0.81 pJ",
+      "5 pJ",
+      "0.02 pJ"
+    ],
+    "correct": 1,
+    "explanation": "C = 0.2 * 5 = 1 pF; E = C V^2 = 1 pF * 0.81 V^2 = 0.81 pJ."
+  },
+  {
+    "id": "20-04-post-2",
+    "stage": "post",
+    "question": "In our cost model a 32 x 8-bit register file with two read ports is about 3,024 gates. How does that compare with the 8-bit MAC (608 gates) it feeds?",
+    "options": [
+      "It is much smaller",
+      "About the same",
+      "About twice as big",
+      "About five times as big"
+    ],
+    "correct": 3,
+    "explanation": "3,024 / 608 = 5.0: fetching operands can take more area than computing with them."
+  },
+  {
+    "id": "20-04-post-3",
+    "stage": "post",
+    "question": "Each byte fetched from DRAM costs 250 pJ. If both operands of a MAC are fetched once and reused in 100 MACs, what is the fetch energy per MAC?",
+    "options": [
+      "500 pJ",
+      "5 pJ",
+      "2.5 pJ",
+      "0.5 pJ"
+    ],
+    "correct": 1,
+    "explanation": "2 bytes * 250 pJ / 100 = 5 pJ per MAC."
+  },
+  {
+    "id": "20-04-post-4",
+    "stage": "post",
+    "question": "In a matrix product, why can each weight be reused many times?",
+    "options": [
+      "Because the same weight multiplies every input vector in the batch",
+      "Because weights never change during training",
+      "Because weights are always zero",
+      "Because DRAM stores each weight several times"
+    ],
+    "correct": 0,
+    "explanation": "One weight matrix is applied to every input of the batch, so each weight participates in B MACs."
+  },
+  {
+    "id": "20-04-post-5",
+    "stage": "post",
+    "question": "Why does a bigger on-chip SRAM cost more energy per access than a small one?",
+    "options": [
+      "Its cells use a higher voltage",
+      "Its word and bit lines are longer, so each access charges more wire capacitance",
+      "It stores more bits in each cell",
+      "It runs at a lower clock"
+    ],
+    "correct": 1,
+    "explanation": "A memory is mostly wires. More rows and columns means longer lines with more capacitance to charge."
+  }
+]

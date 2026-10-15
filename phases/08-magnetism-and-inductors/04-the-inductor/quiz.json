@@ -1,0 +1,93 @@
+[
+  {
+    "id": "08-04-pre-1",
+    "stage": "pre",
+    "question": "What does an inductor oppose?",
+    "options": [
+      "Any current at all",
+      "High voltage",
+      "Changes in the current through it",
+      "Changes in the voltage across it"
+    ],
+    "correct": 2,
+    "explanation": "By self-induction, a coil produces a voltage that opposes changes in its current. A steady current flows freely through an ideal inductor."
+  },
+  {
+    "id": "08-04-pre-2",
+    "stage": "pre",
+    "question": "After a long time in a DC circuit, an ideal inductor behaves like...",
+    "options": [
+      "A wire (short circuit)",
+      "An open circuit",
+      "A battery",
+      "A 1 kilo-ohm resistor"
+    ],
+    "correct": 0,
+    "explanation": "With a steady current di/dt = 0, so v = L x 0 = 0: no voltage across it, just like a wire."
+  },
+  {
+    "id": "08-04-post-1",
+    "stage": "post",
+    "question": "The current in a 20 mH inductor rises by 0.5 A in 1 ms. What is the voltage across it?",
+    "options": [
+      "1 V",
+      "10 V",
+      "0.01 V",
+      "100 V"
+    ],
+    "correct": 1,
+    "explanation": "v = L di/dt = 0.02 x 0.5 / 0.001 = 10 V."
+  },
+  {
+    "id": "08-04-post-2",
+    "stage": "post",
+    "question": "You double the number of turns of a solenoid, keeping its size and core. Its inductance...",
+    "options": [
+      "stays the same",
+      "doubles",
+      "halves",
+      "becomes four times larger"
+    ],
+    "correct": 3,
+    "explanation": "L = mu_r mu0 N^2 A / l grows with N squared: twice the field, counted in twice as many turns."
+  },
+  {
+    "id": "08-04-post-3",
+    "stage": "post",
+    "question": "A constant 5 V is applied across an ideal 10 mH inductor that starts at 0 A. What is the current after 2 ms?",
+    "options": [
+      "0.5 A",
+      "5 A",
+      "1 A",
+      "It stays at 0 A"
+    ],
+    "correct": 2,
+    "explanation": "di/dt = v / L = 5 / 0.01 = 500 A/s, so after 0.002 s the current is 500 x 0.002 = 1 A."
+  },
+  {
+    "id": "08-04-post-4",
+    "stage": "post",
+    "question": "How much energy does a 50 mH inductor store at 2 A?",
+    "options": [
+      "100 mJ",
+      "50 mJ",
+      "200 mJ",
+      "25 mJ"
+    ],
+    "correct": 0,
+    "explanation": "E = 1/2 L I^2 = 0.5 x 0.05 x 4 = 0.1 J = 100 mJ."
+  },
+  {
+    "id": "08-04-post-5",
+    "stage": "post",
+    "question": "The voltage across an inductor suddenly flips from +5 V to -5 V. What happens to its current at that instant?",
+    "options": [
+      "It jumps to minus its previous value",
+      "It keeps its value and starts changing in the other direction",
+      "It drops instantly to zero",
+      "It doubles"
+    ],
+    "correct": 1,
+    "explanation": "An inductor's current is continuous. Only its rate of change (di/dt = v / L) flips sign."
+  }
+]

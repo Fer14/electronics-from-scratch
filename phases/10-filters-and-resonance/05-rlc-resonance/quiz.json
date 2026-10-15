@@ -1,0 +1,93 @@
+[
+  {
+    "id": "10-05-pre-1",
+    "stage": "pre",
+    "question": "A charged capacitor is connected across an inductor with almost no resistance. What happens?",
+    "options": [
+      "The capacitor discharges once and stops",
+      "Nothing, the inductor blocks DC",
+      "The inductor explodes",
+      "Energy sloshes back and forth between them and the voltage oscillates"
+    ],
+    "correct": 3,
+    "explanation": "The capacitor's electric energy becomes the inductor's magnetic energy and back again, like a pendulum trading height and speed."
+  },
+  {
+    "id": "10-05-pre-2",
+    "stage": "pre",
+    "question": "As frequency rises, what happens to X_L and X_C?",
+    "options": [
+      "Both rise",
+      "X_L rises and X_C falls",
+      "X_L falls and X_C rises",
+      "Both fall"
+    ],
+    "correct": 1,
+    "explanation": "X_L = 2 pi f L grows with f, X_C = 1 / (2 pi f C) shrinks. They cross at the resonant frequency."
+  },
+  {
+    "id": "10-05-post-1",
+    "stage": "post",
+    "question": "What is the resonant frequency of L = 1 mH and C = 1 uF?",
+    "options": [
+      "1 kHz",
+      "159 Hz",
+      "5.03 kHz",
+      "50.3 kHz"
+    ],
+    "correct": 2,
+    "explanation": "L C = 1e-9, sqrt = 3.162e-5, f0 = 1 / (2 pi x 3.162e-5) = 5033 Hz."
+  },
+  {
+    "id": "10-05-post-2",
+    "stage": "post",
+    "question": "At resonance, what is the impedance of a series RLC circuit?",
+    "options": [
+      "Just R, because X_L and X_C cancel",
+      "Zero",
+      "Infinite",
+      "R + X_L + X_C"
+    ],
+    "correct": 0,
+    "explanation": "Z = R + j(X_L - X_C) and X_L = X_C at f0, so Z = R."
+  },
+  {
+    "id": "10-05-post-3",
+    "stage": "post",
+    "question": "A series RLC with sqrt(L/C) = 200 ohm and R = 10 ohm is driven at f0 by 1 V. What voltage appears across the capacitor?",
+    "options": [
+      "1 V",
+      "0.05 V",
+      "10 V",
+      "20 V"
+    ],
+    "correct": 3,
+    "explanation": "Q = 200 / 10 = 20, and the voltage across C at resonance is Q times the source: 20 V."
+  },
+  {
+    "id": "10-05-post-4",
+    "stage": "post",
+    "question": "How does a parallel LC tank behave at its resonant frequency?",
+    "options": [
+      "Like a short circuit",
+      "Like a very high impedance, almost an open circuit",
+      "Like a plain inductor",
+      "Like a battery"
+    ],
+    "correct": 1,
+    "explanation": "The currents in L and C are equal and opposite, so very little current is drawn from outside: the impedance peaks, about L / (C R)."
+  },
+  {
+    "id": "10-05-post-5",
+    "stage": "post",
+    "question": "You double the capacitance in an LC circuit. What happens to f0?",
+    "options": [
+      "It halves",
+      "It doubles",
+      "It drops by a factor of about 1.41",
+      "It does not change"
+    ],
+    "correct": 2,
+    "explanation": "f0 is proportional to 1 / sqrt(C), so doubling C divides f0 by sqrt(2) = 1.414."
+  }
+]

@@ -1,0 +1,168 @@
+{
+ "id": "20-05-meet-the-clock",
+ "title": "Pipeline the datapath to meet the clock",
+ "kind": "chip",
+ "story": "A 16-bit datapath runs from an input register through four blocks to an output register: an 8-bit adder A (17 gate delays), another 8-bit adder B (17), a 4x4 multiplier C (18) and a 16-bit adder D (33). The chip must run at 1.25 GHz: with 20 ps per gate that is a clock period of 800 ps, so no stretch of logic between two registers may exceed 40 gate delays. Between the blocks are three slots, S1 (A to B), S2 (B to C) and S3 (C to D). Each takes either a plain wire (free) or a 16-bit pipeline register (96 gates). The whole design must stay within 640 gates.",
+ "board": {
+  "nodes": {
+   "in": [
+    0,
+    2
+   ],
+   "r_in": [
+    1,
+    2
+   ],
+   "a": [
+    3,
+    2
+   ],
+   "b_in": [
+    4,
+    2
+   ],
+   "b": [
+    5,
+    2
+   ],
+   "c_in": [
+    6,
+    2
+   ],
+   "c": [
+    7,
+    2
+   ],
+   "d_in": [
+    8,
+    2
+   ],
+   "d": [
+    9,
+    2
+   ],
+   "out": [
+    10,
+    2
+   ]
+  },
+  "fixed": [
+   {
+    "type": "register",
+    "id": "R_IN",
+    "a": "in",
+    "b": "r_in",
+    "bits": 16
+   },
+   {
+    "type": "adder",
+    "id": "A",
+    "a": "r_in",
+    "b": "a",
+    "bits": 8
+   },
+   {
+    "type": "adder",
+    "id": "B",
+    "a": "b_in",
+    "b": "b",
+    "bits": 8
+   },
+   {
+    "type": "multiplier",
+    "id": "C",
+    "a": "c_in",
+    "b": "c",
+    "bits": 4
+   },
+   {
+    "type": "adder",
+    "id": "D",
+    "a": "d_in",
+    "b": "d",
+    "bits": 16
+   },
+   {
+    "type": "register",
+    "id": "R_OUT",
+    "a": "d",
+    "b": "out",
+    "bits": 16
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "a",
+    "b": "b_in",
+    "accepts": [
+     "wire",
+     "register"
+    ],
+    "label": "between A and B"
+   },
+   {
+    "id": "S2",
+    "a": "b",
+    "b": "c_in",
+    "accepts": [
+     "wire",
+     "register"
+    ],
+    "label": "between B and C"
+   },
+   {
+    "id": "S3",
+    "a": "c",
+    "b": "d_in",
+    "accepts": [
+     "wire",
+     "register"
+    ],
+    "label": "between C and D"
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "wire",
+   "bits": 16,
+   "length": 0
+  },
+  {
+   "type": "register",
+   "bits": 16
+  }
+ ],
+ "goals": [
+  {
+   "measure": "critical_path",
+   "max": 40,
+   "label": "no stage longer than 40 gate delays (800 ps)"
+  },
+  {
+   "measure": "area",
+   "max": 640,
+   "label": "total area at most 640 gates"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "wire",
+   "bits": 16,
+   "length": 0
+  },
+  "S2": {
+   "type": "register",
+   "bits": 16
+  },
+  "S3": {
+   "type": "register",
+   "bits": 16
+  }
+ },
+ "hints": [
+  "Add up the delays of the blocks between two registers: that sum must stay at or below 40.",
+  "The fixed blocks and registers already take 428 gates, so you can afford at most two pipeline registers."
+ ]
+}

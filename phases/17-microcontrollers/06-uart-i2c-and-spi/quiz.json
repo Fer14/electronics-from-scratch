@@ -1,0 +1,91 @@
+[
+  {
+    "id": "17-06-pre-1",
+    "stage": "pre",
+    "question": "What does 'serial communication' mean?",
+    "options": [
+      "Sending bits one after another on a single data wire",
+      "Sending all bits at once on many wires",
+      "Communication by radio",
+      "Communication that only works in one direction"
+    ],
+    "correct": 0,
+    "explanation": "Serial links send one bit at a time, which needs far fewer wires than parallel links."
+  },
+  {
+    "id": "17-06-pre-2",
+    "stage": "pre",
+    "question": "Two push-pull outputs are wired together; one drives high and the other drives low. What happens?",
+    "options": [
+      "The line settles at exactly VDD / 2 harmlessly",
+      "The high one always wins",
+      "A large current flows from VDD to ground through both drivers, which can damage them",
+      "Nothing, outputs cannot affect each other"
+    ],
+    "correct": 2,
+    "explanation": "Both drivers are turned-on transistors of tens of ohms, so the pair is nearly a short from VDD to ground. That is why shared lines use open-drain outputs."
+  },
+  {
+    "id": "17-06-post-1",
+    "stage": "post",
+    "question": "How long does one 8N1 character take at 9600 baud?",
+    "options": ["0.83 ms", "1.04 ms", "104 us", "9.6 ms"],
+    "correct": 1,
+    "explanation": "8N1 sends 10 bits per character (start, 8 data, stop). 10 / 9600 = 1.042 ms."
+  },
+  {
+    "id": "17-06-post-2",
+    "stage": "post",
+    "question": "Why does a UART receiver sample each bit in its middle?",
+    "options": [
+      "Because the edges carry the data",
+      "Because it saves power",
+      "Because the stop bit is in the middle",
+      "Because the middle leaves the most room for clock mismatch and slow edges on both sides"
+    ],
+    "correct": 3,
+    "explanation": "Mid-bit samples can drift by up to half a bit before reading the wrong bit. The total mismatch budget is about 0.5 / 9.5 = 5.3%."
+  },
+  {
+    "id": "17-06-post-3",
+    "stage": "post",
+    "question": "In an 8-bit SPI transfer, the controller sends 0x12 and the target sends 0x34. What does the controller hold afterwards?",
+    "options": ["0x12", "0x46", "0x34", "0x00"],
+    "correct": 2,
+    "explanation": "The two shift registers swap their contents over 8 clocks: the controller ends up with the target's byte, 0x34, and vice versa."
+  },
+  {
+    "id": "17-06-post-4",
+    "stage": "post",
+    "question": "After an I2C address byte, nobody pulls SDA low during the ninth clock. What does the controller conclude?",
+    "options": [
+      "NACK: no device with that address answered",
+      "ACK: the device received the byte",
+      "The bus is short-circuited",
+      "The device is busy and will answer later automatically"
+    ],
+    "correct": 0,
+    "explanation": "The addressed target acknowledges by pulling SDA low. If the pull-up keeps it high, it is a NACK: no one recognised the address."
+  },
+  {
+    "id": "17-06-post-5",
+    "stage": "post",
+    "question": "A fast-mode I2C bus (rise time at most 300 ns) has 150 pF. What is the largest pull-up, using rise time = 0.847 RC?",
+    "options": ["10 kohm", "4.7 kohm", "470 ohm", "About 2.4 kohm"],
+    "correct": 3,
+    "explanation": "R = 300 ns / (0.847 x 150 pF) = 300e-9 / 1.27e-10 = 2.36 kohm."
+  },
+  {
+    "id": "17-06-post-6",
+    "stage": "post",
+    "question": "Why can SPI run much faster than a UART on the same board?",
+    "options": [
+      "SPI uses higher voltages",
+      "The clock is sent along with the data, so the two sides never need to agree on a speed",
+      "SPI does not use bits",
+      "SPI uses only one wire"
+    ],
+    "correct": 1,
+    "explanation": "With a shared clock, the receiver reads each bit on a clock edge. There is no drift budget, so speed is limited only by the wires and drivers."
+  }
+]

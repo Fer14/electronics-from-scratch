@@ -1,0 +1,160 @@
+{
+ "id": "14-05-cmos-pull-up",
+ "title": "Pick the pull-up of a CMOS inverter",
+ "kind": "dc",
+ "story": "Two copies of the same inverter share a 5 V supply. Each already has its NMOS pull-down; the pull-up is missing. The first inverter's input is held at 0 V, the second's at 5 V. Choose the pull-up part for both so that the first output is a clean 1, the second a clean 0, and the supply delivers (almost) no current while nothing switches.",
+ "board": {
+  "nodes": {
+   "vdd": [
+    5,
+    0
+   ],
+   "in1": [
+    1,
+    3
+   ],
+   "out1": [
+    3,
+    3
+   ],
+   "in2": [
+    6,
+    3
+   ],
+   "out2": [
+    8,
+    3
+   ],
+   "gnd": [
+    5,
+    6
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "B1",
+    "plus": "vdd",
+    "minus": "gnd",
+    "volts": 5
+   },
+   {
+    "type": "voltage_source",
+    "id": "VA",
+    "plus": "in1",
+    "minus": "gnd",
+    "volts": 0
+   },
+   {
+    "type": "voltage_source",
+    "id": "VB",
+    "plus": "in2",
+    "minus": "gnd",
+    "volts": 5
+   },
+   {
+    "type": "nmos",
+    "id": "MN1",
+    "d": "out1",
+    "g": "in1",
+    "s": "gnd",
+    "vth": 1.0,
+    "k": 0.001
+   },
+   {
+    "type": "nmos",
+    "id": "MN2",
+    "d": "out2",
+    "g": "in2",
+    "s": "gnd",
+    "vth": 1.0,
+    "k": 0.001
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "d": "out1",
+    "g": "in1",
+    "s": "vdd",
+    "a": "vdd",
+    "b": "out1",
+    "accepts": [
+     "pmos",
+     "nmos",
+     "resistor"
+    ]
+   },
+   {
+    "id": "S2",
+    "d": "out2",
+    "g": "in2",
+    "s": "vdd",
+    "a": "vdd",
+    "b": "out2",
+    "accepts": [
+     "pmos",
+     "nmos",
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "pmos",
+   "vth": 1.0,
+   "k": 0.001
+  },
+  {
+   "type": "nmos",
+   "vth": 1.0,
+   "k": 0.001
+  },
+  {
+   "type": "resistor",
+   "ohms": 1000
+  },
+  {
+   "type": "resistor",
+   "ohms": 100000
+  }
+ ],
+ "goals": [
+  {
+   "measure": "voltage",
+   "at": "out1",
+   "min": 4.5,
+   "label": "input 0 V gives an output above 4.5 V"
+  },
+  {
+   "measure": "voltage",
+   "at": "out2",
+   "max": 0.5,
+   "label": "input 5 V gives an output below 0.5 V"
+  },
+  {
+   "measure": "current",
+   "of": "B1",
+   "max": 1e-06,
+   "label": "the supply delivers less than 1 uA when nothing switches"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "pmos",
+   "vth": 1.0,
+   "k": 0.001
+  },
+  "S2": {
+   "type": "pmos",
+   "vth": 1.0,
+   "k": 0.001
+  }
+ },
+ "hints": [
+  "The pull-up must be ON when the input is 0 V and OFF when the input is 5 V.",
+  "A resistor pull-up works logically, but look at the supply current when the NMOS is on: I = 5 V / R."
+ ]
+}

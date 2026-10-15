@@ -1,0 +1,184 @@
+{
+  "id": "15-02-nand-d-latch",
+  "title": "Build a gated D latch from NAND gates",
+  "kind": "logic",
+  "story": "The two cross-coupled NAND gates at the right hold one bit. They change only when one of their left inputs (sn or rn) goes to 0. Fill the two steering slots so the latch is transparent while en = 1 (q follows d) and holds its value while en = 0.",
+  "board": {
+    "inputs": [
+      "en",
+      "d"
+    ],
+    "outputs": [
+      "q"
+    ],
+    "nodes": {
+      "d": [
+        1,
+        1
+      ],
+      "en": [
+        1,
+        3
+      ],
+      "nd": [
+        3,
+        5
+      ],
+      "sn": [
+        5,
+        1
+      ],
+      "rn": [
+        5,
+        5
+      ],
+      "q": [
+        9,
+        1
+      ],
+      "qb": [
+        9,
+        5
+      ]
+    },
+    "fixed": [
+      {
+        "type": "gate",
+        "id": "G1",
+        "op": "not",
+        "inputs": [
+          "d"
+        ],
+        "output": "nd"
+      },
+      {
+        "type": "gate",
+        "id": "G2",
+        "op": "nand",
+        "inputs": [
+          "sn",
+          "qb"
+        ],
+        "output": "q"
+      },
+      {
+        "type": "gate",
+        "id": "G3",
+        "op": "nand",
+        "inputs": [
+          "rn",
+          "q"
+        ],
+        "output": "qb"
+      }
+    ],
+    "slots": [
+      {
+        "id": "S1",
+        "inputs": [
+          "d",
+          "en"
+        ],
+        "output": "sn",
+        "accepts": [
+          "gate"
+        ]
+      },
+      {
+        "id": "S2",
+        "inputs": [
+          "nd",
+          "en"
+        ],
+        "output": "rn",
+        "accepts": [
+          "gate"
+        ]
+      }
+    ]
+  },
+  "parts": [
+    {
+      "type": "gate",
+      "op": "nand"
+    },
+    {
+      "type": "gate",
+      "op": "and"
+    },
+    {
+      "type": "gate",
+      "op": "nor"
+    },
+    {
+      "type": "gate",
+      "op": "or"
+    }
+  ],
+  "goals": [
+    {
+      "measure": "sequence",
+      "steps": [
+        {
+          "en": 1,
+          "d": 1
+        },
+        {
+          "en": 0,
+          "d": 0
+        },
+        {
+          "en": 0,
+          "d": 1
+        },
+        {
+          "en": 1,
+          "d": 0
+        },
+        {
+          "en": 0,
+          "d": 1
+        },
+        {
+          "en": 1,
+          "d": 1
+        },
+        {
+          "en": 1,
+          "d": 0
+        },
+        {
+          "en": 0,
+          "d": 1
+        }
+      ],
+      "expect": {
+        "q": [
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      "label": "q follows d while en = 1 and holds while en = 0 (8 steps)"
+    }
+  ],
+  "solution": {
+    "S1": {
+      "type": "gate",
+      "op": "nand"
+    },
+    "S2": {
+      "type": "gate",
+      "op": "nand"
+    }
+  },
+  "hints": [
+    "The NAND pair changes state only when sn or rn is 0; with both at 1 it holds.",
+    "sn must be 0 exactly when en = 1 and d = 1. Which gate outputs 0 only when both inputs are 1?"
+  ]
+}

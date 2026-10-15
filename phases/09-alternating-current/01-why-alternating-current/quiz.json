@@ -1,0 +1,93 @@
+[
+  {
+    "id": "09-01-pre-1",
+    "stage": "pre",
+    "question": "What is the main difference between DC and AC?",
+    "options": [
+      "DC is always a higher voltage than AC",
+      "DC flows in one direction only; AC keeps reversing direction",
+      "AC only exists in power stations, DC only in houses",
+      "AC uses electrons and DC uses protons"
+    ],
+    "correct": 1,
+    "explanation": "Direct current keeps one direction (fixed polarity). Alternating current flows one way, then the other, repeating many times per second."
+  },
+  {
+    "id": "09-01-pre-2",
+    "stage": "pre",
+    "question": "The mains in Europe is 50 Hz. How long does one full cycle take?",
+    "options": [
+      "50 ms",
+      "2 ms",
+      "20 ms",
+      "0.5 s"
+    ],
+    "correct": 2,
+    "explanation": "The period is T = 1 / f = 1 / 50 Hz = 0.02 s = 20 ms."
+  },
+  {
+    "id": "09-01-pre-3",
+    "stage": "pre",
+    "question": "In a wire carrying current I with resistance R, the heat produced is P = I x I x R. If you halve the current, the heat becomes:",
+    "options": [
+      "one quarter",
+      "one half",
+      "the same",
+      "double"
+    ],
+    "correct": 0,
+    "explanation": "Current appears squared: (I/2) x (I/2) = I x I / 4, so the heat drops to one quarter."
+  },
+  {
+    "id": "09-01-post-1",
+    "stage": "post",
+    "question": "The same power is sent over the same line at 10 times the voltage. What happens to the power lost in the line?",
+    "options": [
+      "It becomes 10 times larger",
+      "It stays the same",
+      "It becomes 10 times smaller",
+      "It becomes 100 times smaller"
+    ],
+    "correct": 3,
+    "explanation": "The current is P / V, so 10 times smaller. The loss is I x I x R, so 10 x 10 = 100 times smaller."
+  },
+  {
+    "id": "09-01-post-2",
+    "stage": "post",
+    "question": "Why did transformers make AC win over DC for power grids?",
+    "options": [
+      "Transformers convert AC into DC for free",
+      "Transformers only work with a changing magnetic field, which AC provides all the time, so AC voltages can be stepped up and down easily",
+      "Transformers make wires superconducting",
+      "Transformers store energy for the night"
+    ],
+    "correct": 1,
+    "explanation": "By Faraday's law, a transformer induces voltage only when the core's magnetic field changes. AC changes all the time, DC does not, and before modern power electronics there was no efficient way to change DC voltages."
+  },
+  {
+    "id": "09-01-post-3",
+    "stage": "post",
+    "question": "A 4.8 ohm load sits behind a 10:1 step-down transformer. What resistance does the high-voltage line see?",
+    "options": [
+      "0.048 ohm",
+      "48 ohm",
+      "480 ohm",
+      "4.8 ohm"
+    ],
+    "correct": 2,
+    "explanation": "A load behind an n:1 step-down appears n squared times larger: 10 x 10 x 4.8 = 480 ohm."
+  },
+  {
+    "id": "09-01-post-4",
+    "stage": "post",
+    "question": "Why do some very long and undersea power links use high-voltage DC today?",
+    "options": [
+      "Because DC cannot hurt people",
+      "Because transformers stopped being made",
+      "Because DC is the only kind a generator can make",
+      "Because modern power electronics can convert DC efficiently, and DC avoids energy sloshing in the cable's capacitance and inductance"
+    ],
+    "correct": 3,
+    "explanation": "Power electronics removed DC's old weakness (no way to change voltage), and over very long cables AC suffers from the charging current of the cable's capacitance and inductance."
+  }
+]

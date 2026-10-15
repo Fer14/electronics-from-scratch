@@ -1,0 +1,37 @@
+{
+  "id": "12-03-the-bjt-as-a-switch",
+  "title": "Let a 3.3 V pin switch a 20 mA LED",
+  "kind": "dc",
+  "story": "A microcontroller pin gives 3.3 V but may only supply 8 mA. You want a red LED at about 20 mA from the 5 V rail, through a 150 ohm resistor. An NPN transistor (beta = 100) does the heavy lifting: the pin only drives its base. Pick the base resistor so the transistor is fully on (saturated) and the pin is safe.",
+  "board": {
+    "nodes": {"vcc": [8, 0], "a": [8, 2], "c": [8, 4], "pin": [1, 5], "b": [5, 5], "gnd": [8, 6], "g": [1, 6]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "voltage_source", "id": "VCC", "plus": "vcc", "minus": "gnd", "volts": 5},
+      {"type": "voltage_source", "id": "PIN", "plus": "pin", "minus": "g", "volts": 3.3},
+      {"type": "wire", "id": "W1", "a": "g", "b": "gnd"},
+      {"type": "resistor", "id": "RLED", "a": "vcc", "b": "a", "ohms": 150},
+      {"type": "led", "id": "D1", "anode": "a", "cathode": "c", "color": "red"},
+      {"type": "npn", "id": "Q1", "c": "c", "b": "b", "e": "gnd", "beta": 100}
+    ],
+    "slots": [
+      {"id": "S1", "a": "pin", "b": "b", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 100},
+    {"type": "resistor", "ohms": 1000},
+    {"type": "resistor", "ohms": 100000}
+  ],
+  "goals": [
+    {"measure": "current", "of": "D1", "min": 0.015, "label": "LED current at least 15 mA"},
+    {"measure": "voltage", "at": "c", "max": 0.3, "label": "transistor saturated (V_CE below 0.3 V)"},
+    {"measure": "current", "of": "S1", "max": 0.008, "label": "pin current below 8 mA"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 1000}},
+  "hints": [
+    "The collector needs about 20 mA, so the base needs at least 20 mA / 100 = 0.2 mA. For a solid switch give it 5 to 10 times more.",
+    "The base sits about 0.7 V above ground, so the base resistor sees 3.3 - 0.7 = 2.6 V.",
+    "Check both limits: enough base current to saturate, but no more than the pin's 8 mA."
+  ]
+}

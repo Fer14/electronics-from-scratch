@@ -1,0 +1,106 @@
+[
+  {
+    "id": "14-04-pre-1",
+    "stage": "pre",
+    "question": "What does the small circle (bubble) at the output of a gate symbol mean?",
+    "options": [
+      "The output is inverted",
+      "The output is grounded",
+      "The gate has a clock",
+      "The output is a buffer"
+    ],
+    "correct": 0,
+    "explanation": "A bubble means 'invert here'. AND plus a bubble is NAND, OR plus a bubble is NOR."
+  },
+  {
+    "id": "14-04-pre-2",
+    "stage": "pre",
+    "question": "A staircase light can be toggled by either of two switches. Which gate describes it?",
+    "options": [
+      "AND",
+      "OR",
+      "XOR",
+      "NOR"
+    ],
+    "correct": 2,
+    "explanation": "Flipping either switch changes the light, so the light is on when the switches differ: XOR."
+  },
+  {
+    "id": "14-04-post-1",
+    "stage": "post",
+    "question": "What is NAND(1, 1)?",
+    "options": [
+      "1",
+      "0",
+      "Undefined",
+      "It depends on the previous value"
+    ],
+    "correct": 1,
+    "explanation": "AND(1, 1) = 1, and the NAND inverts it to 0. It is the only row where a NAND outputs 0."
+  },
+  {
+    "id": "14-04-post-2",
+    "stage": "post",
+    "question": "How do you make a NOT gate from a 2-input NAND?",
+    "options": [
+      "Leave one input floating",
+      "Connect one input to the output",
+      "Connect one input to 0",
+      "Tie both inputs together to the signal"
+    ],
+    "correct": 3,
+    "explanation": "NAND(a, a) = (a·a)' = a'. (Tying one input to 1 also works; tying it to 0 gives a constant 1, and floating inputs are never acceptable.)"
+  },
+  {
+    "id": "14-04-post-3",
+    "stage": "post",
+    "question": "Why is NAND called a universal gate?",
+    "options": [
+      "It is the fastest gate",
+      "NOT, AND and OR, and therefore every Boolean function, can be built from NANDs alone",
+      "It works at any supply voltage",
+      "It has the most inputs"
+    ],
+    "correct": 1,
+    "explanation": "Any truth table can be written with AND, OR and NOT (sum of products), and each of those can be built from NANDs."
+  },
+  {
+    "id": "14-04-post-4",
+    "stage": "post",
+    "question": "A circuit has logic depth 5 and each gate has a worst-case delay of 12 ns. What is the worst-case delay from input to output?",
+    "options": [
+      "12 ns",
+      "17 ns",
+      "2.4 ns",
+      "60 ns"
+    ],
+    "correct": 3,
+    "explanation": "Delays add along the longest path: 5 x 12 ns = 60 ns."
+  },
+  {
+    "id": "14-04-post-5",
+    "stage": "post",
+    "question": "Is NAND(NAND(a, b), c) the same as a 3-input NAND?",
+    "options": [
+      "No: with a = b = c = 1 it gives 1, but a 3-input NAND gives 0",
+      "Yes, by the associative law",
+      "Yes, but only when c = 1",
+      "No, it is a 3-input NOR"
+    ],
+    "correct": 0,
+    "explanation": "The inner NAND inverts, so the associative law does not apply to NAND or NOR."
+  },
+  {
+    "id": "14-04-post-6",
+    "stage": "post",
+    "question": "XOR with one input held at 1 behaves like:",
+    "options": [
+      "A buffer",
+      "A constant 0",
+      "An inverter of the other input",
+      "A constant 1"
+    ],
+    "correct": 2,
+    "explanation": "a XOR 1 = a'. With the control input at 0 it passes a unchanged. This 'controlled inverter' is how an adder becomes a subtractor."
+  }
+]

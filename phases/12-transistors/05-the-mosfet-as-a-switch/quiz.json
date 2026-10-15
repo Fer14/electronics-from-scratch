@@ -1,0 +1,86 @@
+[
+  {
+    "id": "12-05-pre-1",
+    "stage": "pre",
+    "question": "A 6 ohm motor on 12 V draws how much current (ignoring the switch)?",
+    "options": ["0.5 A", "2 A", "72 A", "6 A"],
+    "correct": 1,
+    "explanation": "I = V / R = 12 / 6 = 2 A."
+  },
+  {
+    "id": "12-05-pre-2",
+    "stage": "pre",
+    "question": "How long does a capacitor take to charge most of the way (about 95 %) through a resistor?",
+    "options": ["Instantly", "About one R x C", "About three R x C", "It never charges"],
+    "correct": 2,
+    "explanation": "After 3 time constants it is at 95 % (Phase 07). The MOSFET gate charges the same way through the gate resistor."
+  },
+  {
+    "id": "12-05-post-1",
+    "stage": "post",
+    "question": "A MOSFET with R_DS(on) = 50 mohm carries 4 A. What is its conduction loss?",
+    "options": ["0.2 W", "0.8 W", "12.5 W", "0.05 W"],
+    "correct": 1,
+    "explanation": "P = I^2 x R = 16 x 0.05 = 0.8 W."
+  },
+  {
+    "id": "12-05-post-2",
+    "stage": "post",
+    "question": "Why is a standard power MOSFET (V_th about 3.5 V) a bad choice for a 3.3 V pin?",
+    "options": [
+      "It is too fast",
+      "Its gate draws too much current",
+      "Its body diode conducts",
+      "3.3 V is below its threshold, so it stays off (or barely on)"
+    ],
+    "correct": 3,
+    "explanation": "It needs several volts of overdrive; such parts are specified at V_GS = 10 V."
+  },
+  {
+    "id": "12-05-post-3",
+    "stage": "post",
+    "question": "A 3.3 V pin drives the gate through 100 kohm with a 100 kohm pull-down. What is V_GS?",
+    "options": ["3.3 V", "1.65 V", "0 V", "0.33 V"],
+    "correct": 1,
+    "explanation": "The two resistors form a divider: 3.3 x 100k / 200k = 1.65 V. With V_th = 1.5 V the MOSFET is barely on and gets hot."
+  },
+  {
+    "id": "12-05-post-4",
+    "stage": "post",
+    "question": "Why give a MOSFET gate a pull-down resistor?",
+    "options": [
+      "To make it switch faster",
+      "To lower R_DS(on)",
+      "So the gate discharges to 0 V and the MOSFET stays off when nothing drives it",
+      "To protect against overcurrent in the drain"
+    ],
+    "correct": 2,
+    "explanation": "A floating gate keeps its charge or picks up noise; the MOSFET could stay on or half on."
+  },
+  {
+    "id": "12-05-post-5",
+    "stage": "post",
+    "question": "Without a flyback diode, where does the energy stored in a motor winding go when the MOSFET switches off?",
+    "options": [
+      "Back into the battery",
+      "It disappears",
+      "Into the gate driver",
+      "Into the MOSFET, which avalanches at its breakdown voltage"
+    ],
+    "correct": 3,
+    "explanation": "The simulation dumped about 2 mJ into the MOSFET's avalanche per switch-off; with a diode, nothing."
+  },
+  {
+    "id": "12-05-post-6",
+    "stage": "post",
+    "question": "Why does a larger gate resistor increase the MOSFET's heating when switching often?",
+    "options": [
+      "The gate resistor heats the MOSFET",
+      "It lowers V_GS permanently",
+      "The gate charges more slowly, so the MOSFET spends longer half on, with voltage and current at once",
+      "It increases R_DS(on) when fully on"
+    ],
+    "correct": 2,
+    "explanation": "Switching loss is the energy spent during the transition; a slow transition means more of it."
+  }
+]

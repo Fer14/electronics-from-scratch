@@ -1,0 +1,106 @@
+[
+  {
+    "id": "14-02-pre-1",
+    "stage": "pre",
+    "question": "In the decimal number 407, how much is the 4 worth?",
+    "options": [
+      "4",
+      "40",
+      "400",
+      "4000"
+    ],
+    "correct": 2,
+    "explanation": "Each column is worth ten times the one to its right: ones, tens, hundreds. The 4 sits in the hundreds column."
+  },
+  {
+    "id": "14-02-pre-2",
+    "stage": "pre",
+    "question": "How many different patterns can 3 on/off switches show?",
+    "options": [
+      "3",
+      "6",
+      "9",
+      "8"
+    ],
+    "correct": 3,
+    "explanation": "Each switch doubles the count: 2 x 2 x 2 = 8 patterns."
+  },
+  {
+    "id": "14-02-post-1",
+    "stage": "post",
+    "question": "What is binary 10110 in decimal?",
+    "options": [
+      "22",
+      "26",
+      "11",
+      "18"
+    ],
+    "correct": 0,
+    "explanation": "16 + 0 + 4 + 2 + 0 = 22."
+  },
+  {
+    "id": "14-02-post-2",
+    "stage": "post",
+    "question": "What is 0xC3 in binary?",
+    "options": [
+      "1100 0011",
+      "0011 1100",
+      "1011 0011",
+      "1100 1100"
+    ],
+    "correct": 0,
+    "explanation": "Each hex digit is 4 bits: C = 1100 and 3 = 0011."
+  },
+  {
+    "id": "14-02-post-3",
+    "stage": "post",
+    "question": "What is the 8-bit two's complement pattern for -1?",
+    "options": [
+      "1000 0001",
+      "0000 0001",
+      "1111 1111",
+      "1111 1110"
+    ],
+    "correct": 2,
+    "explanation": "256 - 1 = 255 = 1111 1111. Invert 0000 0001 to 1111 1110 and add 1 to get the same answer."
+  },
+  {
+    "id": "14-02-post-4",
+    "stage": "post",
+    "question": "What range can an 8-bit two's complement number hold?",
+    "options": [
+      "0 to 255",
+      "-127 to +127",
+      "-255 to +255",
+      "-128 to +127"
+    ],
+    "correct": 3,
+    "explanation": "256 patterns split into 128 negatives (-128..-1) and 128 non-negatives (0..127)."
+  },
+  {
+    "id": "14-02-post-5",
+    "stage": "post",
+    "question": "Why do computers use two's complement for negative numbers?",
+    "options": [
+      "It uses fewer bits than unsigned numbers",
+      "The same adder circuit then handles addition and subtraction, signed and unsigned",
+      "It makes numbers easier for humans to read",
+      "It prevents overflow"
+    ],
+    "correct": 1,
+    "explanation": "a - b becomes a + (invert b) + 1: a row of NOT gates and a carry-in of 1 on the ordinary adder."
+  },
+  {
+    "id": "14-02-post-6",
+    "stage": "post",
+    "question": "How many bits do you need to give every one of 1000 sensors a different number?",
+    "options": [
+      "8",
+      "9",
+      "10",
+      "1000"
+    ],
+    "correct": 2,
+    "explanation": "2^9 = 512 is too few, 2^10 = 1024 is enough."
+  }
+]

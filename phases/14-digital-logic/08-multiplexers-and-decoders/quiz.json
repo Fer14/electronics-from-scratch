@@ -1,0 +1,106 @@
+[
+  {
+    "id": "14-08-pre-1",
+    "stage": "pre",
+    "question": "An AND gate has one input held at 1. What does its output do?",
+    "options": [
+      "Stays at 1",
+      "Copies the other input",
+      "Stays at 0",
+      "Inverts the other input"
+    ],
+    "correct": 1,
+    "explanation": "1·x = x. With the control at 0 the output is forced to 0. This is how a mux 'opens a door' for one input."
+  },
+  {
+    "id": "14-08-pre-2",
+    "stage": "pre",
+    "question": "How many different addresses can 3 address bits name?",
+    "options": [
+      "3",
+      "6",
+      "9",
+      "8"
+    ],
+    "correct": 3,
+    "explanation": "2^3 = 8, so a 3-to-8 decoder has 8 outputs."
+  },
+  {
+    "id": "14-08-post-1",
+    "stage": "post",
+    "question": "Which expression is a 2-to-1 multiplexer that outputs a when s = 0 and b when s = 1?",
+    "options": [
+      "y = s·a + s'·b",
+      "y = a·b + s",
+      "y = s'·a + s·b",
+      "y = (a + b)·s"
+    ],
+    "correct": 2,
+    "explanation": "The a term is enabled by s' (s = 0), the b term by s (s = 1), and the OR passes whichever is enabled."
+  },
+  {
+    "id": "14-08-post-2",
+    "stage": "post",
+    "question": "A 2-to-4 decoder with enable = 1 receives address 11. What are y0 y1 y2 y3?",
+    "options": [
+      "0 0 0 1",
+      "1 1 0 0",
+      "1 0 0 0",
+      "0 0 1 1"
+    ],
+    "correct": 0,
+    "explanation": "Exactly the output numbered by the address (binary 11 = 3) is 1."
+  },
+  {
+    "id": "14-08-post-3",
+    "stage": "post",
+    "question": "How do you get a 1-to-4 demultiplexer from a 2-to-4 decoder?",
+    "options": [
+      "It is impossible",
+      "Put the data bit on the enable input",
+      "Invert all the outputs",
+      "Put the data bit on an address input"
+    ],
+    "correct": 1,
+    "explanation": "With data on the enable, the addressed output equals the data and the others are 0."
+  },
+  {
+    "id": "14-08-post-4",
+    "stage": "post",
+    "question": "A 4-to-1 mux has a and b on its select inputs (a is the high bit) and the constants 0, 1, 1, 1 on d0..d3. What function does it compute?",
+    "options": [
+      "AND",
+      "XOR",
+      "NOR",
+      "OR"
+    ],
+    "correct": 3,
+    "explanation": "The stored bits are the truth table for ab = 00, 01, 10, 11: 0 1 1 1 is OR."
+  },
+  {
+    "id": "14-08-post-5",
+    "stage": "post",
+    "question": "How many select bits and how many 2-to-1 muxes does a 16-to-1 mux tree need?",
+    "options": [
+      "16 select bits, 16 muxes",
+      "4 select bits, 15 muxes",
+      "4 select bits, 8 muxes",
+      "8 select bits, 15 muxes"
+    ],
+    "correct": 1,
+    "explanation": "2^4 = 16 inputs need 4 select bits; a binary tree with 16 leaves has 8 + 4 + 2 + 1 = 15 muxes in 4 levels."
+  },
+  {
+    "id": "14-08-post-6",
+    "stage": "post",
+    "question": "What is the role of a decoder inside a memory chip?",
+    "options": [
+      "It adds the address to the data",
+      "It compresses the data",
+      "It turns on exactly one row of cells, the one named by the address",
+      "It stores the data"
+    ],
+    "correct": 2,
+    "explanation": "The row decoder turns the address bits into a one-hot set of word lines, so only the addressed row is read or written."
+  }
+]

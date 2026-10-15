@@ -1,0 +1,93 @@
+[
+  {
+    "id": "09-07-pre-1",
+    "stage": "pre",
+    "question": "A load draws 10 A RMS from 230 V RMS. Can you be sure it uses 2300 W?",
+    "options": [
+      "Yes, P = V x I always",
+      "Only if it is a motor",
+      "No: if current and voltage are out of step, the real power is less than V x I",
+      "No: it always uses more than V x I"
+    ],
+    "correct": 2,
+    "explanation": "V_rms x I_rms is the apparent power. Real power is V_rms x I_rms x cos(phi), which equals it only when the current is in phase with the voltage."
+  },
+  {
+    "id": "09-07-pre-2",
+    "stage": "pre",
+    "question": "What is the average power taken by an ideal inductor connected to a sine-wave source?",
+    "options": [
+      "Zero: it stores energy for a quarter cycle and gives it back the next",
+      "V_rms x I_rms",
+      "Infinite",
+      "Exactly half of V_rms x I_rms"
+    ],
+    "correct": 0,
+    "explanation": "With a 90 degree phase shift, p(t) = v x i is positive and negative for equal times, so the average is zero."
+  },
+  {
+    "id": "09-07-post-1",
+    "stage": "post",
+    "question": "A motor draws 11.5 A RMS from 230 V with the current lagging by 36.87 degrees (cos = 0.8). What is the real power?",
+    "options": [
+      "2645 W",
+      "2116 W",
+      "1587 W",
+      "529 W"
+    ],
+    "correct": 1,
+    "explanation": "P = 230 x 11.5 x 0.8 = 2116 W. 2645 VA is the apparent power and 1587 var the reactive power."
+  },
+  {
+    "id": "09-07-post-2",
+    "stage": "post",
+    "question": "Why does a poor power factor matter if the reactive energy is returned every cycle?",
+    "options": [
+      "It does not matter at all",
+      "Reactive power is billed as if it were heat in the load",
+      "It makes the voltage frequency drift",
+      "The extra current still flows in the wires, transformers and generators and heats them (I^2 R)"
+    ],
+    "correct": 3,
+    "explanation": "The supply must carry the full current, whatever part of it does useful work, and wire losses depend on current squared."
+  },
+  {
+    "id": "09-07-post-3",
+    "stage": "post",
+    "question": "How is complex power computed from RMS phasors?",
+    "options": [
+      "S = V x I",
+      "S = V / I",
+      "S = V x conj(I)",
+      "S = |V| + |I|"
+    ],
+    "correct": 2,
+    "explanation": "S = V conj(I): the conjugate subtracts the current's angle, so the angle of S is phi, and its real and imaginary parts are P and Q."
+  },
+  {
+    "id": "09-07-post-4",
+    "stage": "post",
+    "question": "What is the usual way to correct a lagging power factor caused by motors?",
+    "options": [
+      "Add a capacitor in parallel with the motor",
+      "Add a resistor in series with the motor",
+      "Add an inductor in parallel with the motor",
+      "Raise the supply frequency"
+    ],
+    "correct": 0,
+    "explanation": "A parallel capacitor supplies reactive power of the opposite sign, so the energy sloshes locally between motor and capacitor instead of travelling along the line."
+  },
+  {
+    "id": "09-07-post-5",
+    "stage": "post",
+    "question": "After adding the right correction capacitor, which current changes?",
+    "options": [
+      "The motor current drops to zero",
+      "The line current (between supply and capacitor) drops; the motor current stays the same",
+      "Both the motor current and the line current double",
+      "Nothing changes; only the bill does"
+    ],
+    "correct": 1,
+    "explanation": "The motor still sees the same voltage and draws the same current and real power. Only the supply side carries less current, because it no longer delivers the reactive part."
+  }
+]

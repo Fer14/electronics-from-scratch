@@ -1,0 +1,38 @@
+{
+  "id": "13-02-the-comparator",
+  "title": "A frost alarm at 2.0 V",
+  "kind": "transient",
+  "story": "A temperature sensor's voltage drifts slowly up and down between 0 and 5 V (here a 1 Hz sine centred on 2.5 V). A comparator (an op-amp with no feedback, powered from 0 and 5 V) must switch its output HIGH whenever the sensor is above 2.0 V and LOW below it. The reference comes from a divider on the 5 V rail: the bottom resistor is 10 kOhm, you choose the top one.",
+  "board": {
+    "nodes": {"vcc": [1, 0], "ref": [4, 3], "sensor": [1, 5], "out": [8, 4], "gnd": [4, 6], "gs": [1, 6], "top": [4, 0]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "voltage_source", "id": "VCC", "plus": "vcc", "minus": "gnd", "volts": 5},
+      {"type": "sine_source", "id": "VS", "plus": "sensor", "minus": "gs", "amplitude": 2.5, "freq": 1, "offset": 2.5},
+      {"type": "wire", "id": "W1", "a": "gs", "b": "gnd"},
+      {"type": "wire", "id": "W2", "a": "vcc", "b": "top"},
+      {"type": "resistor", "id": "RB", "a": "ref", "b": "gnd", "ohms": 10000},
+      {"type": "opamp", "id": "U1", "plus": "sensor", "minus": "ref", "out": "out", "gain": 100000, "rails": [0, 5]}
+    ],
+    "slots": [
+      {"id": "S1", "a": "top", "b": "ref", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 5000},
+    {"type": "resistor", "ohms": 15000},
+    {"type": "resistor", "ohms": 40000}
+  ],
+  "goals": [
+    {"measure": "voltage", "at": "ref", "min": 1.95, "max": 2.05, "label": "reference at 2.0 V"},
+    {"measure": "time_to_cross", "at": "out", "level": 2.5, "direction": "falling", "min": 0.52, "max": 0.545, "label": "alarm turns LOW as the sensor falls through 2.0 V (t = 0.532 s)"},
+    {"measure": "time_to_cross", "at": "out", "level": 2.5, "direction": "rising", "min": 0.955, "max": 0.98, "label": "alarm turns HIGH as the sensor rises through 2.0 V (t = 0.968 s)"}
+  ],
+  "sim": {"t_stop": 1.2, "dt": 0.0005},
+  "solution": {"S1": {"type": "resistor", "ohms": 15000}},
+  "hints": [
+    "The reference is a voltage divider: V_ref = 5 x 10k / (R_top + 10k).",
+    "You need V_ref = 2.0 V, so 10k / (R_top + 10k) = 0.4.",
+    "The comparator output is HIGH when V+ (sensor) is above V- (reference)."
+  ]
+}

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "00-03-pre-1",
+    "stage": "pre",
+    "question": "How many ohms is 4.7 kΩ?",
+    "options": [
+      "0.0047 Ω",
+      "47 Ω",
+      "4700 Ω",
+      "4 700 000 Ω"
+    ],
+    "correct": 2,
+    "explanation": "Kilo means x 1000, so 4.7 kΩ = 4.7 x 1000 = 4700 Ω. On parts lists it is often printed as 4k7."
+  },
+  {
+    "id": "00-03-pre-2",
+    "stage": "pre",
+    "question": "What is 20 mA in amperes?",
+    "options": [
+      "0.02 A",
+      "0.2 A",
+      "20 000 A",
+      "2 A"
+    ],
+    "correct": 0,
+    "explanation": "Milli means one thousandth, so 20 mA = 20 x 0.001 = 0.02 A. Going to a bigger unit makes the number smaller."
+  },
+  {
+    "id": "00-03-pre-3",
+    "stage": "pre",
+    "question": "A label says 1 MΩ and another says 1 mΩ. How do they compare?",
+    "options": [
+      "They are the same; case does not matter",
+      "1 MΩ is a thousand times bigger",
+      "1 mΩ is a million times bigger",
+      "1 MΩ is a thousand million (10^9) times bigger"
+    ],
+    "correct": 3,
+    "explanation": "Capital M is mega (10^6) and lowercase m is milli (10^-3). The ratio is 10^6 / 10^-3 = 10^9. Case always matters in SI prefixes."
+  },
+  {
+    "id": "00-03-post-1",
+    "stage": "post",
+    "question": "What is 100 nF written in microfarads?",
+    "options": [
+      "100 000 µF",
+      "0.1 µF",
+      "10 µF",
+      "0.0001 µF"
+    ],
+    "correct": 1,
+    "explanation": "Micro is 1000 times bigger than nano, so the number gets 1000 times smaller: 100 nF = 0.1 µF. The capacitor code '104' means the same value."
+  },
+  {
+    "id": "00-03-post-2",
+    "stage": "post",
+    "question": "Someone claims power = voltage / current. What do the units of V / A come out as?",
+    "options": [
+      "Watts, so the formula is fine",
+      "Joules",
+      "Ohms, so the formula is wrong for power",
+      "Coulombs"
+    ],
+    "correct": 2,
+    "explanation": "A volt per ampere is an ohm, a resistance. Power needs volt x ampere = watt. A ten-second unit check catches the mistake."
+  },
+  {
+    "id": "00-03-post-3",
+    "stage": "post",
+    "question": "A phone battery is labelled 4000 mAh at 3.85 V. How much energy does it store?",
+    "options": [
+      "1039 Wh",
+      "4000 Wh",
+      "15.4 J",
+      "15.4 Wh"
+    ],
+    "correct": 3,
+    "explanation": "Convert to Ah and multiply by the voltage: 4.0 Ah x 3.85 V = 15.4 Wh, which is 15.4 x 3600 = 55 440 J."
+  },
+  {
+    "id": "00-03-post-4",
+    "stage": "post",
+    "question": "Why are battery sizes compared fairly in Wh rather than mAh?",
+    "options": [
+      "Wh includes the voltage, so it measures energy; mAh only measures charge",
+      "mAh is not an SI unit, so it is always wrong",
+      "Wh is bigger, so it looks better on the box",
+      "There is no difference; they are the same unit"
+    ],
+    "correct": 0,
+    "explanation": "Energy = voltage x charge. Two batteries with equal mAh but different voltages store different energy. Wh = Ah x V takes the voltage into account."
+  },
+  {
+    "id": "00-03-post-5",
+    "stage": "post",
+    "question": "Ideally, how long can a 2500 mAh cell keep a 20 mA LED lit?",
+    "options": [
+      "1.25 hours",
+      "125 hours",
+      "12.5 hours",
+      "50 000 hours"
+    ],
+    "correct": 1,
+    "explanation": "Time = charge / current = 2500 mAh / 20 mA = 125 h. The milli prefixes cancel, so no conversion is needed."
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "id": "13-03-inverting-and-non-inverting-amplifiers",
+  "title": "An op-amp amplifier with a gain of 10",
+  "kind": "dc",
+  "story": "A sensor gives 0.3 V but your analogue-to-digital converter works best with about 3 V. Build a non-inverting amplifier with a gain of 10: the op-amp (powered from -12 V and +12 V) has its plus input on the sensor and a 1 kOhm resistor from its minus input to ground. Choose the feedback resistor from the output to the minus input.",
+  "board": {
+    "nodes": {"in": [1, 2], "n": [4, 4], "out": [8, 3], "gnd": [4, 6], "gi": [1, 6], "fb": [8, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "voltage_source", "id": "VIN", "plus": "in", "minus": "gi", "volts": 0.3},
+      {"type": "wire", "id": "W1", "a": "gi", "b": "gnd"},
+      {"type": "opamp", "id": "U1", "plus": "in", "minus": "n", "out": "out", "gain": 100000, "rails": [-12, 12]},
+      {"type": "resistor", "id": "RG", "a": "n", "b": "gnd", "ohms": 1000},
+      {"type": "wire", "id": "W2", "a": "out", "b": "fb"}
+    ],
+    "slots": [
+      {"id": "S1", "a": "fb", "b": "n", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 4700},
+    {"type": "resistor", "ohms": 9100},
+    {"type": "resistor", "ohms": 100000}
+  ],
+  "goals": [
+    {"measure": "voltage", "at": "out", "min": 2.85, "max": 3.15, "label": "output between 2.85 and 3.15 V (gain about 10)"},
+    {"measure": "voltage", "between": ["in", "n"], "min": -0.001, "max": 0.001, "label": "the two inputs within 1 mV of each other (feedback working)"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 9100}},
+  "hints": [
+    "The non-inverting gain is 1 + R_F / R_G.",
+    "For a gain of 10 with R_G = 1 kOhm, R_F must be about 9 kOhm.",
+    "If the gain is too large the output hits the 12 V rail; then the inputs are no longer equal."
+  ]
+}

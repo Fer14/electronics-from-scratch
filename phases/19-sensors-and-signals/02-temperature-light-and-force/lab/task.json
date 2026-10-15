@@ -1,0 +1,38 @@
+{
+  "id": "19-02-temperature-light-and-force",
+  "title": "A thermistor divider for the ADC",
+  "kind": "dc",
+  "story": "A 10 kohm NTC thermistor (B = 3950) must measure 0 C to 50 C with a 3.3 V ADC. It is 33.6 kohm at 0 C and 3.59 kohm at 50 C. The same divider is drawn twice: on the left as it is on a cold day (0 C), on the right on a hot day (50 C). The thermistor sits on top; choose the fixed bottom resistor (the same value in both copies). The cold reading must stay above 0.5 V and the hot reading below 2.8 V, so neither end is squashed against the ADC's limits, and the hot reading must be at least 1.5 V above the cold one, so the range is well used.",
+  "board": {
+    "nodes": {"vdd": [5, 0], "cold": [2, 3], "hot": [8, 3], "gnd": [5, 6]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "VDD", "plus": "vdd", "minus": "gnd", "volts": 3.3},
+      {"type": "resistor", "id": "RT_COLD", "a": "vdd", "b": "cold", "ohms": 33620},
+      {"type": "resistor", "id": "RT_HOT", "a": "vdd", "b": "hot", "ohms": 3588}
+    ],
+    "slots": [
+      {"id": "S1", "a": "cold", "b": "gnd", "accepts": ["resistor"], "label": "fixed resistor (cold copy)"},
+      {"id": "S2", "a": "hot", "b": "gnd", "accepts": ["resistor"], "label": "fixed resistor (hot copy)"}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 1000},
+    {"type": "resistor", "ohms": 10000},
+    {"type": "resistor", "ohms": 100000}
+  ],
+  "goals": [
+    {"measure": "voltage", "at": "cold", "min": 0.5, "label": "cold-day reading above 0.5 V"},
+    {"measure": "voltage", "at": "hot", "max": 2.8, "label": "hot-day reading below 2.8 V"},
+    {"measure": "voltage", "between": ["hot", "cold"], "min": 1.5, "label": "hot reading at least 1.5 V above cold reading"}
+  ],
+  "solution": {
+    "S1": {"type": "resistor", "ohms": 10000},
+    "S2": {"type": "resistor", "ohms": 10000}
+  },
+  "hints": [
+    "V = 3.3 x R_fixed / (R_thermistor + R_fixed).",
+    "The fixed resistor that gives the biggest swing between two thermistor values is the geometric mean: sqrt(33.6 k x 3.59 k).",
+    "Too small a fixed resistor keeps both readings near 0 V; too big a one pushes both near 3.3 V."
+  ]
+}

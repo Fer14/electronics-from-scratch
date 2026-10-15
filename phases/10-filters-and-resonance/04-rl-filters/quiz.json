@@ -1,0 +1,93 @@
+[
+  {
+    "id": "10-04-pre-1",
+    "stage": "pre",
+    "question": "How does an inductor's opposition to AC current change with frequency?",
+    "options": [
+      "It falls as frequency rises",
+      "It rises as frequency rises",
+      "It does not depend on frequency",
+      "It is zero at all frequencies"
+    ],
+    "correct": 1,
+    "explanation": "X_L = 2 pi f L grows in proportion to frequency: zero at DC, very large at high frequency."
+  },
+  {
+    "id": "10-04-pre-2",
+    "stage": "pre",
+    "question": "In a filter, an inductor is placed in series with the load. What kind of filter is it?",
+    "options": [
+      "Low-pass",
+      "High-pass",
+      "Band-stop",
+      "An attenuator with the same gain at all frequencies"
+    ],
+    "correct": 0,
+    "explanation": "The series inductor passes low frequencies (small reactance) and blocks high ones (large reactance)."
+  },
+  {
+    "id": "10-04-post-1",
+    "stage": "post",
+    "question": "What is the cutoff of an RL low-pass with L = 1 mH and R = 10 ohm?",
+    "options": [
+      "10 kHz",
+      "159 kHz",
+      "1.59 kHz",
+      "15.9 Hz"
+    ],
+    "correct": 2,
+    "explanation": "fc = R / (2 pi L) = 10 / (2 pi x 0.001) = 10 / 0.006283 = 1592 Hz."
+  },
+  {
+    "id": "10-04-post-2",
+    "stage": "post",
+    "question": "An RL low-pass and an RC low-pass have the same cutoff frequency. How do their frequency responses compare (with no load)?",
+    "options": [
+      "The RL one rolls off twice as fast",
+      "The RC one has no phase shift",
+      "They are completely different shapes",
+      "They are identical"
+    ],
+    "correct": 3,
+    "explanation": "Both have H = 1 / (1 + j f/fc). Only the parts differ, not the response."
+  },
+  {
+    "id": "10-04-post-3",
+    "stage": "post",
+    "question": "Why are speaker crossovers for woofers made with inductors rather than resistors and capacitors?",
+    "options": [
+      "Inductors are cheaper than resistors",
+      "A series resistor would waste much of the amplifier's power at 8 ohm, while an inductor passes the bass without loss",
+      "Capacitors cannot handle audio frequencies",
+      "Inductors make the sound louder than the input"
+    ],
+    "correct": 1,
+    "explanation": "At low impedances a series resistor big enough to filter would dissipate a lot of power. An ideal inductor has no loss and zero DC drop."
+  },
+  {
+    "id": "10-04-post-4",
+    "stage": "post",
+    "question": "In a first-order crossover at 2 kHz, what fraction of the power goes to the woofer at exactly 2 kHz?",
+    "options": [
+      "All of it",
+      "None",
+      "A quarter",
+      "Half"
+    ],
+    "correct": 3,
+    "explanation": "At the crossover frequency each branch is at -3 dB, which is half power, and the two halves add to the full power."
+  },
+  {
+    "id": "10-04-post-5",
+    "stage": "post",
+    "question": "A woofer coil has 1 ohm of DCR in series with an 8 ohm woofer. What happens to the bass level?",
+    "options": [
+      "It drops by about 1 dB, because 8/9 of the voltage reaches the woofer",
+      "It rises by 1 dB",
+      "Nothing, DCR only matters at high frequency",
+      "It drops to zero"
+    ],
+    "correct": 0,
+    "explanation": "At low frequency the coil is just its DCR, forming a divider 8 / (8 + 1) = 0.889 = -1.0 dB."
+  }
+]

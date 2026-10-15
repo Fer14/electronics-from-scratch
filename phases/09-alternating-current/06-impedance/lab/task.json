@@ -1,0 +1,34 @@
+{
+  "id": "09-06-pass-50hz-stop-10khz",
+  "title": "Let 50 Hz through, stop 10 kHz",
+  "kind": "ac",
+  "sim": {"source": "V1", "f_start": 10, "f_stop": 100000, "points": 201},
+  "story": "A 100 ohm load is fed with 50 Hz power, but the supply also carries 10 kHz switching noise. Put an inductor in series with the load. At 50 Hz the load must lose at most 0.5 dB; at 10 kHz the noise must be cut by at least 20 dB.",
+  "board": {
+    "nodes": {"in": [1, 1], "out": [6, 1], "gnd": [1, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "sine_source", "id": "V1", "plus": "in", "minus": "gnd", "amplitude": 1, "freq": 50},
+      {"type": "resistor", "id": "Rload", "a": "out", "b": "gnd", "ohms": 100}
+    ],
+    "slots": [
+      {"id": "S1", "a": "in", "b": "out", "accepts": ["inductor"]}
+    ]
+  },
+  "parts": [
+    {"type": "inductor", "henries": 0.001},
+    {"type": "inductor", "henries": 0.0047},
+    {"type": "inductor", "henries": 0.022},
+    {"type": "inductor", "henries": 0.47}
+  ],
+  "goals": [
+    {"measure": "gain_db_at", "at": "out", "freq": 50, "min": -0.5, "label": "50 Hz power reaches the load (at most 0.5 dB lost)"},
+    {"measure": "gain_db_at", "at": "out", "freq": 10000, "max": -20, "label": "10 kHz noise cut by at least 20 dB"}
+  ],
+  "solution": {"S1": {"type": "inductor", "henries": 0.022}},
+  "hints": [
+    "The load gets V_in x R / (R + j omega L). Its size is 1 / sqrt(1 + (omega L / R)^2).",
+    "-20 dB means a tenth: you need omega L at least about 10 x R = 1000 ohm at 10 kHz, so L at least about 16 mH.",
+    "At 50 Hz omega L must stay small compared with 100 ohm (below about 35 ohm), so L below about 110 mH."
+  ]
+}

@@ -1,0 +1,73 @@
+[
+  {
+    "id": "17-03-pre-1",
+    "stage": "pre",
+    "question": "A 5 V pin is high for 0.3 ms and low for 0.7 ms, over and over. What is its average voltage?",
+    "options": ["1.5 V", "3.5 V", "2.5 V", "0.3 V"],
+    "correct": 0,
+    "explanation": "The duty cycle is 0.3 / (0.3 + 0.7) = 0.3, and the average is 0.3 x 5 V = 1.5 V."
+  },
+  {
+    "id": "17-03-pre-2",
+    "stage": "pre",
+    "question": "Why does an LED driven by fast PWM look dimmer instead of flickering?",
+    "options": [
+      "The LED itself turns on slowly",
+      "The pin produces a lower voltage",
+      "The eye averages light over many PWM periods",
+      "The LED changes colour"
+    ],
+    "correct": 2,
+    "explanation": "The LED switches in nanoseconds, but the eye integrates light over roughly 10-20 ms. At hundreds of hertz or more, it only perceives the average."
+  },
+  {
+    "id": "17-03-post-1",
+    "stage": "post",
+    "question": "A 16 MHz timer uses prescaler 64 and TOP = 255. What is the PWM frequency?",
+    "options": ["62.5 kHz", "976.56 Hz", "250 kHz", "490 Hz"],
+    "correct": 1,
+    "explanation": "f = 16 000 000 / (64 x 256) = 976.56 Hz."
+  },
+  {
+    "id": "17-03-post-2",
+    "stage": "post",
+    "question": "With 8-bit PWM (TOP = 255) and duty = compare / 256, which compare value gives an average of 3.75 V from a 5 V pin?",
+    "options": ["128", "64", "255", "192"],
+    "correct": 3,
+    "explanation": "D = 3.75 / 5 = 0.75, so compare = 0.75 x 256 = 192."
+  },
+  {
+    "id": "17-03-post-3",
+    "stage": "post",
+    "question": "At which duty cycle is the ripple after an RC filter the largest?",
+    "options": ["50%", "10%", "90%", "100%"],
+    "correct": 0,
+    "explanation": "Ripple is proportional to D x (1 - D), which is largest at D = 0.5 and zero at 0 and 1."
+  },
+  {
+    "id": "17-03-post-4",
+    "stage": "post",
+    "question": "You double the RC time constant of the PWM filter. What happens?",
+    "options": [
+      "The average voltage doubles",
+      "The ripple halves, and the output takes twice as long to settle",
+      "The ripple doubles",
+      "Nothing changes"
+    ],
+    "correct": 1,
+    "explanation": "Ripple is about VDD D (1 - D) T / RC, so it halves. Settling takes a few RC, so it becomes twice as slow. The average stays D x VDD."
+  },
+  {
+    "id": "17-03-post-5",
+    "stage": "post",
+    "question": "Keeping the same clock and prescaler, you change from 8-bit (TOP = 255) to 10-bit (TOP = 1023) PWM. What happens?",
+    "options": [
+      "Same frequency, finer steps",
+      "Higher frequency, finer steps",
+      "4 times finer steps but 4 times lower PWM frequency",
+      "The average voltage becomes 4 times larger"
+    ],
+    "correct": 2,
+    "explanation": "The period is prescaler x (TOP + 1) / f_clock, so 4 times more counts means a 4 times longer period. Resolution and frequency trade against each other."
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+    "id": "17-05-pre-1",
+    "stage": "pre",
+    "question": "What is the main advantage of a hardware timer over a delay loop?",
+    "options": [
+      "It makes the processor run faster",
+      "It keeps counting time on its own while the program does other work",
+      "It uses less flash memory than any program",
+      "It increases the clock frequency"
+    ],
+    "correct": 1,
+    "explanation": "A delay loop occupies the processor. A timer is separate hardware clocked by the system clock, so time keeps being measured whatever the program does."
+  },
+  {
+    "id": "17-05-pre-2",
+    "stage": "pre",
+    "question": "A mechanical button is pressed once. What does a fast microcontroller input usually see?",
+    "options": [
+      "One clean change from 1 to 0",
+      "Nothing until the button is released",
+      "Several quick changes while the contacts bounce, then a steady level",
+      "A slow ramp lasting a second"
+    ],
+    "correct": 2,
+    "explanation": "The metal contacts rebound a few times over 1-10 ms, which a fast input sees as a burst of presses and releases."
+  },
+  {
+    "id": "17-05-post-1",
+    "stage": "post",
+    "question": "A 16 MHz timer in CTC mode uses prescaler 64. Which compare value gives exactly 1000 interrupts per second?",
+    "options": ["250", "249", "15999", "1000"],
+    "correct": 1,
+    "explanation": "compare = 16 000 000 / (64 x 1000) - 1 = 250 - 1 = 249. CTC counts compare + 1 states."
+  },
+  {
+    "id": "17-05-post-2",
+    "stage": "post",
+    "question": "A timer sets its flag every 1 ms. The program polls the flag only every 3 ms. What happens?",
+    "options": [
+      "It sees every tick, just late",
+      "The timer slows down to match",
+      "The processor resets",
+      "It sees one tick per check and loses the others, since the flag is a single bit"
+    ],
+    "correct": 3,
+    "explanation": "A flag cannot count. Three matches between checks still look like one set flag, so two ticks are lost and the one seen is up to 3 ms late."
+  },
+  {
+    "id": "17-05-post-3",
+    "stage": "post",
+    "question": "What does the processor do first when an enabled interrupt arrives?",
+    "options": [
+      "Finishes the current instruction, saves the program counter and jumps to the address in the vector table",
+      "Restarts the program from address 0",
+      "Waits until the main loop ends",
+      "Erases the RAM"
+    ],
+    "correct": 0,
+    "explanation": "The control unit checks for interrupts between instructions, pushes the return address on the stack and loads the PC from the interrupt's vector table entry."
+  },
+  {
+    "id": "17-05-post-4",
+    "stage": "post",
+    "question": "A 10 kohm pull-up charges a 2.2 uF debounce capacitor from 0 V. VIH is 0.6 x VDD. When does the pin read 1?",
+    "options": ["About 2.2 ms", "About 22 ms", "About 20 ms", "About 1 s"],
+    "correct": 2,
+    "explanation": "t = RC ln(1 / 0.4) = 0.916 x RC = 0.916 x 22 ms = 20.2 ms."
+  },
+  {
+    "id": "17-05-post-5",
+    "stage": "post",
+    "question": "Why should an ISR be short?",
+    "options": [
+      "Long ISRs use more flash",
+      "The compiler cannot compile long ISRs",
+      "While it runs, other interrupts wait, which adds latency and jitter to everything else",
+      "The timer stops while the ISR runs"
+    ],
+    "correct": 2,
+    "explanation": "Interrupts are usually disabled inside an ISR, so other events queue up. Do the minimum in the ISR and leave the rest to the main loop."
+  }
+]

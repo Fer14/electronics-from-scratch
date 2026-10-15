@@ -1,0 +1,93 @@
+[
+  {
+    "id": "17-02-pre-1",
+    "stage": "pre",
+    "question": "What does a microcontroller pin configured as an input do?",
+    "options": [
+      "It pushes current out to light an LED",
+      "It connects to ground",
+      "It measures the voltage on the pin and reports a 0 or a 1, drawing almost no current",
+      "It stores a number in RAM"
+    ],
+    "correct": 2,
+    "explanation": "An input pin connects to the gates of a CMOS inverter, which draw almost no current. The chip compares the voltage to its thresholds and reports a logic level."
+  },
+  {
+    "id": "17-02-pre-2",
+    "stage": "pre",
+    "question": "Why does an LED need a resistor in series when driven from a pin?",
+    "options": [
+      "To limit the current, because the LED's current rises steeply with voltage",
+      "To make the LED change colour",
+      "To convert the digital signal into analog",
+      "It does not need one if the pin is 3.3 V"
+    ],
+    "correct": 0,
+    "explanation": "An LED's current grows exponentially with its voltage. Without a resistor, only the pin's small driver resistance limits the current, which overloads the pin."
+  },
+  {
+    "id": "17-02-post-1",
+    "stage": "post",
+    "question": "On an AVR, DDRB bit 3 is 0 and PORTB bit 3 is 1. What is pin PB3?",
+    "options": [
+      "Output high",
+      "Input with the internal pull-up enabled",
+      "Output low",
+      "Floating input"
+    ],
+    "correct": 1,
+    "explanation": "DDR = 0 makes it an input. For an input, a PORT bit of 1 enables the internal pull-up."
+  },
+  {
+    "id": "17-02-post-2",
+    "stage": "post",
+    "question": "A 3.3 V pin with 40 ohm driver resistance feeds an LED (1.85 V) through 220 ohm. What is the current, roughly?",
+    "options": [
+      "15 mA",
+      "8.3 mA",
+      "1.5 mA",
+      "5.6 mA"
+    ],
+    "correct": 3,
+    "explanation": "I = (3.3 - 1.85) / (40 + 220) = 1.45 / 260 = 5.6 mA."
+  },
+  {
+    "id": "17-02-post-3",
+    "stage": "post",
+    "question": "A button connects an input pin to ground, with a 33 kohm pull-up to 3.3 V. What does the pin read when the button is pressed, and how much current flows in the pull-up?",
+    "options": [
+      "0, and 100 uA",
+      "1, and 0 uA",
+      "0, and 0 uA",
+      "1, and 100 uA"
+    ],
+    "correct": 0,
+    "explanation": "Pressed, the pin is shorted to ground so it reads 0, and the pull-up has 3.3 V across it: 3.3 / 33 000 = 100 uA."
+  },
+  {
+    "id": "17-02-post-4",
+    "stage": "post",
+    "question": "VDD is 3.3 V, VIL = 0.3 VDD and VIH = 0.7 VDD. A signal sits at 1.8 V. What does the chip read?",
+    "options": [
+      "Always 1",
+      "Always 0",
+      "Undefined: it is between 0.99 V and 2.31 V",
+      "The chip reads 1.8"
+    ],
+    "correct": 2,
+    "explanation": "Only below VIL (0.99 V) is a 0 guaranteed and only above VIH (2.31 V) is a 1 guaranteed. 1.8 V is in the undefined band."
+  },
+  {
+    "id": "17-02-post-5",
+    "stage": "post",
+    "question": "An LED is wired from VDD through a resistor into a pin. When does it light?",
+    "options": [
+      "When the pin is configured as an input",
+      "When the pin is output-low (the pin sinks current)",
+      "When the pin is output-high",
+      "Never, LEDs only work when sourced"
+    ],
+    "correct": 1,
+    "explanation": "With the pin low there is VDD across the LED and resistor, so current flows into the pin. With the pin high both ends are at VDD and nothing flows. This is active-low wiring."
+  }
+]

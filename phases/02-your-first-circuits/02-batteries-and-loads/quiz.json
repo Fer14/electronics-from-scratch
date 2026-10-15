@@ -1,0 +1,93 @@
+[
+  {
+    "id": "02-02-pre-1",
+    "stage": "pre",
+    "question": "Inside which part does the moving charge GAIN energy?",
+    "options": [
+      "The bulb",
+      "The connecting wire",
+      "The switch",
+      "The battery"
+    ],
+    "correct": 3,
+    "explanation": "The battery is the source: current enters at its - terminal and leaves at its + terminal, and each coulomb gains energy (about 1.5 J per cell). In the bulb, the load, the charge loses that energy."
+  },
+  {
+    "id": "02-02-pre-2",
+    "stage": "pre",
+    "question": "What voltage do four 1.5 V alkaline cells give when joined + to - in a chain (in series)?",
+    "options": [
+      "1.5 V",
+      "6.0 V",
+      "3.0 V",
+      "0.375 V"
+    ],
+    "correct": 1,
+    "explanation": "In series the voltages add: 4 x 1.5 V = 6.0 V. Each cell lifts every coulomb by another 1.5 J."
+  },
+  {
+    "id": "02-02-post-1",
+    "stage": "post",
+    "question": "A bulb is rated 6 V 0.5 A. What power does it use at its rated voltage, and what resistance does it behave like when hot?",
+    "options": [
+      "3 W and 12 Ω",
+      "12 W and 3 Ω",
+      "3 W and 3 Ω",
+      "6.5 W and 12 Ω"
+    ],
+    "correct": 0,
+    "explanation": "P = V x I = 6 x 0.5 = 3 W. R = V / I = 6 / 0.5 = 12 Ω."
+  },
+  {
+    "id": "02-02-post-2",
+    "stage": "post",
+    "question": "That 12 Ω bulb is connected to a 9 V battery instead of 6 V. About how many times its rated power does it get?",
+    "options": [
+      "1.5 times",
+      "Exactly the same, because the bulb sets the power",
+      "2.25 times",
+      "0.67 times"
+    ],
+    "correct": 2,
+    "explanation": "I = 9 / 12 = 0.75 A and P = 9 x 0.75 = 6.75 W, which is 6.75 / 3 = 2.25 times rated. Power grows with the square of voltage: (9/6)^2 = 2.25."
+  },
+  {
+    "id": "02-02-post-3",
+    "stage": "post",
+    "question": "Which of these loads does NOT care which way round the battery is connected?",
+    "options": [
+      "A red LED",
+      "An incandescent bulb",
+      "A small DC motor (if you care which way it spins)",
+      "An electrolytic capacitor"
+    ],
+    "correct": 1,
+    "explanation": "A hot filament glows the same whichever way the current flows. LEDs block reverse current, motors reverse direction, and electrolytic capacitors can be damaged by reverse voltage."
+  },
+  {
+    "id": "02-02-post-4",
+    "stage": "post",
+    "question": "A 2500 mAh battery powers a load that draws 250 mA. Ignoring voltage sag, how long does it last?",
+    "options": [
+      "0.1 hours",
+      "250 hours",
+      "2.5 hours",
+      "10 hours"
+    ],
+    "correct": 3,
+    "explanation": "Hours = capacity / current = 2500 mAh / 250 mA = 10 h."
+  },
+  {
+    "id": "02-02-post-5",
+    "stage": "post",
+    "question": "A 6 V battery is connected first to a lantern bulb (0.5 A flows) and then to a small indicator bulb (0.05 A flows). What best describes the battery?",
+    "options": [
+      "It kept about the same voltage; the load decided the current",
+      "It kept the same current; the load decided the voltage",
+      "It gave less voltage to the indicator bulb on purpose",
+      "It always gives its maximum current"
+    ],
+    "correct": 0,
+    "explanation": "An ideal battery holds its voltage fixed. How much current flows depends on the load connected to it."
+  }
+]

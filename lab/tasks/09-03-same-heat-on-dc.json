@@ -1,0 +1,87 @@
+{
+ "id": "09-03-same-heat-on-dc",
+ "title": "Same heat on DC",
+ "kind": "dc",
+ "story": "A 50 ohm heater element was designed for an AC supply of 10 V peak (a sine wave). You want to test it on the bench, but you only have a 12 V battery. Put a series resistor in the slot so the heater makes the same heat it would make on its AC supply: between 0.95 W and 1.10 W.",
+ "board": {
+  "nodes": {
+   "vcc": [
+    1,
+    1
+   ],
+   "a": [
+    6,
+    1
+   ],
+   "gnd": [
+    1,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "B1",
+    "plus": "vcc",
+    "minus": "gnd",
+    "volts": 12
+   },
+   {
+    "type": "resistor",
+    "id": "Rheater",
+    "a": "a",
+    "b": "gnd",
+    "ohms": 50
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "vcc",
+    "b": "a",
+    "accepts": [
+     "resistor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "resistor",
+   "ohms": 10
+  },
+  {
+   "type": "resistor",
+   "ohms": 33
+  },
+  {
+   "type": "resistor",
+   "ohms": 47
+  },
+  {
+   "type": "resistor",
+   "ohms": 68
+  }
+ ],
+ "goals": [
+  {
+   "measure": "power",
+   "of": "Rheater",
+   "min": 0.95,
+   "max": 1.1,
+   "label": "heater power between 0.95 W and 1.10 W (the same heat as on its AC supply)"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "resistor",
+   "ohms": 33
+  }
+ },
+ "hints": [
+  "On AC the heater sees 10 V peak, which is 10 / sqrt(2) = 7.07 V RMS. Its average power there is 7.07 x 7.07 / 50 = 1 W.",
+  "On DC you want 1 W again: the heater needs 7.07 V across it, so the current is 7.07 / 50 = 0.141 A.",
+  "The series resistor must drop the remaining 12 - 7.07 = 4.93 V at 0.141 A. Pick the closest part to 4.93 / 0.141 ohm."
+ ]
+}

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "07-01-pre-1",
+    "stage": "pre",
+    "question": "What is inside a basic capacitor?",
+    "options": [
+      "A coil of wire wound around an iron core",
+      "Two conductors separated by an insulator",
+      "A chemical paste that makes electrons",
+      "A thin strip of carbon that resists current"
+    ],
+    "correct": 1,
+    "explanation": "A capacitor is two conducting plates kept apart by an insulator (the dielectric). The coil is an inductor, the chemical paste a battery, the carbon strip a resistor."
+  },
+  {
+    "id": "07-01-pre-2",
+    "stage": "pre",
+    "question": "A capacitor is connected to a 9 V battery through a resistor and has been sitting there for a long time. What current flows in the resistor?",
+    "options": [
+      "9 V divided by the resistance",
+      "Half of 9 V divided by the resistance",
+      "Zero",
+      "It depends on how big the capacitor is"
+    ],
+    "correct": 2,
+    "explanation": "Once the capacitor has charged to 9 V, the resistor sees 0 V across it, so no current flows. A charged capacitor in a DC circuit acts like an open circuit."
+  },
+  {
+    "id": "07-01-post-1",
+    "stage": "post",
+    "question": "While a capacitor charges, what happens to the electrons?",
+    "options": [
+      "They jump across the insulator from one plate to the other",
+      "They are created inside the dielectric",
+      "They are destroyed on the positive plate",
+      "They are pulled off one plate and pushed onto the other through the outside circuit"
+    ],
+    "correct": 3,
+    "explanation": "No electron crosses the dielectric. The source pulls electrons off one plate and pushes the same number onto the other through the wires, leaving +Q and -Q."
+  },
+  {
+    "id": "07-01-post-2",
+    "stage": "post",
+    "question": "A 220 uF capacitor is at 5 V. How much charge is on its positive plate?",
+    "options": [
+      "1.1 mC (1100 uC)",
+      "44 uC",
+      "225 uC",
+      "1.1 C"
+    ],
+    "correct": 0,
+    "explanation": "Q = C x V = 220 x 10^-6 F x 5 V = 1.1 x 10^-3 C = 1100 uC."
+  },
+  {
+    "id": "07-01-post-3",
+    "stage": "post",
+    "question": "In the simulation, the ratio of charge moved to capacitor voltage stayed at 100 uF throughout the charging. What does that tell you?",
+    "options": [
+      "The current was constant",
+      "Charge and voltage are proportional, and the constant of proportionality is the capacitance",
+      "The resistor sets the capacitance",
+      "The battery voltage was changing"
+    ],
+    "correct": 1,
+    "explanation": "Q / V is the same at every moment: Q = C x V. The current was not constant (it fell from 9 mA toward zero), and the capacitance does not depend on the resistor."
+  },
+  {
+    "id": "07-01-post-4",
+    "stage": "post",
+    "question": "Why does a charged capacitor keep its voltage after you disconnect the battery?",
+    "options": [
+      "Because the dielectric slowly makes new charge",
+      "Because capacitors contain a small battery",
+      "Because the separated charges have no path back to each other except the outside circuit, which is now open",
+      "Because voltage cannot change in any circuit"
+    ],
+    "correct": 2,
+    "explanation": "The extra electrons on one plate can only return to the other plate through an external path. With the circuit open they stay, so the voltage stays, apart from slow leakage."
+  },
+  {
+    "id": "07-01-post-5",
+    "stage": "post",
+    "question": "You charge a capacitor with a steady 2 mA for 30 ms and it reaches 6 V from 0 V. What is its capacitance?",
+    "options": [
+      "100 uF",
+      "6 uF",
+      "360 uF",
+      "10 uF"
+    ],
+    "correct": 3,
+    "explanation": "Charge moved Q = I x t = 0.002 x 0.03 = 60 uC. C = Q / V = 60 uC / 6 V = 10 uF."
+  }
+]

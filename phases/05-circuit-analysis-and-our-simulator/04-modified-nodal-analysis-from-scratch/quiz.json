@@ -1,0 +1,106 @@
+[
+  {
+    "id": "05-04-pre-1",
+    "stage": "pre",
+    "question": "Why can't plain nodal analysis handle a battery connected between two non-ground nodes?",
+    "options": [
+      "Because the battery's voltage changes with the load",
+      "Because the current through the battery is unknown and cannot be written from node voltages",
+      "Because batteries have no conductance",
+      "Because the two nodes become one node"
+    ],
+    "correct": 1,
+    "explanation": "An ideal voltage source supplies whatever current the circuit demands. That current cannot be expressed through Ohm's law, so it must become an unknown of its own."
+  },
+  {
+    "id": "05-04-pre-2",
+    "stage": "pre",
+    "question": "A circuit has 4 nodes besides ground and 2 voltage sources. How many unknowns does modified nodal analysis use?",
+    "options": [
+      "4",
+      "2",
+      "8",
+      "6"
+    ],
+    "correct": 3,
+    "explanation": "One unknown per non-ground node (4) plus one current per voltage source (2): 6 in total."
+  },
+  {
+    "id": "05-04-pre-3",
+    "stage": "pre",
+    "question": "What is a 'stamp' in MNA?",
+    "options": [
+      "The small fixed pattern of entries a single component adds to the matrix and right side",
+      "The label printed on a resistor",
+      "The final solution vector",
+      "A check that the matrix is symmetric"
+    ],
+    "correct": 0,
+    "explanation": "Each component type has a pattern. Assembling the system is just pressing every component's stamp into an initially empty matrix."
+  },
+  {
+    "id": "05-04-post-1",
+    "stage": "post",
+    "question": "A 500 Ohm resistor connects node 1 and node 2 (both unknowns). Which entries does it add?",
+    "options": [
+      "+500 at (1,1) and (2,2), -500 at (1,2) and (2,1)",
+      "+2 mS at (1,2) and (2,1) only",
+      "+2 mS at (1,1) and (2,2), -2 mS at (1,2) and (2,1)",
+      "-2 mS at (1,1) and (2,2), +2 mS at (1,2) and (2,1)"
+    ],
+    "correct": 2,
+    "explanation": "The resistor stamp uses conductance g = 1/500 = 2 mS: +g on both diagonals, -g on both off-diagonals."
+  },
+  {
+    "id": "05-04-post-2",
+    "stage": "post",
+    "question": "In the MNA convention (as in SPICE), a battery that is delivering energy to the circuit has a source current j that is:",
+    "options": [
+      "Always zero",
+      "Positive",
+      "Equal to its voltage",
+      "Negative, because j is defined as flowing into the plus terminal and through the source"
+    ],
+    "correct": 3,
+    "explanation": "A delivering battery pushes current out of its plus terminal, opposite to the defined direction of j, so j is negative. Our sim reports -j for sources to make delivered current positive."
+  },
+  {
+    "id": "05-04-post-3",
+    "stage": "post",
+    "question": "The extra row added for a voltage source V between plus node p and minus node m says:",
+    "options": [
+      "v_p - v_m = V",
+      "j = V / R",
+      "v_p + v_m = 0",
+      "j_p = j_m"
+    ],
+    "correct": 0,
+    "explanation": "The new row is the source's own rule: the voltage between its terminals is fixed."
+  },
+  {
+    "id": "05-04-post-4",
+    "stage": "post",
+    "question": "Your solver says 'Singular matrix'. Which of these is the most likely cause?",
+    "options": [
+      "A resistor value is too large",
+      "A node has no DC path to the rest of the circuit, or two ideal voltage sources form a loop",
+      "The circuit has a current source",
+      "The battery voltage is negative"
+    ],
+    "correct": 1,
+    "explanation": "Floating nodes and loops of voltage sources leave the equations without a unique solution. Simulators add gmin to keep floating nodes solvable."
+  },
+  {
+    "id": "05-04-post-5",
+    "stage": "post",
+    "question": "In SPICE netlist syntax, what does the value '2.2MEG' mean, and why not '2.2M'?",
+    "options": [
+      "2.2 megaohms; 'M' would be read as milli",
+      "2.2 milliohms; 'MEG' is milli",
+      "2.2 megaohms; 'M' would be read as micro",
+      "They mean the same thing"
+    ],
+    "correct": 0,
+    "explanation": "SPICE is traditionally case-insensitive, so M and m both mean milli. Mega is written MEG."
+  }
+]

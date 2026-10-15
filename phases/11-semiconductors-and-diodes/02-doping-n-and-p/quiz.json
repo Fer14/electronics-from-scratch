@@ -1,0 +1,78 @@
+[
+  {
+    "id": "11-02-pre-1",
+    "stage": "pre",
+    "question": "In a full cinema row with one empty seat, people shift one seat to the left to fill it. Which way does the empty seat move?",
+    "options": ["Left", "Right", "It stays where it is", "It disappears"],
+    "correct": 1,
+    "explanation": "Each person moves left into the gap, so the gap ends up one seat further right each time. A hole moves opposite to the electrons that fill it."
+  },
+  {
+    "id": "11-02-pre-2",
+    "stage": "pre",
+    "question": "How many outer (valence) electrons does a silicon atom have?",
+    "options": ["1", "2", "4", "8"],
+    "correct": 2,
+    "explanation": "Silicon is in group 14, like carbon: 4 outer electrons, which it shares with 4 neighbours in the crystal."
+  },
+  {
+    "id": "11-02-post-1",
+    "stage": "post",
+    "question": "Phosphorus has 5 outer electrons. When it replaces a silicon atom in the crystal, what happens at room temperature?",
+    "options": [
+      "Its fifth electron is released and wanders freely; a fixed positive ion stays behind",
+      "It grabs an electron from a neighbour and creates a hole",
+      "It forms 5 bonds and nothing changes",
+      "The whole crystal becomes negatively charged"
+    ],
+    "correct": 0,
+    "explanation": "The extra electron is held by only about 0.045 eV, less than two kT, so it is set free. Phosphorus is a donor and makes n-type silicon, which stays electrically neutral."
+  },
+  {
+    "id": "11-02-post-2",
+    "stage": "post",
+    "question": "Silicon (n_i = 1e10 per cm^3) is doped with 1e17 donors per cm^3. How many holes per cm^3 are there?",
+    "options": ["1e17", "1e10", "1e7", "1e3"],
+    "correct": 3,
+    "explanation": "Mass-action law: p = n_i^2 / n = 1e20 / 1e17 = 1e3 holes per cm^3."
+  },
+  {
+    "id": "11-02-post-3",
+    "stage": "post",
+    "question": "Why is the resistivity of doped silicon nearly independent of temperature near room temperature, while pure silicon's is not?",
+    "options": [
+      "Dopants stop the crystal from vibrating",
+      "In doped silicon the carriers come from the dopants, which are all released already; heat cannot add many more",
+      "Doped silicon has no band gap",
+      "Holes cancel the effect of heat"
+    ],
+    "correct": 1,
+    "explanation": "Thermal carriers (about 1e10) are negligible compared with, say, 1e16 dopant carriers until the temperature reaches a few hundred degrees."
+  },
+  {
+    "id": "11-02-post-4",
+    "stage": "post",
+    "question": "A region contains 1e16 donors and 3e16 acceptors per cm^3. What is it?",
+    "options": [
+      "n-type with 1e16 electrons",
+      "Intrinsic, because they cancel",
+      "p-type with about 2e16 holes",
+      "p-type with 4e16 holes"
+    ],
+    "correct": 2,
+    "explanation": "Donors and acceptors compensate; the net doping is 2e16 acceptors, so p is about 2e16 per cm^3."
+  },
+  {
+    "id": "11-02-post-5",
+    "stage": "post",
+    "question": "For the same doping level, why is p-type silicon more resistive than n-type?",
+    "options": [
+      "Holes have a larger charge than electrons",
+      "There are fewer holes than acceptors",
+      "Holes move more slowly (lower mobility) than free electrons",
+      "Boron atoms block the current"
+    ],
+    "correct": 2,
+    "explanation": "A hole moves by electrons hopping between bonds, which is slower: in silicon hole mobility is about 470 versus about 1400 for electrons."
+  }
+]

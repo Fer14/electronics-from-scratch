@@ -1,0 +1,137 @@
+{
+ "id": "11-06-rectifiers",
+ "title": "Smooth the bumps",
+ "kind": "transient",
+ "story": "A transformer gives you a 12 V-peak, 50 Hz sine wave. One diode turns it into bumps that only go positive, but the circuit after it (a 1 kOhm load) needs steady DC. Choose the reservoir capacitor so the output never sags by more than 0.6 V between bumps.",
+ "board": {
+  "nodes": {
+   "ac": [
+    1,
+    1
+   ],
+   "out": [
+    6,
+    1
+   ],
+   "gnd": [
+    1,
+    5
+   ],
+   "g2": [
+    6,
+    5
+   ],
+   "g3": [
+    9,
+    5
+   ],
+   "o2": [
+    9,
+    1
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "sine_source",
+    "id": "V1",
+    "plus": "ac",
+    "minus": "gnd",
+    "amplitude": 12,
+    "freq": 50,
+    "offset": 0
+   },
+   {
+    "type": "diode",
+    "id": "D1",
+    "anode": "ac",
+    "cathode": "out"
+   },
+   {
+    "type": "wire",
+    "id": "W1",
+    "a": "out",
+    "b": "o2"
+   },
+   {
+    "type": "resistor",
+    "id": "RL",
+    "a": "o2",
+    "b": "g3",
+    "ohms": 1000
+   },
+   {
+    "type": "wire",
+    "id": "W2",
+    "a": "g2",
+    "b": "gnd"
+   },
+   {
+    "type": "wire",
+    "id": "W3",
+    "a": "g3",
+    "b": "g2"
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "out",
+    "b": "g2",
+    "accepts": [
+     "capacitor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "capacitor",
+   "farads": 1e-05
+  },
+  {
+   "type": "capacitor",
+   "farads": 0.0001
+  },
+  {
+   "type": "capacitor",
+   "farads": 0.00047
+  }
+ ],
+ "goals": [
+  {
+   "measure": "ripple",
+   "at": "out",
+   "max": 0.6,
+   "label": "ripple below 0.6 V peak-to-peak"
+  },
+  {
+   "measure": "min_voltage",
+   "at": "out",
+   "min": -0.5,
+   "label": "output never goes negative"
+  },
+  {
+   "measure": "voltage_at_time",
+   "at": "out",
+   "time": 0.095,
+   "min": 10.5,
+   "label": "output above 10.5 V just before a peak (t = 95 ms)"
+  }
+ ],
+ "sim": {
+  "t_stop": 0.1,
+  "dt": 2e-05
+ },
+ "solution": {
+  "S1": {
+   "type": "capacitor",
+   "farads": 0.00047
+  }
+ },
+ "hints": [
+  "Between peaks the capacitor alone feeds the load: it loses about I x t / C volts.",
+  "The load takes about 11 mA and the gap between peaks is about 20 ms.",
+  "Ripple is roughly I / (f x C): solve for C so it stays under 0.6 V."
+ ]
+}

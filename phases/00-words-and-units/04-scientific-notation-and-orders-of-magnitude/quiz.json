@@ -1,0 +1,106 @@
+[
+  {
+    "id": "00-04-pre-1",
+    "stage": "pre",
+    "question": "How is 0.0047 written in scientific notation?",
+    "options": [
+      "4.7 x 10^3",
+      "47 x 10^-2",
+      "4.7 x 10^-3",
+      "0.47 x 10^-2"
+    ],
+    "correct": 2,
+    "explanation": "Slide the decimal point three places to the right to get 4.7. Moving right means the original number was small, so the exponent is negative: 4.7 x 10^-3. The other forms are either wrong or not normalised (mantissa must be between 1 and 10)."
+  },
+  {
+    "id": "00-04-pre-2",
+    "stage": "pre",
+    "question": "What does 10^0 equal?",
+    "options": [
+      "1",
+      "0",
+      "10",
+      "It is undefined"
+    ],
+    "correct": 0,
+    "explanation": "Each step down in the exponent divides by ten: 10^2 = 100, 10^1 = 10, so 10^0 = 10 / 10 = 1."
+  },
+  {
+    "id": "00-04-post-1",
+    "stage": "post",
+    "question": "What is (3 x 10^-3) x (4 x 10^5)?",
+    "options": [
+      "1.2 x 10^2",
+      "1.2 x 10^3",
+      "12 x 10^-15",
+      "7 x 10^2"
+    ],
+    "correct": 1,
+    "explanation": "Multiply the mantissas (3 x 4 = 12) and add the exponents (-3 + 5 = 2): 12 x 10^2. Re-normalise: 12 = 1.2 x 10^1, so the answer is 1.2 x 10^3 = 1200."
+  },
+  {
+    "id": "00-04-post-2",
+    "stage": "post",
+    "question": "What is (1 x 10^-3) / (2 x 10^-19)?",
+    "options": [
+      "5 x 10^-23",
+      "0.5 x 10^-22",
+      "2 x 10^16",
+      "5 x 10^15"
+    ],
+    "correct": 3,
+    "explanation": "Divide the mantissas (1 / 2 = 0.5) and subtract the exponents (-3 - (-19) = +16): 0.5 x 10^16 = 5 x 10^15. Subtracting a negative exponent adds."
+  },
+  {
+    "id": "00-04-post-3",
+    "stage": "post",
+    "question": "Which is the engineering-notation form of 0.000022 F, with its SI prefix?",
+    "options": [
+      "2.2 x 10^-5 F = 2.2 mF",
+      "22 x 10^-6 F = 22 µF",
+      "22 x 10^-9 F = 22 nF",
+      "0.022 x 10^-3 F = 0.022 mF"
+    ],
+    "correct": 1,
+    "explanation": "Scientific form is 2.2 x 10^-5. Lower the exponent to the multiple of 3 below (-6) and multiply the mantissa by 10: 22 x 10^-6 F, and 10^-6 is micro, so 22 µF."
+  },
+  {
+    "id": "00-04-post-4",
+    "stage": "post",
+    "question": "A classmate calculates that a red indicator LED on a 5 V USB supply carries 1.5 kA. What is the best reaction?",
+    "options": [
+      "Accept it: LEDs are very efficient",
+      "Accept it if the resistor is large",
+      "Suspect a mistake: indicator LEDs carry milliamps, so the answer is about a million times too large",
+      "Suspect a mistake: the answer should be in kV, not kA"
+    ],
+    "correct": 2,
+    "explanation": "Indicator LEDs live around 10^-2 A (milliamps). 1.5 kA is 10^3 A, about five orders of magnitude off, more like lightning or welding. An order-of-magnitude check catches the error before any detailed recalculation."
+  },
+  {
+    "id": "00-04-post-5",
+    "stage": "post",
+    "question": "In Python, what does the literal 4.7e3 mean?",
+    "options": [
+      "4.7 x 2.718^3",
+      "4.7 to the third power",
+      "4.7 electrons times 3",
+      "4.7 x 10^3, which equals 4700.0"
+    ],
+    "correct": 3,
+    "explanation": "The e in a number literal means 'times ten to the'. 4.7e3 is 4700.0. It has nothing to do with Euler's number or the electron."
+  },
+  {
+    "id": "00-04-post-6",
+    "stage": "post",
+    "question": "Roughly how many orders of magnitude separate a quartz watch's current (about 1 µA) from a car starter motor's current (about 200 A)?",
+    "options": [
+      "About 2",
+      "About 4",
+      "About 8",
+      "About 20"
+    ],
+    "correct": 2,
+    "explanation": "200 A / 10^-6 A = 2 x 10^8. log10 of that is about 8.3, so about eight orders of magnitude."
+  }
+]

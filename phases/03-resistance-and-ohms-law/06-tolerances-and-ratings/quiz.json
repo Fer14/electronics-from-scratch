@@ -1,0 +1,66 @@
+[
+  {
+    "id": "03-06-pre-1",
+    "stage": "pre",
+    "question": "A resistor is marked 1 kohm, 5 %. What does that tell you?",
+    "options": ["Its real value is somewhere between 950 and 1050 ohm", "Its real value is exactly 1000 ohm", "It loses 5 % of the power as heat", "It works only 95 % of the time"],
+    "correct": 0,
+    "explanation": "Tolerance is the allowed deviation from the nominal value: 1000 * 0.95 = 950 ohm up to 1000 * 1.05 = 1050 ohm."
+  },
+  {
+    "id": "03-06-pre-2",
+    "stage": "pre",
+    "question": "Why do common resistor values look like 1.0, 1.2, 1.5, 1.8, 2.2, 2.7, ... instead of 1, 2, 3, 4?",
+    "options": ["They are leftovers from old imperial units", "They are spaced by a constant ratio so their tolerance ranges cover every value", "They are the values that are cheapest to paint", "They are prime numbers"],
+    "correct": 1,
+    "explanation": "The E-series spaces values evenly on a ratio scale (about 1.21 apart for E12) so neighbouring tolerance ranges touch, leaving no gaps."
+  },
+  {
+    "id": "03-06-post-1",
+    "stage": "post",
+    "question": "A 12 V supply (which may be 11 V to 13 V) feeds a 1 kohm 10 % resistor. What is the worst-case maximum current?",
+    "options": ["12.0 mA", "10.0 mA", "11.8 mA", "14.4 mA"],
+    "correct": 3,
+    "explanation": "Maximum current = highest voltage / lowest resistance = 13 V / 900 ohm = 14.4 mA."
+  },
+  {
+    "id": "03-06-post-2",
+    "stage": "post",
+    "question": "A 1/4 W resistor is rated at full power up to 70 C, falling linearly to zero at 155 C. About how much may it dissipate at 112.5 C?",
+    "options": ["0.25 W", "0.125 W", "0 W", "0.19 W"],
+    "correct": 1,
+    "explanation": "112.5 C is halfway between 70 C and 155 C, so the allowed power is half the rating: 0.125 W."
+  },
+  {
+    "id": "03-06-post-3",
+    "stage": "post",
+    "question": "A 10 Mohm, 1/4 W resistor with a 250 V limit sits across 400 V. What is the problem?",
+    "options": ["It dissipates far too much power", "Nothing, 0.016 W is well under 1/4 W", "It exceeds its voltage rating even though the power is tiny", "Its tolerance will be wrong"],
+    "correct": 2,
+    "explanation": "Power is 400^2 / 10^7 = 0.016 W, fine, but 400 V is above the 250 V limiting element voltage: the film can arc."
+  },
+  {
+    "id": "03-06-post-4",
+    "stage": "post",
+    "question": "A 10 kohm resistor has a tempco of +100 ppm/K. What is its value at 75 C if it is exactly 10 kohm at 25 C?",
+    "options": ["10 050 ohm", "10 500 ohm", "10 005 ohm", "15 000 ohm"],
+    "correct": 0,
+    "explanation": "R = 10 000 * (1 + 100e-6 * 50) = 10 000 * 1.005 = 10 050 ohm."
+  },
+  {
+    "id": "03-06-post-5",
+    "stage": "post",
+    "question": "You need a resistor across 5 V that draws at least 20 mA and dissipates at most 0.15 W. Which range of resistance works?",
+    "options": ["Below 100 ohm", "Between about 167 ohm and 250 ohm", "Between 250 ohm and 1 kohm", "Any value, both goals always agree"],
+    "correct": 1,
+    "explanation": "I >= 0.020 A means R <= 5 / 0.02 = 250 ohm. P <= 0.15 W means R >= 25 / 0.15 = 167 ohm."
+  },
+  {
+    "id": "03-06-post-6",
+    "stage": "post",
+    "question": "Which is the best habit when choosing a resistor's power rating?",
+    "options": ["Pick a rating exactly equal to the expected power", "Ignore it below 1 W", "Pick the smallest package to save space", "Pick a rating at least twice the worst-case power, and derate for hot air"],
+    "correct": 3,
+    "explanation": "Running at half the (derated) rating keeps the part cool and long-lived; the rating is a temperature limit, not a comfortable operating point."
+  }
+]

@@ -1,0 +1,181 @@
+{
+  "id": "16-05-mar-in-decode",
+  "title": "Decode the MAR_IN control signal",
+  "kind": "logic",
+  "story": "The T8's control unit must assert MAR_IN in step T0 of every instruction, in step T2 of every two-byte instruction (two = 1), and in step T3 of instructions whose operand is a memory address (mem = 1: LDA, STA, ADD..XOR). The step lines t0, t2, t3 come from the step decoder. The final OR with t0 is wired; fill the three slots.",
+  "board": {
+    "inputs": [
+      "t0",
+      "t2",
+      "t3",
+      "two",
+      "mem"
+    ],
+    "outputs": [
+      "mar_in"
+    ],
+    "nodes": {
+      "t0": [
+        1,
+        0
+      ],
+      "t2": [
+        1,
+        2
+      ],
+      "two": [
+        1,
+        3
+      ],
+      "t3": [
+        1,
+        4
+      ],
+      "mem": [
+        1,
+        5
+      ],
+      "u": [
+        4,
+        2
+      ],
+      "v": [
+        4,
+        5
+      ],
+      "w": [
+        6,
+        4
+      ],
+      "mar_in": [
+        9,
+        1
+      ]
+    },
+    "fixed": [
+      {
+        "type": "gate",
+        "id": "G1",
+        "op": "or",
+        "inputs": [
+          "t0",
+          "w"
+        ],
+        "output": "mar_in"
+      }
+    ],
+    "slots": [
+      {
+        "id": "S1",
+        "inputs": [
+          "t2",
+          "two"
+        ],
+        "output": "u",
+        "accepts": [
+          "gate"
+        ]
+      },
+      {
+        "id": "S2",
+        "inputs": [
+          "t3",
+          "mem"
+        ],
+        "output": "v",
+        "accepts": [
+          "gate"
+        ]
+      },
+      {
+        "id": "S3",
+        "inputs": [
+          "u",
+          "v"
+        ],
+        "output": "w",
+        "accepts": [
+          "gate"
+        ]
+      }
+    ]
+  },
+  "parts": [
+    {
+      "type": "gate",
+      "op": "and"
+    },
+    {
+      "type": "gate",
+      "op": "or"
+    },
+    {
+      "type": "gate",
+      "op": "xor"
+    },
+    {
+      "type": "gate",
+      "op": "nand"
+    }
+  ],
+  "goals": [
+    {
+      "measure": "truth_table",
+      "expect": {
+        "mar_in": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "label": "mar_in = t0 + t2·two + t3·mem for all 32 input combinations"
+    }
+  ],
+  "solution": {
+    "S1": {
+      "type": "gate",
+      "op": "and"
+    },
+    "S2": {
+      "type": "gate",
+      "op": "and"
+    },
+    "S3": {
+      "type": "gate",
+      "op": "or"
+    }
+  },
+  "hints": [
+    "Each condition is 'this step AND this kind of instruction'.",
+    "The signal is on if any of the three conditions holds."
+  ]
+}

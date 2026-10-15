@@ -1,0 +1,131 @@
+{
+ "id": "ex-02-rc-timer",
+ "title": "A one-second timer",
+ "kind": "transient",
+ "story": "Close the switch and the capacitor starts filling. A buzzer sounds when it reaches 63% of the 5 V supply (3.16 V). Make that happen about one second after the start.",
+ "board": {
+  "nodes": {
+   "vcc": [
+    1,
+    1
+   ],
+   "a": [
+    5,
+    1
+   ],
+   "out": [
+    8,
+    1
+   ],
+   "gnd": [
+    1,
+    5
+   ],
+   "g2": [
+    8,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "B1",
+    "plus": "vcc",
+    "minus": "gnd",
+    "volts": 5
+   },
+   {
+    "type": "resistor",
+    "id": "R1",
+    "a": "vcc",
+    "b": "a",
+    "ohms": 10000
+   },
+   {
+    "type": "wire",
+    "id": "W1",
+    "a": "g2",
+    "b": "gnd"
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "a",
+    "b": "out",
+    "accepts": [
+     "resistor",
+     "wire"
+    ]
+   },
+   {
+    "id": "S2",
+    "a": "out",
+    "b": "g2",
+    "accepts": [
+     "capacitor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "wire"
+  },
+  {
+   "type": "resistor",
+   "ohms": 90000
+  },
+  {
+   "type": "resistor",
+   "ohms": 1000000
+  },
+  {
+   "type": "capacitor",
+   "farads": 1e-06
+  },
+  {
+   "type": "capacitor",
+   "farads": 1e-05
+  },
+  {
+   "type": "capacitor",
+   "farads": 0.0001
+  }
+ ],
+ "goals": [
+  {
+   "measure": "time_to_cross",
+   "at": "out",
+   "level": 3.16,
+   "min": 0.9,
+   "max": 1.1,
+   "label": "reaches 3.16 V between 0.9 and 1.1 s"
+  },
+  {
+   "measure": "voltage_at_time",
+   "at": "out",
+   "time": 3.0,
+   "min": 4.5,
+   "label": "almost full (above 4.5 V) at 3 s"
+  }
+ ],
+ "sim": {
+  "t_stop": 4,
+  "dt": 0.002
+ },
+ "solution": {
+  "S1": {
+   "type": "wire"
+  },
+  "S2": {
+   "type": "capacitor",
+   "farads": 0.0001
+  }
+ },
+ "hints": [
+  "The time constant is tau = R x C: after one tau the capacitor is at 63%.",
+  "With 10 kOhm you need tau = 1 s, so C = 1 / 10000."
+ ]
+}

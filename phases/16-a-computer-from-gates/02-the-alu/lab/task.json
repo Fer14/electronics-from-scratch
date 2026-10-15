@@ -1,0 +1,174 @@
+{
+  "id": "16-02-alu-slice",
+  "title": "One bit of an ALU",
+  "kind": "logic",
+  "story": "Each bit of the T8's ALU computes several results side by side and a selector keeps one. Build a 1-bit slice with two operations: when op = 0 the output y is a AND b, when op = 1 it is a XOR b. The inverter for op, the gate that passes the XOR result when op = 1, and the final OR are wired. Fill the three slots.",
+  "board": {
+    "inputs": [
+      "op",
+      "a",
+      "b"
+    ],
+    "outputs": [
+      "y"
+    ],
+    "nodes": {
+      "a": [
+        1,
+        1
+      ],
+      "b": [
+        1,
+        3
+      ],
+      "op": [
+        1,
+        5
+      ],
+      "nop": [
+        3,
+        5
+      ],
+      "x1": [
+        4,
+        1
+      ],
+      "x2": [
+        4,
+        3
+      ],
+      "p": [
+        6,
+        1
+      ],
+      "q": [
+        6,
+        4
+      ],
+      "y": [
+        9,
+        2
+      ]
+    },
+    "fixed": [
+      {
+        "type": "gate",
+        "id": "G1",
+        "op": "not",
+        "inputs": [
+          "op"
+        ],
+        "output": "nop"
+      },
+      {
+        "type": "gate",
+        "id": "G2",
+        "op": "and",
+        "inputs": [
+          "x2",
+          "op"
+        ],
+        "output": "q"
+      },
+      {
+        "type": "gate",
+        "id": "G3",
+        "op": "or",
+        "inputs": [
+          "p",
+          "q"
+        ],
+        "output": "y"
+      }
+    ],
+    "slots": [
+      {
+        "id": "S1",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "output": "x1",
+        "accepts": [
+          "gate"
+        ]
+      },
+      {
+        "id": "S2",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "output": "x2",
+        "accepts": [
+          "gate"
+        ]
+      },
+      {
+        "id": "S3",
+        "inputs": [
+          "x1",
+          "nop"
+        ],
+        "output": "p",
+        "accepts": [
+          "gate"
+        ]
+      }
+    ]
+  },
+  "parts": [
+    {
+      "type": "gate",
+      "op": "and"
+    },
+    {
+      "type": "gate",
+      "op": "or"
+    },
+    {
+      "type": "gate",
+      "op": "xor"
+    },
+    {
+      "type": "gate",
+      "op": "nand"
+    }
+  ],
+  "goals": [
+    {
+      "measure": "truth_table",
+      "expect": {
+        "y": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      "label": "y = a AND b when op = 0, a XOR b when op = 1 (all 8 rows)"
+    }
+  ],
+  "solution": {
+    "S1": {
+      "type": "gate",
+      "op": "and"
+    },
+    "S2": {
+      "type": "gate",
+      "op": "xor"
+    },
+    "S3": {
+      "type": "gate",
+      "op": "and"
+    }
+  },
+  "hints": [
+    "S1 and S2 compute the two candidate results from a and b.",
+    "S3 must let x1 through only while op = 0, that is while nop = 1."
+  ]
+}

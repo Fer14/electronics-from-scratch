@@ -1,0 +1,93 @@
+[
+  {
+    "id": "21-06-pre-1",
+    "stage": "pre",
+    "question": "What is flux for?",
+    "options": [
+      "It makes the solder melt at a lower temperature",
+      "It cools the joint after soldering",
+      "It removes oxide from the metal so molten solder can wet it",
+      "It glues the part in place"
+    ],
+    "correct": 2,
+    "explanation": "Solder cannot wet oxidised copper. Flux dissolves the oxide and protects the surface while the solder flows."
+  },
+  {
+    "id": "21-06-pre-2",
+    "stage": "pre",
+    "question": "Why is it hard to solder a pad that is connected directly to a large ground plane?",
+    "options": [
+      "The plane conducts heat away so fast that the pad never gets hot enough",
+      "Ground planes repel solder",
+      "The plane has too much voltage",
+      "Ground pads have no copper"
+    ],
+    "correct": 0,
+    "explanation": "The plane is a big heat capacity with a low thermal resistance to the pad: it steals the iron's heat."
+  },
+  {
+    "id": "21-06-post-1",
+    "stage": "post",
+    "question": "In the thermal-electrical analogy, what plays the role of a capacitor?",
+    "options": [
+      "Thermal resistance",
+      "Heat flow",
+      "Temperature",
+      "Heat capacity (thermal mass)"
+    ],
+    "correct": 3,
+    "explanation": "Heat capacity stores heat like a capacitor stores charge; its temperature rises as heat flows in, as a capacitor's voltage rises with charge."
+  },
+  {
+    "id": "21-06-post-2",
+    "stage": "post",
+    "question": "A 0.5 x 0.5 mm aperture in a 0.15 mm stencil: what is its area ratio?",
+    "options": [
+      "1.67",
+      "0.83",
+      "0.42",
+      "3.33"
+    ],
+    "correct": 1,
+    "explanation": "Area ratio = 0.25 / (2 * 1.0 * 0.15) = 0.25 / 0.30 = 0.83, which passes the 0.66 rule."
+  },
+  {
+    "id": "21-06-post-3",
+    "stage": "post",
+    "question": "In a reflow oven, a big connector reaches a lower peak than a small resistor next to it. Why?",
+    "options": [
+      "Connectors are made of plastic only",
+      "Its larger thermal time constant (more heat capacity) makes it lag behind the air temperature",
+      "The oven is colder on one side",
+      "Small parts generate their own heat"
+    ],
+    "correct": 1,
+    "explanation": "A part follows dT/dt = (T_oven - T)/tau. A bigger tau means it rises more slowly and does not reach the peak before the zone ends."
+  },
+  {
+    "id": "21-06-post-4",
+    "stage": "post",
+    "question": "With the plane still cold, the joint temperature above room is about 325 * R_link / (15 + R_link). For R_link = 10 K/W, what is the joint temperature?",
+    "options": [
+      "155 C",
+      "130 C",
+      "325 C",
+      "255 C"
+    ],
+    "correct": 0,
+    "explanation": "325 * 10 / 25 = 130 above room, so about 155 C: below the 217 C melting point of SAC305."
+  },
+  {
+    "id": "21-06-post-5",
+    "stage": "post",
+    "question": "Why does lead-free soldering need hotter irons and ovens than leaded soldering?",
+    "options": [
+      "Lead-free solder contains more flux",
+      "Lead-free boards are thicker",
+      "Common lead-free alloys like SAC305 melt at about 217-220 C instead of 183 C",
+      "RoHS requires a minimum temperature"
+    ],
+    "correct": 2,
+    "explanation": "The melting point is about 35 C higher, so everything must be heated more, with less margin before damage."
+  }
+]

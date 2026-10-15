@@ -1,0 +1,31 @@
+{
+  "id": "05-05-superposition",
+  "title": "Two sources, one node, land on 4 V",
+  "kind": "dc",
+  "story": "A 6 V battery feeds node b through a 2 kOhm resistor, and a 1 mA current source pushes into b from ground. The resistor from b to ground is missing. Pick the one that puts node b between 3.8 and 4.2 V. Work out each source's contribution first.",
+  "board": {
+    "nodes": {"a": [1, 1], "b": [5, 1], "gnd": [5, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "V1", "plus": "a", "minus": "gnd", "volts": 6},
+      {"type": "resistor", "id": "R1", "a": "a", "b": "b", "ohms": 2000},
+      {"type": "current_source", "id": "I1", "from": "gnd", "to": "b", "amps": 0.001}
+    ],
+    "slots": [
+      {"id": "R2", "a": "b", "b": "gnd", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 1000},
+    {"type": "resistor", "ohms": 2000},
+    {"type": "resistor", "ohms": 8000}
+  ],
+  "goals": [
+    {"measure": "voltage", "at": "b", "min": 3.8, "max": 4.2, "label": "node b between 3.8 and 4.2 V"}
+  ],
+  "solution": {"R2": {"type": "resistor", "ohms": 2000}},
+  "hints": [
+    "Battery alone (current source open): vb' = 6 x Rs / (2k + Rs).",
+    "Current source alone (battery shorted): it sees 2k in parallel with Rs, so vb'' = 1 mA x (2k || Rs). Add the two."
+  ]
+}

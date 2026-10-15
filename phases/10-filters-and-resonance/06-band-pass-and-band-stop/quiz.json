@@ -1,0 +1,93 @@
+[
+  {
+    "id": "10-06-pre-1",
+    "stage": "pre",
+    "question": "Which filter would you use to remove a 50 Hz hum while keeping everything else?",
+    "options": [
+      "A band-pass at 50 Hz",
+      "A low-pass at 50 Hz",
+      "A notch (band-stop) at 50 Hz",
+      "A high-pass at 10 kHz"
+    ],
+    "correct": 2,
+    "explanation": "A notch blocks a narrow band around one frequency and passes the rest."
+  },
+  {
+    "id": "10-06-pre-2",
+    "stage": "pre",
+    "question": "How can you build a band-pass filter from simpler filters?",
+    "options": [
+      "A high-pass with a low cutoff followed by a low-pass with a higher cutoff",
+      "Two low-pass filters with the same cutoff",
+      "Two resistors in series",
+      "A low-pass with a low cutoff followed by a high-pass with a higher cutoff"
+    ],
+    "correct": 0,
+    "explanation": "The high-pass removes everything below f_L and the low-pass everything above f_H, leaving the band in between."
+  },
+  {
+    "id": "10-06-post-1",
+    "stage": "post",
+    "question": "A band-pass has -3 dB edges at 100 Hz and 10 kHz. Where is its centre?",
+    "options": [
+      "5050 Hz",
+      "1000 Hz",
+      "9900 Hz",
+      "100 Hz"
+    ],
+    "correct": 1,
+    "explanation": "On a log scale the centre is the geometric mean: sqrt(100 x 10,000) = 1000 Hz."
+  },
+  {
+    "id": "10-06-post-2",
+    "stage": "post",
+    "question": "A series RLC band-pass has R = 20 ohm and L = 10 mH. What is its bandwidth?",
+    "options": [
+      "3.18 kHz",
+      "2 kHz",
+      "31.8 Hz",
+      "318 Hz"
+    ],
+    "correct": 3,
+    "explanation": "BW = R / (2 pi L) = 20 / (2 pi x 0.01) = 318 Hz."
+  },
+  {
+    "id": "10-06-post-3",
+    "stage": "post",
+    "question": "An LC trap to ground (series 1 k ohm resistor before it) uses a coil with 5 ohm of winding resistance. What is the deepest the notch can be?",
+    "options": [
+      "About -46 dB",
+      "Infinitely deep",
+      "About -6 dB",
+      "About -20 dB"
+    ],
+    "correct": 0,
+    "explanation": "At f0 the trap is just 5 ohm, so the gain is 5 / 1005 = 0.005 = -46 dB."
+  },
+  {
+    "id": "10-06-post-4",
+    "stage": "post",
+    "question": "How does a twin-T network create its notch?",
+    "options": [
+      "By storing the hum's energy in a coil",
+      "Its two paths deliver equal and opposite signals at one frequency, which cancel",
+      "By resonating an inductor with a capacitor",
+      "By amplifying all other frequencies"
+    ],
+    "correct": 1,
+    "explanation": "The R-2C-R path and the C-R/2-C path have opposite phase shifts. At f = 1 / (2 pi R C) their outputs are equal and opposite and cancel."
+  },
+  {
+    "id": "10-06-post-5",
+    "stage": "post",
+    "question": "Why is it hard to make a narrow band-pass (say 900 Hz to 1100 Hz) from one RC high-pass and one RC low-pass?",
+    "options": [
+      "Because RC filters cannot be buffered",
+      "Because capacitors do not work at 1 kHz",
+      "Because the gentle first-order slopes overlap and the peak gain sinks well below 0 dB",
+      "Because the bandwidth becomes negative"
+    ],
+    "correct": 2,
+    "explanation": "Each first-order filter changes slowly (20 dB per decade). With corners so close, each one is still attenuating at the other's corner, so the top of the band is far below 0 dB."
+  }
+]

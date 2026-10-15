@@ -1,0 +1,93 @@
+[
+  {
+    "id": "07-08-pre-1",
+    "stage": "pre",
+    "question": "Why can't a single DC calculation tell you the voltage on a charging capacitor at t = 1 ms?",
+    "options": [
+      "Because capacitors have no voltage",
+      "Because the capacitor's voltage now depends on all the current that flowed into it before",
+      "Because DC analysis only works with batteries",
+      "Because Ohm's law does not apply to resistors in RC circuits"
+    ],
+    "correct": 1,
+    "explanation": "A capacitor has memory: v depends on the accumulated charge. You have to march through time, step by step, carrying that memory forward."
+  },
+  {
+    "id": "07-08-pre-2",
+    "stage": "pre",
+    "question": "In the time-stepping idea, the rate dv/dt is approximated by...",
+    "options": [
+      "(v_new - v_old) / h",
+      "v_new x h",
+      "v_old / C",
+      "C x h"
+    ],
+    "correct": 0,
+    "explanation": "Over a small step of length h, the rate of change is approximately the change in voltage divided by the step."
+  },
+  {
+    "id": "07-08-post-1",
+    "stage": "post",
+    "question": "In the backward-Euler companion model, a capacitor C with time step h becomes...",
+    "options": [
+      "A voltage source equal to C / h",
+      "A resistor of h ohms",
+      "A conductance C / h in parallel with a current source (C / h) x v_old",
+      "An open circuit"
+    ],
+    "correct": 2,
+    "explanation": "i_new = (C/h) v_new - (C/h) v_old: a conductance C/h plus a history current source (C/h) v_old pushing current back into the capacitor's first node."
+  },
+  {
+    "id": "07-08-post-2",
+    "stage": "post",
+    "question": "R = 1 kOhm, C = 1 uF, 5 V, starting empty, h = 0.1 ms. What is the backward-Euler voltage after the first step?",
+    "options": [
+      "0.4758 V",
+      "0.5 V",
+      "5 V",
+      "0.4545 V"
+    ],
+    "correct": 3,
+    "explanation": "C/h = 0.01 S, i.e. 100 Ohm, and the history source is 0. The step is a divider: 5 x 100 / 1100 = 0.4545 V. 0.4758 V is the exact value."
+  },
+  {
+    "id": "07-08-post-3",
+    "stage": "post",
+    "question": "You halve the time step. Roughly what happens to the error of the trapezoidal rule?",
+    "options": [
+      "It halves",
+      "It becomes about four times smaller",
+      "It stays the same",
+      "It doubles"
+    ],
+    "correct": 1,
+    "explanation": "The trapezoidal rule is second order: error scales like h^2, so halving h divides the error by about 4. Backward Euler is first order and only halves."
+  },
+  {
+    "id": "07-08-post-4",
+    "stage": "post",
+    "question": "What extra piece of memory does the trapezoidal companion model need, compared with backward Euler?",
+    "options": [
+      "The capacitor current from the previous step",
+      "The resistor values from the previous step",
+      "The time of day",
+      "Nothing extra"
+    ],
+    "correct": 0,
+    "explanation": "Trapezoidal averages the currents at both ends of the step, so its history source is (2C/h) v_old + i_old: it needs the previous current as well as the previous voltage."
+  },
+  {
+    "id": "07-08-post-5",
+    "stage": "post",
+    "question": "Why does our simulator (like sim) take the very first step with backward Euler even when the trapezoidal rule is selected?",
+    "options": [
+      "Backward Euler is more accurate",
+      "Trapezoidal cannot handle voltage sources",
+      "At switch-on the capacitor current jumps, so the previous current i_old is not a good value to average with; backward Euler does not need it",
+      "To save computing time"
+    ],
+    "correct": 2,
+    "explanation": "The trapezoidal rule averages i_old and i_new. Just before switch-on the current was 0, just after it is V/R; averaging the wrong i_old causes error. One backward-Euler step needs no i_old."
+  }
+]

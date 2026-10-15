@@ -1,0 +1,89 @@
+{
+ "id": "07-02-capacitance",
+ "title": "Find the 1 V ramp",
+ "kind": "transient",
+ "story": "A capacitance meter pushes a steady 1 mA into the part under test and expects the voltage to climb about 1 V every millisecond, so that it reads close to 1 V at 1 ms and close to 2 V at 2 ms. Which capacitor makes the ramp right?",
+ "board": {
+  "nodes": {
+   "top": [
+    6,
+    1
+   ],
+   "gnd": [
+    6,
+    5
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "current_source",
+    "id": "I1",
+    "from": "gnd",
+    "to": "top",
+    "amps": 0.001
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "top",
+    "b": "gnd",
+    "accepts": [
+     "capacitor"
+    ]
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "capacitor",
+   "farads": 1e-07
+  },
+  {
+   "type": "capacitor",
+   "farads": 1e-06
+  },
+  {
+   "type": "capacitor",
+   "farads": 4.7e-06
+  },
+  {
+   "type": "capacitor",
+   "farads": 1e-05
+  }
+ ],
+ "sim": {
+  "t_stop": 0.002,
+  "dt": 1e-06
+ },
+ "goals": [
+  {
+   "measure": "voltage_at_time",
+   "at": "top",
+   "time": 0.001,
+   "min": 0.8,
+   "max": 1.2,
+   "label": "about 1 V after 1 ms"
+  },
+  {
+   "measure": "voltage_at_time",
+   "at": "top",
+   "time": 0.002,
+   "min": 1.6,
+   "max": 2.4,
+   "label": "about 2 V after 2 ms"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "capacitor",
+   "farads": 1e-06
+  }
+ },
+ "hints": [
+  "A steady current moves charge Q = I x t: in 1 ms, 1 mA moves 1 uC.",
+  "The voltage is V = Q / C. Which C turns 1 uC into 1 V?",
+  "A capacitor ten times bigger makes the ramp ten times slower."
+ ]
+}

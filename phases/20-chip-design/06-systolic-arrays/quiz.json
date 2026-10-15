@@ -1,0 +1,93 @@
+[
+  {
+    "id": "20-06-pre-1",
+    "stage": "pre",
+    "question": "A square field's side doubles. What happens to its area and to the length of its fence?",
+    "options": [
+      "Both double",
+      "Area x4, fence x2",
+      "Area x2, fence x4",
+      "Both x4"
+    ],
+    "correct": 1,
+    "explanation": "Area grows with the square of the side, the perimeter only linearly. Systolic arrays exploit exactly this."
+  },
+  {
+    "id": "20-06-pre-2",
+    "stage": "pre",
+    "question": "How many MACs does a 64 x 64 weight matrix applied to a batch of 10 vectors need?",
+    "options": [
+      "640",
+      "4,096",
+      "40,960",
+      "64"
+    ],
+    "correct": 2,
+    "explanation": "B * K * N = 10 * 64 * 64 = 40,960."
+  },
+  {
+    "id": "20-06-post-1",
+    "stage": "post",
+    "question": "In a weight-stationary systolic array, what moves and what stays?",
+    "options": [
+      "Weights stay in their PEs; inputs flow along the rows and partial sums flow down the columns",
+      "Everything stays; only the clock moves",
+      "Weights flow; inputs stay",
+      "Results stay; weights and inputs are fetched from a register file every cycle"
+    ],
+    "correct": 0,
+    "explanation": "Each PE keeps one weight. An input is reused by every PE in its row; a partial sum collects one product per row."
+  },
+  {
+    "id": "20-06-post-2",
+    "stage": "post",
+    "question": "Why are the rows of inputs fed in with a skew (row k one cycle later than row k-1)?",
+    "options": [
+      "To save power",
+      "Because the clock is slower at the bottom",
+      "To let the weights load",
+      "Because a partial sum reaches row k one cycle after row k-1, so its input must arrive one cycle later too"
+    ],
+    "correct": 3,
+    "explanation": "Input X[b][k] must meet the partial sum of input b at PE (k, j), at cycle b + k + j."
+  },
+  {
+    "id": "20-06-post-3",
+    "stage": "post",
+    "question": "A 16 x 16 array multiplies a batch of 34 inputs by a 16 x 16 matrix. Using cycles = B + K + N - 2, what is the utilization?",
+    "options": [
+      "100%",
+      "34%",
+      "About 53%",
+      "16%"
+    ],
+    "correct": 2,
+    "explanation": "Cycles = 34 + 16 + 16 - 2 = 64; utilization = 34 / 64 = 53%."
+  },
+  {
+    "id": "20-06-post-4",
+    "stage": "post",
+    "question": "An N x N array does N^2 MACs per cycle while 2N values cross its edge. How many MACs per value moved does a 128 x 128 array do?",
+    "options": [
+      "64",
+      "2",
+      "16,384",
+      "256"
+    ],
+    "correct": 0,
+    "explanation": "N^2 / 2N = N / 2 = 64."
+  },
+  {
+    "id": "20-06-post-5",
+    "stage": "post",
+    "question": "Why is a systolic array much smaller than feeding the same number of MACs from a shared register file?",
+    "options": [
+      "Its MACs use fewer bits",
+      "It needs no multiplexer read ports: each PE takes its operands from its neighbours' registers",
+      "It has no registers",
+      "It runs at a lower voltage"
+    ],
+    "correct": 1,
+    "explanation": "Two read ports per MAC on a shared file would need huge multiplexers; neighbour-to-neighbour wiring replaces them."
+  }
+]

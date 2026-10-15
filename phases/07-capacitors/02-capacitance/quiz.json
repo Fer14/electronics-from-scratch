@@ -1,0 +1,93 @@
+[
+  {
+    "id": "07-02-pre-1",
+    "stage": "pre",
+    "question": "A capacitor holds 20 uC at 4 V. What is its capacitance?",
+    "options": [
+      "80 uF",
+      "5 uF",
+      "0.2 uF",
+      "24 uF"
+    ],
+    "correct": 1,
+    "explanation": "C = Q / V = 20 uC / 4 V = 5 uF."
+  },
+  {
+    "id": "07-02-pre-2",
+    "stage": "pre",
+    "question": "You move the plates of a parallel-plate capacitor twice as far apart. What happens to the capacitance?",
+    "options": [
+      "It doubles",
+      "It stays the same",
+      "It halves",
+      "It becomes four times smaller"
+    ],
+    "correct": 2,
+    "explanation": "C = eps0 x eps_r x A / d. Doubling d halves C: the same charge now needs twice the voltage."
+  },
+  {
+    "id": "07-02-post-1",
+    "stage": "post",
+    "question": "Why does filling the gap with a dielectric increase the capacitance?",
+    "options": [
+      "The atoms of the dielectric polarize, partly cancelling the field, so less voltage is needed for the same charge",
+      "The dielectric adds free electrons to the plates",
+      "The dielectric conducts a small current between the plates",
+      "The dielectric makes the plates bigger"
+    ],
+    "correct": 0,
+    "explanation": "The dielectric's atoms lean in the field. Their surface charges partly cancel the plates' charges, the field gets weaker, the voltage for a given Q falls, and C = Q / V rises by eps_r."
+  },
+  {
+    "id": "07-02-post-2",
+    "stage": "post",
+    "question": "A constant 1 mA flows into an empty 2.2 uF capacitor. What is its voltage after 1 ms?",
+    "options": [
+      "2.2 V",
+      "1 V",
+      "0.22 V",
+      "About 0.45 V"
+    ],
+    "correct": 3,
+    "explanation": "V = I x t / C = 0.001 x 0.001 / 2.2 x 10^-6 = 0.455 V."
+  },
+  {
+    "id": "07-02-post-3",
+    "stage": "post",
+    "question": "What value is a ceramic capacitor marked \"472\"?",
+    "options": [
+      "472 pF",
+      "4.7 uF",
+      "4.7 nF",
+      "47 nF"
+    ],
+    "correct": 2,
+    "explanation": "Two digits then the number of zeros, in picofarads: 47 followed by 2 zeros = 4700 pF = 4.7 nF."
+  },
+  {
+    "id": "07-02-post-4",
+    "stage": "post",
+    "question": "Why are high-voltage capacitors bigger than low-voltage capacitors of the same capacitance?",
+    "options": [
+      "They need a thicker dielectric to avoid breakdown, so they need more plate area for the same C",
+      "High voltage needs more electrons, which take more space",
+      "They contain a built-in resistor",
+      "Manufacturers make them big so they are easier to handle"
+    ],
+    "correct": 0,
+    "explanation": "The field is V / d. To survive a higher V the gap d must be larger, and to keep the same C = eps0 eps_r A / d the area must grow with it."
+  },
+  {
+    "id": "07-02-post-5",
+    "stage": "post",
+    "question": "What does I = C x dV/dt tell you about a capacitor's voltage?",
+    "options": [
+      "It is always equal to the supply voltage",
+      "It is proportional to the current",
+      "It changes faster when the capacitance is larger",
+      "It cannot jump instantly, because an instant jump would need infinite current"
+    ],
+    "correct": 3,
+    "explanation": "The current is proportional to the rate of change of voltage. An instant step means an infinite rate of change, which would need infinite current, so in real circuits the capacitor voltage changes continuously."
+  }
+]

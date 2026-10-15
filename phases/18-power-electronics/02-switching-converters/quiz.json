@@ -1,0 +1,106 @@
+[
+  {
+    "id": "18-02-pre-1",
+    "stage": "pre",
+    "question": "A perfect switch is closed and carries 3 A. How much power does it dissipate?",
+    "options": [
+      "Zero, because there is no voltage across it",
+      "3 W",
+      "9 W",
+      "It depends on the supply voltage"
+    ],
+    "correct": 0,
+    "explanation": "P = V x I and a perfect closed switch has V = 0, so P = 0 whatever the current."
+  },
+  {
+    "id": "18-02-pre-2",
+    "stage": "pre",
+    "question": "Which of these parts can store energy and give it back without turning it into heat (ideally)?",
+    "options": [
+      "A resistor",
+      "A fuse",
+      "An inductor",
+      "A light bulb"
+    ],
+    "correct": 2,
+    "explanation": "An ideal inductor stores 1/2 L I^2 in its magnetic field and returns it. A resistor only turns energy into heat."
+  },
+  {
+    "id": "18-02-post-1",
+    "stage": "post",
+    "question": "Why is an RC filter a bad way to smooth the output of a power converter?",
+    "options": [
+      "It cannot smooth pulses",
+      "Its resistor carries the full load and ripple current and turns a lot of power into heat",
+      "Capacitors cannot handle DC",
+      "It raises the output voltage"
+    ],
+    "correct": 1,
+    "explanation": "In the lesson, the 1 ohm resistor wasted 37 W to deliver 5 W: 12% efficiency. An LC filter does the same smoothing with no resistor."
+  },
+  {
+    "id": "18-02-post-2",
+    "stage": "post",
+    "question": "A switch chops 12 V into a 6 ohm heater with D = 0.5. What is the heater's average power?",
+    "options": [
+      "6 W",
+      "24 W",
+      "12 W",
+      "3 W"
+    ],
+    "correct": 2,
+    "explanation": "While on, P = 12^2 / 6 = 24 W. On half the time: 0.5 x 24 = 12 W."
+  },
+  {
+    "id": "18-02-post-3",
+    "stage": "post",
+    "question": "1 A flows through a 1 mH inductor when its switch opens. The only path is 1 nF of stray capacitance. Roughly how big is the voltage spike?",
+    "options": [
+      "1 V",
+      "1000 V",
+      "10 V",
+      "1 mV"
+    ],
+    "correct": 1,
+    "explanation": "V = I x sqrt(L / C) = 1 x sqrt(1e-3 / 1e-9) = sqrt(1e6) = 1000 V."
+  },
+  {
+    "id": "18-02-post-4",
+    "stage": "post",
+    "question": "What is the job of the freewheel diode (or low-side switch) in a switching converter?",
+    "options": [
+      "To raise the output voltage",
+      "To stop current flowing backwards into the battery",
+      "To give the inductor's current a path when the main switch opens",
+      "To measure the current"
+    ],
+    "correct": 2,
+    "explanation": "The inductor's current cannot stop instantly. The freewheel path lets it keep flowing to the output while the main switch is off, avoiding a destructive spike."
+  },
+  {
+    "id": "18-02-post-5",
+    "stage": "post",
+    "question": "A linear regulator and a 90%-efficient switcher both make 5 V at 1 A from 24 V. How much heat does each make?",
+    "options": [
+      "Linear 19 W, switcher about 0.56 W",
+      "Both 19 W",
+      "Linear 5 W, switcher 0.5 W",
+      "Linear 0.56 W, switcher 19 W"
+    ],
+    "correct": 0,
+    "explanation": "Linear: (24 - 5) x 1 = 19 W. Switcher: input power 5 / 0.9 = 5.56 W, so it loses 0.56 W, almost independent of the input voltage."
+  },
+  {
+    "id": "18-02-post-6",
+    "stage": "post",
+    "question": "Why are switching converters sometimes followed by a linear LDO?",
+    "options": [
+      "To increase the efficiency above 100%",
+      "Because switchers cannot regulate",
+      "To raise the voltage",
+      "To remove the switching ripple and noise for sensitive circuits"
+    ],
+    "correct": 3,
+    "explanation": "The switcher does the big, efficient voltage drop; the LDO, with only a small drop, cleans up the ripple for analog or radio circuits."
+  }
+]

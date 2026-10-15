@@ -1,0 +1,68 @@
+[
+  {
+    "id": "17-04-pre-1",
+    "stage": "pre",
+    "question": "What does an ADC do?",
+    "options": [
+      "Turns a number into a voltage",
+      "Measures a voltage and outputs a number",
+      "Amplifies a small voltage",
+      "Stores the program"
+    ],
+    "correct": 1,
+    "explanation": "An analog-to-digital converter compares the input voltage with a reference and outputs the corresponding whole-number code."
+  },
+  {
+    "id": "17-04-pre-2",
+    "stage": "pre",
+    "question": "How many different codes does a 10-bit converter have?",
+    "options": ["10", "100", "1024", "512"],
+    "correct": 2,
+    "explanation": "N bits give 2^N combinations: 2^10 = 1024 codes, from 0 to 1023."
+  },
+  {
+    "id": "17-04-post-1",
+    "stage": "post",
+    "question": "A 10-bit ADC has VREF = 3.3 V. The input is 2.000 V. Which code does an ideal ADC give?",
+    "options": ["620", "606", "512", "650"],
+    "correct": 0,
+    "explanation": "LSB = 3.3 / 1024 = 3.2227 mV. 2.000 / 0.0032227 = 620.6, rounded down to 620."
+  },
+  {
+    "id": "17-04-post-2",
+    "stage": "post",
+    "question": "How many comparisons does a 12-bit successive-approximation ADC need for one conversion?",
+    "options": ["4096", "1", "64", "12"],
+    "correct": 3,
+    "explanation": "SAR is a binary search: one comparison decides each bit, starting from the most significant, so 12 bits take 12 comparisons."
+  },
+  {
+    "id": "17-04-post-3",
+    "stage": "post",
+    "question": "A divider of 100 k over 22 k feeds an ADC. What source resistance does the ADC see?",
+    "options": ["122 kohm", "18 kohm", "22 kohm", "100 kohm"],
+    "correct": 1,
+    "explanation": "The Thevenin resistance of a divider is the two resistors in parallel: 100 x 22 / 122 = 18.0 kohm, above the usual 10 kohm advice."
+  },
+  {
+    "id": "17-04-post-4",
+    "stage": "post",
+    "question": "An 8-bit R-2R DAC with VREF = 3.3 V receives code 64. What is the output?",
+    "options": ["0.825 V", "0.64 V", "1.65 V", "0.206 V"],
+    "correct": 0,
+    "explanation": "V = code x VREF / 256 = 64 x 3.3 / 256 = 0.825 V, a quarter of the reference."
+  },
+  {
+    "id": "17-04-post-5",
+    "stage": "post",
+    "question": "Why is the step from code 127 to 128 the hardest for an R-2R DAC to get right?",
+    "options": [
+      "Because 128 is larger than the reference",
+      "Because the comparator is slowest there",
+      "Because every bit changes at once, so any error in the MSB weight shows up fully in that one step",
+      "Because the ladder is not used for codes above 127"
+    ],
+    "correct": 2,
+    "explanation": "01111111 to 10000000 turns the MSB on and all other bits off. The step equals the MSB weight minus the sum of all the others; any mismatch is not averaged away."
+  }
+]

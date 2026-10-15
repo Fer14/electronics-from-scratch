@@ -1,0 +1,31 @@
+{
+  "id": "08-04-dc-choke",
+  "title": "Let the DC through",
+  "kind": "dc",
+  "story": "A sensor at the far end of a cable is powered by a steady DC current that must flow from node a to ground through the empty slot. The 100 ohm resistor is the cable plus the sensor. Fill the slot with a part that lets all of the DC current through, so that node a sits at (almost) 0 V and about 90 mA flow. At DC nothing is changing, so think about what each part does when di/dt and dv/dt are zero.",
+  "board": {
+    "nodes": {"vcc": [1, 1], "a": [6, 1], "gnd": [6, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "B1", "plus": "vcc", "minus": "gnd", "volts": 9},
+      {"type": "resistor", "id": "R1", "a": "vcc", "b": "a", "ohms": 100}
+    ],
+    "slots": [
+      {"id": "S1", "a": "a", "b": "gnd", "accepts": ["inductor", "capacitor", "resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "inductor", "henries": 0.01},
+    {"type": "capacitor", "farads": 1e-6},
+    {"type": "resistor", "ohms": 100}
+  ],
+  "goals": [
+    {"measure": "voltage", "at": "a", "max": 0.1, "label": "node a below 0.1 V"},
+    {"measure": "current", "of": "R1", "min": 0.085, "max": 0.095, "label": "between 85 and 95 mA flow through R1"}
+  ],
+  "solution": {"S1": {"type": "inductor", "henries": 0.01}},
+  "hints": [
+    "An inductor's voltage is L times how fast its current changes. A steady current is not changing.",
+    "A capacitor at DC is the opposite: once charged, no current flows through it."
+  ]
+}

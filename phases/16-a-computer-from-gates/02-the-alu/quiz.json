@@ -1,0 +1,106 @@
+[
+  {
+    "id": "16-02-pre-1",
+    "stage": "pre",
+    "question": "What is 1100 1100 AND 1010 1010?",
+    "options": [
+      "1110 1110",
+      "1000 1000",
+      "0110 0110",
+      "0011 0011"
+    ],
+    "correct": 1,
+    "explanation": "AND keeps a 1 only where both bits are 1."
+  },
+  {
+    "id": "16-02-pre-2",
+    "stage": "pre",
+    "question": "How does a multi-function ALU usually choose its result?",
+    "options": [
+      "It rewires itself for each operation",
+      "It computes only the selected operation",
+      "It computes all operations in parallel and a multiplexer keeps the selected one",
+      "It runs the operations one after another"
+    ],
+    "correct": 2,
+    "explanation": "All units see the same operands; a decoder and a mux pick the result."
+  },
+  {
+    "id": "16-02-post-1",
+    "stage": "post",
+    "question": "How is the T8's zero flag computed?",
+    "options": [
+      "NOR of all 8 result bits",
+      "AND of all 8 result bits",
+      "The carry out",
+      "The top result bit"
+    ],
+    "correct": 0,
+    "explanation": "Z = 1 exactly when no result bit is 1."
+  },
+  {
+    "id": "16-02-post-2",
+    "stage": "post",
+    "question": "The T8 computes SUB 17, 25. What are the result and the C flag?",
+    "options": [
+      "8, C = 1",
+      "248, C = 1",
+      "0, C = 0",
+      "248, C = 0"
+    ],
+    "correct": 3,
+    "explanation": "17 - 25 wraps to 248 (which is -8 signed). C = 0 means a borrow happened: 17 < 25."
+  },
+  {
+    "id": "16-02-post-3",
+    "stage": "post",
+    "question": "Which operation and mask clear the upper 4 bits of A and keep the lower 4?",
+    "options": [
+      "OR 0x0F",
+      "XOR 0xF0",
+      "AND 0x0F",
+      "AND 0xF0"
+    ],
+    "correct": 2,
+    "explanation": "AND with 0000 1111 forces the upper bits to 0 and passes the lower bits."
+  },
+  {
+    "id": "16-02-post-4",
+    "stage": "post",
+    "question": "What sets the T8 ALU's critical path?",
+    "options": [
+      "The bitwise AND gates",
+      "The 8-stage ripple carry chain of the adder",
+      "The operation decoder alone",
+      "The N flag"
+    ],
+    "correct": 1,
+    "explanation": "The carry must travel from bit 0 to bit 7 before the top sum, the mux and the Z flag settle."
+  },
+  {
+    "id": "16-02-post-5",
+    "stage": "post",
+    "question": "After SUB A, B, the flags are Z = 0, C = 1. What do you know?",
+    "options": [
+      "A = B",
+      "A < B",
+      "A > B (as unsigned numbers)",
+      "Nothing"
+    ],
+    "correct": 2,
+    "explanation": "C = 1 means A >= B, and Z = 0 rules out equality."
+  },
+  {
+    "id": "16-02-post-6",
+    "stage": "post",
+    "question": "Why does the T8 force C = 0 for logic operations?",
+    "options": [
+      "Logic operations have no carry, and the adder's carry out during an AND is meaningless",
+      "To make the ALU faster",
+      "Because XOR always produces a carry",
+      "Because the carry chain is switched off"
+    ],
+    "correct": 0,
+    "explanation": "The adder still computes in parallel; C = c8 AND is_arith hides its irrelevant carry."
+  }
+]

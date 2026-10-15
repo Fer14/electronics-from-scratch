@@ -1,0 +1,139 @@
+{
+ "id": "18-05-motors-and-the-h-bridge",
+ "title": "Drive the motor forwards",
+ "kind": "dc",
+ "story": "An H-bridge has four switches around a small DC motor. At the moment of starting, the motor is not yet turning, so it behaves like its 4 ohm winding. The battery reaches the bridge through 0.1 ohm of wiring. Close and open the four switches so current flows through the motor from A to B (forwards) with at least 2 A, without ever shorting the battery: the wiring must carry no more than 5 A.",
+ "board": {
+  "nodes": {
+   "bat": [
+    1,
+    0
+   ],
+   "vcc": [
+    5,
+    0
+   ],
+   "a": [
+    2,
+    3
+   ],
+   "b": [
+    8,
+    3
+   ],
+   "gnd": [
+    5,
+    6
+   ]
+  },
+  "ground": "gnd",
+  "fixed": [
+   {
+    "type": "battery",
+    "id": "B1",
+    "plus": "bat",
+    "minus": "gnd",
+    "volts": 12
+   },
+   {
+    "type": "resistor",
+    "id": "RWIRE",
+    "a": "bat",
+    "b": "vcc",
+    "ohms": 0.1
+   },
+   {
+    "type": "resistor",
+    "id": "RMOTOR",
+    "a": "a",
+    "b": "b",
+    "ohms": 4
+   }
+  ],
+  "slots": [
+   {
+    "id": "S1",
+    "a": "vcc",
+    "b": "a",
+    "accepts": [
+     "switch"
+    ],
+    "label": "high side, left"
+   },
+   {
+    "id": "S2",
+    "a": "a",
+    "b": "gnd",
+    "accepts": [
+     "switch"
+    ],
+    "label": "low side, left"
+   },
+   {
+    "id": "S3",
+    "a": "vcc",
+    "b": "b",
+    "accepts": [
+     "switch"
+    ],
+    "label": "high side, right"
+   },
+   {
+    "id": "S4",
+    "a": "b",
+    "b": "gnd",
+    "accepts": [
+     "switch"
+    ],
+    "label": "low side, right"
+   }
+  ]
+ },
+ "parts": [
+  {
+   "type": "switch",
+   "closed": true
+  },
+  {
+   "type": "switch",
+   "closed": false
+  }
+ ],
+ "goals": [
+  {
+   "measure": "current",
+   "of": "RMOTOR",
+   "min": 2.0,
+   "label": "at least 2 A through the motor from A to B"
+  },
+  {
+   "measure": "current",
+   "of": "RWIRE",
+   "max": 5.0,
+   "label": "battery wiring carries at most 5 A (no short circuit)"
+  }
+ ],
+ "solution": {
+  "S1": {
+   "type": "switch",
+   "closed": true
+  },
+  "S2": {
+   "type": "switch",
+   "closed": false
+  },
+  "S3": {
+   "type": "switch",
+   "closed": false
+  },
+  "S4": {
+   "type": "switch",
+   "closed": true
+  }
+ },
+ "hints": [
+  "For current to go from A to B, A must connect to the battery's plus and B to ground.",
+  "Never close both switches on the same side (S1 and S2, or S3 and S4): that shorts the battery.",
+  "Forward current: 12 / (0.1 + 4) = 2.9 A."
+ ]
+}

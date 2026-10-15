@@ -1,0 +1,37 @@
+{
+  "id": "09-07-fix-the-power-factor",
+  "title": "Fix the motor's power factor",
+  "kind": "ac",
+  "sim": {"source": "V1", "f_start": 5, "f_stop": 5000, "points": 201},
+  "story": "A workshop motor behaves like 16 ohm in series with 38.2 mH on 50 Hz mains: power factor 0.8. A 0.1 ohm sense resistor in the return wire turns the line current into a small voltage at node 'ret'. Put a capacitor across the motor so that, at 50 Hz, the line current drops (ret below -47.7 dB of the source) and comes back in step with the voltage (within 10 degrees). The motor itself must keep working exactly as before.",
+  "board": {
+    "nodes": {"in": [1, 1], "m": [6, 1], "ret": [6, 4], "gnd": [1, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "sine_source", "id": "V1", "plus": "in", "minus": "gnd", "amplitude": 1, "freq": 50},
+      {"type": "resistor", "id": "Rmotor", "a": "in", "b": "m", "ohms": 16},
+      {"type": "inductor", "id": "Lmotor", "a": "m", "b": "ret", "henries": 0.0382},
+      {"type": "resistor", "id": "Rsense", "a": "ret", "b": "gnd", "ohms": 0.1}
+    ],
+    "slots": [
+      {"id": "S1", "a": "in", "b": "ret", "accepts": ["capacitor"]}
+    ]
+  },
+  "parts": [
+    {"type": "capacitor", "farads": 2.2e-5},
+    {"type": "capacitor", "farads": 4.7e-5},
+    {"type": "capacitor", "farads": 1e-4},
+    {"type": "capacitor", "farads": 2.2e-4},
+    {"type": "capacitor", "farads": 3.3e-4}
+  ],
+  "goals": [
+    {"measure": "gain_db_at", "at": "ret", "freq": 50, "max": -47.7, "label": "line current reduced (sense voltage below -47.7 dB at 50 Hz)"},
+    {"measure": "phase_deg_at", "at": "ret", "freq": 50, "min": -10, "max": 10, "label": "line current within 10 degrees of the voltage (power factor above 0.98)"}
+  ],
+  "solution": {"S1": {"type": "capacitor", "farads": 1e-4}},
+  "hints": [
+    "On 230 V RMS this motor draws 11.5 A and needs Q = I^2 X = 11.5 x 11.5 x 12 = 1587 var of reactive power.",
+    "A capacitor supplies V^2 omega C of reactive power. C = Q / (omega V^2) = 1587 / (314.16 x 230^2), about 95 uF.",
+    "Without a capacitor the sense voltage is about -46.1 dB and 37 degrees late. Too big a capacitor makes the current lead and grow again."
+  ]
+}

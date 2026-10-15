@@ -1,0 +1,32 @@
+{
+  "id": "05-03-mesh-analysis",
+  "title": "Balance two batteries with the middle resistor",
+  "kind": "dc",
+  "story": "A 9 V battery and a 3 V battery are joined through two 1 kOhm resistors that meet at node b. The resistor from b to ground is missing. Pick it so that 1.6 to 2.0 mA flows from b toward the 3 V battery.",
+  "board": {
+    "nodes": {"a": [1, 1], "b": [5, 1], "c": [9, 1], "gnd": [5, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "V1", "plus": "a", "minus": "gnd", "volts": 9},
+      {"type": "battery", "id": "V2", "plus": "c", "minus": "gnd", "volts": 3},
+      {"type": "resistor", "id": "R1", "a": "a", "b": "b", "ohms": 1000},
+      {"type": "resistor", "id": "R3", "a": "b", "b": "c", "ohms": 1000}
+    ],
+    "slots": [
+      {"id": "R2", "a": "b", "b": "gnd", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 1000},
+    {"type": "resistor", "ohms": 2000},
+    {"type": "resistor", "ohms": 10000}
+  ],
+  "goals": [
+    {"measure": "current", "of": "R3", "min": 0.0016, "max": 0.002, "label": "1.6 to 2.0 mA from b toward the 3 V battery"}
+  ],
+  "solution": {"R2": {"type": "resistor", "ohms": 2000}},
+  "hints": [
+    "Mesh equations with the slot called Rs (in kOhm): (1 + Rs) i1 - Rs i2 = 9 and -Rs i1 + (Rs + 1) i2 = -3.",
+    "The current in R3 is the right mesh current i2. A bigger Rs lifts node b, which pushes more current toward the 3 V battery."
+  ]
+}

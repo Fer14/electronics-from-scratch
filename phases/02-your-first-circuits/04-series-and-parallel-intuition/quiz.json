@@ -1,0 +1,93 @@
+[
+  {
+    "id": "02-04-pre-1",
+    "stage": "pre",
+    "question": "Two identical bulbs are connected one after the other in a single loop with a battery. One filament breaks. What happens?",
+    "options": [
+      "Both bulbs go dark",
+      "The other bulb gets twice as bright",
+      "The other bulb is unaffected",
+      "The battery current doubles"
+    ],
+    "correct": 0,
+    "explanation": "In series there is only one path. A broken filament opens the loop, so the current is zero everywhere and both bulbs go out."
+  },
+  {
+    "id": "02-04-pre-2",
+    "stage": "pre",
+    "question": "Each socket in a house gets the same full mains voltage, and switching one appliance off does not affect the others. How are the sockets connected?",
+    "options": [
+      "In series",
+      "In parallel",
+      "Each socket has its own power station",
+      "Alternately in series and parallel"
+    ],
+    "correct": 1,
+    "explanation": "In parallel every load sits across the same two supply wires, so each gets the full voltage and has its own independent path."
+  },
+  {
+    "id": "02-04-post-1",
+    "stage": "post",
+    "question": "Two 12 Ω bulbs are in series across an ideal 6 V battery. What current flows and what voltage does each bulb get?",
+    "options": [
+      "0.5 A and 6 V",
+      "1.0 A and 6 V",
+      "0.25 A and 3 V",
+      "0.25 A and 6 V"
+    ],
+    "correct": 2,
+    "explanation": "Total resistance = 12 + 12 = 24 Ω, so I = 6 / 24 = 0.25 A. Each bulb gets 0.25 x 12 = 3 V, half the battery voltage."
+  },
+  {
+    "id": "02-04-post-2",
+    "stage": "post",
+    "question": "The same two 12 Ω bulbs are now in parallel across the ideal 6 V battery. What current does the battery supply?",
+    "options": [
+      "0.25 A",
+      "0.5 A",
+      "6 A",
+      "1.0 A"
+    ],
+    "correct": 3,
+    "explanation": "Each bulb has the full 6 V across it and draws 6 / 12 = 0.5 A. The battery supplies the sum, 0.5 + 0.5 = 1.0 A."
+  },
+  {
+    "id": "02-04-post-3",
+    "stage": "post",
+    "question": "Compared with one bulb alone, two identical bulbs in series on the same battery each receive about what fraction of the power?",
+    "options": [
+      "One half",
+      "One quarter",
+      "The same",
+      "Twice as much"
+    ],
+    "correct": 1,
+    "explanation": "Each bulb gets half the voltage and, being resistor-like, about half the current. Half times half is a quarter of the power."
+  },
+  {
+    "id": "02-04-post-4",
+    "stage": "post",
+    "question": "Adding a third bulb in parallel to two bulbs already in parallel does what to the total resistance the battery sees?",
+    "options": [
+      "Makes it smaller, so the battery supplies more current",
+      "Makes it larger, so the battery supplies less current",
+      "Leaves it unchanged",
+      "Makes it zero"
+    ],
+    "correct": 0,
+    "explanation": "Another branch is another path for current, so the combination is easier to drive: three 12 Ω bulbs in parallel act like 4 Ω, compared with 6 Ω for two."
+  },
+  {
+    "id": "02-04-post-5",
+    "stage": "post",
+    "question": "In a string of mini lights in series, a bulb's filament breaks and its shunt closes. What happens to the other bulbs?",
+    "options": [
+      "They all go dark permanently",
+      "They get slightly dimmer",
+      "They light again, each with slightly more voltage than before",
+      "Nothing changes at all"
+    ],
+    "correct": 2,
+    "explanation": "The closed shunt turns the dead bulb into a wire, closing the loop again. Now fewer bulbs share the same supply voltage, so each gets a little more and runs a bit harder."
+  }
+]

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "21-07-pre-1",
+    "stage": "pre",
+    "question": "Why power a new board through a current-limited supply the first time?",
+    "options": [
+      "It makes the board run faster",
+      "If there is a short, the supply caps the current instead of letting something burn",
+      "It is required to program the microcontroller",
+      "It measures the resistance of every part"
+    ],
+    "correct": 1,
+    "explanation": "In current limit a short just makes the supply voltage collapse, which is harmless and easy to notice."
+  },
+  {
+    "id": "21-07-pre-2",
+    "stage": "pre",
+    "question": "A node should read 2.5 V but reads exactly 0 V, while its supply is fine. What is the most likely kind of fault?",
+    "options": [
+      "A short from that node to ground",
+      "The supply voltage is too high",
+      "The multimeter is in the wrong range",
+      "A resistor is slightly out of tolerance"
+    ],
+    "correct": 0,
+    "explanation": "A node pulled all the way to 0 V while its source is fine is usually shorted to ground (for example by a solder bridge)."
+  },
+  {
+    "id": "21-07-post-1",
+    "stage": "post",
+    "question": "A 10 k / R3 divider from a 5.1 V rail reads 0.46 V. What is R3 approximately?",
+    "options": [
+      "10 kohm",
+      "100 kohm",
+      "0 ohm",
+      "1 kohm"
+    ],
+    "correct": 3,
+    "explanation": "0.46 = 5.1 R3 / (10k + R3) gives R3 = 4600 / 4.64, about 990 ohm: a 1 k part from the wrong reel."
+  },
+  {
+    "id": "21-07-post-2",
+    "stage": "post",
+    "question": "An ohmmeter injects 0.1 mA and sees 0.5 V. What resistance does it display?",
+    "options": [
+      "50 ohm",
+      "500 ohm",
+      "5 kohm",
+      "50 kohm"
+    ],
+    "correct": 2,
+    "explanation": "R = V / I = 0.5 / 0.0001 = 5000 ohm."
+  },
+  {
+    "id": "21-07-post-3",
+    "stage": "post",
+    "question": "On the example board, the LED anode reads the full rail voltage and the LED is dark. What does that tell you?",
+    "options": [
+      "No current flows through R4, so the LED is open or reversed",
+      "R4 is shorted",
+      "The rail is missing",
+      "The LED current is too high"
+    ],
+    "correct": 0,
+    "explanation": "If R4 had current through it, it would drop voltage. Zero drop means zero current: the LED is not conducting."
+  },
+  {
+    "id": "21-07-post-4",
+    "stage": "post",
+    "question": "The rail of the zener regulator reads 6.1 V instead of 5.1 V, and the divider reads half of 6.1 V. Most likely fault?",
+    "options": [
+      "R2 is open",
+      "The zener is missing or open, so nothing clamps the rail",
+      "The battery is flat",
+      "The LED is shorted"
+    ],
+    "correct": 1,
+    "explanation": "Without the zener, the rail is set only by R1 and the loads, and rises above 5.1 V. The rest of the circuit follows it."
+  },
+  {
+    "id": "21-07-post-5",
+    "stage": "post",
+    "question": "What is a fault dictionary?",
+    "options": [
+      "A list of part numbers",
+      "A glossary of electronics words",
+      "A table of the node readings that each candidate fault would produce, used to match a broken board's measurements",
+      "A log of past repairs"
+    ],
+    "correct": 2,
+    "explanation": "Simulate each possible fault, record the readings, and pick the row closest to what you measure."
+  }
+]
