@@ -1,0 +1,33 @@
+{
+  "id": "00-02-close-the-loop",
+  "title": "Close the loop",
+  "kind": "dc",
+  "story": "A battery and a lamp are wired up, but there is a gap in the top wire and the lamp is dark. Fill the gap so the lamp lights. In the lab the lamp is drawn as a resistor box, because a glowing lamp behaves like one (Phase 03 explains why). One of the pieces is a strip of plastic, drawn as a resistor so huge that almost nothing gets through it.",
+  "board": {
+    "nodes": {"vcc": [1, 1], "top": [7, 1], "gnd": [1, 5], "bottom": [7, 5]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "B1", "plus": "vcc", "minus": "gnd", "volts": 3},
+      {"type": "resistor", "id": "L1", "a": "top", "b": "bottom", "ohms": 10},
+      {"type": "wire", "id": "W1", "a": "bottom", "b": "gnd"}
+    ],
+    "slots": [
+      {"id": "S1", "a": "vcc", "b": "top", "accepts": ["wire", "open", "resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "open"},
+    {"type": "resistor", "ohms": 1000000000},
+    {"type": "wire"}
+  ],
+  "goals": [
+    {"measure": "current", "of": "L1", "min": 0.1, "label": "current flows through the lamp, so it lights"},
+    {"measure": "voltage", "between": ["top", "bottom"], "min": 2.5, "label": "the lamp gets the battery's whole push"}
+  ],
+  "solution": {"S1": {"type": "wire"}},
+  "hints": [
+    "Follow the path with your finger: out of the battery's plus, through the gap, through the lamp, and back to the minus.",
+    "A gap stays a gap whether it is empty or filled with plastic: plastic is an insulator.",
+    "Only a conductor, like a piece of metal wire, closes the loop."
+  ]
+}

@@ -4,7 +4,7 @@
 
 **Type:** Learn
 **Languages:** Python
-**Prerequisites:** Phase 19 (Sensors and Signals), Lessons 01-05; Phase 01 (The Physics Underneath), Lesson 06 (Current as Moving Charge); Phase 09 (Alternating Current), Lesson 03 (RMS Values); Phase 10 (Filters and Resonance), Lesson 03 (Decibels and Bode Plots)
+**Prerequisites:** Phase 19 (Sensors and Signals), Lessons 01-05; Phase 01 (The Physics Underneath), Lesson 08 (Current as Moving Charge); Phase 09 (Alternating Current), Lesson 03 (RMS Values); Phase 10 (Filters and Resonance), Lesson 03 (Decibels and Bode Plots)
 **Time:** ~80 minutes
 
 ## Words You'll Meet

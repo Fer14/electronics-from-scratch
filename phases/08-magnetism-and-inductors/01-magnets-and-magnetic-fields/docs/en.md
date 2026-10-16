@@ -3,7 +3,7 @@
 > A magnetic field is the invisible pattern around a magnet or a moving charge. It pushes only on charges that move, and it pushes them sideways.
 
 **Type:** Learn
-**Prerequisites:** Phase 01 (The Physics Underneath), Lesson 03 (The Electric Field) and Lesson 06 (Current as Moving Charge); Phase 07 (Capacitors), Lesson 06 (Energy in the Electric Field)
+**Prerequisites:** Phase 01 (The Physics Underneath), Lesson 05 (The Electric Field) and Lesson 08 (Current as Moving Charge); Phase 07 (Capacitors), Lesson 06 (Energy in the Electric Field)
 **Time:** ~60 minutes
 
 ## Words You'll Meet
@@ -80,7 +80,7 @@ Aluminium, copper and plastic are not ferromagnetic. A magnet does not stick to 
 
 ### What a field is
 
-In Phase 01, Lesson 03 you met the **electric field**: a way of saying "at every point in space, there is an arrow telling you which way and how hard a test charge would be pushed". The **magnetic field** is the same kind of idea: at every point there is an arrow, a strength and a direction. We write it **B**.
+In Phase 01, Lesson 05 you met the **electric field**: a way of saying "at every point in space, there is an arrow telling you which way and how hard a test charge would be pushed". The **magnetic field** is the same kind of idea: at every point there is an arrow, a strength and a direction. We write it **B**.
 
 How do you see it? Two ways:
 

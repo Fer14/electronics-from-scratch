@@ -46,7 +46,7 @@ The circuit also changes its own demands: an LED turns on, a radio transmits, a 
 
 ### Where the extra voltage goes
 
-Energy conservation (Phase 01, Lesson 07) is the whole story of linear regulators. The same current that flows into the load flows through the regulator (plus a little for the regulator itself). If the input is 12 V and the output is 5 V, the regulator has 7 V across it while carrying the load current. Power is voltage times current (Phase 03, Lesson 05), so:
+Energy conservation (Phase 01, Lesson 09) is the whole story of linear regulators. The same current that flows into the load flows through the regulator (plus a little for the regulator itself). If the input is 12 V and the output is 5 V, the regulator has 7 V across it while carrying the load current. Power is voltage times current (Phase 03, Lesson 05), so:
 
 ```
 heat in the regulator = (Vin - Vout) x I_load

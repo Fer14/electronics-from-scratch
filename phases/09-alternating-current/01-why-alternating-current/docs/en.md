@@ -60,7 +60,7 @@ At a wall socket, the two holes swap roles all the time. For a hundredth of a se
                                    |        V       V
 ```
 
-Does the shuffling deliver energy if the charges never get anywhere? Yes. Think of a saw: the blade goes back and forth and ends up where it started, but the wood still gets cut. The energy is handed from charge to charge through the electric field (Phase 01, Lesson 03), and the lamp filament gets hot whether the charges move left or right: what heats it is the current, and the heat does not care about the direction. (In Lesson 03 you will see exactly how to compare "how much heating" an AC current gives with a DC one.)
+Does the shuffling deliver energy if the charges never get anywhere? Yes. Think of a saw: the blade goes back and forth and ends up where it started, but the wood still gets cut. The energy is handed from charge to charge through the electric field (Phase 01, Lesson 05), and the lamp filament gets hot whether the charges move left or right: what heats it is the current, and the heat does not care about the direction. (In Lesson 03 you will see exactly how to compare "how much heating" an AC current gives with a DC one.)
 
 ### Where AC comes from
 
@@ -76,7 +76,7 @@ P = I x I x R      (read: "power equals current times current times resistance")
 
 with P in watts (W), I in amperes (A) and R in ohms. The current appears **twice**. Double the current and the wires get four times hotter. That square is the hero of this story.
 
-And from Phase 01, Lesson 07, the power delivered to a load is
+And from Phase 01, Lesson 09, the power delivered to a load is
 
 ```
 P = V x I          (read: "power equals voltage times current")
@@ -277,7 +277,7 @@ uv run python phases/09-alternating-current/01-why-alternating-current/code/main
 - **Using the wrong voltage in P = V^2 / R.** The formula `loss = V^2 / R_line` uses the voltage **across the wire**, not the transmission voltage. Using the line voltage here gives absurd answers (24,000^2 / 0.8 = 720 MW!). Compute the current first, then I x I x R.
 - **Thinking a transformer works on DC.** It needs a changing magnetic field. On DC it is just a coil of wire with low resistance, and it will draw a huge current.
 - **Mixing up frequency and period.** 50 Hz is "50 cycles per second"; the period is 1/50 of a second, 20 ms, not 50 ms.
-- **Thinking AC is less dangerous because it "keeps changing direction".** Mains AC at 50-60 Hz is particularly good at disturbing the heart rhythm. Revisit Phase 00, Lesson 06. In this course we stay at low voltage.
+- **Thinking AC is less dangerous because it "keeps changing direction".** Mains AC at 50-60 Hz is particularly good at disturbing the heart rhythm. Revisit Phase 00, Lesson 08. In this course we stay at low voltage.
 
 ## Exercises
 

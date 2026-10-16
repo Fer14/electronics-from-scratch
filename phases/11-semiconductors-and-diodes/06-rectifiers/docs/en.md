@@ -252,7 +252,7 @@ Things to think about: what current does the load draw? How long must the capaci
 - **Underrating the capacitor's voltage.** It charges to the peak. A 16 V capacitor on a "12 V" transformer is at risk; a 25 V one is the safe choice. Electrolytic capacitors installed backwards can burst.
 - **Ignoring PIV in half-wave circuits with a capacitor.** The diode sees about twice the peak voltage in reverse.
 - **Measuring ripple with the meter on DC.** A DC voltmeter shows the average; ripple needs the AC range or, better, an oscilloscope (Phase 06).
-- **Working on mains-powered circuits.** Do not. Everything in this lesson can be learned at 12 V. The mains can kill (Phase 00 lesson 06).
+- **Working on mains-powered circuits.** Do not. Everything in this lesson can be learned at 12 V. The mains can kill (Phase 00, Lesson 08).
 
 ## Exercises
 

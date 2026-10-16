@@ -4,7 +4,7 @@
 
 **Type:** Learn
 **Languages:** Python
-**Prerequisites:** Phase 01 (The Physics Underneath), Lesson 07 (Energy and Power); Phase 03 (Resistance and Ohm's Law), Lesson 03 (Ohm's Law)
+**Prerequisites:** Phase 01 (The Physics Underneath), Lesson 09 (Energy and Power); Phase 03 (Resistance and Ohm's Law), Lesson 03 (Ohm's Law)
 **Time:** ~60 minutes
 
 ## Words You'll Meet
@@ -40,7 +40,7 @@ Every circuit you will ever build has this second question hiding behind the fir
 
 ### Voltage is energy per charge
 
-In Phase 01, Lesson 04 (Energy, Potential and Voltage) you met voltage as **energy per unit of charge**. A 12 volt battery gives every coulomb of charge that passes through it 12 joules of energy:
+In Phase 01, Lesson 06 (Energy, Potential and Voltage) you met voltage as **energy per unit of charge**. A 12 volt battery gives every coulomb of charge that passes through it 12 joules of energy:
 
 ```
 1 volt = 1 joule per coulomb        (1 V = 1 J/C)
@@ -50,7 +50,7 @@ Read it as: "one volt means each coulomb gains (or loses) one joule".
 
 ### Current is charge per second
 
-In Phase 01, Lesson 06 (Current as Moving Charge) you met current as **charge per unit of time**:
+In Phase 01, Lesson 08 (Current as Moving Charge) you met current as **charge per unit of time**:
 
 ```
 1 ampere = 1 coulomb per second     (1 A = 1 C/s)
@@ -90,7 +90,7 @@ Inside a resistor the electrons are pushed along by the electric field, gain spe
 
 The everyday picture: pushing a heavy box across a carpet. You keep pushing (the battery keeps supplying energy), the box moves at a steady speed (steady current), and the carpet and box get slightly warm (heat). None of your effort is stored; all of it turns into warmth.
 
-What the picture gets wrong: the box is one object. In a wire there are about 10^23 electrons, each colliding trillions of times per second, and the "steady speed" is a very slow average drift (Phase 01, Lesson 06). The picture is right about the most important point: a steady current through a resistance means a steady flow of energy into heat.
+What the picture gets wrong: the box is one object. In a wire there are about 10^23 electrons, each colliding trillions of times per second, and the "steady speed" is a very slow average drift (Phase 01, Lesson 08). The picture is right about the most important point: a steady current through a resistance means a steady flow of energy into heat.
 
 ### Heat must leave
 
@@ -361,7 +361,7 @@ Things to think about before you drag a part in:
 - **Thinking "bigger resistor, more heat" always.** It depends on what is held fixed. Across a fixed voltage the smaller resistor gets hotter.
 - **Mixing numbers from different parts.** `P = V * I` needs the voltage *across* a part and the current *through* the same part. Using the battery voltage with the current of a different branch gives nonsense.
 - **Forgetting the square.** Doubling the current quadruples the heat. A circuit that is "only a bit over" in current can be far over in power.
-- **Forgetting the unit prefixes.** 20 mA is 0.02 A, not 20 A. `0.02^2 * 100 = 0.04 W`, but `20^2 * 100 = 40 000 W`. Always convert to base units first (Phase 00, Lesson 03).
+- **Forgetting the unit prefixes.** 20 mA is 0.02 A, not 20 A. `0.02^2 * 100 = 0.04 W`, but `20^2 * 100 = 40 000 W`. Always convert to base units first (Phase 01, Lesson 01).
 - **Running parts at their full rating.** A 1/4 W resistor dissipating 0.25 W in a closed box is running hot and will age fast. Aim for half the rating.
 - **Confusing power and energy.** A 2000 W kettle and a 2000 W heater use the same power. The heater uses far more *energy* because it runs for hours.
 

@@ -4,7 +4,7 @@
 
 **Type:** Build
 **Languages:** Python
-**Prerequisites:** Phase 01 (The Physics Underneath), especially Lesson 04 (Energy, Potential and Voltage); Phase 03 (Resistance and Ohm's Law), especially Lesson 03 (Ohm's Law); Phase 04 Lessons 01 (Nodes, Branches and Loops) and 02 (Kirchhoff's Current Law)
+**Prerequisites:** Phase 01 (The Physics Underneath), especially Lesson 06 (Energy, Potential and Voltage); Phase 03 (Resistance and Ohm's Law), especially Lesson 03 (Ohm's Law); Phase 04 Lessons 01 (Nodes, Branches and Loops) and 02 (Kirchhoff's Current Law)
 **Time:** ~60 minutes
 
 ## Words You'll Meet
@@ -36,7 +36,7 @@ Kirchhoff's voltage law answers this. It says the voltages around any closed loo
 
 ## The Physics
 
-Go back to Phase 01, Lesson 04. **Voltage** between two points is the energy that one coulomb of charge gains or loses when it moves from one to the other. One volt (V) means one joule (J) of energy per coulomb (C). As a sentence: energy equals charge times voltage.
+Go back to Phase 01, Lesson 06. **Voltage** between two points is the energy that one coulomb of charge gains or loses when it moves from one to the other. One volt (V) means one joule (J) of energy per coulomb (C). As a sentence: energy equals charge times voltage.
 
 ```
 E = Q × V        E in joules, Q in coulombs, V in volts

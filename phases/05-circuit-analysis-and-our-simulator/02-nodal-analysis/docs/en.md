@@ -54,7 +54,7 @@ Why does choosing node voltages make KVL disappear? Think of node voltages as he
 (v1 - v2) + (v2 - v3) + (v3 - v1) = 0
 ```
 
-Every height appears once with a plus and once with a minus, so the sum is always zero. KVL is not an extra law we must enforce; it is built into the very idea of "each node has one voltage". Physically, that is energy conservation: a charge that returns to its starting node has the same energy per charge it started with (Phase 01, Lesson 04).
+Every height appears once with a plus and once with a minus, so the sum is always zero. KVL is not an extra law we must enforce; it is built into the very idea of "each node has one voltage". Physically, that is energy conservation: a charge that returns to its starting node has the same energy per charge it started with (Phase 01, Lesson 06).
 
 KCL, on the other hand, is a real constraint: it says charge does not pile up. That is what we must write. At each node, the currents leaving through the resistors must equal the currents pushed in by sources.
 

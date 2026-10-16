@@ -1,0 +1,93 @@
+[
+  {
+    "id": "01-03-pre-1",
+    "stage": "pre",
+    "question": "Which particle in an atom carries negative charge?",
+    "options": [
+      "The proton",
+      "The neutron",
+      "The electron",
+      "The nucleus as a whole"
+    ],
+    "correct": 2,
+    "explanation": "Electrons carry charge -e. Protons carry +e, neutrons carry no charge, and the nucleus (protons plus neutrons) is positive."
+  },
+  {
+    "id": "01-03-pre-2",
+    "stage": "pre",
+    "question": "When a lamp is switched on, what happens to the copper wire that feeds it?",
+    "options": [
+      "Charge that was already in the wire is set moving; the wire neither gains nor loses net charge",
+      "The wire slowly fills up with electrons coming from the power station",
+      "The wire gets lighter as electrons leave it",
+      "Protons flow from the lamp back to the switch"
+    ],
+    "correct": 0,
+    "explanation": "A wire is already full of free electrons (about 1.3 x 10^23 in a metre of lamp cord). The source pushes this existing sea along; as many electrons enter one end as leave the other."
+  },
+  {
+    "id": "01-03-post-1",
+    "stage": "post",
+    "question": "About how many times heavier is a proton than an electron?",
+    "options": [
+      "About 2 times",
+      "About 1836 times",
+      "About 29 times",
+      "They have the same mass"
+    ],
+    "correct": 1,
+    "explanation": "1.6726e-27 kg / 9.109e-31 kg = 1836. That is why the same force accelerates an electron 1836 times more."
+  },
+  {
+    "id": "01-03-post-2",
+    "stage": "post",
+    "question": "Copper's shells hold 2, 8, 18 and 1 electrons. Why does that make copper a good conductor?",
+    "options": [
+      "Because 29 is a large number of electrons",
+      "Because the inner 28 electrons are free to move",
+      "Because copper has no neutrons",
+      "Because the single outermost electron is weakly held and becomes a free electron in the metal"
+    ],
+    "correct": 3,
+    "explanation": "The lone valence electron is far from the nucleus and shielded by 28 inner electrons, so in solid copper it leaves its atom and wanders through the whole crystal."
+  },
+  {
+    "id": "01-03-post-3",
+    "stage": "post",
+    "question": "A 1 m piece of copper wire contains about 590,000 C of electron charge. What is its net charge?",
+    "options": [
+      "-590,000 C",
+      "-20,400 C, the charge of the free electrons",
+      "Zero, because the protons carry exactly as much positive charge",
+      "+590,000 C"
+    ],
+    "correct": 2,
+    "explanation": "Each copper atom has 29 protons and 29 electrons. The positive and negative charges cancel exactly, so a normal wire is neutral."
+  },
+  {
+    "id": "01-03-post-4",
+    "stage": "post",
+    "question": "Copper has 8.49 x 10^28 atoms per cubic metre. How many free electrons are in 2 x 10^-6 m^3 of copper (one free electron per atom)?",
+    "options": [
+      "1.7 x 10^23",
+      "4.2 x 10^34",
+      "1.7 x 10^22",
+      "8.5 x 10^28"
+    ],
+    "correct": 0,
+    "explanation": "Multiply density of atoms by volume: 8.49e28 x 2e-6 = 1.7e23. Each atom gives one free electron, so that is also the number of free electrons."
+  },
+  {
+    "id": "01-03-post-5",
+    "stage": "post",
+    "question": "What did J.J. Thomson's 1897 cathode-ray experiment show?",
+    "options": [
+      "That atoms have a tiny heavy nucleus",
+      "That rays in the tube were negatively charged particles with a charge-to-mass ratio far larger than any atom's",
+      "The exact charge of a single electron",
+      "That current flows from + to -"
+    ],
+    "correct": 1,
+    "explanation": "Bending the beam with charged plates and magnets gave its charge sign and its e/m ratio, about 1800 times that of a hydrogen ion. The nucleus was Rutherford (1911) and the exact charge was Millikan (1909)."
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "01-07-pre-1",
+    "stage": "pre",
+    "question": "A piece of glass and a piece of copper of the same size both contain huge numbers of electrons. Why does only the copper conduct well?",
+    "options": [
+      "Glass electrons are heavier than copper electrons",
+      "Glass has no electrons at all, only protons",
+      "In copper about one electron per atom is free to roam; in glass every outer electron is held in a chemical bond",
+      "Copper is a metal, and metals create new electrons when a voltage is applied"
+    ],
+    "correct": 2,
+    "explanation": "All electrons are identical. What differs is whether some of them are free. Copper's outer electrons form a 'sea' shared by the whole crystal (about 8.5e28 per m^3); glass's are locked in bonds behind a large band gap."
+  },
+  {
+    "id": "01-07-pre-2",
+    "stage": "pre",
+    "question": "Roughly how many orders of magnitude separate the resistivity of copper (1.7e-8 ohm m) from that of glass (about 1e12 ohm m)?",
+    "options": [
+      "About 20",
+      "About 2",
+      "About 8",
+      "About 100"
+    ],
+    "correct": 0,
+    "explanation": "1e12 / 1.7e-8 is about 6e19, so the exponents differ by about 20. Same size, same shape, twenty powers of ten apart."
+  },
+  {
+    "id": "01-07-pre-3",
+    "stage": "pre",
+    "question": "What happens to the resistance of a copper wire when it gets hotter?",
+    "options": [
+      "It drops sharply, because more electrons are freed",
+      "It rises a little, because the vibrating ions get in the electrons' way more often",
+      "It stays exactly the same; temperature only matters for semiconductors",
+      "It becomes zero above 100 degrees Celsius"
+    ],
+    "correct": 1,
+    "explanation": "A metal's number of free electrons is fixed, but hotter ions vibrate more and scatter electrons more often. Copper's resistivity rises about 0.39 percent per degree."
+  },
+  {
+    "id": "01-07-post-1",
+    "stage": "post",
+    "question": "Using R = rho x L / A, what is the resistance of a copper rod 2 m long with a cross-section of 1 mm^2 (rho = 1.68e-8 ohm m)?",
+    "options": [
+      "0.0168 ohm",
+      "3.36e-8 ohm",
+      "33.6 ohm",
+      "0.0336 ohm"
+    ],
+    "correct": 3,
+    "explanation": "1 mm^2 = 1e-6 m^2. R = 1.68e-8 x 2 / 1e-6 = 3.36e-2 ohm = 0.0336 ohm. Forgetting to convert mm^2 to m^2 is the classic slip."
+  },
+  {
+    "id": "01-07-post-2",
+    "stage": "post",
+    "question": "Why does a semiconductor's resistance fall when it warms up?",
+    "options": [
+      "Its atoms vibrate less, so electrons move more freely",
+      "Stronger thermal kicks break more bonds, so the number of free carriers grows very quickly",
+      "Heat adds extra protons to the crystal",
+      "The band gap disappears completely above room temperature"
+    ],
+    "correct": 1,
+    "explanation": "The carrier count goes like exp(-E_gap / 2kT). For silicon near room temperature, 10 degrees warmer roughly doubles the carriers, which easily beats the extra scattering."
+  },
+  {
+    "id": "01-07-post-3",
+    "stage": "post",
+    "question": "Silicon has about 5e28 atoms per m^3 and pure silicon has about 1e16 free electrons per m^3. If one atom in a million is replaced by phosphorus (5 valence electrons), about how many free electrons per m^3 are there now?",
+    "options": [
+      "About 1e16, doping changes nothing",
+      "About 2e16, it only doubles",
+      "About 5e22, millions of times more",
+      "About 5e28, as many as there are atoms"
+    ],
+    "correct": 2,
+    "explanation": "5e28 x 1e-6 = 5e22 donor atoms, each giving one free electron. That swamps the 1e16 thermal carriers by a factor of about five million."
+  },
+  {
+    "id": "01-07-post-4",
+    "stage": "post",
+    "question": "What is a 'hole' in a semiconductor?",
+    "options": [
+      "A missing electron in a bond; neighbours hop into it, so the vacancy moves through the crystal like a positive charge",
+      "A tiny physical crack in the silicon crystal",
+      "A positron that appears when the semiconductor is heated",
+      "A proton that has escaped from its nucleus"
+    ],
+    "correct": 0,
+    "explanation": "When an electron leaves a bond it leaves a vacancy. Bound neighbours shuffle into it one by one, so the vacancy travels in the opposite direction and acts as a positive carrier."
+  },
+  {
+    "id": "01-07-post-5",
+    "stage": "post",
+    "question": "Electrons in pure silicon are about 30 times more mobile than electrons in copper. Why is copper still a vastly better conductor?",
+    "options": [
+      "Copper electrons carry a larger charge",
+      "Silicon electrons move backwards",
+      "Conductivity depends only on mobility, so copper must have a hidden extra effect",
+      "Copper has about 1e13 times more free carriers, and conductivity is carriers x charge x mobility"
+    ],
+    "correct": 3,
+    "explanation": "sigma = n x e x mu. A 30x advantage in mu cannot compete with a 1e13x advantage in n."
+  }
+]

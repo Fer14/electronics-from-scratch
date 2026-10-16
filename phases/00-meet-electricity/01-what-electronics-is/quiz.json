@@ -1,0 +1,93 @@
+[
+  {
+    "id": "00-01-pre-1",
+    "stage": "pre",
+    "question": "Which sentence best describes the difference between electricity and electronics?",
+    "options": [
+      "Electricity is found in homes and electronics is found in factories",
+      "Electronics is just electricity in smaller devices",
+      "Electricity moves energy; electronics uses one electrical signal to control another, usually to handle information",
+      "There is no difference; the two words mean the same thing"
+    ],
+    "correct": 2,
+    "explanation": "The defining trick of electronics is control: a small signal steering a bigger flow, first with vacuum tubes and since 1947 with transistors. Size has nothing to do with it."
+  },
+  {
+    "id": "00-01-pre-2",
+    "stage": "pre",
+    "question": "When a flashlight battery goes flat, what has run out?",
+    "options": [
+      "The chemical energy the battery uses to push the electrons around",
+      "The electrons, which have all flowed into the bulb",
+      "The wire, which has worn out",
+      "The circuit, which has disappeared"
+    ],
+    "correct": 0,
+    "explanation": "The electrons go round the loop and come back to the battery. What gets used up is the energy stored in the battery's chemicals."
+  },
+  {
+    "id": "00-01-post-1",
+    "stage": "post",
+    "question": "A torch is used to flash a message across a field. What carries the meaning?",
+    "options": [
+      "How bright the torch is",
+      "How hot the bulb gets",
+      "How big the battery is",
+      "The pattern of on and off"
+    ],
+    "correct": 3,
+    "explanation": "Sending information uses very little energy. The meaning lives in the pattern, which is exactly the job electronics does."
+  },
+  {
+    "id": "00-01-post-2",
+    "stage": "post",
+    "question": "In a copper wire connected to a battery and a lamp, what travels quickly from the battery to the lamp?",
+    "options": [
+      "Individual electrons racing at the speed of light",
+      "The push, and with it the energy, while the electrons themselves only shuffle along slowly",
+      "Copper atoms leaving the battery",
+      "Nothing travels; the lamp makes its own energy"
+    ],
+    "correct": 1,
+    "explanation": "The wire is already full of loose electrons. The battery pushes the whole crowd at once, so the push arrives almost instantly even though each electron moves very slowly."
+  },
+  {
+    "id": "00-01-post-3",
+    "stage": "post",
+    "question": "Why did discoveries about electricity speed up so much after 1800?",
+    "options": [
+      "Amber became cheaper",
+      "Volta's battery gave the first steady, repeatable flow of electricity to experiment with",
+      "Computers were invented",
+      "People stopped being afraid of lightning"
+    ],
+    "correct": 1,
+    "explanation": "Before Volta there were only brief sparks. A steady flow turned electricity from a curiosity into something people could study carefully, and discoveries followed every few years."
+  },
+  {
+    "id": "00-01-post-4",
+    "stage": "post",
+    "question": "Which component is the central trick of electronics, letting a small signal control a bigger flow?",
+    "options": [
+      "The transistor",
+      "The battery",
+      "The copper wire",
+      "The light bulb"
+    ],
+    "correct": 0,
+    "explanation": "The transistor (and the vacuum tube before it) lets one flow control another. From that single idea come amplifiers, memories and computers."
+  },
+  {
+    "id": "00-01-post-5",
+    "stage": "post",
+    "question": "In a phone charger, what does the small feedback chip do?",
+    "options": [
+      "It stores the energy for the phone",
+      "It makes the charger lighter",
+      "It watches the output and tells the switching transistor to adjust, so the output stays right",
+      "It turns the charger into a radio"
+    ],
+    "correct": 2,
+    "explanation": "The chip measures the output all the time and corrects it. That is electronics controlling electricity."
+  }
+]

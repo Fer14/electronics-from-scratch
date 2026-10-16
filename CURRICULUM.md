@@ -11,8 +11,8 @@ Principles:
 
 | # | Phase (slug) | Lessons (MM-slug: title) |
 |---|---|---|
-| 00 | `00-words-and-units` | 01-what-electronics-is · 02-the-vocabulary · 03-units-and-si-prefixes · 04-scientific-notation-and-orders-of-magnitude · 05-reading-a-schematic · 06-safety-first |
-| 01 | `01-the-physics-underneath` | 01-atoms-and-electrons · 02-electric-charge-and-coulombs-law · 03-the-electric-field · 04-energy-potential-and-voltage · 05-conductors-insulators-and-semiconductors · 06-current-as-moving-charge · 07-energy-and-power |
+| 00 | `00-meet-electricity` | 01-what-electronics-is · 02-what-a-circuit-is · 03-charge-and-electrons · 04-current-and-amperes · 05-voltage-and-volts · 06-power-and-watts · 07-your-first-schematic · 08-safety-first |
+| 01 | `01-the-physics-underneath` | 01-units-and-prefixes · 02-scientific-notation-and-orders-of-magnitude · 03-atoms-and-electrons · 04-electric-charge-and-coulombs-law · 05-the-electric-field · 06-energy-potential-and-voltage · 07-conductors-insulators-and-semiconductors · 08-current-as-moving-charge · 09-energy-and-power |
 | 02 | `02-your-first-circuits` | 01-the-closed-loop · 02-batteries-and-loads · 03-switches-open-and-short-circuits · 04-series-and-parallel-intuition · 05-the-water-analogy-and-its-limits · 06-the-breadboard · 07-measuring-with-a-multimeter |
 | 03 | `03-resistance-and-ohms-law` | 01-what-resistance-is · 02-resistivity-and-wires · 03-ohms-law · 04-resistors-and-color-codes · 05-power-and-heat · 06-tolerances-and-ratings · 07-when-ohms-law-fails |
 | 04 | `04-kirchhoffs-laws` | 01-nodes-branches-and-loops · 02-kirchhoffs-current-law · 03-kirchhoffs-voltage-law · 04-series-and-parallel-resistors · 05-the-voltage-divider · 06-the-current-divider · 07-the-wheatstone-bridge |

@@ -7,21 +7,21 @@
 
 Learn electronics from absolute zero. Start with what a volt and an ampere really are, work up through resistors, capacitors, diodes, transistors and op-amps, build a computer out of logic gates, design the arithmetic inside an AI chip, and finish by designing a real printed circuit board. Every idea is simulated with a circuit simulator you build yourself, and almost every phase has hands-on tasks in the interactive lab.
 
-> 170 lessons. 23 phases. 110 lab tasks. Python and NumPy, no prior knowledge.
+> 174 lessons. 23 phases. 111 lab tasks. Python and NumPy, no prior knowledge.
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-793e4d?style=flat-square&labelColor=fafaf5" alt="MIT License"></a>
-  <a href="#contents"><img src="https://img.shields.io/badge/lessons-170-793e4d?style=flat-square&labelColor=fafaf5" alt="170 lessons"></a>
+  <a href="#contents"><img src="https://img.shields.io/badge/lessons-174-793e4d?style=flat-square&labelColor=fafaf5" alt="174 lessons"></a>
   <a href="#contents"><img src="https://img.shields.io/badge/phases-23-793e4d?style=flat-square&labelColor=fafaf5" alt="23 phases"></a>
-  <a href="#the-lab"><img src="https://img.shields.io/badge/labs-110-793e4d?style=flat-square&labelColor=fafaf5" alt="110 labs"></a>
+  <a href="#the-lab"><img src="https://img.shields.io/badge/labs-111-793e4d?style=flat-square&labelColor=fafaf5" alt="111 labs"></a>
 </p>
 
 ## Phases
 
 | # | Phase | Lessons | What it is about |
 |---|---|---|---|
-| 00 | [Words and Units](phases/00-words-and-units/) | 6 | Before you can understand a circuit, you have to be able to read the sentence that describes it. |
-| 01 | [The Physics Underneath](phases/01-the-physics-underneath/) | 7 | Every rule in electronics is a shortcut for something electrons are physically doing. |
+| 00 | [Meet Electricity](phases/00-meet-electricity/) | 8 | Before any formula, get to know the thing itself: a loop, a push, a flow, and the energy it carries. |
+| 01 | [The Physics Underneath](phases/01-the-physics-underneath/) | 9 | Every rule in electronics is a shortcut for something electrons are physically doing. |
 | 02 | [Your First Circuits](phases/02-your-first-circuits/) | 7 | Electricity only does work when it has a complete path to travel and a way back home. |
 | 03 | [Resistance and Ohm's Law](phases/03-resistance-and-ohms-law/) | 7 | Resistance is how hard a material makes charge work to get through. Once you can put a number on it, you can predict the current, the heat and the failure of every simple circuit. |
 | 04 | [Kirchhoff's Laws](phases/04-kirchhoffs-laws/) | 7 | Charge is never lost at a junction and energy is never lost around a loop. Two bookkeeping rules, and every resistor circuit gives up its secrets. |
@@ -87,7 +87,7 @@ Then open http://localhost:8000. `uv run python -m sim.lab phases/03-resistance-
 git clone https://github.com/Fer14/electronics-from-scratch.git
 cd electronics-from-scratch
 uv sync
-uv run python phases/00-words-and-units/01-what-electronics-is/code/main.py
+uv run python phases/00-meet-electricity/01-what-electronics-is/code/main.py
 ```
 
 No uv? `python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt` works too.
@@ -100,36 +100,40 @@ Check that every lesson runs: `uv run python scripts/check.py`
 
 <a id="phase-00"></a>
 <details>
-<summary><strong>Phase 00 · Words and Units</strong> · 6 lessons</summary>
+<summary><strong>Phase 00 · Meet Electricity</strong> · 8 lessons</summary>
 
-> Before you can understand a circuit, you have to be able to read the sentence that describes it.
+> Before any formula, get to know the thing itself: a loop, a push, a flow, and the energy it carries.
 
 | # | Lesson |
 |---|---|
-| 01 | [What Electronics Is](phases/00-words-and-units/01-what-electronics-is/) |
-| 02 | [The Vocabulary](phases/00-words-and-units/02-the-vocabulary/) |
-| 03 | [Units and SI Prefixes](phases/00-words-and-units/03-units-and-si-prefixes/) |
-| 04 | [Scientific Notation and Orders of Magnitude](phases/00-words-and-units/04-scientific-notation-and-orders-of-magnitude/) |
-| 05 | [Reading a Schematic](phases/00-words-and-units/05-reading-a-schematic/) |
-| 06 | [Safety First](phases/00-words-and-units/06-safety-first/) |
+| 01 | [What Electronics Is](phases/00-meet-electricity/01-what-electronics-is/) |
+| 02 | [What a Circuit Is](phases/00-meet-electricity/02-what-a-circuit-is/) |
+| 03 | [Charge and Electrons](phases/00-meet-electricity/03-charge-and-electrons/) |
+| 04 | [Current and Amperes](phases/00-meet-electricity/04-current-and-amperes/) |
+| 05 | [Voltage and Volts](phases/00-meet-electricity/05-voltage-and-volts/) |
+| 06 | [Power and Watts](phases/00-meet-electricity/06-power-and-watts/) |
+| 07 | [Your First Schematic](phases/00-meet-electricity/07-your-first-schematic/) |
+| 08 | [Safety First](phases/00-meet-electricity/08-safety-first/) |
 
 </details>
 
 <a id="phase-01"></a>
 <details>
-<summary><strong>Phase 01 · The Physics Underneath</strong> · 7 lessons</summary>
+<summary><strong>Phase 01 · The Physics Underneath</strong> · 9 lessons</summary>
 
 > Every rule in electronics is a shortcut for something electrons are physically doing.
 
 | # | Lesson |
 |---|---|
-| 01 | [Atoms and Electrons](phases/01-the-physics-underneath/01-atoms-and-electrons/) |
-| 02 | [Electric Charge and Coulomb's Law](phases/01-the-physics-underneath/02-electric-charge-and-coulombs-law/) |
-| 03 | [The Electric Field](phases/01-the-physics-underneath/03-the-electric-field/) |
-| 04 | [Energy, Potential and Voltage](phases/01-the-physics-underneath/04-energy-potential-and-voltage/) |
-| 05 | [Conductors, Insulators and Semiconductors](phases/01-the-physics-underneath/05-conductors-insulators-and-semiconductors/) |
-| 06 | [Current as Moving Charge](phases/01-the-physics-underneath/06-current-as-moving-charge/) |
-| 07 | [Energy and Power](phases/01-the-physics-underneath/07-energy-and-power/) |
+| 01 | [Units and Prefixes](phases/01-the-physics-underneath/01-units-and-prefixes/) |
+| 02 | [Scientific Notation and Orders of Magnitude](phases/01-the-physics-underneath/02-scientific-notation-and-orders-of-magnitude/) |
+| 03 | [Atoms and Electrons](phases/01-the-physics-underneath/03-atoms-and-electrons/) |
+| 04 | [Electric Charge and Coulomb's Law](phases/01-the-physics-underneath/04-electric-charge-and-coulombs-law/) |
+| 05 | [The Electric Field](phases/01-the-physics-underneath/05-the-electric-field/) |
+| 06 | [Energy, Potential and Voltage](phases/01-the-physics-underneath/06-energy-potential-and-voltage/) |
+| 07 | [Conductors, Insulators and Semiconductors](phases/01-the-physics-underneath/07-conductors-insulators-and-semiconductors/) |
+| 08 | [Current as Moving Charge](phases/01-the-physics-underneath/08-current-as-moving-charge/) |
+| 09 | [Energy and Power](phases/01-the-physics-underneath/09-energy-and-power/) |
 
 </details>
 

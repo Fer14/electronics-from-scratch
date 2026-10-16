@@ -4,7 +4,7 @@
 
 In Phase 02 you built your first circuits and saw that "more stuff in the way" means "less current". This phase turns that intuition into numbers. You start with what resistance physically is (electrons bumping into atoms), see how a wire's material, length and thickness set its resistance, and arrive at Ohm's law, the single most used equation in electronics. Then you meet the real parts: how to read a resistor's color bands, how much heat it makes, what its tolerance and ratings mean, and finally where Ohm's law stops working (lamps, thermistors, diodes). It comes here because every later phase, from Kirchhoff's laws to transistors and chips, assumes you can look at a resistor and know its current, its voltage and its power without thinking twice.
 
-**Prerequisites:** Phase 00 (Words and Units), Phase 01 (The Physics Underneath) and Phase 02 (Your First Circuits).
+**Prerequisites:** Phase 00 (Meet Electricity), Phase 01 (The Physics Underneath) and Phase 02 (Your First Circuits).
 
 | # | Lesson | What you learn |
 |---|--------|----------------|

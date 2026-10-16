@@ -35,7 +35,7 @@ This lesson does both: it closes the night light, and it points beyond it.
 
 None that is new, and that is the point. Every number in the capstone came from physics you met earlier in the course:
 
-- The **LDR** works because light frees charge carriers in a semiconductor (Phase 01, Lesson 05; Phase 11, Lesson 01).
+- The **LDR** works because light frees charge carriers in a semiconductor (Phase 01, Lesson 07; Phase 11, Lesson 01).
 - The **divider** that turns light into a voltage is Kirchhoff and Ohm (Phases 03-04).
 - The **ADC** that turns the voltage into a number is quantization (Phase 17, Lesson 04; Phase 19, Lesson 05).
 - The **LED** glows because electrons and holes recombine in a junction (Phase 11, Lessons 03 and 07).
@@ -122,7 +122,7 @@ Each is a new mini-project with the same steps: requirement, architecture, schem
 
 ### Safety, once more
 
-We stayed at 12 V or less throughout the course, on purpose. If you move on to mains-powered projects, high-current batteries or high-voltage supplies, go back to Phase 00, Lesson 06 and take it seriously: learn from someone experienced, use isolated and certified power modules, and never work on live mains circuits alone.
+We stayed at 12 V or less throughout the course, on purpose. If you move on to mains-powered projects, high-current batteries or high-voltage supplies, go back to Phase 00, Lesson 08 and take it seriously: learn from someone experienced, use isolated and certified power modules, and never work on live mains circuits alone.
 
 ## Build It
 

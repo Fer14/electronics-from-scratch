@@ -3,7 +3,7 @@
 > An open circuit has the full voltage and no current. A short circuit has huge current and no voltage. One is harmless, the other starts fires.
 
 **Type:** Build
-**Prerequisites:** Phase 02 (Your First Circuits), Lessons 01 (The Closed Loop) and 02 (Batteries and Loads); Phase 00 (Words and Units), Lesson 06 (Safety First)
+**Prerequisites:** Phase 02 (Your First Circuits), Lessons 01 (The Closed Loop) and 02 (Batteries and Loads); Phase 00 (Meet Electricity), Lesson 08 (Safety First)
 **Time:** ~70 minutes
 
 ## Words You'll Meet
@@ -64,7 +64,7 @@ Take a 9 V battery, a lamp and a switch, all in one loop:
          +---------------+
 ```
 
-With the switch open, no current flows (Lesson 01). Now think about electrical height (potential, from Phase 01, Lesson 04). The bottom of the battery is at 0 V. Its top is 9 V higher. The wire from the battery's top to the left contact of the switch carries no current, so there is no reason for any voltage to be lost along it: the left contact sits at 9 V. On the other side, the right contact of the switch connects through the lamp to the bottom of the battery. No current flows through the lamp either, and a lamp with no current has no voltage across it (we will see why in Phase 03: no current, no drop). So the right contact sits at 0 V.
+With the switch open, no current flows (Lesson 01). Now think about electrical height (potential, from Phase 01, Lesson 06). The bottom of the battery is at 0 V. Its top is 9 V higher. The wire from the battery's top to the left contact of the switch carries no current, so there is no reason for any voltage to be lost along it: the left contact sits at 9 V. On the other side, the right contact of the switch connects through the lamp to the bottom of the battery. No current flows through the lamp either, and a lamp with no current has no voltage across it (we will see why in Phase 03: no current, no drop). So the right contact sits at 0 V.
 
 ```
    left contact:   9 V
@@ -313,7 +313,7 @@ uv run python phases/02-your-first-circuits/03-switches-open-and-short-circuits/
 
 **Testing for shorts.** Before powering a new circuit board, technicians measure the resistance between the supply's + and - points (with power off, see Lesson 07). If it reads nearly 0 Ω, there is a short, maybe a blob of solder bridging two pins. Better to find it with a meter than with smoke.
 
-**Light switches at home.** A wall switch interrupts only one wire to the lamp. That is enough to stop the current (one gap opens the whole loop), but parts of the fitting can still be connected to mains. Always switch off at the breaker before touching wiring. This course never works with mains (Phase 00, Lesson 06).
+**Light switches at home.** A wall switch interrupts only one wire to the lamp. That is enough to stop the current (one gap opens the whole loop), but parts of the fitting can still be connected to mains. Always switch off at the breaker before touching wiring. This course never works with mains (Phase 00, Lesson 08).
 
 ## Try It in the Lab
 

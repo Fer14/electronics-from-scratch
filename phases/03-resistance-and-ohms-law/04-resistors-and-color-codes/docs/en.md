@@ -3,7 +3,7 @@
 > A resistor is resistance you can buy. Its value is painted on in stripes, and it only comes in a few dozen "preferred" numbers per decade.
 
 **Type:** Build
-**Prerequisites:** Phase 03 (Resistance and Ohm's Law), Lessons 01 to 03; Phase 00 (Words and Units), Lesson 03 (Units and SI Prefixes)
+**Prerequisites:** Phase 03 (Resistance and Ohm's Law), Lessons 01 to 03; Phase 01 (The Physics Underneath), Lesson 01 (Units and Prefixes)
 **Time:** ~60 minutes
 
 ## Words You'll Meet

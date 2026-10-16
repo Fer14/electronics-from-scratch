@@ -3,7 +3,7 @@
 > Engineers measure gain in decibels because filters multiply, and logarithms turn multiplying into adding. On a log-log plot every RC filter is two straight lines.
 
 **Type:** Learn
-**Prerequisites:** Phase 10 (Filters and Resonance), Lesson 02 (RC Low-Pass and High-Pass); Phase 00 (Words and Units), Lesson 04 (Scientific Notation and Orders of Magnitude)
+**Prerequisites:** Phase 10 (Filters and Resonance), Lesson 02 (RC Low-Pass and High-Pass); Phase 01 (The Physics Underneath), Lesson 02 (Scientific Notation and Orders of Magnitude)
 **Time:** ~70 minutes
 
 ## Words You'll Meet
@@ -43,7 +43,7 @@ There is a little physics here: human senses work logarithmically. Doubling the 
 
 ### 1. Logarithms from zero
 
-You know powers of ten (Phase 00): 10¹ = 10, 10² = 100, 10³ = 1000, and also 10⁰ = 1, 10⁻¹ = 0.1, 10⁻² = 0.01.
+You know powers of ten (Phase 01, Lesson 02): 10¹ = 10, 10² = 100, 10³ = 1000, and also 10⁰ = 1, 10⁻¹ = 0.1, 10⁻² = 0.01.
 
 The **logarithm** (base 10) asks the reverse question: **"10 to what power gives this number?"**
 

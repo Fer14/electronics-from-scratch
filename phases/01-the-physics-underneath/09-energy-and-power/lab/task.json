@@ -1,0 +1,33 @@
+{
+  "id": "01-09-lantern-bulb",
+  "title": "Pick the lantern bulb",
+  "kind": "dc",
+  "story": "A camping lantern runs on a 6 V battery and should glow with a power between 1 W and 2 W: brighter wastes the battery, dimmer is useless. The battery is happiest delivering at most 0.4 A. You have four bulbs. A glowing bulb behaves like a resistor (for example, a bulb rated 3 V and 0.3 A acts like a 10 ohm resistor when hot), so each bulb below is listed by its hot resistance. Drop one into the socket.",
+  "board": {
+    "nodes": {"vcc": [1, 1], "top": [6, 1], "gnd": [6, 4]},
+    "ground": "gnd",
+    "fixed": [
+      {"type": "battery", "id": "B1", "plus": "vcc", "minus": "gnd", "volts": 6},
+      {"type": "switch", "id": "SW1", "a": "vcc", "b": "top", "closed": true}
+    ],
+    "slots": [
+      {"id": "S1", "a": "top", "b": "gnd", "accepts": ["resistor"]}
+    ]
+  },
+  "parts": [
+    {"type": "resistor", "ohms": 6},
+    {"type": "resistor", "ohms": 12},
+    {"type": "resistor", "ohms": 24},
+    {"type": "resistor", "ohms": 120}
+  ],
+  "goals": [
+    {"measure": "power", "of": "S1", "min": 1.0, "max": 2.0, "label": "the bulb glows with 1 W to 2 W"},
+    {"measure": "current", "of": "S1", "min": 0.0, "max": 0.4, "label": "the battery delivers at most 0.4 A"}
+  ],
+  "solution": {"S1": {"type": "resistor", "ohms": 24}},
+  "hints": [
+    "Power is voltage times current: P = V x I.",
+    "The whole 6 V of the battery sits across the bulb, because the closed switch is just a wire.",
+    "Preview of Phase 03: a resistor of R ohms with V volts across it lets through I = V / R amperes."
+  ]
+}

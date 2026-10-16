@@ -1,0 +1,93 @@
+[
+  {
+    "id": "00-04-pre-1",
+    "stage": "pre",
+    "question": "What does current measure?",
+    "options": [
+      "How hard the battery pushes",
+      "How much charge passes a point each second",
+      "How much energy a battery stores",
+      "How long a wire is"
+    ],
+    "correct": 1,
+    "explanation": "Current is a rate: the charge flowing past one point every second. The push is voltage (Lesson 05) and the stored energy is about power and time (Lesson 06)."
+  },
+  {
+    "id": "00-04-pre-2",
+    "stage": "pre",
+    "question": "What is the unit of current?",
+    "options": [
+      "The volt",
+      "The watt",
+      "The coulomb",
+      "The ampere"
+    ],
+    "correct": 3,
+    "explanation": "Current is measured in amperes (amps, A), named after André-Marie Ampère. The coulomb measures an amount of charge, not a rate."
+  },
+  {
+    "id": "00-04-post-1",
+    "stage": "post",
+    "question": "In a loop with a battery, a switch and a lamp, how does the current coming out of the lamp compare with the current going into it?",
+    "options": [
+      "It is the same: in one loop the current is the same everywhere",
+      "It is smaller, because the lamp used some up",
+      "It is zero, because the lamp used it all",
+      "It is bigger, because the lamp adds to it"
+    ],
+    "correct": 0,
+    "explanation": "Charge cannot pile up inside the lamp, so what goes in comes out. The lamp takes energy from the charge, not the charge itself."
+  },
+  {
+    "id": "00-04-post-2",
+    "stage": "post",
+    "question": "Wire A passes a certain amount of charge in one second. Wire B passes the same amount in two seconds. Which carries the bigger current?",
+    "options": [
+      "Wire B, because it took longer",
+      "They carry the same current",
+      "Wire A, because the same charge passed in less time",
+      "It is impossible to say"
+    ],
+    "correct": 2,
+    "explanation": "Current is charge per second. The same charge in half the time means twice the current."
+  },
+  {
+    "id": "00-04-post-3",
+    "stage": "post",
+    "question": "Diagrams draw current flowing from the battery's plus terminal round to its minus terminal. Which way do the electrons in the wire drift?",
+    "options": [
+      "From plus to minus, the same way",
+      "From minus round to plus, the opposite way",
+      "They do not move at all",
+      "Both ways at once in a battery circuit"
+    ],
+    "correct": 1,
+    "explanation": "The arrow follows Benjamin Franklin's old convention. Electrons are negative and drift the other way; both descriptions give the same results."
+  },
+  {
+    "id": "00-04-post-4",
+    "stage": "post",
+    "question": "Which of these draws the largest current?",
+    "options": [
+      "A quartz wristwatch",
+      "A small LED indicator",
+      "A phone charging",
+      "An electric kettle"
+    ],
+    "correct": 3,
+    "explanation": "A kettle draws around ten amps, a phone about one or two, an LED a few thousandths of an amp and a watch only a tiny trickle."
+  },
+  {
+    "id": "00-04-post-5",
+    "stage": "post",
+    "question": "How must a meter be connected to measure the current through a lamp?",
+    "options": [
+      "Touch its two leads to the two ends of the lamp",
+      "Hold it near the wire",
+      "Open the loop and put the meter in the gap, so the current passes through it",
+      "Connect it straight across the battery"
+    ],
+    "correct": 2,
+    "explanation": "Current flows through things, so it must flow through the meter. Connecting a current meter straight across a battery would be a short circuit."
+  }
+]

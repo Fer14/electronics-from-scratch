@@ -46,7 +46,7 @@ All three are solved by the same tiny circuit, made of just two resistors: the *
 
 Before the formula, picture what is physically going on.
 
-A battery keeps a fixed voltage between its two terminals: every coulomb of charge that travels from the + terminal, through the outside circuit, back to the - terminal, gives up a fixed amount of energy. For a 9 V battery that is 9 joules per coulomb (Phase 01, lesson 04).
+A battery keeps a fixed voltage between its two terminals: every coulomb of charge that travels from the + terminal, through the outside circuit, back to the - terminal, gives up a fixed amount of energy. For a 9 V battery that is 9 joules per coulomb (Phase 01, lesson 06).
 
 Now put two resistors in a row between the terminals. Charge leaving the + terminal must pass through the first resistor, then through the second, then it is back home. There is no other path. So:
 

@@ -49,7 +49,7 @@ From Lesson 05: every watt dissipated raises the temperature of the resistor. Ho
 
 ### Why voltage has its own limit
 
-A very large resistor, say 10 Mohm, carries tiny currents and dissipates almost nothing even at hundreds of volts. But the voltage creates a strong electric field (Phase 01, Lesson 03) across the narrow groove of the film spiral. Push it too high and a spark jumps across the groove, burning a path. So resistors also have a **limiting element voltage**, often 200 to 350 V for a common 1/4 W through-hole part, and much less for tiny surface-mount chips.
+A very large resistor, say 10 Mohm, carries tiny currents and dissipates almost nothing even at hundreds of volts. But the voltage creates a strong electric field (Phase 01, Lesson 05) across the narrow groove of the film spiral. Push it too high and a spark jumps across the groove, burning a path. So resistors also have a **limiting element voltage**, often 200 to 350 V for a common 1/4 W through-hole part, and much less for tiny surface-mount chips.
 
 ### Why resistance changes with temperature
 

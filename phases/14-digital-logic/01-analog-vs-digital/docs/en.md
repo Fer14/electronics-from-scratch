@@ -48,7 +48,7 @@ Physically, there is no such thing as a "digital wire". A wire on a chip or a bo
 
 Noise is any small voltage that sneaks onto a signal without being invited. A few sources you have already met:
 
-- **Thermal noise.** The free electrons in a resistor jiggle because of heat (Phase 01, Lesson 05). Their random motion makes a tiny random voltage across every resistor. It grows with temperature and with resistance.
+- **Thermal noise.** The free electrons in a resistor jiggle because of heat (Phase 01, Lesson 07). Their random motion makes a tiny random voltage across every resistor. It grows with temperature and with resistance.
 - **Coupling.** Two wires next to each other form a small capacitor (Phase 07). When one wire jumps from 0 V to 5 V, a little of that jump leaks onto its neighbour. Engineers call this crosstalk.
 - **Ground bounce.** Many outputs switching at once pull a big current through the thin ground wire of a chip. That current times the wire's resistance and inductance (Phase 08) makes the chip's "0 V" rise briefly by a few hundred millivolts.
 - **Interference.** Motors, radios and power lines create changing fields that induce voltages in any loop of wire (Phase 08, Lesson 03 on Faraday's law).

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "00-08-pre-1",
+    "stage": "pre",
+    "question": "What actually harms the body in an electric shock?",
+    "options": [
+      "The voltage, on its own",
+      "The current flowing through the body, pushed by the voltage",
+      "The colour of the wire",
+      "The magnetism around the wire"
+    ],
+    "correct": 1,
+    "explanation": "Current through nerves, muscles and the heart does the harm. The voltage matters because it is what pushes that current through you."
+  },
+  {
+    "id": "00-08-pre-2",
+    "stage": "pre",
+    "question": "Is it safe to touch both ends of an AA cell with dry fingers?",
+    "options": [
+      "Yes: the push is too gentle to drive a harmful current through dry skin",
+      "No: any battery can give a deadly shock",
+      "Only if you wear gloves",
+      "Only for a few seconds"
+    ],
+    "correct": 0,
+    "explanation": "Dry skin is a good barrier, and a small battery's push is far too gentle to get through it. You will not even feel it."
+  },
+  {
+    "id": "00-08-post-1",
+    "stage": "post",
+    "question": "Why is shorting a small battery dangerous even though it cannot shock you?",
+    "options": [
+      "It makes the battery's voltage much higher",
+      "It sends electrons into the air",
+      "A huge current flows and the battery's energy turns into heat very quickly",
+      "It is not dangerous at all"
+    ],
+    "correct": 2,
+    "explanation": "In a short nothing limits the current except the battery itself, so all its power becomes heat. Batteries can burn skin, start fires or, for lithium cells, catch fire."
+  },
+  {
+    "id": "00-08-post-2",
+    "stage": "post",
+    "question": "Why is the wall socket dangerous when small batteries are not?",
+    "options": [
+      "Wall sockets contain more electrons",
+      "Its push is strong enough to break through skin and drive a dangerous current through the body",
+      "Wall sockets are always shorted",
+      "It is only dangerous in wet weather"
+    ],
+    "correct": 1,
+    "explanation": "The mains push can force its way through even dry skin, and its alternating current is especially good at disturbing the heart. Never touch it."
+  },
+  {
+    "id": "00-08-post-3",
+    "stage": "post",
+    "question": "A device has been unplugged from the wall for a minute. Is it safe to open?",
+    "options": [
+      "Yes, as soon as it is unplugged",
+      "Yes, if it is switched off",
+      "Only if it is cold",
+      "No: capacitors inside can still hold a dangerous charge, and this course never opens mains devices"
+    ],
+    "correct": 3,
+    "explanation": "Capacitors store charge and can keep it long after unplugging. Never open anything that plugs into the wall."
+  },
+  {
+    "id": "00-08-post-4",
+    "stage": "post",
+    "question": "Something in your circuit starts to smell and smoke. What do you do first?",
+    "options": [
+      "Disconnect the battery or power, then think",
+      "Grab the hot part and pull it out",
+      "Blow on it to cool it down",
+      "Add another battery to see what happens"
+    ],
+    "correct": 0,
+    "explanation": "Disconnect first, think later. A hot part stays hot for a while, so do not grab it."
+  },
+  {
+    "id": "00-08-post-5",
+    "stage": "post",
+    "question": "Which statement about a car battery is correct?",
+    "options": [
+      "It can give a deadly shock through dry skin",
+      "It is safe in every way",
+      "It is safe to touch, but a short across its terminals can make metal glow and burn you",
+      "It has a higher voltage than a wall socket"
+    ],
+    "correct": 2,
+    "explanation": "Its push is low, so touching it is safe, but it can deliver an enormous current into a short. Safe to touch is not the same as safe to short."
+  }
+]

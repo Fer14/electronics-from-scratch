@@ -1,0 +1,106 @@
+[
+  {
+    "id": "01-08-pre-1",
+    "stage": "pre",
+    "question": "What does a current of 1 ampere mean?",
+    "options": [
+      "1 volt of push across a wire",
+      "1 electron passing a point every second",
+      "1 joule of energy delivered each second",
+      "1 coulomb of charge passing a point every second"
+    ],
+    "correct": 3,
+    "explanation": "Current is charge per time: I = Q / t. One ampere is one coulomb per second, which is about 6.24e18 electrons per second."
+  },
+  {
+    "id": "01-08-pre-2",
+    "stage": "pre",
+    "question": "When you flip a light switch, the lamp lights almost instantly. Why?",
+    "options": [
+      "The wire is already full of free electrons; the push (the field) spreads along it at nearly light speed, so electrons everywhere start drifting at once",
+      "Electrons race from the switch to the lamp at the speed of light",
+      "The lamp stores electrons and releases them when the switch closes",
+      "The switch sends a radio signal to the lamp"
+    ],
+    "correct": 0,
+    "explanation": "Electrons only drift at about 0.1 mm/s. What travels fast is the change in the electric field, at roughly two thirds of the speed of light in a cable."
+  },
+  {
+    "id": "01-08-pre-3",
+    "stage": "pre",
+    "question": "On a circuit diagram, current arrows point from + to - outside the battery. Which way do the electrons in the copper wire actually move?",
+    "options": [
+      "The same way, from + to -",
+      "They do not move at all in a wire",
+      "The opposite way, from - to +",
+      "It depends on the colour of the wire"
+    ],
+    "correct": 2,
+    "explanation": "Franklin labelled the charges before anyone knew about electrons, and the label for electrons turned out to be negative. Conventional current (+ to -) is kept by agreement; electrons drift the other way."
+  },
+  {
+    "id": "01-08-post-1",
+    "stage": "post",
+    "question": "A phone charger pushes 0.5 A for 10 minutes. How much charge has flowed?",
+    "options": [
+      "5 C",
+      "300 C",
+      "0.05 C",
+      "3000 C"
+    ],
+    "correct": 1,
+    "explanation": "Convert the time first: 10 min = 600 s. Q = I x t = 0.5 x 600 = 300 C."
+  },
+  {
+    "id": "01-08-post-2",
+    "stage": "post",
+    "question": "About how many electrons per second make up a 20 mA LED current? (e = 1.602e-19 C)",
+    "options": [
+      "1.25e17",
+      "3.2e-21",
+      "6.24e18",
+      "20"
+    ],
+    "correct": 0,
+    "explanation": "N = I / e = 0.020 / 1.602e-19 = 1.25e17 electrons per second."
+  },
+  {
+    "id": "01-08-post-3",
+    "stage": "post",
+    "question": "Using v = I / (n e A) with n = 8.5e28 per m^3, roughly how fast do electrons drift for 1 A in a copper wire of 1 mm^2 cross-section?",
+    "options": [
+      "About 300 000 km/s",
+      "About 1 m/s",
+      "About 0.07 mm/s",
+      "About 1 km/s"
+    ],
+    "correct": 2,
+    "explanation": "n e A = 8.5e28 x 1.602e-19 x 1e-6 = 1.36e4 C per metre. v = 1 / 1.36e4 = 7.3e-5 m/s, about 0.07 mm/s: slower than a snail."
+  },
+  {
+    "id": "01-08-post-4",
+    "stage": "post",
+    "question": "A 2 A current flows through a thin wire, then a lamp, then a thick wire, all in one loop. What is the current in the thick wire?",
+    "options": [
+      "Less than 2 A, because the lamp used some current",
+      "Exactly 2 A, the same as everywhere else in the single loop",
+      "More than 2 A, because thick wires carry more",
+      "Zero, because the lamp blocks it"
+    ],
+    "correct": 1,
+    "explanation": "Charge cannot pile up in a steady circuit, so the same charge per second passes every point of a single loop. The lamp takes energy, not charge. Only the drift speed differs: slower in the thick wire."
+  },
+  {
+    "id": "01-08-post-5",
+    "stage": "post",
+    "question": "In an AC circuit at 50 Hz carrying about 1 A in ordinary copper wire, what do the electrons do?",
+    "options": [
+      "Travel from the power station to your house and back each day",
+      "Stand completely still",
+      "Flow steadily from + to -",
+      "Wiggle back and forth in place by less than a micrometre"
+    ],
+    "correct": 3,
+    "explanation": "The current reverses 50 times a second, so each electron's slow drift keeps changing direction. The swing works out to about 0.33 micrometres. Energy is delivered even though the electrons go nowhere."
+  }
+]

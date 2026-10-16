@@ -5,6 +5,7 @@ import { el, drawTwoTerminal, drawBJT, drawMOS, drawOpAmp, drawGate, drawBlock, 
 import { evaluate, formatValue, eng } from "../sim/lab.js";
 import { maxOf } from "../sim/engine.js";
 import { plot } from "./plot.js";
+import { IsoView } from "../iso/view.js";
 
 const $ = (sel) => document.querySelector(sel);
 const DRY = new URLSearchParams(location.search).has("check");
@@ -13,6 +14,7 @@ const store = {
   set(key, value) { if (DRY) return; try { localStorage.setItem(key, JSON.stringify(value)); } catch {} },
 };
 
+const ISO_KINDS = new Set(["dc", "transient", "ac"]);
 const KIND_NAMES = { dc: "DC", transient: "transient", ac: "AC sweep", logic: "logic", chip: "chip" };
 
 function icon(part, kind) {
@@ -58,6 +60,13 @@ class TaskPage {
     this.board = new Board($("#board"), task);
     this.board.onSlot = (id) => this.slotClicked(id);
     this.board.onToggle = (name) => this.toggleInput(name);
+    this.focus = null;
+    this.iso = null;
+    if (ISO_KINDS.has(task.kind)) {
+      this.iso = new IsoView($("#iso"), task, this.board);
+      this.iso.onSlot = (id) => this.slotClicked(id);
+    }
+    this.setupViews();
     this.fillHeader();
     this.fillTray();
     this.fillGoals(null);
@@ -66,6 +75,39 @@ class TaskPage {
     $("#run").addEventListener("click", () => this.run());
     $("#reset").addEventListener("click", () => { this.choice = {}; this.save(); this.redraw(); });
     $("#hint").addEventListener("click", () => this.showHint());
+  }
+
+  // Schematic | 3D: both views are kept up to date, only one is shown; the choice is remembered.
+  setupViews() {
+    const bar = $("#view-bar");
+    if (!this.iso) { bar.hidden = true; this.view = "schematic"; return; }
+    bar.hidden = false;
+    let saved = "iso";
+    try { saved = localStorage.getItem("efs-lab:view") || "iso"; } catch {}
+    this.view = saved === "schematic" ? "schematic" : "iso";
+    bar.querySelectorAll("button[data-view]").forEach((b) => b.addEventListener("click", () => this.setView(b.dataset.view, true)));
+    this.setView(this.view, false);
+  }
+
+  setView(view, user) {
+    this.view = view;
+    if (user && !DRY) { try { localStorage.setItem("efs-lab:view", view); } catch {} }
+    document.querySelectorAll("#view-bar button[data-view]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.view === view)));
+    $("#board").hidden = view === "iso";
+    $("#iso").hidden = view !== "iso";
+    if (!user) return;
+    if (view === "iso") this.iso.relayout();
+    else this.board.fit();
+  }
+
+  each(method, ...args) {
+    this.board[method](...args);
+    if (this.iso) this.iso[method](...args);
+  }
+
+  renderBoards() {
+    this.board.render(this.choice);
+    if (this.iso) this.iso.render(this.choice, this.focus);
   }
 
   fillHeader() {
@@ -130,8 +172,9 @@ class TaskPage {
   select(index) {
     this.selected = index;
     document.querySelectorAll(".part-chip").forEach((b, i) => b.setAttribute("aria-pressed", String(i === index)));
-    this.say(index === null ? "" : "Now click a slot (the dashed boxes) to put the part there.");
+    this.say(index === null ? "" : "Now click a slot (a dashed box, or a socket in 3D) to put the part there.");
     $("#board").classList.toggle("placing", index !== null);
+    $("#iso").classList.toggle("placing", index !== null);
   }
 
   say(msg, warn = false) {
@@ -149,6 +192,7 @@ class TaskPage {
         return;
       }
       this.choice[id] = part;
+      this.focus = id;
       this.select(null);
       this.say(`${label(part, this.task.kind).join(" ")} in ${id}.`);
     } else if (this.choice[id]) {
@@ -166,7 +210,7 @@ class TaskPage {
 
   redraw() {
     this.stopPlayback();
-    this.board.render(this.choice);
+    this.renderBoards();
     this.fillGoals(null);
     $("#plot").innerHTML = "";
     $("#extra").innerHTML = "";
@@ -222,7 +266,7 @@ class TaskPage {
       return;
     }
     this.stopPlayback();
-    this.board.render(this.choice);
+    this.renderBoards();
     const { results, model, error } = evaluate(this.task, this.choice);
     this.fillGoals(results);
     if (error || !model) { this.say(`The simulation failed: ${error}`, true); return; }
@@ -246,8 +290,9 @@ class TaskPage {
       if (f.part) continue;
       try {
         const i = r.i(f.id), p = r.p(f.id);
-        out[f.id] = `${eng(Math.abs(i) < 1e-12 ? 0 : i, "A")} · ${eng(Math.abs(p) < 1e-15 ? 0 : p, "W")}`;
+        out[f.id] = `${eng(Math.abs(i) < 1e-12 ? 0 : i, "A")} · ${eng(Math.abs(p) < 1e-12 ? 0 : p, "W")}`;
         this.board.setLit(f.id, i > 1e-3);
+        if (this.iso) this.iso.setLevel(f.id, i, p);
       } catch {}
     }
     return out;
@@ -256,11 +301,11 @@ class TaskPage {
   showDC(r) {
     const volts = {};
     for (const n of this.nodeNames()) { try { volts[n] = r.v(n); } catch {} }
-    this.board.showVoltages(volts);
-    this.board.showReadings(this.readingsAt(r));
+    this.each("showVoltages", volts);
+    this.each("showReadings", this.readingsAt(r));
     const currents = new Map(this.board.flows.map((f) => [f, safe(() => r.i(f.id))]));
     const scale = Math.max(0, maxOf([...currents.values()].map(Math.abs)));
-    this.board.startFlow((f) => currents.get(f), scale);
+    this.each("startFlow", (f) => currents.get(f), scale);
   }
 
   showTransient(t) {
@@ -287,13 +332,14 @@ class TaskPage {
       const r = t.at(index);
       const volts = {};
       for (const nd of this.nodeNames()) volts[nd] = safe(() => r.v(nd));
-      this.board.showVoltages(volts);
-      this.board.showReadings(this.readingsAt(r));
+      if (this.iso) this.iso.setTime(t.time[index]);
+      this.each("showVoltages", volts);
+      this.each("showReadings", this.readingsAt(r));
       slider.value = String(index);
       clock.textContent = `t = ${eng(t.time[index], "s")}`;
       chart.setCursor(t.time[index]);
     };
-    this.board.startFlow((f) => { const a = flows.get(f); return a ? a[index] : 0; }, scale);
+    this.each("startFlow", (f) => { const a = flows.get(f); return a ? a[index] : 0; }, scale);
     const step = (now) => {
       if (playing) {
         index = Math.min(n - 1, index + Math.max(1, Math.round(((now - last) / duration) * n)));
@@ -317,12 +363,13 @@ class TaskPage {
   stopPlayback() {
     if (this.playRaf) cancelAnimationFrame(this.playRaf);
     this.playRaf = null;
-    this.board.stopFlow();
+    this.each("stopFlow");
     const box = $("#playback");
     if (box) box.hidden = true;
   }
 
   showAC(a) {
+    if (this.iso) this.iso.setState("AC sweep · see the plot below");
     const ground = this.task.board.ground || "gnd";
     const nodes = [...new Set(this.task.goals.map((g) => g.at).filter(Boolean))];
     const traces = nodes.map((nd) => ({ name: `gain ${nd}`, y: a.gainDb(nd === ground ? "0" : nd, null) }));

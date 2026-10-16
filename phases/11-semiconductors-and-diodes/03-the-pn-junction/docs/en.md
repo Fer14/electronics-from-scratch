@@ -3,7 +3,7 @@
 > Put p-type and n-type silicon together and they build a hill between them all by themselves. Push one way and you flatten the hill; push the other way and you make it taller. That is a one-way street for current.
 
 **Type:** Learn
-**Prerequisites:** 11-02 (Doping: n-type and p-type); Phase 01 (The Physics Underneath), lessons 03-the-electric-field and 04-energy-potential-and-voltage; Phase 07 (Capacitors), lesson 02-capacitance
+**Prerequisites:** 11-02 (Doping: n-type and p-type); Phase 01 (The Physics Underneath), lessons 05-the-electric-field and 06-energy-potential-and-voltage; Phase 07 (Capacitors), lesson 02-capacitance
 **Time:** ~70 minutes
 
 ## Words You'll Meet

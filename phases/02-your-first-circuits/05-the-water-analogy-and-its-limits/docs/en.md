@@ -4,7 +4,7 @@
 
 **Type:** Learn
 **Languages:** Python
-**Prerequisites:** Phase 01 (The Physics Underneath), especially Lesson 04 (Energy, Potential and Voltage) and Lesson 06 (Current as Moving Charge); Phase 02 (Your First Circuits), Lessons 01-04
+**Prerequisites:** Phase 01 (The Physics Underneath), especially Lesson 06 (Energy, Potential and Voltage) and Lesson 08 (Current as Moving Charge); Phase 02 (Your First Circuits), Lessons 01-04
 **Time:** ~50 minutes
 
 ## Words You'll Meet
@@ -52,13 +52,13 @@ Three facts about that loop matter:
 
 ### What an electric loop actually does
 
-Now the circuit. A battery does not create charge. It takes charge arriving at its minus terminal and, using chemical energy, delivers it out of its plus terminal at a higher electric potential (Phase 01, Lesson 04). The difference in potential between its terminals is its **voltage**, measured in **volts (V)**: one volt means one joule of energy for every coulomb of charge.
+Now the circuit. A battery does not create charge. It takes charge arriving at its minus terminal and, using chemical energy, delivers it out of its plus terminal at a higher electric potential (Phase 01, Lesson 06). The difference in potential between its terminals is its **voltage**, measured in **volts (V)**: one volt means one joule of energy for every coulomb of charge.
 
-Charge flows round the loop (we follow **conventional current**, from + to - outside the battery; the electrons themselves drift the other way, as you saw in Phase 01, Lesson 06). The rate of flow is the **current**, measured in **amperes (A)**: one ampere is one coulomb passing each second. In the load (a bulb, a resistor) the charges bump through the material and give up their energy as heat or light, and they arrive back at the battery's minus terminal with low potential. The battery lifts them up again.
+Charge flows round the loop (we follow **conventional current**, from + to - outside the battery; the electrons themselves drift the other way, as you saw in Phase 01, Lesson 08). The rate of flow is the **current**, measured in **amperes (A)**: one ampere is one coulomb passing each second. In the load (a bulb, a resistor) the charges bump through the material and give up their energy as heat or light, and they arrive back at the battery's minus terminal with low potential. The battery lifts them up again.
 
 Look how the same three facts appear:
 
-1. **The amount of charge never changes.** Every coulomb that leaves the battery comes back (conservation of charge, Phase 01, Lesson 02).
+1. **The amount of charge never changes.** Every coulomb that leaves the battery comes back (conservation of charge, Phase 01, Lesson 04).
 2. **What the battery gives is energy.** Charges leave with more energy per coulomb than they arrived with, and spend it in the load.
 3. **The load decides the current.** A thick copper wire barely resists. A resistor or a bulb filament resists a lot, and it is there that most of the voltage is "used".
 
@@ -130,7 +130,7 @@ That is a slow trickle, a teaspoon every second or so. Now the electric side: a 
 current = voltage / resistance = 9 V / 450 ohm = 0.020 A = 20 mA
 ```
 
-And the power each system moves. Water: pressure times flow, 9810 x 3.85e-6 = 0.0378 W. Electric: voltage times current, 9 x 0.020 = 0.18 W. Both have the same shape: *push times flow equals power*. You met P = V x I in Phase 01, Lesson 07; now you can see why it has that form. A joule per coulomb (volt) times coulombs per second (ampere) is joules per second, which is a watt. A joule per cubic metre (a pascal is exactly that) times cubic metres per second is again joules per second.
+And the power each system moves. Water: pressure times flow, 9810 x 3.85e-6 = 0.0378 W. Electric: voltage times current, 9 x 0.020 = 0.18 W. Both have the same shape: *push times flow equals power*. You met P = V x I in Phase 01, Lesson 09; now you can see why it has that form. A joule per coulomb (volt) times coulombs per second (ampere) is joules per second, which is a watt. A joule per cubic metre (a pascal is exactly that) times cubic metres per second is again joules per second.
 
 ### Doubling experiments
 
@@ -168,7 +168,7 @@ A short circuit (Lesson 03) is a fat, wide pipe connected straight from the pump
 
 Now the important half. Each item below is a place where water gives a wrong answer.
 
-**1. Cut the loop and nothing leaks.** Cut a water pipe while the pump runs and water sprays out. Water can leave the loop because it has somewhere to go: the air will take it. Cut a wire and the current stops *everywhere* in the loop at the same moment. The charge does not pour out of the ends, because a lone wire end cannot hold more than a minuscule extra charge before the electric force pushes back (Phase 01, Lesson 03). This is why a circuit *must* be a closed loop (Lesson 01), while a garden hose can happily water the lawn without any return pipe.
+**1. Cut the loop and nothing leaks.** Cut a water pipe while the pump runs and water sprays out. Water can leave the loop because it has somewhere to go: the air will take it. Cut a wire and the current stops *everywhere* in the loop at the same moment. The charge does not pour out of the ends, because a lone wire end cannot hold more than a minuscule extra charge before the electric force pushes back (Phase 01, Lesson 05). This is why a circuit *must* be a closed loop (Lesson 01), while a garden hose can happily water the lawn without any return pipe.
 
 **2. Thickness matters differently.** In the pipe formula above, the radius appears as r⁴. Halve the radius and the pipe resistance goes up 2⁴ = 16 times. A wire's resistance depends on its cross-section area, which goes as r², so halving the radius of a wire only makes it 2² = 4 times more resistive (Phase 03, Lesson 02). The water picture gets the direction right (thinner is harder) and the size of the effect badly wrong.
 
@@ -181,7 +181,7 @@ radius factor   pipe resistance factor   wire resistance factor
 
 **3. Speed is completely different.** This is the big one. Ask how fast things travel.
 
-The electrons themselves crawl. In Phase 01, Lesson 06 you met drift speed:
+The electrons themselves crawl. In Phase 01, Lesson 08 you met drift speed:
 
 ```
 drift speed = current / (n x e x A)
@@ -337,7 +337,7 @@ Change the numbers and predict the output before you run it. That habit, predict
 
 - **Thinking the battery is a tank of electricity that empties.** A battery is a pump with a limited supply of chemical *energy*, not a tank of charge. When it is "flat", it has exactly as many electrons as when it was new; it has simply run out of the chemical reactions that lift them.
 - **Thinking current is "used up" by the bulb.** Water is not consumed by a water wheel; current is not consumed by a bulb. The current going in equals the current coming out. Energy is what the bulb takes.
-- **Expecting electricity to spill from an open socket or a cut wire.** Unlike water, charge cannot leave the conductor in any useful amount. A dangling wire connected to a battery's plus terminal carries no current at all. (It can still be at a dangerous voltage if the source is mains, which is why Phase 00, Lesson 06 told you never to touch one.)
+- **Expecting electricity to spill from an open socket or a cut wire.** Unlike water, charge cannot leave the conductor in any useful amount. A dangling wire connected to a battery's plus terminal carries no current at all. (It can still be at a dangerous voltage if the source is mains, which is why Phase 00, Lesson 08 told you never to touch one.)
 - **Mixing up "open" switch and "open" tap.** Open switch: no current. Open tap: water flows. Say "the switch is off" if it helps.
 - **Using the analogy to compute sizes.** "Twice as thick wire, sixteen times less resistance" is a water answer. The electric answer is four times.
 - **Believing electrons travel from the battery to the bulb when you flip the switch.** They barely move. The push travels; the electrons near the bulb are the ones that light it.

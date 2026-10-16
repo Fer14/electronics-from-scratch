@@ -3,7 +3,7 @@
 > A multimeter gives you one number. An oscilloscope gives you the whole story of a voltage, drawn against time.
 
 **Type:** Build
-**Prerequisites:** Phase 00 Lesson 04 (Scientific Notation and Orders of Magnitude), Phase 06 Lesson 04 (Inside the Multimeter), Phase 06 Lesson 05 (Loading and Measurement Error)
+**Prerequisites:** Phase 01 Lesson 02 (Scientific Notation and Orders of Magnitude), Phase 06 Lesson 04 (Inside the Multimeter), Phase 06 Lesson 05 (Loading and Measurement Error)
 **Time:** ~70 minutes
 
 ## Words You'll Meet
@@ -269,7 +269,7 @@ uv run python phases/06-sources-batteries-and-measurement/06-the-oscilloscope/co
 - **Leaving the probe on x1 while the scope thinks x10 (or vice versa).** Every reading is off by a factor of 10.
 - **No trigger, or trigger on the wrong channel.** The trace rolls or never appears. Set the trigger source to the channel you look at, and its level inside the signal's range.
 - **AC coupling a slow signal.** "AC coupling" removes the DC part of the signal with an input capacitor; it also distorts slow square waves. Use DC coupling unless you specifically want to zoom in on ripple.
-- **Clipping the ground lead to a non-ground point.** The scope's ground is earth. See the safety note above and Phase 00 Lesson 06.
+- **Clipping the ground lead to a non-ground point.** The scope's ground is earth. See the safety note above and Phase 00 Lesson 08.
 - **Reading RMS from a sine formula on a non-sine signal.** amplitude / square root of 2 only holds for pure sines. Let the scope compute RMS from samples.
 - **Trusting a picture taken with too slow a sample rate.** If the wave looks suspiciously slow or smooth, change the time base and see whether the "frequency" changes in a way it shouldn't.
 - **Long ground leads at high speed.** The ground wire's inductance (Phase 08) rings with fast edges and shows overshoot that isn't in the circuit. Use the short ground spring for fast signals.

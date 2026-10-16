@@ -3,7 +3,7 @@
 > A source gives energy to charge; a load takes it away. Match them, and the load works as its maker intended.
 
 **Type:** Build
-**Prerequisites:** Phase 02 (Your First Circuits), Lesson 01 (The Closed Loop); Phase 01 (The Physics Underneath), Lesson 07 (Energy and Power); Phase 00 (Words and Units), Lesson 03 (Units and SI Prefixes)
+**Prerequisites:** Phase 02 (Your First Circuits), Lesson 01 (The Closed Loop); Phase 01 (The Physics Underneath), Lesson 09 (Energy and Power); Phase 01, Lesson 01 (Units and Prefixes)
 **Time:** ~60 minutes
 
 ## Words You'll Meet
@@ -45,7 +45,7 @@ This lesson builds that picture slowly, with real numbers from real batteries an
 
 In Lesson 01 you saw that charge flows around a closed loop and every bit of it returns to the battery. The charge is not used up. What changes as it goes round is its **energy**.
 
-Remember from Phase 01, Lesson 04: a **voltage** of 1 volt between two points means each coulomb of charge gains or loses 1 joule moving between them. So:
+Remember from Phase 01, Lesson 06: a **voltage** of 1 volt between two points means each coulomb of charge gains or loses 1 joule moving between them. So:
 
 - Inside a 3 V battery, every coulomb that passes from the - terminal to the + terminal **gains** 3 joules. The battery is **giving** energy.
 - Inside the bulb, every coulomb that passes from the top contact to the bottom contact **loses** about 3 joules. The bulb is **taking** energy and turning it into light and heat.
@@ -134,7 +134,7 @@ power = voltage x current
 P = V x I = 6 V x 0.5 A = 3 W
 ```
 
-"Power, P, in watts, equals voltage, V, in volts, times current, I, in amperes." You met this in Phase 01, Lesson 07. One watt is one joule per second, so this bulb turns 3 joules of electrical energy into light and heat every second.
+"Power, P, in watts, equals voltage, V, in volts, times current, I, in amperes." You met this in Phase 01, Lesson 09. One watt is one joule per second, so this bulb turns 3 joules of electrical energy into light and heat every second.
 
 For a hot bulb or a heater we can also squeeze the rating into one number, its resistance when hot, using the preview from Lesson 01 (we earn it properly in Phase 03):
 
@@ -185,7 +185,7 @@ Turn the battery round and the LED blocks the current entirely: 0 mA, dark. LEDs
 
 ### How long will the battery last?
 
-A battery's **capacity** is printed in milliampere-hours (mAh), a unit of charge from Phase 00, Lesson 03. 2500 mAh means "2500 mA for 1 hour", or 250 mA for 10 hours, or 25 mA for 100 hours. So:
+A battery's **capacity** is printed in milliampere-hours (mAh), a unit of charge from Phase 01, Lesson 01. 2500 mAh means "2500 mA for 1 hour", or 250 mA for 10 hours, or 25 mA for 100 hours. So:
 
 ```
 hours of use = capacity (mAh) / current (mA)
@@ -335,7 +335,7 @@ uv run python phases/02-your-first-circuits/02-batteries-and-loads/code/main.py
 
 **USB.** A USB port is a 5 V source. A USB fan, lamp or phone is a load designed for 5 V. Because the voltage is standard, anything USB can plug into anything USB. Matching was solved by agreement.
 
-**Mains appliances.** A kettle in Europe is rated "230 V, 2200 W", which means about 2200 / 230 = 9.6 A. Take it to a 120 V country and it draws about half the current and delivers about a quarter of the power: a very slow kettle. (Mains is dangerous; this course stays at 12 V DC or below, see Phase 00, Lesson 06.)
+**Mains appliances.** A kettle in Europe is rated "230 V, 2200 W", which means about 2200 / 230 = 9.6 A. Take it to a 120 V country and it draws about half the current and delivers about a quarter of the power: a very slow kettle. (Mains is dangerous; this course stays at 12 V DC or below, see Phase 00, Lesson 08.)
 
 **Motors.** A small toy DC motor might say "3 V". On 1.5 V it turns slowly, on 3 V normally, on 6 V too fast and too hot. A motor does not behave like a fixed resistor (it draws more current when you hold it still), which you will understand in Phase 08.
 

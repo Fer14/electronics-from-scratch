@@ -1,0 +1,93 @@
+[
+  {
+    "id": "00-06-pre-1",
+    "stage": "pre",
+    "question": "What is the difference between energy and power?",
+    "options": [
+      "They are the same thing",
+      "Energy is an amount; power is how fast energy is delivered or used",
+      "Power is an amount; energy is how fast it is used",
+      "Energy is for batteries and power is for wall sockets"
+    ],
+    "correct": 1,
+    "explanation": "Energy is like the fuel in the tank; power is how fast the engine burns it."
+  },
+  {
+    "id": "00-06-pre-2",
+    "stage": "pre",
+    "question": "What is the unit of power?",
+    "options": [
+      "The volt",
+      "The ampere",
+      "The watt",
+      "The coulomb"
+    ],
+    "correct": 2,
+    "explanation": "Power is measured in watts (W), named after James Watt."
+  },
+  {
+    "id": "00-06-post-1",
+    "stage": "post",
+    "question": "A 12 volt lamp draws 2 amps. What is its power?",
+    "options": [
+      "24 watts",
+      "6 watts",
+      "14 watts",
+      "10 watts"
+    ],
+    "correct": 0,
+    "explanation": "Watts are volts multiplied by amps: 12 x 2 = 24 watts."
+  },
+  {
+    "id": "00-06-post-2",
+    "stage": "post",
+    "question": "The push (voltage) stays the same and the current doubles. What happens to the power?",
+    "options": [
+      "It halves",
+      "It stays the same",
+      "It becomes four times bigger",
+      "It doubles"
+    ],
+    "correct": 3,
+    "explanation": "Power is volts times amps, so doubling either one doubles the power."
+  },
+  {
+    "id": "00-06-post-3",
+    "stage": "post",
+    "question": "What does your electricity bill count in kilowatt-hours?",
+    "options": [
+      "Energy: power kept up over time",
+      "The highest power you ever used",
+      "The voltage of your wall socket",
+      "The number of electrons delivered"
+    ],
+    "correct": 0,
+    "explanation": "A kilowatt-hour is an amount of energy: a thousand watts kept up for one hour. You pay for energy, not for power."
+  },
+  {
+    "id": "00-06-post-4",
+    "stage": "post",
+    "question": "Where does almost all the energy delivered to a computer end up?",
+    "options": [
+      "Stored inside the chips forever",
+      "Back in the wall socket",
+      "As heat",
+      "It disappears"
+    ],
+    "correct": 2,
+    "explanation": "Energy never disappears; it changes form. A computer turns essentially all the energy it takes into heat, which is why it has a fan."
+  },
+  {
+    "id": "00-06-post-5",
+    "stage": "post",
+    "question": "Two lamps on the same battery: one glows brightly, one dimly. What property of the lamps decides how much current each draws?",
+    "options": [
+      "Their colour",
+      "Their resistance: how hard they make it for current to get through",
+      "Their weight",
+      "How far they are from the battery"
+    ],
+    "correct": 1,
+    "explanation": "For the same push, more resistance means less current and less power. Phase 03 (Resistance and Ohm's Law) studies it properly."
+  }
+]

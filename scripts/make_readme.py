@@ -104,7 +104,7 @@ Then open http://localhost:8000. `uv run python -m sim.lab phases/03-resistance-
 git clone https://github.com/Fer14/electronics-from-scratch.git
 cd electronics-from-scratch
 uv sync
-uv run python phases/00-words-and-units/01-what-electronics-is/code/main.py
+uv run python phases/00-meet-electricity/01-what-electronics-is/code/main.py
 ```
 
 No uv? `python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt` works too.

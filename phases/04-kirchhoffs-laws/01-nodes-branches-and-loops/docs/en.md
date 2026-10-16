@@ -180,7 +180,7 @@ Can you see three windows? Top triangle (R1, R5, R2), bottom triangle (R3, R5, R
 
 ### Choosing ground
 
-Voltage is always a *difference* between two points (Phase 01, Lesson 04). To give each node a single number, we pick one node, call it ground, and say it is 0 V. Every other node's voltage is then "how many volts above ground".
+Voltage is always a *difference* between two points (Phase 01, Lesson 06). To give each node a single number, we pick one node, call it ground, and say it is 0 V. Every other node's voltage is then "how many volts above ground".
 
 Worked example: a 9 V battery between vcc and gnd, with R1 = 1 kΩ and R2 = 2 kΩ in series. The current is 9 V / 3000 Ω = 3 mA, so R2 has 3 mA × 2000 Ω = 6 V across it.
 

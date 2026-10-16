@@ -3,7 +3,7 @@
 > The schematic is the contract between the idea and the board. Every wire on it must have a reason, and every reason must survive a simulation.
 
 **Type:** Build
-**Prerequisites:** Phase 22 (Capstone), Lessons 01-02; Phase 00 (Words and Units), Lesson 05 (Reading a Schematic); Phase 05 (Circuit Analysis and Our Simulator); Phase 12 (Transistors), Lesson 03 (The BJT as a Switch); Phase 17 (Microcontrollers), Lessons 02 (GPIO) and 04 (ADC and DAC)
+**Prerequisites:** Phase 22 (Capstone), Lessons 01-02; Phase 00 (Meet Electricity), Lesson 07 (Your First Schematic); Phase 05 (Circuit Analysis and Our Simulator); Phase 12 (Transistors), Lesson 03 (The BJT as a Switch); Phase 17 (Microcontrollers), Lessons 02 (GPIO) and 04 (ADC and DAC)
 **Time:** ~75 minutes
 
 ## Words You'll Meet

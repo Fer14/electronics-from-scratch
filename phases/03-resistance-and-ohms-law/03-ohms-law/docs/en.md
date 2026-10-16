@@ -44,7 +44,7 @@ In Lesson 01 you defined resistance as R = V / I. That is a *definition*: any ob
 
 Let us take a uniform piece of material: a wire of length *L* (meters) and cross-sectional area *A* (square meters). We connect a voltage *V* across its ends. Here is the chain of cause and effect, using only ideas from Lessons 01 and 02 and from Phase 01.
 
-**1. The voltage creates a field.** The voltage is spread evenly along the wire. The electric field E (Phase 01, Lesson 03) is the voltage per meter:
+**1. The voltage creates a field.** The voltage is spread evenly along the wire. The electric field E (Phase 01, Lesson 05) is the voltage per meter:
 
 ```
 E = V / L          (volts per meter)

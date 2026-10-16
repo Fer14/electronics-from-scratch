@@ -1,16 +1,30 @@
 {
  "phases": [
   {
+   "number": "00",
+   "slug": "00-meet-electricity",
+   "title": "Meet Electricity",
+   "tasks": [
+    {
+     "id": "00-02-close-the-loop",
+     "title": "Close the loop",
+     "kind": "dc",
+     "lesson": "02-what-a-circuit-is",
+     "source": "phases/00-meet-electricity/02-what-a-circuit-is/lab/task.json"
+    }
+   ]
+  },
+  {
    "number": "01",
    "slug": "01-the-physics-underneath",
    "title": "The Physics Underneath",
    "tasks": [
     {
-     "id": "01-07-lantern-bulb",
+     "id": "01-09-lantern-bulb",
      "title": "Pick the lantern bulb",
      "kind": "dc",
-     "lesson": "07-energy-and-power",
-     "source": "phases/01-the-physics-underneath/07-energy-and-power/lab/task.json"
+     "lesson": "09-energy-and-power",
+     "source": "phases/01-the-physics-underneath/09-energy-and-power/lab/task.json"
     }
    ]
   },

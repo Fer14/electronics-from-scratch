@@ -4,7 +4,7 @@ import { el, text, H, drawTwoTerminal, drawBJT, drawMOS, drawOpAmp, drawGate, ga
 import { place, eng } from "../sim/lab.js";
 
 export const GRID = 72;
-const MARGIN = 56;
+export const MARGIN = 56;
 
 export function partValue(p) {
   switch (p.type) {
@@ -82,6 +82,7 @@ export class Board {
     const fixed = [...(this.task.board.fixed || [])];
     fixed.sort((p, q) => SOURCE_TYPES.has(p.type) - SOURCE_TYPES.has(q.type));
     this.segments = [];
+    this.geo = [];
     this.labelBoxes = [];
     this.loops = 0;
     for (const comp of fixed) items.push({ comp, slot: null });
@@ -199,6 +200,7 @@ export class Board {
     const g = el("g", { transform: `translate(${center[0]},${center[1]}) rotate(${upright})`, class: "part" }, this.layers.parts);
     const id = slot ? slot.id : comp.id;
     this.partGroups[id] = g;
+    this.geo.push({ shape: "two", id, comp, slot, ends: [a, b], pts, leg, center, dir });
     if (!comp) {
       this.drawEmptySlot(g, slot, chip ? 44 : 26);
     } else {
@@ -278,6 +280,8 @@ export class Board {
     this.wire(this.route(M, pM, true), "wire", src[mid] ?? src.b);
     this.wire(this.route(pB, B, false), "wire", src[bot] ?? src.c);
     const id = slot ? slot.id : comp.id;
+    this.geo.push({ shape: "three", id, comp, slot, center: [cx + (mirror ? 18 : 2), cy], legs: [src[top] ?? src.a, src[mid] ?? src.b, src[bot] ?? src.c], pins: [pT, pM, pB],
+      wires: [this.route(T, pT, false), this.route(M, pM, true), this.route(pB, B, false)] });
     if (!comp) {
       this.drawEmptySlot(g, slot, 24);
     } else {
@@ -312,6 +316,8 @@ export class Board {
     this.wire(elbow(bNode, botPin), "wire", topSign === "plus" ? src.minus : src.plus);
     this.wire([outPin, O], "wire", src.out);
     const id = slot ? slot.id : comp.id;
+    this.geo.push({ shape: "opamp", id, comp, slot, center: [cx, cy], pins: [topPin, botPin, outPin],
+      wires: [elbow(tNode, topPin), elbow(bNode, botPin), [outPin, O]] });
     if (!comp) this.drawEmptySlot(g, slot, 30);
     else { if (slot) { g.classList.add("filled"); this.makeSlotTarget(g, slot, 40, true); } drawOpAmp(g, topSign); }
     const label = el("g", {}, this.layers.labels);

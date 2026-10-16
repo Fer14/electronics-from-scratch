@@ -42,9 +42,9 @@ The most common reason hobby projects disappoint is not a wrong resistor. It is 
 
 ### Light and the photoresistor
 
-Illuminance is measured in **lux**: the amount of visible light falling on a square metre. Some reference points: direct summer sun about 50,000-100,000 lux, an office about 300-500 lux, a living room in the evening about 50-150 lux, dusk about 10-20 lux, a dark room lit by a distant street light a few lux, full moonlight about 0.1-0.3 lux. The range covers six orders of magnitude, so we think about light on a logarithmic scale (Phase 00, Lesson 04).
+Illuminance is measured in **lux**: the amount of visible light falling on a square metre. Some reference points: direct summer sun about 50,000-100,000 lux, an office about 300-500 lux, a living room in the evening about 50-150 lux, dusk about 10-20 lux, a dark room lit by a distant street light a few lux, full moonlight about 0.1-0.3 lux. The range covers six orders of magnitude, so we think about light on a logarithmic scale (Phase 01, Lesson 02).
 
-A **photoresistor** (LDR, light-dependent resistor) is a film of cadmium sulphide whose free charge carriers increase with light: photons with enough energy knock electrons into the conduction band (Phase 01, Lesson 05). More carriers, lower resistance. A typical LDR follows a power law; the model we used in Phase 17, Lesson 07 (and keep here) is
+A **photoresistor** (LDR, light-dependent resistor) is a film of cadmium sulphide whose free charge carriers increase with light: photons with enough energy knock electrons into the conduction band (Phase 01, Lesson 07). More carriers, lower resistance. A typical LDR follows a power law; the model we used in Phase 17, Lesson 07 (and keep here) is
 
 ```
 R_LDR = 10 kΩ * (lux / 10) ^ (-0.7)

@@ -3,7 +3,7 @@
 > With only two symbols you can still count to anything: you just need more columns.
 
 **Type:** Learn
-**Prerequisites:** Phase 00 (Words and Units), Lesson 04 (Scientific Notation and Orders of Magnitude), Phase 14 (Digital Logic), Lesson 01 (Analog vs Digital)
+**Prerequisites:** Phase 01 (The Physics Underneath), Lesson 02 (Scientific Notation and Orders of Magnitude), Phase 14 (Digital Logic), Lesson 01 (Analog vs Digital)
 **Time:** ~70 minutes
 
 ## Words You'll Meet
@@ -52,7 +52,7 @@ Look at the number 352. You learned at school that it means "three hundreds, fiv
 352 = 3 x 100 + 5 x 10 + 2 x 1
 ```
 
-Notice the column values: 1, 10, 100, 1000... each column is worth **ten times** the one to its right. That is because we have ten symbols (0 to 9). When a column passes 9, it wraps back to 0 and adds 1 to the next column: 9 + 1 = 10. Using powers (Phase 00, Lesson 04), the column values are 10^0, 10^1, 10^2, and so on.
+Notice the column values: 1, 10, 100, 1000... each column is worth **ten times** the one to its right. That is because we have ten symbols (0 to 9). When a column passes 9, it wraps back to 0 and adds 1 to the next column: 9 + 1 = 10. Using powers (Phase 01, Lesson 02), the column values are 10^0, 10^1, 10^2, and so on.
 
 ### Place value in binary
 

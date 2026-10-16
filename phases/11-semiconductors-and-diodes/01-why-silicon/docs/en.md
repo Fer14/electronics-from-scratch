@@ -3,7 +3,7 @@
 > An electron can only sit on certain shelves. In a metal the top shelf is half empty, so electrons move freely. In glass the next shelf is far out of reach. In silicon it is just out of reach, and that "just" is the whole electronics industry.
 
 **Type:** Learn
-**Prerequisites:** Phase 01 (The Physics Underneath), especially 01-atoms-and-electrons and 05-conductors-insulators-and-semiconductors; Phase 03 (Resistance and Ohm's Law), lesson 02-resistivity-and-wires
+**Prerequisites:** Phase 01 (The Physics Underneath), especially 03-atoms-and-electrons and 07-conductors-insulators-and-semiconductors; Phase 03 (Resistance and Ohm's Law), lesson 02-resistivity-and-wires
 **Time:** ~60 minutes
 
 ## Words You'll Meet

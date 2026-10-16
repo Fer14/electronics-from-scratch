@@ -3,7 +3,7 @@
 > In AC, volts times amps is not always watts. Part of the current just carries energy back and forth, heating the wires and doing no work, and the power factor tells you how big that part is.
 
 **Type:** Build
-**Prerequisites:** Phase 01 (The Physics Underneath), Lesson 07 (Energy and Power); Phase 09, Lessons 03 (RMS Values), 05 (Phasors) and 06 (Impedance)
+**Prerequisites:** Phase 01 (The Physics Underneath), Lesson 09 (Energy and Power); Phase 09, Lessons 03 (RMS Values), 05 (Phasors) and 06 (Impedance)
 **Time:** ~70 minutes
 
 ## Words You'll Meet
@@ -38,7 +38,7 @@ This matters for money and for heat. The electricity meter at home bills real en
 
 ### Power at every instant
 
-From Phase 01, Lesson 07: power is voltage times current. In AC both change all the time, so the power at each instant is
+From Phase 01, Lesson 09: power is voltage times current. In AC both change all the time, so the power at each instant is
 
 ```
 p(t) = v(t) x i(t)        (read: "the power at time t is the voltage at time t times the current at time t")

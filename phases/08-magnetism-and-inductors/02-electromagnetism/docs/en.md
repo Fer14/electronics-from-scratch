@@ -64,7 +64,7 @@ To find which way the rings circle:
 
 > Grip the wire with your right hand, thumb pointing in the direction of the (conventional) current. Your fingers curl in the direction of the field.
 
-Remember that conventional current flows from + to - outside the source (Phase 01, Lesson 06); electrons drift the opposite way, but all the rules here use conventional current.
+Remember that conventional current flows from + to - outside the source (Phase 01, Lesson 08); electrons drift the opposite way, but all the rules here use conventional current.
 
 ### Coils and solenoids
 

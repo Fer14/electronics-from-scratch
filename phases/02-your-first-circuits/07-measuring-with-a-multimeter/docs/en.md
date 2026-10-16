@@ -4,7 +4,7 @@
 
 **Type:** Build
 **Languages:** Python
-**Prerequisites:** Phase 00 (Words and Units), Lessons 03 (Units and SI Prefixes) and 06 (Safety First); Phase 02 (Your First Circuits), Lessons 01-06
+**Prerequisites:** Phase 00 (Meet Electricity), Lesson 08 (Safety First); Phase 01 (The Physics Underneath), Lesson 01 (Units and Prefixes); Phase 02 (Your First Circuits), Lessons 01-06
 **Time:** ~60 minutes
 
 ## Words You'll Meet
@@ -50,9 +50,9 @@ A needle meter responds to the **current** passing through its coil, and every o
 
 ### What each measurement physically means
 
-**Voltage** is a *difference* in electric potential between two points (Phase 01, Lesson 04): how much energy each coulomb gains or loses going from one point to the other. You cannot measure the voltage "of" a single point any more than you can measure the height of a single shelf without saying "above what". So a voltmeter always has two probes, and it reports the potential of the red probe minus the potential of the black probe.
+**Voltage** is a *difference* in electric potential between two points (Phase 01, Lesson 06): how much energy each coulomb gains or loses going from one point to the other. You cannot measure the voltage "of" a single point any more than you can measure the height of a single shelf without saying "above what". So a voltmeter always has two probes, and it reports the potential of the red probe minus the potential of the black probe.
 
-**Current** is how much charge passes a point each second (Phase 01, Lesson 06). To count charge, it has to go *through* the meter. So the meter must become part of the loop: you open the loop and let the meter close it again.
+**Current** is how much charge passes a point each second (Phase 01, Lesson 08). To count charge, it has to go *through* the meter. So the meter must become part of the loop: you open the loop and let the meter close it again.
 
 **Resistance** is how much a part opposes current (we meet it properly in Phase 03, Lesson 01). A meter cannot see resistance directly. Instead, it pushes a small, known current through the part from its own battery and measures the voltage that appears across it. A part that needs a big voltage to pass the small current has a big resistance. (This uses V = I x R, the preview of Ohm's law we have been borrowing; you will earn it in Phase 03.)
 
@@ -344,7 +344,7 @@ Check section 5's powered case: the battery puts 6 V on R2; the meter adds 0.1 m
 
 - **Is my battery flat?** DC volts across its terminals. A fresh alkaline AA reads about 1.5-1.6 V; below about 1.1 V it is nearly done. A 9 V battery reads about 9.5 V new. Measured with no load, a weak battery can still look fine, which is why battery testers put a resistor across it while they measure (the reason is internal resistance, Phase 06, Lesson 02).
 - **Why doesn't my LED light?** Volts across the LED: about 1.8-2 V for a red LED that is conducting. 0 V means no current is reaching it (open loop, or the LED shorted out by the breadboard). Full battery voltage means the LED is in backwards or the loop is open on its far side.
-- **How much current does my circuit draw?** Break the loop at the battery's plus wire and put the meter in series. Useful for estimating battery life (Phase 00, Lesson 03: hours = mAh / mA).
+- **How much current does my circuit draw?** Break the loop at the battery's plus wire and put the meter in series. Useful for estimating battery life (Phase 01, Lesson 01: hours = mAh / mA).
 - **Which wire is which?** Continuity beep from one end of a cable to the other end.
 - **Real numbers to expect.** A typical handheld meter: 10 MΩ input on volts, 2000 to 6000 counts, DC volts accuracy around ±0.5 %, mA jack fused at 200-500 mA, 10 A jack fused at 10 A with a high-energy fuse. Meters carry a safety category rating (CAT II, CAT III...) that says what kind of mains circuits they survive; in this course we stay at 12 V DC, where any meter is safe.
 

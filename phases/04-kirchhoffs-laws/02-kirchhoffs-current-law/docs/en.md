@@ -4,7 +4,7 @@
 
 **Type:** Build
 **Languages:** Python
-**Prerequisites:** Phase 01 (The Physics Underneath), especially Lesson 06 (Current as Moving Charge); Phase 03 (Resistance and Ohm's Law), especially Lesson 03 (Ohm's Law); Phase 04 Lesson 01 (Nodes, Branches and Loops)
+**Prerequisites:** Phase 01 (The Physics Underneath), especially Lesson 08 (Current as Moving Charge); Phase 03 (Resistance and Ohm's Law), especially Lesson 03 (Ohm's Law); Phase 04 Lesson 01 (Nodes, Branches and Loops)
 **Time:** ~60 minutes
 
 ## Words You'll Meet
@@ -38,7 +38,7 @@ And there is a practical side. When a fuse blows or a wire gets hot, someone has
 
 ## The Physics
 
-Recall from Phase 01 (Lesson 06) that current is moving charge: one ampere (A) means one coulomb (C) of charge passing a point every second. Written as a sentence: current equals charge moved divided by time taken.
+Recall from Phase 01 (Lesson 08) that current is moving charge: one ampere (A) means one coulomb (C) of charge passing a point every second. Written as a sentence: current equals charge moved divided by time taken.
 
 ```
 I = Q / t        I in amperes, Q in coulombs, t in seconds
@@ -46,7 +46,7 @@ I = Q / t        I in amperes, Q in coulombs, t in seconds
 
 Now look at one node, say a junction of three wires. Suppose 5 mA (5 thousandths of an ampere) flows in through one wire and only 3 mA flows out through the other two. Every second, 0.005 C arrives and 0.003 C leaves. So 0.002 C of extra charge would collect at the junction every second.
 
-What happens to a place where charge collects? From Phase 01 (Lesson 02 and Lesson 04) you know that like charges repel and that piling charge on an object raises its voltage. How much voltage per coulomb depends on how much charge the object can "hold" for each volt, a quantity called capacitance (you will study it in Phase 07). For now the only fact you need: a little blob of metal like a circuit node can hold about 10 picofarads, meaning it only takes 10 × 10⁻¹² coulombs to raise its voltage by 1 V. That is a tiny amount of charge.
+What happens to a place where charge collects? From Phase 01 (Lesson 04 and Lesson 06) you know that like charges repel and that piling charge on an object raises its voltage. How much voltage per coulomb depends on how much charge the object can "hold" for each volt, a quantity called capacitance (you will study it in Phase 07). For now the only fact you need: a little blob of metal like a circuit node can hold about 10 picofarads, meaning it only takes 10 × 10⁻¹² coulombs to raise its voltage by 1 V. That is a tiny amount of charge.
 
 So imagine a mismatch of just 1 mA flowing into such a node:
 

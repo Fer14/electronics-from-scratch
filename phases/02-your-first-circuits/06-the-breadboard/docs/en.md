@@ -4,7 +4,7 @@
 
 **Type:** Build
 **Languages:** Python
-**Prerequisites:** Phase 00 (Words and Units), Lesson 05 (Reading a Schematic); Phase 02 (Your First Circuits), Lessons 01-04
+**Prerequisites:** Phase 00 (Meet Electricity), Lesson 07 (Your First Schematic); Phase 02 (Your First Circuits), Lessons 01-04
 **Time:** ~60 minutes
 
 ## Words You'll Meet
@@ -91,13 +91,13 @@ The spacing between holes is 2.54 mm (0.1 inch), and the gap is 7.62 mm (0.3 inc
 
 ### Limits of the board
 
-A breadboard is for low-power experiments. The clips are rated around 1 A and up to a few tens of volts, which is far more than we need (this course stays at 12 V DC or less, Phase 00, Lesson 06). Neighbouring strips sit very close, so there is a little capacitance between them (a few picofarads; capacitance is Phase 07). That does not matter for slow circuits but makes breadboards poor for radio frequencies. Clips also wear out: if you force thick leads in, they stretch and stop gripping thin ones.
+A breadboard is for low-power experiments. The clips are rated around 1 A and up to a few tens of volts, which is far more than we need (this course stays at 12 V DC or less, Phase 00, Lesson 08). Neighbouring strips sit very close, so there is a little capacitance between them (a few picofarads; capacitance is Phase 07). That does not matter for slow circuits but makes breadboards poor for radio frequencies. Clips also wear out: if you force thick leads in, they stretch and stop gripping thin ones.
 
 ## The Concept
 
 ### Think in nets, not holes
 
-In Phase 00, Lesson 05 you met a **node**: a point in a schematic where parts connect. On a breadboard a node becomes a **net**: the set of all holes that are joined, through strips and jumper wires. Building a circuit is just this:
+In Phase 00, Lesson 07 you met a **node**: a point in a schematic where parts connect. On a breadboard a node becomes a **net**: the set of all holes that are joined, through strips and jumper wires. Building a circuit is just this:
 
 > For every node in the schematic, choose one net on the board, and put every lead that touches that node into that net.
 
@@ -357,7 +357,7 @@ Try your own: put the jumper in b12 instead of a13 and predict what the program 
 - **Colour discipline.** Use red jumpers for the positive supply, black or blue for ground, and other colours for signals. It costs nothing and halves debugging time.
 - **Ready-made jumpers and resistor legs.** Trim component leads so parts sit flat; long legs touching each other create accidental connections that no schematic shows.
 - **Chips across the gap.** Every DIP chip, from the classic 555 timer to an 8-bit microcontroller like the ATmega328P (the chip on an Arduino Uno), is designed to sit across the centre gap.
-- **Software that thinks like our script.** Circuit drawing programs (KiCad, Fritzing) and every circuit simulator do exactly what union-find does: they reduce a picture of wires into a list of nets. That list is called a **netlist**, and you met a tiny one in Phase 00, Lesson 05. Our simulator in Phase 05 starts from a netlist too.
+- **Software that thinks like our script.** Circuit drawing programs (KiCad, Fritzing) and every circuit simulator do exactly what union-find does: they reduce a picture of wires into a list of nets. That list is called a **netlist**, and you met a tiny one in Phase 00, Lesson 07. Our simulator in Phase 05 starts from a netlist too.
 
 ## Try It in the Lab
 

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "01-09-pre-1",
+    "stage": "pre",
+    "question": "What is the difference between energy and power?",
+    "options": [
+      "They are two names for the same thing",
+      "Power is an amount, energy is a rate",
+      "Energy is an amount (joules); power is how fast it is delivered (joules per second, watts)",
+      "Energy is only for batteries, power is only for wall sockets"
+    ],
+    "correct": 2,
+    "explanation": "Energy is like the money in an account; power is how fast you spend it. P = E / t, and 1 W = 1 J/s."
+  },
+  {
+    "id": "01-09-pre-2",
+    "stage": "pre",
+    "question": "A charger is labelled 5 V and 2 A. What power can it deliver?",
+    "options": [
+      "10 W",
+      "2.5 W",
+      "7 W",
+      "0.4 W"
+    ],
+    "correct": 0,
+    "explanation": "P = V x I = 5 x 2 = 10 W."
+  },
+  {
+    "id": "01-09-pre-3",
+    "stage": "pre",
+    "question": "Where does most of the energy used by an old-style incandescent bulb end up?",
+    "options": [
+      "As visible light",
+      "Back in the power station",
+      "As extra electrons in the filament",
+      "As heat"
+    ],
+    "correct": 3,
+    "explanation": "Only about 2 percent becomes visible light. The remaining 98 percent heats the filament and the room: it is really a heater that glows."
+  },
+  {
+    "id": "01-09-post-1",
+    "stage": "post",
+    "question": "Why is volts times amperes equal to watts?",
+    "options": [
+      "Because watts were defined that way by James Watt",
+      "Because (joules per coulomb) x (coulombs per second) = joules per second",
+      "Because volts and amperes are both measured in watts",
+      "It is only true for resistors"
+    ],
+    "correct": 1,
+    "explanation": "A volt is a joule per coulomb, an ampere is a coulomb per second. The coulombs cancel, leaving joules per second, which is the watt. This holds for any part."
+  },
+  {
+    "id": "01-09-post-2",
+    "stage": "post",
+    "question": "A 10 W router runs 24 hours a day for 30 days. How much energy does it use?",
+    "options": [
+      "300 kWh",
+      "0.72 kWh",
+      "7.2 kWh",
+      "7200 kWh"
+    ],
+    "correct": 2,
+    "explanation": "10 W x 24 h x 30 = 7200 Wh = 7.2 kWh. Keep watts with hours to get watt-hours, then divide by 1000."
+  },
+  {
+    "id": "01-09-post-3",
+    "stage": "post",
+    "question": "A phone battery is 3.85 V and 4500 mAh. About how much energy does it store?",
+    "options": [
+      "4500 J",
+      "1.17 Wh",
+      "17 325 Wh",
+      "17.3 Wh"
+    ],
+    "correct": 3,
+    "explanation": "E = V x capacity = 3.85 V x 4.5 Ah = 17.3 Wh (about 62 000 J). mAh alone is a charge, not an energy."
+  },
+  {
+    "id": "01-09-post-4",
+    "stage": "post",
+    "question": "A phone charger takes 12 W from the wall and is 85 percent efficient. How much power becomes heat in the charger?",
+    "options": [
+      "1.8 W",
+      "10.2 W",
+      "12 W",
+      "0.85 W"
+    ],
+    "correct": 0,
+    "explanation": "Useful output = 0.85 x 12 = 10.2 W. The rest, 12 - 10.2 = 1.8 W, warms the charger."
+  },
+  {
+    "id": "01-09-post-5",
+    "stage": "post",
+    "question": "A 9 V battery stores 4.5 Wh. Roughly how long can it run a circuit that draws 20 mA at 9 V?",
+    "options": [
+      "About 0.2 hours",
+      "About 25 hours",
+      "About 225 hours",
+      "About 2.5 hours"
+    ],
+    "correct": 1,
+    "explanation": "Power = 9 x 0.020 = 0.18 W. Time = 4.5 Wh / 0.18 W = 25 hours."
+  }
+]

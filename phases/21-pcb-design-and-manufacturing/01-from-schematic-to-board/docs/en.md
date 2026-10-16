@@ -3,7 +3,7 @@
 > A schematic says what is connected. A board says where, and "where" turns out to matter.
 
 **Type:** Learn
-**Prerequisites:** Phase 00 (Words and Units), Lesson 05 (Reading a Schematic); Phase 02 (Your First Circuits), Lesson 06 (The Breadboard); Phase 03 (Resistance and Ohm's Law), Lesson 02 (Resistivity and Wires); Phase 11 (Semiconductors and Diodes), Lesson 07 (LEDs)
+**Prerequisites:** Phase 00 (Meet Electricity), Lesson 07 (Your First Schematic); Phase 02 (Your First Circuits), Lesson 06 (The Breadboard); Phase 03 (Resistance and Ohm's Law), Lesson 02 (Resistivity and Wires); Phase 11 (Semiconductors and Diodes), Lesson 07 (LEDs)
 **Time:** ~60 minutes
 
 ## Words You'll Meet
@@ -98,7 +98,7 @@ Cut a simple two-layer board in half and look at the edge with a magnifying glas
 Every board, from a hobby LED blinker to a graphics card, goes through the same steps:
 
 ```
-  1. schematic        what connects to what (Phase 00, Lesson 05)
+  1. schematic        what connects to what (Phase 00, Lesson 07)
         |
   2. simulate         does it work? (our sim, Phases 05-19)
         |

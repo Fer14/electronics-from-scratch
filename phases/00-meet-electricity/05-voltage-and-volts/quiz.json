@@ -1,0 +1,106 @@
+[
+  {
+    "id": "00-05-pre-1",
+    "stage": "pre",
+    "question": "In plain words, what is voltage?",
+    "options": [
+      "How much charge flows each second",
+      "The electrical push between two points: how much energy each bit of charge gains or gives up",
+      "How thick a wire is",
+      "How long a battery lasts"
+    ],
+    "correct": 1,
+    "explanation": "Voltage is the push, measured as energy per bit of charge between two points. Charge flowing per second is current."
+  },
+  {
+    "id": "00-05-pre-2",
+    "stage": "pre",
+    "question": "A battery sits alone in a drawer. Which is true?",
+    "options": [
+      "It has no voltage, because nothing is connected",
+      "It has a current but no voltage",
+      "It has a voltage between its terminals, but no current flows, because there is no loop",
+      "It slowly loses all its electrons into the air"
+    ],
+    "correct": 2,
+    "explanation": "The push is there, between the two terminals, waiting. Current needs a closed loop."
+  },
+  {
+    "id": "00-05-post-1",
+    "stage": "post",
+    "question": "In the height picture of a flashlight, what does the lamp do?",
+    "options": [
+      "It is where the charge falls back down, giving up its energy as light and heat",
+      "It lifts the charge up to a higher level",
+      "It is a flat path where the height does not change",
+      "It stores charge for later"
+    ],
+    "correct": 0,
+    "explanation": "The battery lifts charge up like a ladder or a pump; the wires are flat paths; the lamp is the slide where the charge falls back down and hands over its energy."
+  },
+  {
+    "id": "00-05-post-2",
+    "stage": "post",
+    "question": "What is ground in a simple battery circuit?",
+    "options": [
+      "A wire that goes into the soil",
+      "The point where electricity disappears",
+      "The most dangerous point of the circuit",
+      "The point we agree to call zero volts, usually the battery's minus side, which is also the common return path"
+    ],
+    "correct": 3,
+    "explanation": "Like sea level for heights, ground is the agreed zero that every voltage is measured from. In battery gadgets nothing touches the Earth."
+  },
+  {
+    "id": "00-05-post-3",
+    "stage": "post",
+    "question": "You choose a different point of the circuit as ground. What changes?",
+    "options": [
+      "The voltage across the lamp changes",
+      "The labels of the voltages at each point shift, but the voltage across any part stays the same",
+      "The current doubles",
+      "Nothing at all, not even the labels"
+    ],
+    "correct": 1,
+    "explanation": "Ground is a choice of zero. Every 'voltage at a point' shifts by the same amount, so every difference, the voltage across each part, is unchanged."
+  },
+  {
+    "id": "00-05-post-4",
+    "stage": "post",
+    "question": "How is earth different from ground?",
+    "options": [
+      "They are always exactly the same thing",
+      "Earth is the plus side of a battery",
+      "Earth is a real safety wire in mains wiring that goes to a metal rod in the soil; ground is the agreed zero of a circuit",
+      "Earth is only used in cars"
+    ],
+    "correct": 2,
+    "explanation": "Earth is about safety in home wiring (Phases 06 and 21 return to it). Ground is the reference and common return of any circuit."
+  },
+  {
+    "id": "00-05-post-5",
+    "stage": "post",
+    "question": "A switch in a loop is open. What is across its gap?",
+    "options": [
+      "The whole push of the battery, although no current flows",
+      "Nothing, because no current flows",
+      "Half the battery's voltage",
+      "A short circuit"
+    ],
+    "correct": 0,
+    "explanation": "With no current, the lamp takes no push, so the battery's whole voltage appears across the gap. That is why switches in mains circuits are dangerous inside even when off."
+  },
+  {
+    "id": "00-05-post-6",
+    "stage": "post",
+    "question": "Which of these is dangerous to touch?",
+    "options": [
+      "An AA cell",
+      "A USB port",
+      "A wall socket",
+      "A square 9 V battery"
+    ],
+    "correct": 2,
+    "explanation": "A wall socket's push (230 volts in Europe, 120 in North America) can drive a deadly current through the body. Small batteries are safe to touch, though you must never short them."
+  }
+]

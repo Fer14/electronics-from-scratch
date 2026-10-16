@@ -70,7 +70,7 @@ more voltage -> more current -> more heat -> hotter filament
 
 ### Failure 2: materials where heat creates carriers
 
-In carbon, in many metal oxides and in semiconductors (Phase 01, Lesson 05), there are few free electrons at room temperature. Heat shakes some loose, so *more* carriers can move and the resistance *falls* when warm. A **thermistor** is a part built to exaggerate this so you can measure temperature. Each thermistor has a constant resistance at a fixed temperature (it is ohmic at that temperature), but its resistance moves a lot when the temperature changes, including when it heats itself.
+In carbon, in many metal oxides and in semiconductors (Phase 01, Lesson 07), there are few free electrons at room temperature. Heat shakes some loose, so *more* carriers can move and the resistance *falls* when warm. A **thermistor** is a part built to exaggerate this so you can measure temperature. Each thermistor has a constant resistance at a fixed temperature (it is ohmic at that temperature), but its resistance moves a lot when the temperature changes, including when it heats itself.
 
 ### Failure 3: the material itself is nonlinear
 

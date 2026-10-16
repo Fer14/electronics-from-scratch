@@ -3,7 +3,7 @@
 > Resistance belongs to an object; resistivity belongs to a material. Shape does the rest: longer means more, thicker means less.
 
 **Type:** Build
-**Prerequisites:** Phase 03 (Resistance and Ohm's Law), Lesson 01 (What Resistance Is); Phase 00 (Words and Units), Lesson 04 (Scientific Notation and Orders of Magnitude)
+**Prerequisites:** Phase 03 (Resistance and Ohm's Law), Lesson 01 (What Resistance Is); Phase 01 (The Physics Underneath), Lesson 02 (Scientific Notation and Orders of Magnitude)
 **Time:** ~60 minutes
 
 ## Words You'll Meet

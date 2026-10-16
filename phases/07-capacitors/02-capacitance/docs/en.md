@@ -40,7 +40,7 @@ You need to know what sets capacitance so you can choose parts, read datasheets,
 
 ### Why more charge needs more voltage
 
-Put +Q on one plate and -Q on the other. The charges create an **electric field** (Phase 01 Lesson 03) in the gap: an invisible push on any charge placed there. To bring one more electron onto the negative plate you must push it against that field. The work per coulomb is the voltage between the plates.
+Put +Q on one plate and -Q on the other. The charges create an **electric field** (Phase 01 Lesson 05) in the gap: an invisible push on any charge placed there. To bring one more electron onto the negative plate you must push it against that field. The work per coulomb is the voltage between the plates.
 
 Double the charge on each plate and the field in the gap doubles; the work per coulomb doubles; the voltage doubles. That is why Q and V are proportional, and their ratio is a fixed property of the geometry and the material:
 

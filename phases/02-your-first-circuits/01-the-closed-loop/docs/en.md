@@ -3,7 +3,7 @@
 > Current only flows around a complete ring. Break the ring anywhere, and it stops everywhere.
 
 **Type:** Build
-**Prerequisites:** Phase 00 (Words and Units), Phase 01 (The Physics Underneath), especially Lesson 04 (Energy, Potential and Voltage) and Lesson 06 (Current as Moving Charge)
+**Prerequisites:** Phase 00 (Meet Electricity), Phase 01 (The Physics Underneath), especially Lesson 06 (Energy, Potential and Voltage) and Lesson 08 (Current as Moving Charge)
 **Time:** ~60 minutes
 
 ## Words You'll Meet
@@ -42,13 +42,13 @@ This sounds obvious once you hear it, but it is the most common thing beginners 
 
 ### What the battery does
 
-From Phase 01, Lesson 04 you know that a **voltage** is a difference in "electrical height" between two points, measured in **volts (V)**. One volt means each coulomb of charge gains or loses one joule of energy moving between the two points (1 V = 1 J/C). A battery keeps one terminal, marked **+**, at a higher electrical potential than the other, marked **-**. A pair of AA cells in a flashlight keeps its + end about 3 V above its - end.
+From Phase 01, Lesson 06 you know that a **voltage** is a difference in "electrical height" between two points, measured in **volts (V)**. One volt means each coulomb of charge gains or loses one joule of energy moving between the two points (1 V = 1 J/C). A battery keeps one terminal, marked **+**, at a higher electrical potential than the other, marked **-**. A pair of AA cells in a flashlight keeps its + end about 3 V above its - end.
 
 The battery does this with chemistry (how, exactly, is Phase 06, Lesson 03). For now, picture it as a **pump** that lifts charge from the low side to the high side, inside itself. It can only keep doing that if charge keeps arriving at its low side to be lifted. That is the heart of the whole lesson: **a pump with nothing coming back to its inlet stops pumping.**
 
 ### What happens when you connect only one wire
 
-Suppose you touch one wire from the battery's + end to the bulb, and leave the other bulb contact hanging in the air. A tiny amount of charge does move for a very short moment: the wire and the bulb get "charged up" to the battery's potential. But this takes a few billionths of a second and involves a minuscule amount of charge. After that, the extra charge at the dead end pushes back against any more charge arriving (like charges repel, Phase 01, Lesson 02). The flow stops. The bulb never notices.
+Suppose you touch one wire from the battery's + end to the bulb, and leave the other bulb contact hanging in the air. A tiny amount of charge does move for a very short moment: the wire and the bulb get "charged up" to the battery's potential. But this takes a few billionths of a second and involves a minuscule amount of charge. After that, the extra charge at the dead end pushes back against any more charge arriving (like charges repel, Phase 01, Lesson 04). The flow stops. The bulb never notices.
 
 ```
       +-------+          wire          +------+
@@ -62,9 +62,9 @@ Suppose you touch one wire from the battery's + end to the bulb, and leave the o
 
 ### What happens when the loop closes
 
-Now connect the second bulb contact back to the battery's - end. The moment the last connection touches, the battery's push is felt all the way around the ring. An **electric field** (Phase 01, Lesson 03) sets up along the wires and through the filament in a tiny fraction of a microsecond, travelling close to the speed of light. Every free electron in the copper and in the filament feels that field and starts to drift. They all start moving at almost the same moment, everywhere in the loop.
+Now connect the second bulb contact back to the battery's - end. The moment the last connection touches, the battery's push is felt all the way around the ring. An **electric field** (Phase 01, Lesson 05) sets up along the wires and through the filament in a tiny fraction of a microsecond, travelling close to the speed of light. Every free electron in the copper and in the filament feels that field and starts to drift. They all start moving at almost the same moment, everywhere in the loop.
 
-This is why the bulb lights "instantly" even though each individual electron drifts incredibly slowly. In a typical flashlight wire with 0.3 A flowing, the electrons creep along at about 0.04 millimetres per second (Phase 01, Lesson 06 showed how to calculate this). An electron leaving the battery would take hours to reach the bulb. It does not need to. The wires are already full of free electrons, like a garden hose that is already full of water: open the tap and water comes out of the far end immediately, even though the water entering the hose takes a while to get there.
+This is why the bulb lights "instantly" even though each individual electron drifts incredibly slowly. In a typical flashlight wire with 0.3 A flowing, the electrons creep along at about 0.04 millimetres per second (Phase 01, Lesson 08 showed how to calculate this). An electron leaving the battery would take hours to reach the bulb. It does not need to. The wires are already full of free electrons, like a garden hose that is already full of water: open the tap and water comes out of the far end immediately, even though the water entering the hose takes a while to get there.
 
 ### Conventional current and electron flow
 
@@ -90,7 +90,7 @@ That path is the **circuit**. The word comes from the Latin *circuitus*, "a goin
 
 ### The flashlight, traced
 
-Here is a simple flashlight drawn as a schematic (the drawing language from Phase 00, Lesson 05). The battery symbol has a long line for + and a short line for -. The circle with a cross is a bulb. The switch is drawn as a little lever.
+Here is a simple flashlight drawn as a schematic (the drawing language from Phase 00, Lesson 07). The battery symbol has a long line for + and a short line for -. The circle with a cross is a bulb. The switch is drawn as a little lever.
 
 ```
             spring           bulb tip
@@ -141,7 +141,7 @@ I = V / R = 3 V / 10 Ω = 0.3 A
 
 Read it aloud: "the current, I, in amperes, equals the voltage, V, in volts, divided by the resistance, R, in ohms."
 
-One ampere is one coulomb per second (Phase 01, Lesson 06). One electron carries 1.602 x 10^-19 coulombs. So the number of electrons passing any point each second is:
+One ampere is one coulomb per second (Phase 01, Lesson 08). One electron carries 1.602 x 10^-19 coulombs. So the number of electrons passing any point each second is:
 
 ```
 electrons per second = current / charge of one electron
@@ -161,7 +161,7 @@ charge = current x time = 0.3 A x 60 s = 18 C
 
 That is 18 / 1.602e-19 = 1.123e20 electrons, and **every single one of them** comes back into the battery's - terminal. The battery does not run out of electrons. What it runs out of is the chemical energy it uses to lift them.
 
-How much energy went to the bulb? From Phase 01, Lesson 07, power is voltage times current:
+How much energy went to the bulb? From Phase 01, Lesson 09, power is voltage times current:
 
 ```
 power  = V x I = 3 V x 0.3 A = 0.9 W   (0.9 joules every second)

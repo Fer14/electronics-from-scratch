@@ -3,7 +3,7 @@
 > Electrons do not flow through a wire like water through an empty pipe. They stumble through a forest of atoms, and resistance is the price of every bump.
 
 **Type:** Learn
-**Prerequisites:** Phase 01 (The Physics Underneath), especially Lesson 04 (Energy, Potential and Voltage) and Lesson 06 (Current as Moving Charge); Phase 02 (Your First Circuits)
+**Prerequisites:** Phase 01 (The Physics Underneath), especially Lesson 06 (Energy, Potential and Voltage) and Lesson 08 (Current as Moving Charge); Phase 02 (Your First Circuits)
 **Time:** ~60 minutes
 
 ## Words You'll Meet
@@ -53,7 +53,7 @@ What we did not answer is: **if the field pushes the electrons, why don't they g
 
 ### Inside a metal: a stadium full of people
 
-A piece of copper is made of copper atoms packed in a regular, repeating 3-D grid called a **lattice**. Think of a stadium where every seat is an atom. Each copper atom gives away one of its outer electrons to the whole metal. Those electrons are **free electrons**: they are not attached to any particular atom, they wander through the whole lattice. That is exactly why copper is a conductor (Phase 01, Lesson 05).
+A piece of copper is made of copper atoms packed in a regular, repeating 3-D grid called a **lattice**. Think of a stadium where every seat is an atom. Each copper atom gives away one of its outer electrons to the whole metal. Those electrons are **free electrons**: they are not attached to any particular atom, they wander through the whole lattice. That is exactly why copper is a conductor (Phase 01, Lesson 07).
 
 There are a lot of them. In copper there are about 8.5 × 10²⁸ free electrons in every cubic meter. Written out, that is 85 000 000 000 000 000 000 000 000 000 electrons per cubic meter. In a single cubic millimeter of copper there are 8.5 × 10¹⁹ of them.
 
@@ -168,7 +168,7 @@ The unit of resistance is the **ohm**, written with the Greek capital letter ome
 1 Ω = 1 V / 1 A
 ```
 
-The SI prefixes from Phase 00 (Lesson 03) apply:
+The SI prefixes from Phase 01 (Lesson 01) apply:
 
 | Written | Spoken | Value | Where you meet it |
 |---|---|---|---|
@@ -340,7 +340,7 @@ It prints about 5.99 × 10⁷ S/m against the measured 5.96 × 10⁷ S/m, and th
 - **Fuses** are a short, thin piece of metal chosen so that too much current heats it until it melts and opens the circuit.
 - **Strain gauges** in digital kitchen scales are thin metal patterns whose resistance rises slightly when they are stretched (longer and thinner path). You will meet them again in the Wheatstone bridge (Phase 04, Lesson 07).
 - **Thermistors and RTDs** are temperature sensors that work because collisions depend on temperature. A platinum RTD (Pt100) is exactly 100 Ω at 0 °C and rises by about 0.385 Ω per degree.
-- **Your body** has resistance too. Dry skin, hand to hand, is somewhere around 100 kΩ to 1 MΩ; wet skin can drop below 1 kΩ. That is why 9 V is harmless (9 V / 100 kΩ = 0.09 mA) but mains voltage on wet hands is deadly (Phase 00, Lesson 06).
+- **Your body** has resistance too. Dry skin, hand to hand, is somewhere around 100 kΩ to 1 MΩ; wet skin can drop below 1 kΩ. That is why 9 V is harmless (9 V / 100 kΩ = 0.09 mA) but mains voltage on wet hands is deadly (Phase 00, Lesson 08).
 
 ## Common Mistakes
 

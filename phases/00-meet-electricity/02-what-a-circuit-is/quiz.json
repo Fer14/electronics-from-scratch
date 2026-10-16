@@ -1,0 +1,93 @@
+[
+  {
+    "id": "00-02-pre-1",
+    "stage": "pre",
+    "question": "You touch one wire from a lamp to the plus end of a battery. Why does the lamp stay dark?",
+    "options": [
+      "The battery is too small",
+      "There is no way back to the battery: the path is not a closed loop",
+      "The lamp needs a few minutes to warm up",
+      "The wire is too long"
+    ],
+    "correct": 1,
+    "explanation": "Electricity only flows round a complete loop: out of the source, through the lamp and back to the source. One wire is only half a path."
+  },
+  {
+    "id": "00-02-pre-2",
+    "stage": "pre",
+    "question": "In a flashlight, which part is the load?",
+    "options": [
+      "The battery",
+      "The spring",
+      "The switch",
+      "The lamp"
+    ],
+    "correct": 3,
+    "explanation": "The load takes energy and turns it into something useful. The lamp turns it into light. The battery is the source."
+  },
+  {
+    "id": "00-02-post-1",
+    "stage": "post",
+    "question": "A loop has one gap in the bottom wire, far away from the lamp. What happens?",
+    "options": [
+      "Nothing flows anywhere in the loop, so the lamp is off",
+      "The lamp glows at half brightness",
+      "The lamp works, because the gap is far away",
+      "Only the top wire carries the flow"
+    ],
+    "correct": 0,
+    "explanation": "One gap anywhere makes an open circuit. The crowd of electrons cannot go round, so the flow stops everywhere at once."
+  },
+  {
+    "id": "00-02-post-2",
+    "stage": "post",
+    "question": "What is a short circuit?",
+    "options": [
+      "A circuit made with very short wires",
+      "A circuit that is switched off",
+      "A shortcut that lets the flow go from one side of the source to the other without passing through the load",
+      "A circuit that only works for a short time"
+    ],
+    "correct": 2,
+    "explanation": "'Short' means shortcut. The flow takes the easy path around the load, far too much of it flows, and the energy becomes heat in the battery and the wire."
+  },
+  {
+    "id": "00-02-post-3",
+    "stage": "post",
+    "question": "Why is a copper wire wrapped in plastic?",
+    "options": [
+      "To make it stronger",
+      "The copper conducts and carries the flow; the plastic is an insulator that keeps the flow where we want it",
+      "The plastic stores the electricity",
+      "The plastic makes the flow go faster"
+    ],
+    "correct": 1,
+    "explanation": "Copper is a conductor, full of loose electrons. Plastic is an insulator: it stops the flow leaking into your fingers or into neighbouring wires."
+  },
+  {
+    "id": "00-02-post-4",
+    "stage": "post",
+    "question": "Compare the flow in the wire going to a lamp with the flow in the wire coming back from it.",
+    "options": [
+      "The wire going to the lamp carries more",
+      "The wire coming back carries nothing",
+      "The wire coming back carries more",
+      "They carry the same: the flow goes all the way round"
+    ],
+    "correct": 3,
+    "explanation": "The lamp takes energy, not electrons. The same flow goes in and comes out, all the way round the loop."
+  },
+  {
+    "id": "00-02-post-5",
+    "stage": "post",
+    "question": "A phone is charging from a charger. Which is the source and which is the load?",
+    "options": [
+      "The charger is the source; the phone's battery is the load",
+      "The phone's battery is the source; the charger is the load",
+      "Both are loads",
+      "There is no source in a charging phone"
+    ],
+    "correct": 0,
+    "explanation": "Source and load are jobs. While charging, the charger gives energy and the phone's battery takes it. Unplugged, the same battery becomes a source for the phone."
+  }
+]

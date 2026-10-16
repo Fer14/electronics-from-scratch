@@ -4,7 +4,7 @@
 
 **Type:** Build
 **Languages:** Python
-**Prerequisites:** Phase 01 Lesson 07 (Energy and Power), Phase 03 Lesson 05 (Power and Heat), Phase 07 Lessons 01-04
+**Prerequisites:** Phase 01 Lesson 09 (Energy and Power), Phase 03 Lesson 05 (Power and Heat), Phase 07 Lessons 01-04
 **Time:** ~60 minutes
 
 ## Words You'll Meet
@@ -38,7 +38,7 @@ All three questions are about energy, not charge. To answer them you need the en
 
 ### Work to move charge
 
-Voltage is energy per unit charge (Phase 01 Lesson 04): moving a small charge q across a voltage v takes energy q x v.
+Voltage is energy per unit charge (Phase 01 Lesson 06): moving a small charge q across a voltage v takes energy q x v.
 
 Charging a capacitor means moving charge from one plate to the other, a little at a time. But the voltage is not fixed while you do it: the first coulomb moves across 0 V (free), and the last coulomb moves across almost the full final voltage V (expensive). Because v = q / C grows in a straight line with the charge moved, the **average** voltage during the whole process is half the final voltage, V / 2.
 

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "00-07-pre-1",
+    "stage": "pre",
+    "question": "What does a schematic show?",
+    "options": [
+      "Exactly where each part sits on the table",
+      "What is connected to what, using standard symbols",
+      "The colour of every wire",
+      "How long each wire really is"
+    ],
+    "correct": 1,
+    "explanation": "A schematic is a map of connections, like a metro map. Positions and lengths carry no meaning."
+  },
+  {
+    "id": "00-07-pre-2",
+    "stage": "pre",
+    "question": "In a schematic, what is a circle with an X inside?",
+    "options": [
+      "A battery",
+      "A switch",
+      "A lamp: a light bulb",
+      "Ground"
+    ],
+    "correct": 2,
+    "explanation": "The circle with an X is the lamp symbol: the light bulb of the flashlight."
+  },
+  {
+    "id": "00-07-post-1",
+    "stage": "post",
+    "question": "In the battery symbol, which line is the plus side?",
+    "options": [
+      "The long line",
+      "The short line",
+      "Both lines are plus",
+      "It depends on the colour of the drawing"
+    ],
+    "correct": 0,
+    "explanation": "Long line, plus; short line, minus."
+  },
+  {
+    "id": "00-07-post-2",
+    "stage": "post",
+    "question": "What does the ground symbol (a stack of shrinking lines) mean in a battery circuit?",
+    "options": [
+      "A wire that must be pushed into the soil",
+      "A part that stores energy",
+      "A place where the circuit is broken",
+      "Our agreed zero volts, the common return: every ground symbol connects back to the same place, usually the battery's minus"
+    ],
+    "correct": 3,
+    "explanation": "Ground is the reference everything is measured from, and every ground symbol in the drawing is the same node, even with no line drawn between them."
+  },
+  {
+    "id": "00-07-post-3",
+    "stage": "post",
+    "question": "Two wires cross in a schematic with a dot where they meet. What does the dot mean?",
+    "options": [
+      "The wires pass over each other without touching",
+      "The wires are joined there: it is a junction",
+      "There is a lamp at that point",
+      "The wire is broken there"
+    ],
+    "correct": 1,
+    "explanation": "A dot marks a junction, a real connection. Wires crossing without a dot (or with a little hop) are not connected."
+  },
+  {
+    "id": "00-07-post-4",
+    "stage": "post",
+    "question": "In a schematic, one wire is drawn very long and another very short. What can you conclude?",
+    "options": [
+      "Nothing about the circuit: only the connections matter",
+      "The long wire has more current",
+      "The long wire is at a higher voltage",
+      "The short wire is a short circuit"
+    ],
+    "correct": 0,
+    "explanation": "Plain wire is treated as a perfect connection: every point of it is at the same voltage, whatever its length on paper."
+  },
+  {
+    "id": "00-07-post-5",
+    "stage": "post",
+    "question": "What is a netlist?",
+    "options": [
+      "A list of shops that sell parts",
+      "A drawing with coloured wires",
+      "A text list of every part and the nodes its ends connect to",
+      "The instructions printed on a battery"
+    ],
+    "correct": 2,
+    "explanation": "A netlist keeps only the connections: name, kind of part, and the nodes it touches. It is all a simulator needs."
+  }
+]

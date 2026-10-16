@@ -1,0 +1,93 @@
+[
+  {
+    "id": "00-03-pre-1",
+    "stage": "pre",
+    "question": "What is actually moving in a copper wire when a lamp is lit?",
+    "options": [
+      "Copper atoms",
+      "Free electrons, drifting along the wire",
+      "Protons leaving the battery",
+      "Light travelling inside the wire"
+    ],
+    "correct": 1,
+    "explanation": "In metals, some electrons are not tied to any atom. The battery pushes this crowd of free electrons so that it drifts round the loop. The copper atoms stay in place."
+  },
+  {
+    "id": "00-03-pre-2",
+    "stage": "pre",
+    "question": "Two electrons are placed near each other. What do they do?",
+    "options": [
+      "Pull together",
+      "Nothing at all",
+      "Push apart",
+      "Join into one particle"
+    ],
+    "correct": 2,
+    "explanation": "Like charges repel. Two negative charges push each other apart; a positive and a negative pull together."
+  },
+  {
+    "id": "00-03-post-1",
+    "stage": "post",
+    "question": "Where do the electrons in a circuit come from?",
+    "options": [
+      "They were already in the wire and the other parts; the battery only pushes them",
+      "The battery creates them when you switch on",
+      "They come from the air around the wire",
+      "The lamp makes them"
+    ],
+    "correct": 0,
+    "explanation": "A metal wire is always full of free electrons. The battery does not create any; it pushes the crowd that is already there."
+  },
+  {
+    "id": "00-03-post-2",
+    "stage": "post",
+    "question": "You rub a balloon on your hair and the balloon becomes negatively charged. What happened?",
+    "options": [
+      "The rubbing created new electrons on the balloon",
+      "Protons moved from the balloon to your hair",
+      "Some electrons moved from your hair to the balloon; no charge was created",
+      "The balloon lost all its electrons"
+    ],
+    "correct": 2,
+    "explanation": "Charge is never created or destroyed, only moved. A few electrons were scraped from the hair onto the balloon, so the balloon is negative and the hair is positive."
+  },
+  {
+    "id": "00-03-post-3",
+    "stage": "post",
+    "question": "What is a coulomb?",
+    "options": [
+      "A kind of particle, like the electron",
+      "The speed of electrons in a wire",
+      "A type of battery",
+      "A unit for an amount of charge: the charge of one fixed, very large crowd of electrons"
+    ],
+    "correct": 3,
+    "explanation": "Counting electrons one by one is hopeless, so we use the coulomb, a 'dozen' for charge, only immensely bigger. Phase 01 gives its exact size."
+  },
+  {
+    "id": "00-03-post-4",
+    "stage": "post",
+    "question": "Each electron in a wire drifts very slowly. Why does a lamp still light the instant you close the switch?",
+    "options": [
+      "The electrons speed up when the switch closes",
+      "The wire is already full of electrons, so the push reaches the lamp almost at once, like marbles in a full tube",
+      "The lamp stores light and releases it",
+      "The switch sends the electrons ahead of time"
+    ],
+    "correct": 1,
+    "explanation": "Push one marble into a full tube and one pops out of the far end at once. The push travels fast even though each marble barely moves."
+  },
+  {
+    "id": "00-03-post-5",
+    "stage": "post",
+    "question": "Your phone battery is flat. Which statement is correct?",
+    "options": [
+      "It has run out of stored energy; its electrons are all still there",
+      "It has run out of electrons",
+      "It has become strongly positive",
+      "It has lost all its charge to the charger cable"
+    ],
+    "correct": 0,
+    "explanation": "Charge stays balanced in the battery. What a flat battery lacks is the chemical energy it uses to push the electrons round."
+  }
+]
