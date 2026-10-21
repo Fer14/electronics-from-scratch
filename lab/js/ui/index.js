@@ -1,5 +1,7 @@
 // The lab index: tasks grouped by phase, read from tasks/index.json.
 
+import { iconSVG } from "./icons.js";
+
 const KIND = { dc: "DC", transient: "transient", ac: "AC", logic: "logic", chip: "chip" };
 
 function solvedMap() { try { return JSON.parse(localStorage.getItem("efs-lab:solved") || "{}"); } catch { return {}; } }
@@ -33,7 +35,7 @@ async function main() {
       const a = document.createElement("a");
       a.href = `task.html?t=${encodeURIComponent(t.id)}`;
       a.className = solved[t.id] ? "task-link solved" : "task-link";
-      a.innerHTML = `<span class="tick" aria-hidden="true"></span><span class="tt"></span><span class="kind"></span>`;
+      a.innerHTML = `<span class="tick" aria-hidden="true"></span>${iconSVG(t.key || "resistor", "comp-icon small")}<span class="tt"></span><span class="kind"></span>`;
       a.querySelector(".tick").textContent = solved[t.id] ? "✓" : "○";
       a.querySelector(".tt").textContent = t.title;
       a.querySelector(".kind").textContent = KIND[t.kind] || t.kind;
@@ -45,6 +47,11 @@ async function main() {
     host.append(section);
   }
   document.querySelector("#progress").textContent = `${done} of ${total} tasks solved on this device.`;
+  const pill = document.querySelector("#progress-pill");
+  pill.hidden = false;
+  pill.innerHTML = `<span class="pill-n"></span><span class="pill-of"></span>`;
+  pill.firstChild.textContent = String(done);
+  pill.lastChild.textContent = `/${total} solved`;
 }
 
 main();

@@ -6,6 +6,7 @@ import { evaluate, formatValue, eng } from "../sim/lab.js";
 import { maxOf } from "../sim/engine.js";
 import { plot } from "./plot.js";
 import { IsoView } from "../iso/view.js";
+import { lessonStrip, refreshStrip } from "./strip.js";
 
 const $ = (sel) => document.querySelector(sel);
 const DRY = new URLSearchParams(location.search).has("check");
@@ -49,7 +50,7 @@ async function loadTask() {
 }
 
 class TaskPage {
-  constructor(task) {
+  constructor(task, Board3D = null) {
     this.task = task;
     this.key = `efs-lab:${task.id}`;
     this.choice = store.get(`${this.key}:choice`, {});
@@ -66,6 +67,15 @@ class TaskPage {
       this.iso = new IsoView($("#iso"), task, this.board);
       this.iso.onSlot = (id) => this.slotClicked(id);
     }
+    this.b3d = null;
+    if (ISO_KINDS.has(task.kind) && Board3D) {
+      try {
+        this.b3d = new Board3D($("#board3d"), task, this.board);
+        this.b3d.onSlot = (id) => this.slotClicked(id);
+        if (this.b3d.failed) this.b3d = null;
+      } catch (e) { console.warn("Board 3D is off:", e); this.b3d = null; }
+    }
+    this.views = [this.iso, this.b3d].filter(Boolean);
     this.setupViews();
     this.fillHeader();
     this.fillTray();
@@ -77,14 +87,17 @@ class TaskPage {
     $("#hint").addEventListener("click", () => this.showHint());
   }
 
-  // Schematic | 3D: both views are kept up to date, only one is shown; the choice is remembered.
+  // Schematic | Iso | Board 3D: all views are kept up to date, only one is shown; the choice is remembered.
   setupViews() {
     const bar = $("#view-bar");
     if (!this.iso) { bar.hidden = true; this.view = "schematic"; return; }
     bar.hidden = false;
-    let saved = "iso";
-    try { saved = localStorage.getItem("efs-lab:view") || "iso"; } catch {}
-    this.view = saved === "schematic" ? "schematic" : "iso";
+    const board = bar.querySelector('[data-view="board"]');
+    if (board) board.hidden = !this.b3d;
+    let saved = null;
+    try { saved = localStorage.getItem("efs-lab:view"); } catch {}
+    this.view = saved === "schematic" || saved === "iso" ? saved : this.b3d ? "board" : "iso";
+    if (this.view === "board" && !this.b3d) this.view = "iso";
     bar.querySelectorAll("button[data-view]").forEach((b) => b.addEventListener("click", () => this.setView(b.dataset.view, true)));
     this.setView(this.view, false);
   }
@@ -93,21 +106,26 @@ class TaskPage {
     this.view = view;
     if (user && !DRY) { try { localStorage.setItem("efs-lab:view", view); } catch {} }
     document.querySelectorAll("#view-bar button[data-view]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.view === view)));
-    $("#board").hidden = view === "iso";
+    $("#board").hidden = view !== "schematic";
     $("#iso").hidden = view !== "iso";
+    $("#board3d").hidden = view !== "board";
+    if (view === "board" && this.b3d) this.b3d.relayout();
     if (!user) return;
     if (view === "iso") this.iso.relayout();
-    else this.board.fit();
+    else if (view === "schematic") this.board.fit();
   }
 
   each(method, ...args) {
     this.board[method](...args);
-    if (this.iso) this.iso[method](...args);
+    for (const v of this.views) v[method](...args);
   }
+
+  // Only the views that can show a thing get it (Iso and Board 3D: brightness, time, a status line).
+  extra(method, ...args) { for (const v of this.views) if (v[method]) v[method](...args); }
 
   renderBoards() {
     this.board.render(this.choice);
-    if (this.iso) this.iso.render(this.choice, this.focus);
+    for (const v of this.views) v.render(this.choice, this.focus);
   }
 
   fillHeader() {
@@ -160,6 +178,10 @@ class TaskPage {
         const target = document.elementFromPoint(ev.clientX, ev.clientY);
         const slot = target && target.closest("[data-slot]");
         if (slot) this.slotClicked(slot.dataset.slot);
+        else if (this.b3d && target && target.closest("#board3d")) {
+          const id = this.b3d.slotAt(ev.clientX, ev.clientY);
+          if (id) this.slotClicked(id);
+        }
       } else if (start) {
         this.select(this.selected === index ? null : index);
       }
@@ -175,6 +197,7 @@ class TaskPage {
     this.say(index === null ? "" : "Now click a slot (a dashed box, or a socket in 3D) to put the part there.");
     $("#board").classList.toggle("placing", index !== null);
     $("#iso").classList.toggle("placing", index !== null);
+    $("#board3d").classList.toggle("placing", index !== null);
   }
 
   say(msg, warn = false) {
@@ -272,7 +295,7 @@ class TaskPage {
     if (error || !model) { this.say(`The simulation failed: ${error}`, true); return; }
     const ok = results.every((r) => r.passed);
     $("#verdict").innerHTML = ok ? `<span class="solved">All goals met. Solved.</span>` : `<span class="notyet">${results.filter((r) => !r.passed).length} goal(s) not met yet.</span>`;
-    if (ok) { const solved = store.get("efs-lab:solved", {}); solved[this.task.id] = true; store.set("efs-lab:solved", solved); }
+    if (ok) { const solved = store.get("efs-lab:solved", {}); solved[this.task.id] = true; store.set("efs-lab:solved", solved); refreshStrip(); }
     this.say(ok ? "Every goal passes." : "Look at the measured values and try another part.");
     const kind = this.task.kind;
     if (kind === "dc") this.showDC(model.result);
@@ -292,7 +315,7 @@ class TaskPage {
         const i = r.i(f.id), p = r.p(f.id);
         out[f.id] = `${eng(Math.abs(i) < 1e-12 ? 0 : i, "A")} · ${eng(Math.abs(p) < 1e-12 ? 0 : p, "W")}`;
         this.board.setLit(f.id, i > 1e-3);
-        if (this.iso) this.iso.setLevel(f.id, i, p);
+        this.extra("setLevel", f.id, i, p);
       } catch {}
     }
     return out;
@@ -332,7 +355,7 @@ class TaskPage {
       const r = t.at(index);
       const volts = {};
       for (const nd of this.nodeNames()) volts[nd] = safe(() => r.v(nd));
-      if (this.iso) this.iso.setTime(t.time[index]);
+      this.extra("setTime", t.time[index]);
       this.each("showVoltages", volts);
       this.each("showReadings", this.readingsAt(r));
       slider.value = String(index);
@@ -369,7 +392,7 @@ class TaskPage {
   }
 
   showAC(a) {
-    if (this.iso) this.iso.setState("AC sweep · see the plot below");
+    this.extra("setState", "AC sweep · see the plot below");
     const ground = this.task.board.ground || "gnd";
     const nodes = [...new Set(this.task.goals.map((g) => g.at).filter(Boolean))];
     const traces = nodes.map((nd) => ({ name: `gain ${nd}`, y: a.gainDb(nd === ground ? "0" : nd, null) }));
@@ -444,8 +467,23 @@ function safe(fn, fallback = 0) { try { return fn(); } catch { return fallback; 
 
 window.addEventListener("error", (ev) => { document.body.dataset.error = ev.message; });
 
-loadTask().then((task) => {
-  const page = new TaskPage(task);
+// Board 3D needs three.js from the CDN; if it cannot load, the page keeps the Schematic and Iso views.
+async function loadBoard3D(task) {
+  if (!ISO_KINDS.has(task.kind)) return null;
+  try {
+    const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error("three.js took too long")), 10000));
+    const mod = await Promise.race([import("../board3d/view.js"), timeout]);
+    return mod.Board3D;
+  } catch (e) {
+    console.warn("Board 3D is off:", e.message);
+    return null;
+  }
+}
+
+loadTask().then(async (task) => {
+  lessonStrip(task.id);
+  const page = new TaskPage(task, await loadBoard3D(task));
+  window.labPage = page; // handy in the console (and for the screenshot checks)
   const params = new URLSearchParams(location.search);
   if (params.has("check")) {
     page.choice = { ...(task.solution || {}) };

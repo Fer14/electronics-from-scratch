@@ -26,6 +26,32 @@ def phase_title(phase_dir):
     return phase_dir.name.split("-", 1)[1].replace("-", " ").capitalize()
 
 
+KEY_ORDER = ["led", "opamp", "npn", "pnp", "nmos", "pmos", "zener", "diode", "inductor", "capacitor"]
+KEY_ALIAS = {"pnp": "npn", "pmos": "nmos", "zener": "diode"}
+
+
+def key_part(task):
+    """The component a task is about, for its icon in the lab's lesson strip."""
+    if task["kind"] == "logic":
+        return "flipflop" if any(c.get("type") == "dff" for c in task["board"].get("fixed", [])) else "gate"
+    if task["kind"] == "chip":
+        return "chip"
+    comps = list(task["board"].get("fixed", [])) + list(task.get("solution", {}).values()) + list(task.get("parts", []))
+    types = {c.get("type") for c in comps}
+    for t in KEY_ORDER:
+        if t in types:
+            return KEY_ALIAS.get(t, t)
+    if re.search(r"bulb|lamp|lantern", f"{task['title']} {task.get('story', '')}", re.I):
+        return "lamp"
+    if "switch" in types:
+        return "switch"
+    if types & {"pulse_source", "sine_source", "voltage_source", "current_source"}:
+        return "source"
+    if "battery" in types and "resistor" not in types:
+        return "battery"
+    return "resistor"
+
+
 def safe_name(task_id):
     return re.sub(r"[^A-Za-z0-9_.-]", "-", task_id)
 
@@ -64,7 +90,7 @@ def main():
         else:
             key, number, title = phase_dir.name, phase_dir.name.split("-", 1)[0], phase_title(phase_dir)
         phases.setdefault(key, {"number": number, "slug": key, "title": title, "tasks": []})
-        phases[key]["tasks"].append({"id": name, "title": task["title"], "kind": task["kind"], "lesson": lesson, "source": str(rel)})
+        phases[key]["tasks"].append({"id": name, "title": task["title"], "kind": task["kind"], "key": key_part(task), "lesson": lesson, "source": str(rel)})
     index = {"phases": [phases[k] for k in sorted(phases)]}
     (OUT / "index.json").write_text(json.dumps(index, indent=1))
     total = sum(len(p["tasks"]) for p in index["phases"])
